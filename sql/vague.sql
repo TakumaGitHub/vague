@@ -46,7 +46,7 @@ create table product_info(
 	product_description varchar (255) not null,
 	category_id int not null,
 	product_stock int not null,
-	price int,
+	price int not null,
 	image_file_path varchar (100),
 	image_file_name varchar (50),
 	release_date date not null,

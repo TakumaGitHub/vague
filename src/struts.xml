@@ -8,5 +8,10 @@
 	<!-- <constant name="struts.devMode" value="true" /> -->
 	<package name="com.internousdev.vague.action" extends="struts-default">
 
-</package>
+		<!-- ホーム画面に戻るAction -->
+		<action name="GoHomeAction" class="com.internoudsdev.Vague.action.GoHomeAction">
+			<result name="success">home.jsp</result>
+		</action>
+
+	</package>
 </struts>

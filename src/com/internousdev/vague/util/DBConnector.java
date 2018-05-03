@@ -16,7 +16,7 @@ public class DBConnector {
 	 * データベース接続URL
 	 */
 
-	private static String url = "jdbc:mysql://localhost/Vague";
+	private static String url = "jdbc:mysql://localhost/vague";
 
 	/*
 	 * データベース接続ユーザー

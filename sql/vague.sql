@@ -2,7 +2,7 @@ set names utf8;
 set foreign_key_checks = 0;
 drop database if exists Vague;
 
-create database if not exists Vague;
+create database if not exists Vague DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;;
 
 use Vague;
 

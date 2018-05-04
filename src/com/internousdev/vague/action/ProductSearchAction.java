@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.vague.dao.ProductSearchDAO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DivideDTOList;
+import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -33,6 +34,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 	private String errorMsg;
 
+	private String inputErrorMsg;
+
 	private ProductSearchDAO productSearchDAO = new ProductSearchDAO();
 
 	private List<ProductDTO> productSearchDTOList;
@@ -43,12 +46,16 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 
+		String result = SUCCESS;
+
+		inputErrorMsg = InputChecker.keywordChk(retrievalValue);
+
 		productSearchDTOList = productSearchDAO.search(retrievalValue, category_id, rule);
 
 		//該当する商品がなかった場合は、「検索結果がありません」と表示
 		if(productSearchDTOList.isEmpty()){
 
-			errorMsg = "「検索結果がありません」";
+			errorMsg = "検索結果がありません";
 			session.put("SearchList", searchList);
 
 		}else{
@@ -59,12 +66,17 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 		}
 
+		//商品一覧のページ数
+		session.put("SearchListLength", searchList.size());
+
+
 		//検索キーワード、検索カテゴリー、検索条件をセッションに格納する
 		session.put("retrievalValue", retrievalValue);
 		session.put("retrievalCategory_id", category_id);
 		session.put("retrievalRule", rule);
 
-		return SUCCESS;
+
+		return result;
 
 	}
 
@@ -126,6 +138,16 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
+	}
+
+
+	public String getInputErrorMsg() {
+		return inputErrorMsg;
+	}
+
+
+	public void setInputErrorMsg(String inputErrorMsg) {
+		this.inputErrorMsg = inputErrorMsg;
 	}
 
 

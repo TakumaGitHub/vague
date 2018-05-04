@@ -172,3 +172,11 @@ INSERT INTO product_info (product_id, product_name, product_name_kana, product_d
  						 	   (8,"サイドテーブル","さいどてーぶる","シックな水色と縦長のスマートなフォルムがおしゃれな一品です。",4,60,4000,"images/4Table/sideTable.jpg","sideTable.jpg",19950809,"ニチョリ",1,now());
 
 
+
+/*
+ * レビューテーブルに情報挿入
+ */
+
+
+INSERT INTO review (user_id, product_id, review_title, review_body, review_score, insert_date)
+			values ("miyazaki",1,"素晴らしい！","使いごこち最高です",5,now());

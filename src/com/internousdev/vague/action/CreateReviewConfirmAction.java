@@ -10,7 +10,7 @@ import com.internousdev.vague.dto.ReviewDTO;
 import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CreateReviewConfirmAction  extends ActionSupport implements SessionAware{
+public class CreateReviewConfirmAction extends ActionSupport implements SessionAware{
 
 	private Map<String, Object> session;
 
@@ -21,9 +21,11 @@ public class CreateReviewConfirmAction  extends ActionSupport implements Session
 
 	private int  productId;
 
-	private String reviewTitle;//100文字以内
 
-	private String reviewBody;//255文字以内
+
+	private String reviewTitle = "";//100文字以内
+
+	private String reviewBody = "";//255文字以内
 
 	private int reviewScore;//5以下
 
@@ -35,9 +37,15 @@ public class CreateReviewConfirmAction  extends ActionSupport implements Session
 
 		String result = SUCCESS;
 
+
+		//ログインしていないときはhome画面へ送り返す
+		if(!(session.containsKey("LoginUserDTO"))){
+
+			return "home";
+
+		}
+
 		//セッションからuserIdとproductIdを取得
-
-
 		userId = ((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 
 		productId = ((ProductDTO)session.get("CreateReviewProductDTO")).getProductId();

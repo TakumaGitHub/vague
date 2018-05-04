@@ -213,7 +213,7 @@ public class InputChecker {
 
 		if(keywords.length() > 16) {
 			result = "【検索は、1文字以上16文字以下で入力してください】";
-		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]+$")) {
+		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]*$") && keywords != "") {
 			result = "【検索は半角英数字、漢字、ひらがな、カタカナで入力してください】";
 		}
 		return result;
@@ -225,17 +225,11 @@ public class InputChecker {
 		Map<String, String> result = new HashMap<String, String>();
 
 		if(reviewTitle.length() > 100){
-			result.put("reviewTitle", "【タイトルは、1文字以上16文字以下で入力してください】");
-		}else if(!reviewTitle.matches("^[0-9a-zA-Zぁ-ゞァ-ヾ一-龠々ー\\s　]+$")){
-			result.put("reviewTitle", "【タイトルは、半角英数字、漢字、ひらがな、カタカナで入力してください】");
-
+			result.put("reviewTitle", "【タイトルは、1文字以上100文字以下で入力してください】");
 		}
 
-		if(reviewBody.length() > 100){
-			result.put("reviewBody", "【本文は、1文字以上16文字以下で入力してください】");
-		}else if(!reviewBody.matches("^[0-9a-zA-Zぁ-ゞァ-ヾ一-龠々ー\\s　]+$")){
-			result.put("reviewBody", "【本文は、半角英数字、漢字、ひらがな、カタカナで入力してください】");
-
+		if(reviewBody.length() > 255){
+			result.put("reviewBody", "【本文は、1文字以上255文字以下で入力してください】");
 		}
 
 		if(reviewScore > 5){

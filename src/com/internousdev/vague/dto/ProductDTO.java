@@ -37,7 +37,7 @@ public class ProductDTO {
 
 	private String insertDate;
 
-	private String updatedDate;
+	private String updateDate;
 
 
 	//フィールドのgetterとsetter
@@ -153,12 +153,12 @@ public class ProductDTO {
 		this.insertDate = insertDate;
 	}
 
-	public String getUpdatedDate() {
-		return updatedDate;
+	public String getUpdateDate() {
+		return updateDate;
 	}
 
-	public void setUpdatedDate(String updatedDate) {
-		this.updatedDate = updatedDate;
+	public void setUpdateDate(String updatedDate) {
+		this.updateDate = updatedDate;
 	}
 
 

@@ -144,7 +144,7 @@ public class ProductSearchDAO {
 						productDTO.setReleaseCompany(rs.getString("release_company"));
 						productDTO.setStatus(rs.getInt("status"));
 						productDTO.setInsertDate(rs.getString("insert_date"));
-						productDTO.setUpdatedDate(rs.getString("update_date"));
+						productDTO.setUpdateDate(rs.getString("update_date"));
 
 						productSearchDTOList.add(productDTO);
 

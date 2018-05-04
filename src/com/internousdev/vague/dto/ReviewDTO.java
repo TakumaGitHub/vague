@@ -19,6 +19,10 @@ public class ReviewDTO {
 
 	private int reviewScore;
 
+	private String insertDate;
+
+	private String updateDate;
+
 
 	//フィールドのgetterとsetter
 
@@ -69,6 +73,22 @@ public class ReviewDTO {
 
 	public void setReviewScore(int reviewScore) {
 		this.reviewScore = reviewScore;
+	}
+
+	public String getInsertDate() {
+		return insertDate;
+	}
+
+	public void setInsertDate(String insertDate) {
+		this.insertDate = insertDate;
+	}
+
+	public String getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(String updateDate) {
+		this.updateDate = updateDate;
 	}
 
 

@@ -18,10 +18,77 @@ import com.internousdev.vague.util.StringHandle;
  */
 public class ProductSearchDAO {
 
-	//フィールド
-	private List<ProductDTO> productSearchDTOList = new ArrayList<ProductDTO>();
 
 	//メソッド
+	/**
+	 * 指定したproduct_idの商品の情報を取ってくるメソッド
+	 * @param product_id
+	 * @return
+	 */
+	public ProductDTO search(int product_id){
+
+
+		ProductDTO productDTO = new ProductDTO();
+
+		DBConnector dbConnector = new DBConnector();
+
+		Connection con = (Connection)dbConnector.getConnection();
+
+		String sql = "SELECT * FROM  product_info WHERE product_id = ?";
+
+
+		try{
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setInt(1, product_id);
+
+			ResultSet rs = ps.executeQuery();
+
+
+				if(rs.next()){
+
+					productDTO.setId(rs.getInt("id"));
+					productDTO.setProductId(rs.getInt("product_id"));
+					productDTO.setProductName(rs.getString("product_name"));
+					productDTO.setProductNameKana(rs.getString("product_name_kana"));
+					productDTO.setProductDescription(rs.getString("product_description"));
+					productDTO.setCategoryId(rs.getInt("category_id"));
+					productDTO.setProductStock(rs.getInt("product_stock"));
+					productDTO.setPrice(rs.getInt("price"));
+					productDTO.setImageFilePath(rs.getString("image_file_path"));
+					productDTO.setImageFileName(rs.getString("image_file_name"));
+					productDTO.setReleaseDate(rs.getString("release_date"));
+					productDTO.setReleaseCompany(rs.getString("release_company"));
+					productDTO.setStatus(rs.getInt("status"));
+					productDTO.setInsertDate(rs.getString("insert_date"));
+					productDTO.setUpdateDate(rs.getString("update_date"));
+
+				}
+
+
+		}catch(SQLException e){
+
+			e.printStackTrace();
+
+		}finally{
+
+			try{
+
+				con.close();
+
+			}catch(SQLException e){
+
+				e.printStackTrace();
+
+			}
+
+		}
+
+		return productDTO;
+
+
+	}
 
 	/**
 	 *商品を検索するメソッド
@@ -35,6 +102,8 @@ public class ProductSearchDAO {
 		DBConnector dbConnector = new DBConnector();
 
 		Connection con = (Connection)dbConnector.getConnection();
+
+		List<ProductDTO> productSearchDTOList = new ArrayList<ProductDTO>();
 
 
 		//======検索キーワードを空白で分割しListに格納======
@@ -163,6 +232,74 @@ public class ProductSearchDAO {
 			}
 
 			return productSearchDTOList;
+
+
+	}
+
+
+
+	/**
+	 * 商品をすべて検索するメソッド
+	 * @return
+	 * @throws SQLException
+	 */
+	public List<ProductDTO> searchAll() throws SQLException {
+
+		DBConnector dbConnector = new DBConnector();
+
+		Connection con = (Connection)dbConnector.getConnection();
+
+		String sql = "SELECT * FROM  product_info ";
+
+		List<ProductDTO> productSearchDTOList = new ArrayList<ProductDTO>();
+
+
+		try{
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+
+				while(rs.next()){
+
+					ProductDTO productDTO = new ProductDTO();
+
+
+					productDTO.setId(rs.getInt("id"));
+					productDTO.setProductId(rs.getInt("product_id"));
+					productDTO.setProductName(rs.getString("product_name"));
+					productDTO.setProductNameKana(rs.getString("product_name_kana"));
+					productDTO.setProductDescription(rs.getString("product_description"));
+					productDTO.setCategoryId(rs.getInt("category_id"));
+					productDTO.setProductStock(rs.getInt("product_stock"));
+					productDTO.setPrice(rs.getInt("price"));
+					productDTO.setImageFilePath(rs.getString("image_file_path"));
+					productDTO.setImageFileName(rs.getString("image_file_name"));
+					productDTO.setReleaseDate(rs.getString("release_date"));
+					productDTO.setReleaseCompany(rs.getString("release_company"));
+					productDTO.setStatus(rs.getInt("status"));
+					productDTO.setInsertDate(rs.getString("insert_date"));
+					productDTO.setUpdateDate(rs.getString("update_date"));
+
+					productSearchDTOList.add(productDTO);
+
+
+				}
+
+
+		}catch(SQLException e){
+
+			e.printStackTrace();
+
+		}finally{
+
+			con.close();
+
+		}
+
+		return productSearchDTOList;
+
 
 
 	}

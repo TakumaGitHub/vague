@@ -58,7 +58,6 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 
 			result = ERROR;
 
-			session.put("errorMsg", errorMsg);
 
 		}else{
 

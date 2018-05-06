@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.vague.dao.ReviewDAO;
+import com.internousdev.vague.dao.ProductSearchDAO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -23,13 +23,13 @@ public class CreateReviewAction extends ActionSupport implements SessionAware{
 
 	private Map<String, Object> session;
 
-	private ReviewDAO reviewDAO = new ReviewDAO();
+	private ProductSearchDAO productSearchDAO = new ProductSearchDAO();
 
 	public String execute(){
 
 		String result = SUCCESS;
 
-		ProductDTO createReviewProductDTO = reviewDAO.search(product_id);
+		ProductDTO createReviewProductDTO = productSearchDAO.search(product_id);
 
 
 		if(createReviewProductDTO != null){

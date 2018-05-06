@@ -1,7 +1,11 @@
 package com.internousdev.vague.util;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import com.internousdev.vague.dto.MasterDTO;
+import com.internousdev.vague.dto.ProductDTO;
 
 public class InputChecker {
 
@@ -211,7 +215,9 @@ public class InputChecker {
 	public static String keywordChk(String keywords) {
 		String result = "";
 
-		if(keywords.length() > 16) {
+		if(keywords.equals("")) {
+			result = "【検索キーワードを入力してください】";
+		}else if(keywords.length() > 16) {
 			result = "【検索は、1文字以上16文字以下で入力してください】";
 		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]*$") && keywords != "") {
 			result = "【検索は半角英数字、漢字、ひらがな、カタカナで入力してください】";
@@ -233,11 +239,112 @@ public class InputChecker {
 		}
 
 		if(reviewScore > 5){
-
 			result.put("reviewScore", "【評価は５以下で入力してください】");
 		}
 
 		return result;
+
+	}
+
+
+	//商品追加、変更エラーメッセージ管理
+	public static Map<String, String> masterProductChk(MasterDTO masterDTO, List<ProductDTO> productSearchDTOList){
+
+		Map<String, String> result = new HashMap<String, String>();
+
+		ProductDTO productDTO = masterDTO.getProductDTO();
+
+
+		//商品ID
+		if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
+			result.put("productId", "【商品IDは半角数字で入力してください】");
+		}
+		//商品名
+		if(productDTO.getProductName().equals("")) {
+			result.put("productName", "【商品名を入力してください】");
+		}else if(productDTO.getProductName().length() < 1 || productDTO.getProductName().length() > 100) {
+			result.put("productName", "【商品名は1文字以上100文字以下で入力してください】");
+		}else if(!productDTO.getProductName().matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
+			result.put("productName", "【商品名は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】");
+		}
+		//商品名かな
+		if(productDTO.getProductNameKana().equals("")) {
+			result.put("productNameKana", "【商品名のふりがなを入力してください】");
+		}else if(productDTO.getProductNameKana().length() < 1 || productDTO.getProductNameKana().length() > 100) {
+			result.put("productNameKana", "【商品名のふりがなは1文字以上100文字以下で入力してください】");
+		}else if(!productDTO.getProductNameKana().matches("^[ぁ-ゞ]+$")) {
+			result.put("productNameKana", "【商品名のふりがなはひらがなで入力してください】");
+		}
+		//商品の説明文
+		if(productDTO.getProductDescription().equals("")) {
+			result.put("productDescription", "【商品の説明文を入力してください】");
+		}else if(productDTO.getProductDescription().length() < 1 || productDTO.getProductDescription().length() > 255) {
+			result.put("productDescription", "【商品の説明文は1文字以上255文字以下で入力してください】");
+		}
+		//カテゴリーID
+		if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-9]$"))){
+			result.put("categoryId", "【カテゴリーIDは一桁の半角数字で入力してください】");
+		}
+		//在庫
+		if(!(Integer.valueOf(productDTO.getProductStock()).toString().matches("^[0-9]+$"))){
+			result.put("productStock", "【商品の在庫数は半角数字で入力してください】");
+		}
+		//価格
+		if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[0-9]+$"))){
+			result.put("price", "【商品の価格は半角数字で入力してください】");
+		}
+		//商品画像
+		if(productDTO.getImageFilePath().equals("")) {
+			result.put("imageFilePath", "【商品画像を選択してください】");
+		}
+		//発売日
+		if(productDTO.getReleaseDate().equals("")) {
+			result.put("releaseDate", "【商品の発売日を入力してください】");
+		}else if(productDTO.getProductNameKana().length() != 8) {
+			result.put("releaseDate", "【商品の発売日は8桁で入力してください】");
+		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]+$")) {
+			result.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
+		}
+		//発売会社
+		if(productDTO.getReleaseCompany().equals("")) {
+			result.put("releaseCompany", "【商品の販売会社名を入力してください】");
+		}else if(productDTO.getProductNameKana().length() < 1 || productDTO.getProductNameKana().length() > 50) {
+			result.put("releaseCompany", "【商品の販売会社名は1文字以上50文字以下で入力してください】");
+		}else if(!productDTO.getReleaseCompany().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]+$")) {
+			result.put("releaseCompany", "【商品の販売会社名は形式にそって入力してください】");
+		}
+
+
+		//商品テーブルと入力内容との重複チェック
+
+		for(ProductDTO PDL : productSearchDTOList){
+
+			//商品ID
+			if(PDL.getProductId() == productDTO.getProductId()){
+				result.put("productId", "【その商品IDはすでに使われています】");
+			}
+			//商品名
+			if(PDL.getProductName().equals(productDTO.getProductName())) {
+				result.put("productName", "【その商品名はすでに使われています】");
+			}
+			//商品名かな
+			if(PDL.getProductNameKana().equals(productDTO.getProductNameKana())) {
+				result.put("productNameKana", "【その商品名のふりがなはすでに使われています】");
+			}
+
+			//商品画像パス
+			if(PDL.getImageFilePath().equals(productDTO.getImageFilePath())){
+
+				result.put("imageFilePath", "【その商品画像パスはすでに使われています】");
+			}
+
+
+
+		}
+
+		return result;
+
+
 
 	}
 

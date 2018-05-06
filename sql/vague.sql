@@ -118,7 +118,7 @@ drop table if exists m_category;
 create table m_category(
 	id int primary key not null auto_increment,
 	category_id int not null unique,
-	categry_name varchar (20) not null unique,
+	category_name varchar (20) not null unique,
 	category_description varchar (100),
 	insert_date datetime not null,
 	update_date datetime
@@ -147,10 +147,10 @@ create table review (
  */
 
 INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana,
-	first_name_kana, sex, email, question, answer, m_flg, insert_date)
-	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,"ピーマン",0,now()),
-		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,"ピーマン",1,now()),
-		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,"かぼちゃ",0,now());
+	first_name_kana, sex, email, status, question, answer, m_flg, insert_date)
+	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,1,"ピーマン",0,now()),
+		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,"ピーマン",1,now()),
+		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,1,"かぼちゃ",0,now());
 
 
 /*
@@ -180,3 +180,14 @@ INSERT INTO product_info (product_id, product_name, product_name_kana, product_d
 
 INSERT INTO review (user_id, product_id, review_title, review_body, review_score, insert_date)
 			values ("miyazaki",1,"素晴らしい！","使いごこち最高です",5,now());
+
+
+/*
+ * カテゴリーマスターテーブルに情報挿入
+ */
+
+INSERT INTO m_category (category_id, category_name, category_description, insert_date)
+			values     (1, "Chair", "椅子のカテゴリー", now()),
+					   (2, "Sofa", "ソファのカテゴリー", now()),
+					   (3, "Lighting", "照明のカテゴリー", now()),
+					   (4, "Table", "テーブルのカテゴリー", now());

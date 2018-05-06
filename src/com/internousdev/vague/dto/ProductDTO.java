@@ -29,7 +29,7 @@ public class ProductDTO {
 
 	private String imageFileName;
 
-	private String 	releaseDate;
+	private String releaseDate;
 
 	private String releaseCompany;
 

@@ -7,19 +7,14 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.vague.dao.MasterDAO;
 import com.internousdev.vague.dao.ProductSearchDAO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DivideDTOList;
 import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-
-/**
- * 商品を検索するActionクラス
- * @author user
- *
- */
-public class ProductSearchAction extends ActionSupport implements SessionAware{
+public class MasterAction extends ActionSupport implements SessionAware {
 
 	//フィールド
 	private Map<String, Object> session;
@@ -36,7 +31,15 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 	private String inputErrorMsg;
 
+	private int deleteFlg = 0;//メソッドの分岐
+
+	private List<Integer> product_id;//削除する商品のproduct_id
+
+
+
 	private ProductSearchDAO productSearchDAO = new ProductSearchDAO();
+
+	private MasterDAO masterDAO = new MasterDAO();
 
 	private List<ProductDTO> productSearchDTOList;
 
@@ -48,17 +51,36 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 
 		String result = SUCCESS;
 
+		if(deleteFlg == 1){
+
+			//選択された商品を削除する
+			masterDAO.deleteChoose(product_id);
+
+			//セッションから検索キーワード、検索カテゴリー、検索ルールを引き出す。
+			retrievalValue = session.get("retrievalValue").toString();
+			category_id = Integer.parseInt(session.get("retrievalCategory_id").toString());
+			rule = Integer.parseInt(session.get("retrievalRule").toString());
+
+		}else if(deleteFlg == 2){
+
+			//全ての商品を削除する
+			masterDAO.deleteAll();
+
+			//セッションから検索キーワード、検索カテゴリー、検索ルールを引き出す。
+			retrievalValue = session.get("retrievalValue").toString();
+			category_id = Integer.parseInt(session.get("retrievalCategory_id").toString());
+			rule = Integer.parseInt(session.get("retrievalRule").toString());
+
+		}
+
+
+
 		inputErrorMsg = InputChecker.keywordChk(retrievalValue);
 
 		productSearchDTOList = productSearchDAO.search(retrievalValue, category_id, rule);
 
 		//該当する商品がなかった場合は、「検索結果がありません」と表示
-		if(!(inputErrorMsg.isEmpty())){
-
-			session.remove("SearchList");
-
-
-		}else if(productSearchDTOList.isEmpty()){
+		if(productSearchDTOList.isEmpty()){
 
 			errorMsg = "検索結果がありません";
 			session.put("SearchList", searchList);
@@ -156,6 +178,23 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 	}
 
 
+	public int getDeleteFlg() {
+		return deleteFlg;
+	}
 
+
+	public void setDeleteFlg(int deleteFlg) {
+		this.deleteFlg = deleteFlg;
+	}
+
+
+	public List<Integer> getProduct_id() {
+		return product_id;
+	}
+
+
+	public void setProduct_id(List<Integer> product_id) {
+		this.product_id = product_id;
+	}
 
 }

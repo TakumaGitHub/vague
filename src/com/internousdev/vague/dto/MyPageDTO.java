@@ -1,8 +1,10 @@
 package com.internousdev.vague.dto;
 // 縄田琢真 作成
 
-// マイページに表示するためにDBから取得した内容
+//マイページに表示するためにDBから取得した内容
 public class MyPageDTO {
+	private String userId;
+	private String password;
 	private String familyName;
 	private String firstName;
 	private String familyNameKana;
@@ -10,7 +12,22 @@ public class MyPageDTO {
 	private int sex;
 	private String email;
 
-// getter, setter
+//getter,setter
+
+	public String getUserId(){
+		return userId;
+	}
+	public void setUserId(String userId){
+		this.userId = userId;
+	}
+
+	public String getPassword(){
+		return password;
+	}
+	public void setPassword(String password){
+		this.password = password;
+	}
+
 	public String getFamilyName() {
 		return familyName;
 	}

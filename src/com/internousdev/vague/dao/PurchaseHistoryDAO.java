@@ -27,7 +27,7 @@ public class PurchaseHistoryDAO {
 		ArrayList<PurchaseHistoryDTO> purchaseHistoryDTOList = new ArrayList<PurchaseHistoryDTO>();
 
 		//購入履歴のテーブルに商品テーブルをくっつけて表示！(LEFT JOIN)
-		//"product_Id"で紐づけている。　
+		//"product_Id"で紐づけている。
 
 		//piはproduct_infoの略
 		//phiはpurchase_history_infoの略
@@ -44,18 +44,21 @@ public class PurchaseHistoryDAO {
 
 			while(rs.next()){
 				PurchaseHistoryDTO dto = new PurchaseHistoryDTO();
-				dto.setId(rs.getString("id"));
-				dto.setProductId(rs.getString("product_id"));
+
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
-				dto.setPrice(rs.getInt("price"));
-				dto.setCount(rs.getInt("product_count"));
-				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setInsertDate(rs.getString("insert_date").replaceAll("\\.0$", ""));
+				dto.setProductDescription(rs.getString("product_description"));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
-				dto.setProductDescription(rs.getString("product_description"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setReleaseCompany(rs.getString("release_company"));
+				dto.setReleaseDate(rs.getString("release_date"));
+				dto.setId(rs.getString("id"));
+				dto.setProductId(rs.getString("product_id"));
+				dto.setCount(rs.getInt("product_count"));
+				dto.setInsertDate(rs.getString("insert_date").replaceAll("\\.0$", ""));
+
+
 
 				purchaseHistoryDTOList.add(dto);
 			}

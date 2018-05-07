@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.vague.dao.PurchaseHistoryDAO;
 import com.internousdev.vague.dto.PurchaseHistoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
+
 //★注文履歴★
 //マイページからとんでくる!
 
@@ -85,16 +86,6 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			setAllHistoryList(purchaseHistoryDAO.getPurchaseHistory(userId));
 		}
 
-		// ソート機能↓------------------------------------------------------
-		if (sort == 1) { // デフォルトの注文日順
-			allHistoryList = purchaseHistoryDAO.getPurchaseHistory(userId);
-
-		} else if (sort == 2) {// 値段の高い順
-			allHistoryList = purchaseHistoryDAO.sortPriceDesc(userId);
-
-		} else if (sort == 3) {// 値段の安い順
-			allHistoryList = purchaseHistoryDAO.sortPriceAsc(userId);
-		}
 		return result;
 	}
 

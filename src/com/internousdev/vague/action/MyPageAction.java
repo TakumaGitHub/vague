@@ -10,7 +10,7 @@ import com.internousdev.vague.dao.MyPageDAO;
 import com.internousdev.vague.dto.MyPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-// 縄田琢真 作成
+// 作成：縄田
 
 // マイページ機能
 // ログイン状態かどうかを判別

@@ -111,6 +111,9 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 			if(!(date[1].equals(10))){
 				month = date[1].replace("0", "");//先頭の0を消す 例：08→8
+			}else{
+
+				month = date[1];//10月の場合
 			}
 
 

@@ -66,7 +66,7 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 		}else{
 
 			//商品の検索リストを9個ずつに分けて、リストに格納する。
-			searchList = new DivideDTOList<ProductDTO>().divide(productSearchDTOList, 9);
+			searchList = new DivideDTOList<ProductDTO>().divide(productSearchDTOList, 4);
 			session.put("SearchList", searchList.get(ListNumber));
 
 		}

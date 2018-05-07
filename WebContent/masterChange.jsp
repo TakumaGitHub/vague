@@ -72,7 +72,35 @@
 
 			<p>発売日</p>
 
-			<p><input type="text" pattern="" maxlength="4" value="<s:property value='year' />"/>年</p>
+			<p><input type="text" pattern="" maxlength="4" value="<s:property value='year' />"/>年
+
+				<select name="month">
+
+					<s:iterator begin="1" end="12" step="1" status="st">
+						<s:if test="month == #st.count">
+							<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
+						</s:if>
+						<s:else>
+							<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
+						</s:else>
+					</s:iterator>
+
+				</select>月
+
+				<select name="day">
+
+					<s:iterator begin="1" end="31" step="1" status="st">
+						<s:if test="day == #st.count">
+							<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
+						</s:if>
+						<s:else>
+							<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
+						</s:else>
+					</s:iterator>
+
+				</select>日
+
+			</p>
 
 
 			<p>販売会社</p>

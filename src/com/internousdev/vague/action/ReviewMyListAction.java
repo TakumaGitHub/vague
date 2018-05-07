@@ -18,7 +18,7 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 
 	private int deleteFlg = 0;
 
-	private List<Integer> product_id;
+	private List<Integer> review_id;
 
 	private int  ListNumber = 0;
 
@@ -52,7 +52,7 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 		if(deleteFlg == 1){
 
 			//選択したレビューを削除
-			reviewDAO.deleteChoose(product_id);
+			reviewDAO.deleteChoose(review_id);
 
 		}else if(deleteFlg == 2){
 
@@ -105,14 +105,15 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 
 
 
-	public List<Integer> getProduct_id() {
-		return product_id;
+
+	public List<Integer> getReview_id() {
+		return review_id;
 	}
 
 
 
-	public void setProduct_id(List<Integer> product_id) {
-		this.product_id = product_id;
+	public void setReview_id(List<Integer> review_id) {
+		this.review_id = review_id;
 	}
 
 

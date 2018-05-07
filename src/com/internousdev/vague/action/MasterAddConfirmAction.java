@@ -1,10 +1,12 @@
 package com.internousdev.vague.action;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -50,11 +52,11 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	private String releaseDate;
 
-		private String year;
+		private int year;
 
-		private String month;
+		private int month;
 
-		private String day;
+		private int day;
 
 	private String releaseCompany;
 
@@ -63,7 +65,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	//コピー先のファイルパス
 	private String toImageFilePath;
 	//コピー元のファイルパス
-	private String fromImageFilePath;
+	private File fromImageFilePath;
 
 
 	//全ての商品情報を入れるリスト
@@ -75,7 +77,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	private MasterDTO masterDTO = new MasterDTO();
 
-	private CategorySearchDAO categorySearchDAO;
+	private CategorySearchDAO categorySearchDAO = new CategorySearchDAO();
 
 
 	/**
@@ -92,7 +94,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 
 		//コピー元のファイルパスを作成
-		fromImageFilePath = userImage.getPath();
+		fromImageFilePath = userImage;
 
 		//コピー先のファイルパスを作成
 		imageFileName = userImageFileName;
@@ -123,10 +125,10 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			productDTO.setImageFileName(imageFileName);
 
 				//発売日を整形
-				year = String.format("%4d", year);
-				month = String.format("%02d", month);
-				day = String.format("%02d", day);
-				releaseDate = year + day + month;
+				String Syear = String.format("%4d", year);
+				String Smonth = String.format("%02d",month);
+				String Sday = String.format("%02d",day);
+				releaseDate = Syear + Smonth + Sday;
 
 			productDTO.setReleaseDate(releaseDate);
 			productDTO.setReleaseCompany(releaseCompany);
@@ -144,6 +146,17 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 			result = SUCCESS;
 			session.put("MasterAddCompleteDTO" , masterDTO);
+
+		}
+
+		//画像ファイルをコピーする
+		if(fromImageFilePath != null && toImageFilePath != null){
+
+			 try {
+					FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 
 		}
 
@@ -283,12 +296,12 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 
-	public String getFromImageFilePath() {
+	public File getFromImageFilePath() {
 		return fromImageFilePath;
 	}
 
 
-	public void setFromImageFilePath(String fromImageFilePath) {
+	public void setFromImageFilePath(File fromImageFilePath) {
 		this.fromImageFilePath = fromImageFilePath;
 	}
 
@@ -303,32 +316,32 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
 
-	public String getMonth() {
+	public int getMonth() {
 		return month;
 	}
 
 
-	public void setMonth(String month) {
+	public void setMonth(int month) {
 		this.month = month;
 	}
 
 
-	public String getDay() {
+	public int getDay() {
 		return day;
 	}
 
 
-	public void setDay(String day) {
+	public void setDay(int day) {
 		this.day = day;
 	}
 

@@ -9,7 +9,7 @@
 <head>
 
 <jsp:include page="WEB-INF/head.jsp" />
-
+<meta http-equiv="refresh" content="5;URL=<s:url action='MasterAction' />">
 <title>Vague</title>
 </head>
 
@@ -33,27 +33,9 @@
 
     <div id="main">
 
-			<s:form action="ReviewMyListAction" method="post" >
-				<button name="deleteFlg" value="2" >レビューを全削除</button>
-			</s:form>
+		<h2>商品の追加が完了いたしました</h2>
 
-			<s:form id="checkDelete" action="ReviewMyListAction" method="post" >
-				<button name="deleteFlg" value="1" >チェックしたレビューを削除</button>
-			</s:form>
-
-
-			<s:iterator value="#session.ReviewMyListDTOList" >
-
-				<p>
-					<input form="checkDelete" type="checkbox" name="review_id" value="<s:property value='reviewDTO.id' />" />
-					<s:property value="reviewDTO.reviewTitle" />
-					<s:property value="reviewDTO.reviewBody" />
-					<s:property value="productDTO.productName" />
-				</p>
-
-			</s:iterator>
-
-
+    	<p>5秒後にトップページに戻ります</p>
 
 
     </div>

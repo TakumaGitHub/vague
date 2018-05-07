@@ -41,7 +41,7 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 		}
 
 		/**
-		 * 仮ユーザーID
+		 * 仮ユーザーID発行
 		 * if (!(session.containsKey("loginFlg")) && !(session.containsKey("tempUserId"))) {
 			int tempUserId = Integer.valueOf((int) (Math.random() * 1000000000));
 			boolean loginFlg = false;

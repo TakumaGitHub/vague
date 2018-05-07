@@ -115,6 +115,10 @@
 
 			</form>
 
+			<form action="<s:url action='MasterAddAction' />" method="post">
+				<input type="submit" value="商品を追加する" />
+			</form>
+
 
 
 
@@ -150,18 +154,25 @@
 
 			<s:iterator value="#session.SearchList">
 
-				<div>
+				<!-- statusが１（有効）であれば -->
+				<s:if test="status == 1" >
 
-					<input type="checkbox" form="checkDelete" name="product_id" value="<s:property value='productId' />"/>
+					<div>
 
-					<img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
-					<p><s:property value="productName" /></p>
+						<input type="checkbox" form="checkDelete" name="product_id" value="<s:property value='productId' />"/>
 
-					<form action="MasterChangeAction" method="post" >
-						<button name="productId" value="<s:property value='productId' />">商品情報を変更する</button>
-					</form>
+						<img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
+						<p><s:property value="productName" /></p>
 
-				</div>
+						<form action="MasterChangeAction" method="post" >
+							<button name="productId" value="<s:property value='productId' />">商品情報を変更する</button>
+						</form>
+
+					</div>
+
+				</s:if>
+
+
 
 			</s:iterator>
 

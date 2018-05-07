@@ -1,10 +1,13 @@
 package com.internousdev.vague.action;
 
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -21,13 +24,15 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 	//フィールド
 	private Map<String, Object> session;
 
-	private Map<String, String> errorMsg;
+	private Map<String, String> errorMsg = new HashMap<String, String>();
 
 	//ユーザーがアップロードするファイル
 	private File userImage;
 
 	//ユーザーがアップロードするファイルの名前
 	private String userImageFileName;
+
+	private String userImageContentType;
 
 	//ProductDTOのフィールド
 	private int productId;
@@ -50,11 +55,11 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private String releaseDate;
 
-		private String year;
+		private int year;
 
-		private String month;
+		private int month;
 
-		private String day;
+		private int day;
 
 	private String releaseCompany;
 
@@ -63,7 +68,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 	//コピー先のファイルパス
 	private String toImageFilePath;
 	//コピー元のファイルパス
-	private String fromImageFilePath;
+	private File fromImageFilePath;
 
 
 	//全ての商品情報を入れるリスト
@@ -75,7 +80,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private MasterDTO masterDTO = new MasterDTO();
 
-	private CategorySearchDAO categorySearchDAO;
+	private CategorySearchDAO categorySearchDAO = new CategorySearchDAO();
 
 
 
@@ -99,7 +104,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 
 			//コピー元のファイルパスを作成
-			fromImageFilePath = userImage.getPath();
+			fromImageFilePath = userImage;
 
 			//コピー先のファイルパスを作成
 			imageFileName = userImageFileName;
@@ -136,10 +141,10 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 			productDTO.setImageFileName(imageFileName);
 
 				//発売日を整形
-				year = String.format("%4d", year);
-				month = String.format("%02d", month);
-				day = String.format("%02d", day);
-				releaseDate = year + day + month;
+				String Syear = String.format("%4d", year);
+				String Smonth = String.format("%02d",month);
+				String Sday = String.format("%02d",day);
+				releaseDate = Syear + Smonth + Sday;
 
 			productDTO.setReleaseDate(releaseDate);
 			productDTO.setReleaseCompany(releaseCompany);
@@ -150,7 +155,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 			masterDTO.setFromImageFilePath(fromImageFilePath);
 
 		//エラーメッセージチェック
-		errorMsg = InputChecker.masterProductChk(masterDTO, productSearchDTOList);
+		ProductDTO masterBeforeChangeDTO = (ProductDTO)session.get("MasterBeforeChangeDTO");
+		errorMsg = InputChecker.masterProductChk(masterDTO, masterBeforeChangeDTO, productSearchDTOList);
 
 		//エラーメッセージがなければ
 		if(errorMsg.isEmpty()){
@@ -159,6 +165,20 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 			session.put("MasterChangeCompleteDTO" , masterDTO);
 
 		}
+
+		//画像ファイルをコピーする
+		if(fromImageFilePath != null && toImageFilePath != null){
+
+			 try {
+					FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+		}
+
+
+
 
 		return result;
 
@@ -272,6 +292,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.imageFileName = imageFileName;
 	}
 
+	public String getUserImageContentType() {
+		return userImageContentType;
+	}
+
+
+
+	public void setUserImageContentType(String userImageContentType) {
+		this.userImageContentType = userImageContentType;
+	}
+
+
+
 	public String getReleaseDate() {
 		return releaseDate;
 	}
@@ -280,27 +312,27 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.releaseDate = releaseDate;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 
-	public String getMonth() {
+	public int getMonth() {
 		return month;
 	}
 
-	public void setMonth(String month) {
+	public void setMonth(int month) {
 		this.month = month;
 	}
 
-	public String getDay() {
+	public int getDay() {
 		return day;
 	}
 
-	public void setDay(String day) {
+	public void setDay(int day) {
 		this.day = day;
 	}
 

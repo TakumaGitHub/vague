@@ -1,12 +1,14 @@
 package com.internousdev.vague.dto;
 
+import java.io.File;
+
 public class MasterDTO {
 
 	private ProductDTO productDTO;
 
 	private String toImageFilePath;
 
-	private String fromImageFilePath;
+	private File fromImageFilePath;
 
 
 	//フィールドのgetterとsetter
@@ -26,11 +28,11 @@ public class MasterDTO {
 		this.toImageFilePath = toImageFilePath;
 	}
 
-	public String getFromImageFilePath() {
+	public File getFromImageFilePath() {
 		return fromImageFilePath;
 	}
 
-	public void setFromImageFilePath(String fromImageFilePath) {
+	public void setFromImageFilePath(File fromImageFilePath) {
 		this.fromImageFilePath = fromImageFilePath;
 	}
 

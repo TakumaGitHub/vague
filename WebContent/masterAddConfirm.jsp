@@ -9,7 +9,6 @@
 <head>
 
 <jsp:include page="WEB-INF/head.jsp" />
-
 <title>Vague</title>
 </head>
 
@@ -33,8 +32,7 @@
 
     <div id="main">
 
-
-    	<h2>変更内容</h2>
+    	<h2>追加内容</h2>
 
     	<table>
 
@@ -43,77 +41,77 @@
     			<tr>
 
     				<th>商品ID</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.productId" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.productId" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>商品名</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.productName" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.productName" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>商品名かな</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.productNameKana" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.productNameKana" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>商品の説明文</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.productDescription" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.productDescription" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>カテゴリーID</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.categoryId" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.categoryId" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>在庫</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.productStock" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.productStock" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>価格</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.price" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.price" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>更新する画像</th>
-    				<td><img src="<s:property value='#session.MasterChangeCompleteDTO.fromImageFilePath' />" width="200" height="auto" /></td>
+    				<td><img src="<s:property value='#session.MasterAddCompleteDTO.fromImageFilePath' />" width="200" height="auto" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>画像の名前</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.imageFileName" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.imageFileName" /></td>
 
     			</tr>
 
     			<tr>
 
     				<th>発売日</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.releaseDate" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.releaseDate" /></td>
 
     			</tr>
 
     				<tr>
 
     				<th>販売会社</th>
-    				<td><s:property value="#session.MasterChangeCompleteDTO.productDTO.releaseCompany" /></td>
+    				<td><s:property value="#session.MasterAddCompleteDTO.productDTO.releaseCompany" /></td>
 
     			</tr>
 
@@ -124,8 +122,8 @@
 
     	</table>
 
-    	<s:form action="MasterChangeCompleteAction" method="post" >
-    		<input type="submit" value="商品情報を変更する" />
+    	<s:form action="MasterAddCompleteAction" method="post" >
+    		<input type="submit" value="商品を追加する" />
     	</s:form>
 
 

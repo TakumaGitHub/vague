@@ -172,7 +172,7 @@ public class MasterDAO {
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		String sql = " DELETE FROM product_info WHERE product_id = ? ";
+		String sql = " UPDATE product_info SET status = 0 WHERE product_id = ? ";
 
 		int ret = 0;
 
@@ -224,7 +224,7 @@ public class MasterDAO {
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		String sql = " DELETE FROM product_info";
+		String sql = " UPDATE product_info SET status = 0";
 
 		int ret = 0;
 

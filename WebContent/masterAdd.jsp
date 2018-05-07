@@ -9,7 +9,6 @@
 <head>
 
 <jsp:include page="WEB-INF/head.jsp" />
-
 <title>Vague</title>
 </head>
 
@@ -33,7 +32,7 @@
 
     <div id="main">
 
-		<s:form action="MasterChangeConfirmAction" method="post" enctype="multipart/form-data">
+		<s:form action="MasterAddConfirmAction" method="post" enctype="multipart/form-data">
 
 			<p>商品ID</p>
 			<p>現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。</p>
@@ -77,7 +76,7 @@
 
 			<p>ファイルアップロード</p>
 			<s:property value="errorMsg.imageFilePath" />
-			<s:file name="userImage" label="画像" />
+			<s:file name="userImage" label="画像" required="required" />
 
 			<p>発売日</p>
 			<s:property value="errorMsg.releaseDate" />

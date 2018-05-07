@@ -248,12 +248,10 @@ public class InputChecker {
 
 
 	//商品追加、変更エラーメッセージ管理
-	public static Map<String, String> masterProductChk(MasterDTO masterDTO, List<ProductDTO> productSearchDTOList){
+	public static Map<String, String> masterProductChk(ProductDTO productDTO){
+
 
 		Map<String, String> result = new HashMap<String, String>();
-
-		ProductDTO productDTO = masterDTO.getProductDTO();
-
 
 		//商品ID
 		if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
@@ -272,7 +270,7 @@ public class InputChecker {
 			result.put("productNameKana", "【商品名のふりがなを入力してください】");
 		}else if(productDTO.getProductNameKana().length() < 1 || productDTO.getProductNameKana().length() > 100) {
 			result.put("productNameKana", "【商品名のふりがなは1文字以上100文字以下で入力してください】");
-		}else if(!productDTO.getProductNameKana().matches("^[ぁ-ゞ]+$")) {
+		}else if(!productDTO.getProductNameKana().matches("^[ぁ-ゞー]+$")) {
 			result.put("productNameKana", "【商品名のふりがなはひらがなで入力してください】");
 		}
 		//商品の説明文
@@ -300,47 +298,107 @@ public class InputChecker {
 		//発売日
 		if(productDTO.getReleaseDate().equals("")) {
 			result.put("releaseDate", "【商品の発売日を入力してください】");
-		}else if(productDTO.getProductNameKana().length() != 8) {
+		}else if(productDTO.getReleaseDate().length() != 8) {
 			result.put("releaseDate", "【商品の発売日は8桁で入力してください】");
-		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]+$")) {
+		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]$")) {
 			result.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
 		}
 		//発売会社
 		if(productDTO.getReleaseCompany().equals("")) {
 			result.put("releaseCompany", "【商品の販売会社名を入力してください】");
-		}else if(productDTO.getProductNameKana().length() < 1 || productDTO.getProductNameKana().length() > 50) {
+		}else if(productDTO.getReleaseCompany().length() < 1 || productDTO.getReleaseCompany().length() > 50) {
 			result.put("releaseCompany", "【商品の販売会社名は1文字以上50文字以下で入力してください】");
-		}else if(!productDTO.getReleaseCompany().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]+$")) {
+		}else if(!productDTO.getReleaseCompany().matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
 			result.put("releaseCompany", "【商品の販売会社名は形式にそって入力してください】");
 		}
+
+		return result;
+
+
+	}
+
+	//商品追加エラーメッセージ管理
+	public static Map<String, String> masterProductChk(MasterDTO masterDTO, List<ProductDTO> productSearchDTOList){
+
+		Map<String, String> result = new HashMap<String, String>();
+
+		ProductDTO productDTO = masterDTO.getProductDTO();
+
+		result.putAll(masterProductChk(productDTO));
+
+		//商品テーブルと入力内容との重複チェック
+
+			for(ProductDTO PDL : productSearchDTOList){
+
+				//商品ID
+				if(PDL.getProductId() == productDTO.getProductId()){
+					result.put("productId", "【その商品IDはすでに使われています】");
+				}
+				//商品名
+				if(PDL.getProductName().equals(productDTO.getProductName())) {
+					result.put("productName", "【その商品名はすでに使われています】");
+				}
+				//商品名かな
+				if(PDL.getProductNameKana().equals(productDTO.getProductNameKana())) {
+					result.put("productNameKana", "【その商品名のふりがなはすでに使われています】");
+				}
+
+				//商品画像パス
+				if(PDL.getImageFilePath().equals(productDTO.getImageFilePath())){
+
+					result.put("imageFilePath", "【その商品画像パスはすでに使われています】");
+				}
+
+
+
+			}
+
+
+		return result;
+
+
+
+	}
+
+	//商品変更エラーメッセージ管理
+	public static Map<String, String> masterProductChk(MasterDTO masterDTO,ProductDTO masterBeforeChangeDTO, List<ProductDTO> productSearchDTOList){
+
+		Map<String, String> result = new HashMap<String, String>();
+
+		ProductDTO productDTO = masterDTO.getProductDTO();
+
+
+		result.putAll(masterProductChk(productDTO));
 
 
 		//商品テーブルと入力内容との重複チェック
 
-		for(ProductDTO PDL : productSearchDTOList){
+			for(ProductDTO PDL : productSearchDTOList){
 
-			//商品ID
-			if(PDL.getProductId() == productDTO.getProductId()){
-				result.put("productId", "【その商品IDはすでに使われています】");
+				//商品ID
+				if(productDTO.getProductId() != masterBeforeChangeDTO.getProductId() && PDL.getProductId() == productDTO.getProductId()){
+					result.put("productId", "【その商品IDはすでに使われています】");
+				}
+				//商品名
+				if(!(productDTO.getProductName().equals(masterBeforeChangeDTO.getProductName())) && PDL.getProductName().equals(productDTO.getProductName())) {
+					result.put("productName", "【その商品名はすでに使われています】");
+				}
+				//商品名かな
+				if(!(productDTO.getProductNameKana().equals(masterBeforeChangeDTO.getProductNameKana())) && PDL.getProductNameKana().equals(productDTO.getProductNameKana())) {
+					result.put("productNameKana", "【その商品名のふりがなはすでに使われています】");
+				}
+
+				//商品画像パス
+				if(!(productDTO.getImageFilePath().equals(masterBeforeChangeDTO.getImageFilePath())) && PDL.getImageFilePath().equals(productDTO.getImageFilePath())){
+
+					result.put("imageFilePath", "【その商品画像パスはすでに使われています】");
+				}
+
+
+
 			}
-			//商品名
-			if(PDL.getProductName().equals(productDTO.getProductName())) {
-				result.put("productName", "【その商品名はすでに使われています】");
-			}
-			//商品名かな
-			if(PDL.getProductNameKana().equals(productDTO.getProductNameKana())) {
-				result.put("productNameKana", "【その商品名のふりがなはすでに使われています】");
-			}
-
-			//商品画像パス
-			if(PDL.getImageFilePath().equals(productDTO.getImageFilePath())){
-
-				result.put("imageFilePath", "【その商品画像パスはすでに使われています】");
-			}
 
 
-
-		}
 
 		return result;
 

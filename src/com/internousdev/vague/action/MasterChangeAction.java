@@ -64,6 +64,9 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 		String result = SUCCESS;
 
+		//商品テーブルから商品を取得
+		ProductDTO masterBeforeChangeDTO = productSearchDAO.search(productId);
+
 		//商品テーブルからすべての商品を情報を取得
 
 		productSearchDTOList = productSearchDAO.searchAll();
@@ -128,7 +131,7 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 		session.put("maxProductId", maxProductId);
 		session.put("CategorytSearchDTOList", categorytSearchDTOList);
 		session.put("masterChangeProductId", productId);
-		session.put("masterChangeCategoryId", categoryId);
+		session.put("MasterBeforeChangeDTO", masterBeforeChangeDTO);
 
 
 		return result;

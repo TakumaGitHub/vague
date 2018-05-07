@@ -3,8 +3,10 @@ package com.internousdev.vague.dto;
 /**
  * 商品情報のDTOクラス
  * @author miyazaki
- *
+ * @author yanagisawa String→Dateに変更 18/5/7
  */
+
+import java.util.Date;
 
 public class ProductDTO {
 
@@ -29,15 +31,15 @@ public class ProductDTO {
 
 	private String imageFileName;
 
-	private String releaseDate;
+	private Date releaseDate;
 
 	private String releaseCompany;
 
 	private int status;
 
-	private String insertDate;
+	private Date insertDate;
 
-	private String updateDate;
+	private Date updateDate;
 
 
 	//フィールドのgetterとsetter
@@ -121,11 +123,11 @@ public class ProductDTO {
 		this.imageFileName = imageFileName;
 	}
 
-	public String getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(String releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
@@ -145,19 +147,19 @@ public class ProductDTO {
 		this.status = status;
 	}
 
-	public String getInsertDate() {
+	public Date getInsertDate() {
 		return insertDate;
 	}
 
-	public void setInsertDate(String insertDate) {
+	public void setInsertDate(Date insertDate) {
 		this.insertDate = insertDate;
 	}
 
-	public String getUpdateDate() {
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setUpdateDate(String updatedDate) {
+	public void setUpdateDate(Date updatedDate) {
 		this.updateDate = updatedDate;
 	}
 

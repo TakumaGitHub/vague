@@ -109,7 +109,10 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 			year = date[0];
 
-			month = date[1].replace("0", "");//先頭の0を消す 例：08→8
+			if(!(date[1].equals(10))){
+				month = date[1].replace("0", "");//先頭の0を消す 例：08→8
+			}
+
 
 			day = date[2].replace("0", "");//先頭の0を消す 例：08→8
 
@@ -122,6 +125,7 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 		session.put("maxProductId", maxProductId);
 		session.put("CategorytSearchDTOList", categorytSearchDTOList);
 		session.put("masterChangeProductId", productId);
+		session.put("masterChangeCategoryId", categoryId);
 
 
 		return result;

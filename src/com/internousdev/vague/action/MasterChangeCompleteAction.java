@@ -35,6 +35,7 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 
 		masterDTO = (MasterDTO)session.get("MasterChangeCompleteDTO");
 
+		//商品情報を変更する
 		masterDAO.update(masterDTO);
 
 			//画像ファイルをコピー
@@ -61,7 +62,8 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 		session.remove("maxProductId");
 		session.remove("CategorytSearchDTOList");
 		session.remove("masterChangeProductId");
-		session.remove("MasterChangeCompleteDTO" , masterDTO);
+		session.remove("MasterChangeCompleteDTO");
+		session.remove("masterChangeCategoryId");
 
 
 		return result;

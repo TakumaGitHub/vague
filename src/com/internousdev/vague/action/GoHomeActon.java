@@ -12,17 +12,33 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 	//フィールド
 	private Map<String, Object> session;
 
+	private int mFlg;
 
 	public String execute(){
 
-
-		//テストユーザー
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
-		loginUserDTO.setId(3);
-		loginUserDTO.setUserId("miyazaki");
-		loginUserDTO.setFamilyName("宮崎");
-		loginUserDTO.setFirstName("瞬");
+		if(mFlg == 1){
+
+			//管理ユーザー
+			loginUserDTO = new LoginUserDTO();
+
+			loginUserDTO.setId(2);
+			loginUserDTO.setmFlg(1);
+			loginUserDTO.setUserId("admin");
+
+		}else{
+
+			//テストユーザー
+			loginUserDTO = new LoginUserDTO();
+
+			loginUserDTO.setId(3);
+			loginUserDTO.setUserId("miyazaki");
+			loginUserDTO.setFamilyName("宮崎");
+			loginUserDTO.setFirstName("瞬");
+
+
+		}
 
 		session.put("LoginUserDTO", loginUserDTO);
 
@@ -38,6 +54,16 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+
+	public int getmFlg() {
+		return mFlg;
+	}
+
+
+	public void setmFlg(int mFlg) {
+		this.mFlg = mFlg;
 	}
 
 

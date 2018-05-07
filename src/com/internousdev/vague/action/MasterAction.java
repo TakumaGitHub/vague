@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.MasterDAO;
 import com.internousdev.vague.dao.ProductSearchDAO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DivideDTOList;
 import com.internousdev.vague.util.InputChecker;
@@ -33,7 +34,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 	private int deleteFlg = 0;//メソッドの分岐
 
-	private List<Integer> product_id;//削除する商品のproduct_id
+	private List<Integer> product_id = new ArrayList<Integer>();//削除する商品のproduct_id
 
 
 
@@ -50,6 +51,14 @@ public class MasterAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException{
 
 		String result = SUCCESS;
+
+		//ログインユーザーが管理者ではない場合
+		LoginUserDTO loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
+		if(loginUserDTO.getmFlg() != 1){
+
+			return ERROR;
+		}
+
 
 		if(deleteFlg == 1){
 

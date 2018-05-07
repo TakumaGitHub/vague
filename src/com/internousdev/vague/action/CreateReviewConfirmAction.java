@@ -57,7 +57,7 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 		if(!(errorMsg.isEmpty())){
 
 			result = ERROR;
-
+			session.remove("CreateReviewCompleteDTO",createReviewCompleteDTO);
 
 		}else{
 

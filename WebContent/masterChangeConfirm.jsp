@@ -33,20 +33,6 @@
 
     <div id="main">
 
-		<p>タイトル</p>
-		<s:property value="#session.CreateReviewCompleteDTO.reviewTitle"/>
-		<p>内容</p>
-		<s:property value="#session.CreateReviewCompleteDTO.reviewBody"/>
-		<p>評価</p>
-		<s:property value="#session.CreateReviewCompleteDTO.reviewScore"/>
-
-
-		<s:form action="CreateReviewCompleteAction" method="post">
-			<input type="submit" value="投稿する" />
-		</s:form>
-		<form action="createReview.jsp" method="post">
-			<input type="submit" value="戻って修正する" />
-		</form>
 
     </div>
 

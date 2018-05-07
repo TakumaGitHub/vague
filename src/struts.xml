@@ -16,6 +16,7 @@
 		<!-- 商品を検索するAction -->
 		<action name="ProductSearchAction" class="com.internousdev.vague.action.ProductSearchAction" method="execute">
 			<result name="success">home.jsp</result>
+			<result name="master">master.jsp</result>
 		</action>
 
 		<!-- レビューを投稿するAction -->
@@ -36,10 +37,32 @@
 		</action>
 
 		<!-- 投稿したレビュー一覧を表示するAction -->
-
 		<action name="ReviewMyListAction" class="com.internousdev.vague.action.ReviewMyListAction" method="execute">
 			<result name="success">reviewMyList.jsp</result>
 			<result name="home" type="redirect">home.jsp</result>
+		</action>
+
+		<!-- 管理者画面に推移するAction -->
+		<action name="MasterAction" class="com.internousdev.vague.action.MasterAction" method="execute">
+			<result name="success">master.jsp</result>
+			<result name="error" type="redirect">home.jsp</result>
+		</action>
+
+		<!-- 商品情報を変更するAction -->
+		<action name="MasterChangeAction" class="com.internousdev.vague.action.MasterChangeAction" method="execute">
+			<result name="success">masterChange.jsp</result>
+		</action>
+
+		<action name="MasterChangeConfirmAction" class="com.internousdev.vague.action.MasterChangeConfirmAction" method="execute">
+		 	<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2097152</param>
+                <param name="allowedTypes">
+                    image/png,image/gif,image/jpeg,image/pjpeg
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">masterChangeConfirm.jsp</result>
+			<result name="error">masterChange.jsp</result>
 		</action>
 
 

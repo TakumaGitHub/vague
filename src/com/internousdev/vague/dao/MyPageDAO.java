@@ -1,5 +1,4 @@
 package com.internousdev.vague.dao;
-//縄田琢真 作成
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +9,8 @@ import java.util.ArrayList;
 import com.internousdev.vague.dto.MyPageDTO;
 import com.internousdev.vague.util.DBConnector;
 
-
-/// マイページに表示するユーザー情報をDBから取得し、MyPageDTOに格納。
-/// getMyPageUserInfoメソッドは、このユーザー情報のリスト（ArrayList<MyPageDTO>型）を返します。
+// 担当：縄田
+// マイページに表示するユーザー情報をDBから取得し、DTOに格納
 
 public class MyPageDAO {
 	private DBConnector db = new DBConnector();

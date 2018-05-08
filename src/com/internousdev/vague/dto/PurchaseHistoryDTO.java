@@ -1,9 +1,10 @@
 package com.internousdev.vague.dto;
 
-public class PurchaseHistoryDTO {
+// 担当：縄田
+// 商品購入履歴に表示するためにDBから取得した内容
+// 実際に表示する際は、商品テーブルとくっつけた表を表示する
 
-	//<購入履歴DTO>
-	//実際に表示する際は、商品テーブルとくっつけた表を表示する
+public class PurchaseHistoryDTO {
 
 	// 商品名
 	private String productName;

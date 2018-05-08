@@ -1,7 +1,8 @@
 package com.internousdev.vague.dto;
-// 縄田琢真 作成
 
-//マイページに表示するためにDBから取得した内容
+// 担当：縄田
+// マイページに表示するためにDBから取得した内容
+
 public class MyPageDTO {
 	private String userId;
 	private String password;

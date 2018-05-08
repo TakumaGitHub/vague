@@ -1,10 +1,7 @@
 package com.internousdev.vague.action;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.MasterDAO;
@@ -34,21 +31,6 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 		masterDTO = (MasterDTO)session.get("MasterAddCompleteDTO");
 
 		masterDAO.insert(masterDTO);
-
-		File fromFile = new File(masterDTO.getFromImageFilePath());
-
-		File toFile = new File(masterDTO.getToImageFilePath());
-
-
-			try{
-
-				//画像ファイルをコピー
-				FileUtils.copyFile(fromFile, toFile);
-
-			}catch(IOException e){
-
-				e.printStackTrace();
-			}
 
 		session.remove("MasterAddCompleteDTO");
 		session.remove("maxProductId");

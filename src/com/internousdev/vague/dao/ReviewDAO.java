@@ -245,13 +245,13 @@ public class ReviewDAO {
 
 	//選択したレビューを削除するメソッド
 
-	public int deleteChoose(List<Integer> product_id){
+	public int deleteChoose(List<Integer> id){
 
 		DBConnector dbConnector = new DBConnector();
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		String sql = " DELETE FROM review WHERE product_id = ? ";
+		String sql = " DELETE FROM review WHERE id = ? ";
 
 		int ret = 0;
 
@@ -259,7 +259,7 @@ public class ReviewDAO {
 
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			for(int pi : product_id){
+			for(int pi : id){
 
 				ps.setInt(1, pi);
 				ret += ps.executeUpdate();

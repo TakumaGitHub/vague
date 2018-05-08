@@ -10,6 +10,8 @@
 
 <jsp:include page="WEB-INF/head.jsp" />
 
+<meta http-equiv="refresh" content="5;URL=/vague/home.jsp" />
+
 <title>Vague</title>
 </head>
 
@@ -25,7 +27,9 @@
 
     <!--  headerの終わり -->
 
+		<h2>レビューの投稿が完了いたしました</h2>
 
+    	<p>5秒後にトップページに戻ります</p>
 
 
 

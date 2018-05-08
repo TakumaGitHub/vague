@@ -64,6 +64,9 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 		String result = SUCCESS;
 
+		//商品テーブルから商品を取得
+		ProductDTO masterBeforeChangeDTO = productSearchDAO.search(productId);
+
 		//商品テーブルからすべての商品を情報を取得
 
 		productSearchDTOList = productSearchDAO.searchAll();
@@ -109,7 +112,13 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 			year = date[0];
 
-			month = date[1].replace("0", "");//先頭の0を消す 例：08→8
+			if(!(date[1].equals(10))){
+				month = date[1].replace("0", "");//先頭の0を消す 例：08→8
+			}else{
+
+				month = date[1];//10月の場合
+			}
+
 
 			day = date[2].replace("0", "");//先頭の0を消す 例：08→8
 
@@ -122,6 +131,7 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 		session.put("maxProductId", maxProductId);
 		session.put("CategorytSearchDTOList", categorytSearchDTOList);
 		session.put("masterChangeProductId", productId);
+		session.put("MasterBeforeChangeDTO", masterBeforeChangeDTO);
 
 
 		return result;

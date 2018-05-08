@@ -1,10 +1,7 @@
 package com.internousdev.vague.action;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.MasterDAO;
@@ -35,33 +32,16 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 
 		masterDTO = (MasterDTO)session.get("MasterChangeCompleteDTO");
 
+		//商品情報を変更する
 		masterDAO.update(masterDTO);
 
-			//画像ファイルをコピー
-			if(masterDTO.getFromImageFilePath() != null && masterDTO.getToImageFilePath() != null){
-
-				File fromFile = new File(masterDTO.getFromImageFilePath());
-
-				File toFile = new File(masterDTO.getToImageFilePath());
-
-
-					try{
-
-						//画像ファイルをコピー
-						FileUtils.copyFile(fromFile, toFile);
-
-					}catch(IOException e){
-
-						e.printStackTrace();
-					}
-
-			}
 
 		//セッションの掃除
 		session.remove("maxProductId");
 		session.remove("CategorytSearchDTOList");
 		session.remove("masterChangeProductId");
-		session.remove("MasterChangeCompleteDTO" , masterDTO);
+		session.remove("MasterChangeCompleteDTO");
+		session.remove("MasterBeforeChangeDTO");
 
 
 		return result;

@@ -3,6 +3,7 @@ package com.internousdev.vague.action;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,18 +19,20 @@ import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class MasterAddConfirmAction extends ActionSupport implements SessionAware {
+public class MasterChangeConfirmAction extends ActionSupport implements SessionAware  {
 
 	//フィールド
 	private Map<String, Object> session;
 
-	private Map<String, String> errorMsg;
+	private Map<String, String> errorMsg = new HashMap<String, String>();
 
 	//ユーザーがアップロードするファイル
 	private File userImage;
 
 	//ユーザーがアップロードするファイルの名前
 	private String userImageFileName;
+
+	private String userImageContentType;
 
 	//ProductDTOのフィールド
 	private int productId;
@@ -80,39 +83,52 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	private CategorySearchDAO categorySearchDAO = new CategorySearchDAO();
 
 
-	/**
-	 * 入力情報をMasterDTOに格納する
-	 */
+
+	//actionメソッド
 	public String execute() throws SQLException{
 
 		String result = ERROR;
 
+
 		String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("images");
+		//選択された商品IDをセッションから取得
+		productDTO = productSearchDAO.search(Integer.parseInt(session.get("masterChangeProductId").toString()));
+
 
 		//全ての商品情報を引き出す
 		productSearchDTOList = productSearchDAO.searchAll();
 
 
-		//コピー元のファイルパスを作成
-		fromImageFilePath = userImage;
 
-		//コピー先のファイルパスを作成
-		imageFileName = userImageFileName;
+		if(userImage != null){
 
-		for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-			if(categoryId == CD.getCategoryId()){
+			//コピー元のファイルパスを作成
+			fromImageFilePath = userImage;
 
-				imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
-				toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+			//コピー先のファイルパスを作成
+			imageFileName = userImageFileName;
+
+			for(CategoryDTO CD : categorySearchDAO.searchAll()){
+
+				if(categoryId == CD.getCategoryId()){
+
+					imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
+					toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+
+				}
 
 			}
 
+		}else{
+
+			imageFileName = productDTO.getImageFileName();
+			imageFilePath = productDTO.getImageFilePath();
+
 		}
 
-
-
 			//入力内容をMasterDTOに格納する
+
 
 			productDTO.setProductId(productId);
 			productDTO.setProductName(productName);
@@ -138,14 +154,15 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			masterDTO.setToImageFilePath(toImageFilePath);
 			masterDTO.setFromImageFilePath(fromImageFilePath);
 
-			//エラーメッセージチェック
-			errorMsg = InputChecker.masterProductChk(masterDTO, productSearchDTOList);
+		//エラーメッセージチェック
+		ProductDTO masterBeforeChangeDTO = (ProductDTO)session.get("MasterBeforeChangeDTO");
+		errorMsg = InputChecker.masterProductChk(masterDTO, masterBeforeChangeDTO, productSearchDTOList);
 
 		//エラーメッセージがなければ
 		if(errorMsg.isEmpty()){
 
 			result = SUCCESS;
-			session.put("MasterAddCompleteDTO" , masterDTO);
+			session.put("MasterChangeCompleteDTO" , masterDTO);
 
 		}
 
@@ -162,11 +179,15 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 
 
+
 		return result;
+
 
 	}
 
 
+
+	//フィールドのgetterとsetter
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -175,197 +196,152 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		this.session = session;
 	}
 
-
 	public Map<String, String> getErrorMsg() {
 		return errorMsg;
 	}
-
 
 	public void setErrorMsg(Map<String, String> errorMsg) {
 		this.errorMsg = errorMsg;
 	}
 
-
 	public File getUserImage() {
 		return userImage;
 	}
-
 
 	public void setUserImage(File userImage) {
 		this.userImage = userImage;
 	}
 
-
 	public String getUserImageFileName() {
 		return userImageFileName;
 	}
-
 
 	public void setUserImageFileName(String userImageFileName) {
 		this.userImageFileName = userImageFileName;
 	}
 
-
 	public int getProductId() {
 		return productId;
 	}
-
 
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
 
-
 	public String getProductName() {
 		return productName;
 	}
-
 
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-
 	public String getProductNameKana() {
 		return productNameKana;
 	}
-
 
 	public void setProductNameKana(String productNameKana) {
 		this.productNameKana = productNameKana;
 	}
 
-
 	public String getProductDescription() {
 		return productDescription;
 	}
-
 
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
 	}
 
-
 	public int getCategoryId() {
 		return categoryId;
 	}
-
 
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
-
 	public int getProductStock() {
 		return productStock;
 	}
-
 
 	public void setProductStock(int productStock) {
 		this.productStock = productStock;
 	}
 
-
 	public int getPrice() {
 		return price;
 	}
-
 
 	public void setPrice(int price) {
 		this.price = price;
 	}
 
-
 	public String getImageFilePath() {
 		return imageFilePath;
 	}
-
 
 	public void setImageFilePath(String imageFilePath) {
 		this.imageFilePath = imageFilePath;
 	}
 
-
 	public String getImageFileName() {
 		return imageFileName;
 	}
-
 
 	public void setImageFileName(String imageFileName) {
 		this.imageFileName = imageFileName;
 	}
 
-
-	public File getFromImageFilePath() {
-		return fromImageFilePath;
+	public String getUserImageContentType() {
+		return userImageContentType;
 	}
 
 
-	public void setFromImageFilePath(File fromImageFilePath) {
-		this.fromImageFilePath = fromImageFilePath;
+
+	public void setUserImageContentType(String userImageContentType) {
+		this.userImageContentType = userImageContentType;
 	}
+
 
 
 	public String getReleaseDate() {
 		return releaseDate;
 	}
 
-
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-
 
 	public int getYear() {
 		return year;
 	}
 
-
 	public void setYear(int year) {
 		this.year = year;
 	}
-
 
 	public int getMonth() {
 		return month;
 	}
 
-
 	public void setMonth(int month) {
 		this.month = month;
 	}
-
 
 	public int getDay() {
 		return day;
 	}
 
-
 	public void setDay(int day) {
 		this.day = day;
 	}
-
 
 	public String getReleaseCompany() {
 		return releaseCompany;
 	}
 
-
 	public void setReleaseCompany(String releaseCompany) {
 		this.releaseCompany = releaseCompany;
 	}
-
-
-	public int getStatus() {
-		return status;
-	}
-
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-
-
 
 }

@@ -41,8 +41,11 @@
 		<s:property value="#session.CreateReviewCompleteDTO.reviewScore"/>
 
 
-		<form action="CreateReviewCompleteAction" method="post">
+		<s:form action="CreateReviewCompleteAction" method="post">
 			<input type="submit" value="投稿する" />
+		</s:form>
+		<form action="createReview.jsp" method="post">
+			<input type="submit" value="戻って修正する" />
 		</form>
 
     </div>

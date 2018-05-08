@@ -99,13 +99,13 @@
 	<s:property value="price"/><br>
 	</s:iterator>
 <!-- レビュー -->
-<s:iterator value="reviewMyListDTOList">
+<s:iterator value="reviewList">
 	<table>
 		<tr>
 			<td><s:property value="reviewTitle"/></td>
 		</tr>
 		<tr>
-			<td><s:property value="userId"/>さん</td>
+			<td>投稿者：<s:property value="userId"/>さん</td>
 		</tr>
 		<tr>
 			<td><s:property value="reviewBody"/></td>

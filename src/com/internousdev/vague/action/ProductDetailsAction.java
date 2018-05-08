@@ -8,7 +8,10 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.ProductDetailsDAO;
+import com.internousdev.vague.dao.ReviewDAO;
 import com.internousdev.vague.dto.ProductDTO;
+import com.internousdev.vague.dto.ProductReviewDTO;
+import com.internousdev.vague.dto.ReviewDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -36,7 +39,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	public List<ProductDTO> suggestList = new ArrayList<ProductDTO>();
 	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 
-	public String execute() throws SQLException {
+	//レビューリスト
+	public List<ProductReviewDTO> reviewList = new ArrayList<ProductReviewDTO>();
+	private ReviewDTO review = new ReviewDTO();
+	private ReviewDAO reviewDAO = new ReviewDAO();
+
+	public String execute(int product_id) throws SQLException {
 		//商品詳細取得
 		try {
 			detail = productDetailsDAO.getProductDetailsInfo(productId);
@@ -78,6 +86,24 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 				return ERROR;
 			}
 
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		//レビュー情報取得
+		try {
+			reviewList = reviewDAO.searchProductDetails(product_id) ;
+			if(reviewList != null){
+				session.put("review_title", review.getReviewTitle());
+				session.put("user_id", review.getUserId());
+				session.put("product_id", review.getProductId());
+				session.put("review_body", review.getReviewBody());
+				session.put("insert_date", review.getInsertDate());
+				session.put("review_score", review.getReviewScore());
+				session.put("update_date", review.getUpdateDate());
+
+			}else{
+				return ERROR;
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}

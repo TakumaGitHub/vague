@@ -72,9 +72,9 @@ public class ProductListDAO {
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getDate("release_date"));
-				dto.setInsertDate(rs.getDate("insert_date"));
-				dto.setUpdateDate(rs.getDate("update_date"));
+				dto.setReleaseDate(rs.getString("release_date"));
+				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setUpdateDate(rs.getString("update_date"));
 				productList.add(dto);
 
 			}

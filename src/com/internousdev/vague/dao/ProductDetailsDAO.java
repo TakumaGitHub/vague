@@ -32,7 +32,7 @@ public class ProductDetailsDAO {
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setProductStock(rs.getInt("product_stock"));
 				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getDate("release_date"));
+				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setProductDescription(rs.getString("product_description"));
 				dto.setPrice(rs.getInt("price"));
 
@@ -76,9 +76,9 @@ public class ProductDetailsDAO {
 			dto.setImageFilePath(rs.getString("image_file_path"));
 			dto.setImageFileName(rs.getString("image_file_name"));
 			dto.setReleaseCompany(rs.getString("release_company"));
-			dto.setReleaseDate(rs.getDate("release_date"));
-			dto.setInsertDate(rs.getDate("insert_date"));
-			dto.setUpdateDate(rs.getDate("update_date"));
+			dto.setReleaseDate(rs.getString("release_date"));
+			dto.setInsertDate(rs.getString("insert_date"));
+			dto.setUpdateDate(rs.getString("update_date"));
 
 			}
 		}catch(Exception e){
@@ -113,9 +113,9 @@ public class ProductDetailsDAO {
 				dto.setPrice(rs.getInt("price"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getDate("release_date"));
-				dto.setInsertDate(rs.getDate("insert_date"));
-				dto.setUpdateDate(rs.getDate("update_date"));
+				dto.setReleaseDate(rs.getString("release_date"));
+				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setUpdateDate(rs.getString("update_date"));
 				dto.setProductStock(rs.getInt("product_stock"));
 
 				suggestList.add(dto);

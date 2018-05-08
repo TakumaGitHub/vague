@@ -77,6 +77,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 			}else{
 				return ERROR;
 			}
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}

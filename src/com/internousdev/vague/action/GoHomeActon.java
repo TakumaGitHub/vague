@@ -18,6 +18,29 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 	public String execute() throws NoSuchAlgorithmException{
 
+		 if (!(session.containsKey("LoginUserDTO")) && !(session.containsKey("tempUserId"))) {
+
+			 byte[] randomByte = new byte[64];
+
+			SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+
+			sr.nextBytes(randomByte);
+
+			StringBuffer sb = new StringBuffer();
+
+			//128桁のランダムな文字列を発行
+			for(byte RB : randomByte){
+
+				sb.append(String.format("%02x", RB));
+
+			}
+
+
+			String tempUserId = sb.toString();
+			session.put("tempUserId", tempUserId);
+
+		}
+
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
 		if(mFlg == 1){
@@ -44,30 +67,6 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 		session.put("LoginUserDTO", loginUserDTO);
 
-
-
-		 if (!(session.containsKey("LoginUserDTO")) && !(session.containsKey("tempUserId"))) {
-
-			 byte[] randomByte = new byte[64];
-
-			SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-
-			sr.nextBytes(randomByte);
-
-			StringBuffer sb = new StringBuffer();
-
-			//128桁のランダムな文字列を発行
-			for(byte RB : randomByte){
-
-				sb.append(String.format("%02x", RB));
-
-			}
-
-
-			String tempUserId = sb.toString();
-			session.put("tempUserId", tempUserId);
-
-		}
 
 
 

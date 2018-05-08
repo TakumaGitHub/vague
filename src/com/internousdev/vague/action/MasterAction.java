@@ -54,7 +54,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 		//ログインユーザーが管理者ではない場合
 
-		if(!(session.containsKey("LoginUserDTO")) && ((LoginUserDTO)session.get("LoginUserDTO")).getmFlg() != 1){
+		if(!(session.containsKey("LoginUserDTO")) || ((LoginUserDTO)session.get("LoginUserDTO")).getmFlg() != 1){
 
 			return ERROR;
 		}

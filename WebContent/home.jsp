@@ -55,14 +55,14 @@
 
 			<s:form action="GoHomeActon" method="post">
 
-				<input type="submit" value="ログインする" />
+				<input type="submit" value="一般ユーザーでログインする" />
 
 			</s:form>
 
 			<s:form action="GoHomeActon" method="post">
 
 				<input type="hidden" name="mFlg" value="1" />
-				<input type="submit" value="管理者ログインする" />
+				<input type="submit" value="管理者ユーザーでログインする" />
 
 			</s:form>
 
@@ -82,12 +82,36 @@
 
 			</s:form>
 
+			<h2>商品一覧ページに行く</h2>
+
+			<s:form action="ProductListAction" method="post">
+
+				<input type="submit" value="商品一覧ページ" />
+
+			</s:form>
+
+			<h2>カートページに行く</h2>
+
+			<s:form action="CartAction" method="post">
+
+				<input type="submit" value="カートページ" />
+
+			</s:form>
+
+			<h2>マイページに行く</h2>
+
+			<s:form action="MyPageAction" method="post">
+
+				<input type="submit" value="マイページ" />
+
+			</s:form>
+
 			<h2>ProductSearchAction</h2>
 
 			<form id="ProductSearchAction" action="<s:url action='ProductSearchAction' />" method="post">
 
 
-			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />"/></p>
+			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/></p>
 			<s:if test="inputErrorMsg != ''">
 
 				<s:property value='inputErrorMsg' />
@@ -141,6 +165,7 @@
 
 			</select>
 
+			<input type="hidden" name="" value=""/>
 			<input type="submit" value="検索する"/>
 
 			</form>

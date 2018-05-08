@@ -8,6 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.AddressDAO;
 import com.internousdev.vague.dto.AddressDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
@@ -26,7 +27,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		result = SUCCESS;
 
 		
-		addressInfoListDTO.addAll(addressDAO.getAddressInfo(session.get("userId").toString()));
+		addressInfoListDTO.addAll(addressDAO.getAddressInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId()));
 
 		if(addressInfoListDTO.get(0) == null) {
 

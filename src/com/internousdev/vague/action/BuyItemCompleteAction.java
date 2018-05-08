@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.BuyItemCompleteDAO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /*
@@ -32,7 +33,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 	public String execute() throws SQLException {
 		String result = SUCCESS;
-		userId=(String) session.get("userId");
+		userId=((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 		BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 		CartInfoDAO dao = new CartInfoDAO();
 
@@ -63,13 +64,13 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 			return ERROR;
 		}
 
-		cartList = dao.getUserCartList((String) session.get("userId"));
+		cartList = dao.getUserCartList(((LoginUserDTO)session.get("LoginUserDTO")).getUserId());
 
 
 
 			//カートの中身を削除
 			int deletedCount = 0;
-			deletedCount=cartDeleteDAO.deleteAllCartInfo(session.get("userId").toString());
+			deletedCount=cartDeleteDAO.deleteAllCartInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId().toString());
 
 			if (deletedCount <= 0) {
 				return ERROR;

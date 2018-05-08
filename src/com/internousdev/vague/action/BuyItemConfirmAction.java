@@ -10,6 +10,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.vague.dao.AddressDAO;
 import com.internousdev.vague.dao.BuyItemCompleteDAO;
 import com.internousdev.vague.dto.AddressDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 /*
  * 決済確認画面に行くためのアクション
  * ログイン状態の確認
@@ -48,7 +49,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		String userId;
 	//ログイン判定
 	if((boolean)session.get("loginFlg")){
-		userId=session.get("userId").toString();
+		userId=((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 	}
 	else{
 		userId=session.get("tempUserId").toString();
@@ -59,7 +60,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	if((boolean)session.get("loginFlg")){
 		AddressDAO addressInfoDAO=new AddressDAO();
-		addressDTOList.addAll(addressInfoDAO.getAddressInfo(session.get("userId").toString()));
+		addressDTOList.addAll(addressInfoDAO.getAddressInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId()));
 	}
 	else{
 		return ERROR; //login.jspへ

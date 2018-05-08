@@ -4,7 +4,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.ecsite.dao.CartDAO;
+import com.internousdev.vague.dao.CartDAO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class CartDeleteAction extends ActionSupport implements SessionAware {

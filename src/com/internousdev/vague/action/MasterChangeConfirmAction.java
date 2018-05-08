@@ -164,20 +164,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 			result = SUCCESS;
 			session.put("MasterChangeCompleteDTO" , masterDTO);
 
+			//画像ファイルをコピーする
+			if(fromImageFilePath != null && toImageFilePath != null){
+
+				 try {
+						FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+			}
+
 		}
-
-		//画像ファイルをコピーする
-		if(fromImageFilePath != null && toImageFilePath != null){
-
-			 try {
-					FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-
-		}
-
-
 
 
 		return result;

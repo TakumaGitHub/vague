@@ -128,6 +128,10 @@
     		<input type="submit" value="商品情報を変更する" />
     	</s:form>
 
+    	<form action="/vague/masterChange.jsp" method="post" >
+    		<input type="submit" value="戻って修正する" />
+    	</form>
+
 
     </div>
 

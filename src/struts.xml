@@ -70,6 +70,28 @@
 			<result name="error">errorPage.html</result>
 		</action>
 
+		<!-- 商品を追加するAction -->
+		<action name="MasterAddAction" class="com.internousdev.vague.action.MasterAddAction" method="execute">
+			<result name="success">masterAdd.jsp</result>
+		</action>
+
+		<action name="MasterAddConfirmAction" class="com.internousdev.vague.action.MasterAddConfirmAction" method="execute">
+		 	<interceptor-ref name="fileUpload">
+                <param name="maximumSize">2097152</param>
+                <param name="allowedTypes">
+                    image/png,image/gif,image/jpeg,image/pjpeg
+                </param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">masterAddConfirm.jsp</result>
+			<result name="error">masterAdd.jsp</result>
+		</action>
+
+		<action name="MasterAddCompleteAction" class="com.internousdev.vague.action.MasterAddCompleteAction" method="execute">
+			<result name="success">masterAddComplete.jsp</result>
+			<result name="error">errorPage.html</result>
+		</action>
+
  		<!-- 商品一覧・詳細を表示させるアクション -->
 		<action name="ProductListAction" class="com.internousdev.vague.action.ProductListAction" method="execute">
 		<result name="success">productList.jsp</result>

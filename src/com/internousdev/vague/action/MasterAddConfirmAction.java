@@ -147,16 +147,16 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			result = SUCCESS;
 			session.put("MasterAddCompleteDTO" , masterDTO);
 
-		}
+			//画像ファイルをコピーする
+			if(fromImageFilePath != null && toImageFilePath != null){
 
-		//画像ファイルをコピーする
-		if(fromImageFilePath != null && toImageFilePath != null){
+				 try {
+						FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 
-			 try {
-					FileUtils.copyFile(fromImageFilePath, new File(toImageFilePath));
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+			}
 
 		}
 

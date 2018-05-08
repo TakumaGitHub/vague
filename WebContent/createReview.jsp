@@ -42,7 +42,29 @@
 
 		<s:form action="CreateReviewConfirmAction">
 
-			<s:if test="#session.CreateReviewCompleteDTO != null">
+			<s:if test="#session.CreateReviewCompleteDTO != null && #session.CreateReviewProductDTO.productId != #session.CreateReviewCompleteDTO.productId || #session.CreateReviewCompleteDTO == null">
+
+				<p><s:property value="errorMsg.reviewTitle" /></p>
+				<p>タイトル<input type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required"/></p>
+
+				<p><s:property value="errorMsg.reviewBody" /></p>
+				<p>内容</p>
+				<textarea rows="5" name="reviewBody"  required="required"/><s:property value='reviewBody' /></textarea>
+
+				<p><s:property value="errorMsg.reviewScore" /></p>
+				<p>評価</p>
+
+				<select name="reviewScore" >
+
+					<s:iterator begin="1" end="5" step="1" status="st">
+						<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
+					</s:iterator>
+
+				</select>
+
+			</s:if>
+
+			<s:elseif test="#session.CreateReviewCompleteDTO != null">
 
 				<p><s:property value="errorMsg.reviewTitle" /></p>
 				<p>タイトル<input type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required"/></p>
@@ -69,28 +91,7 @@
 
 				</select>
 
-			</s:if>
-			<s:else>
-
-				<p><s:property value="errorMsg.reviewTitle" /></p>
-				<p>タイトル<input type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required"/></p>
-
-				<p><s:property value="errorMsg.reviewBody" /></p>
-				<p>内容</p>
-				<textarea rows="5" name="reviewBody"  required="required"/><s:property value='reviewBody' /></textarea>
-
-				<p><s:property value="errorMsg.reviewScore" /></p>
-				<p>評価</p>
-
-				<select name="reviewScore" >
-
-					<s:iterator begin="1" end="5" step="1" status="st">
-						<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-					</s:iterator>
-
-				</select>
-
-			</s:else>
+			</s:elseif>
 
 
 

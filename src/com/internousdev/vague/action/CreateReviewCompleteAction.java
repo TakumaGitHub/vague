@@ -44,6 +44,7 @@ public class CreateReviewCompleteAction  extends ActionSupport implements Sessio
 		}
 
 		session.remove("CreateReviewCompleteDTO");
+		session.remove("CreateReviewProductDTO");
 
 		return result;
 

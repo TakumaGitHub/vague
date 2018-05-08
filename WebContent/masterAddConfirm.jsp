@@ -126,6 +126,10 @@
     		<input type="submit" value="商品を追加する" />
     	</s:form>
 
+    	<form action="/vague/masterAdd.jsp" >
+			<input type="submit" value="戻って修正する">
+		</form>
+
 
     </div>
 

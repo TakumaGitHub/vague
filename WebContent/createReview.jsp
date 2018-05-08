@@ -49,7 +49,7 @@
 
 				<p><s:property value="errorMsg.reviewBody" /></p>
 				<p>内容</p>
-				<textarea rows="5" name="reviewBody"  required="required"/></textarea>
+				<textarea rows="5" name="reviewBody"  required="required"/><s:property value='#session.CreateReviewCompleteDTO.reviewBody' /></textarea>
 
 				<p><s:property value="errorMsg.reviewScore" /></p>
 				<p>評価</p>
@@ -77,7 +77,7 @@
 
 				<p><s:property value="errorMsg.reviewBody" /></p>
 				<p>内容</p>
-				<textarea rows="5" name="reviewBody"  required="required"/></textarea>
+				<textarea rows="5" name="reviewBody"  required="required"/><s:property value='reviewBody' /></textarea>
 
 				<p><s:property value="errorMsg.reviewScore" /></p>
 				<p>評価</p>

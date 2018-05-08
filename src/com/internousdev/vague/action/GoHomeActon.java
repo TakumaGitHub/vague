@@ -1,5 +1,7 @@
 package com.internousdev.vague.action;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,7 +16,7 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 	private int mFlg;
 
-	public String execute(){
+	public String execute() throws NoSuchAlgorithmException{
 
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
@@ -40,18 +42,35 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 		}
 
-		/**
-		 * 仮ユーザーID発行
-		 * if (!(session.containsKey("loginFlg")) && !(session.containsKey("tempUserId"))) {
-			int tempUserId = Integer.valueOf((int) (Math.random() * 1000000000));
-			boolean loginFlg = false;
-			session.put("tempUserId", tempUserId);
-			session.put("loginFlg", loginFlg);
-		}
-		 */
-
-
 		session.put("LoginUserDTO", loginUserDTO);
+
+
+
+		 if (!(session.containsKey("LoginUserDTO")) && !(session.containsKey("tempUserId"))) {
+
+			 byte[] randomByte = new byte[64];
+
+			SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+
+			sr.nextBytes(randomByte);
+
+			StringBuffer sb = new StringBuffer();
+
+			//128桁のランダムな文字列を発行
+			for(byte RB : randomByte){
+
+				sb.append(String.format("%02x", RB));
+
+			}
+
+
+			String tempUserId = sb.toString();
+			session.put("tempUserId", tempUserId);
+
+		}
+
+
+
 
 		return SUCCESS;
 

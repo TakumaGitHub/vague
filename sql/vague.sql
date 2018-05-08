@@ -2,7 +2,7 @@ set names utf8;
 set foreign_key_checks = 0;
 drop database if exists Vague;
 
-create database if not exists Vague DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;;
+create database if not exists Vague DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 use Vague;
 
@@ -26,7 +26,7 @@ create table user_info(
 	status tinyint default 0,
 	login_flg tinyint default 0,
 	m_flg tinyint default 0,
-	question int(255) not null,/* 例：１嫌いな食べ物は？２：好きな映画は？ */
+	question int(255) not null default 1,/* 例：１嫌いな食べ物は？２：好きな映画は？ */
     answer varchar(255) not null,
 	insert_date datetime not null,
 	update_date datetime
@@ -192,3 +192,13 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
 					   (2, "Sofa", "ソファのカテゴリー", now()),
 					   (3, "Lighting", "照明のカテゴリー", now()),
 					   (4, "Table", "テーブルのカテゴリー", now());
+
+
+/*
+ * 購入履歴情報テーブルに情報挿入
+ */
+
+
+INSERT INTO purchase_history_info (user_id, product_id, product_count, price, insert_date)
+			values                ("miyazaki",1,30,30000,now());
+

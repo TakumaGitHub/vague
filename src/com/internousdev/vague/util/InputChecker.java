@@ -254,7 +254,11 @@ public class InputChecker {
 		Map<String, String> result = new HashMap<String, String>();
 
 		//商品ID
-		if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
+		if(Integer.valueOf(productDTO.getProductId()).toString().equals("")) {
+			result.put("productName", "【商品名を入力してください】");
+		}else if(Integer.valueOf(productDTO.getProductId()).toString().length() < 1 || Integer.valueOf(productDTO.getProductId()).toString().length() > 10) {
+			result.put("productName", "【商品名は1文字以上10文字以下で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
 			result.put("productId", "【商品IDは半角数字で入力してください】");
 		}
 		//商品名

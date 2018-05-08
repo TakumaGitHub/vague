@@ -101,7 +101,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
     public Map<String, Object> getSession() {
        return this.session;
     }
-
+    		public String getProductId(){
+    			return productId;
+    		}
+    		public void setProductId(String productId){
+    			this.productId = productId;
+    		}
     		public String getCategoryName(){
     			return categoryName;
     		}

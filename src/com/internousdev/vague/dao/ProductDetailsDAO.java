@@ -34,7 +34,7 @@ public class ProductDetailsDAO {
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getDate("release_date"));
 				dto.setProductDescription(rs.getString("product_description"));
-				dto.setPrice(rs.getInt("product_price"));
+				dto.setPrice(rs.getInt("price"));
 
 			}else {
 				dto = null;
@@ -109,8 +109,9 @@ public class ProductDetailsDAO {
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
-				dto.setCategoryId(rs.getInt("catgory_id"));
+				dto.setCategoryId(rs.getInt("category_id"));
 				dto.setPrice(rs.getInt("price"));
+				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getDate("release_date"));
 				dto.setInsertDate(rs.getDate("insert_date"));

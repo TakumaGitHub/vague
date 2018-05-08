@@ -79,7 +79,7 @@
 		<s:property value="session.price"/>
 	</td>
 <!-- 販売会社・販売日  -->
-	<td>>
+	<td>
 		<s:property value="session.release_company"/>
 		<s:property value="session.release_date"/>
 	</td>
@@ -98,8 +98,26 @@
 	<s:property value="productNameKana"/><br>
 	<s:property value="price"/><br>
 	</s:iterator>
-
-
+<!-- レビュー -->
+<s:iterator value="reviewMyListDTOList">
+	<table>
+		<tr>
+			<td><s:property value="reviewTitle"/></td>
+		</tr>
+		<tr>
+			<td><s:property value="userId"/>さん</td>
+		</tr>
+		<tr>
+			<td><s:property value="reviewBody"/></td>
+		</tr>
+		<tr>
+			<td><s:property value="reviewScore"/></td>
+		</tr>
+		<tr>
+			<td>投稿日：<s:property value="insertDate" /></td>
+		</tr>
+	</table>
+</s:iterator>
 
 </body>
 </html>

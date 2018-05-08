@@ -37,6 +37,40 @@
 		<br> --%>
 </div>
 </s:iterator>
+<!-- リストにデータが存在するとき  -->
+
+	<s:if test="number > 8">
+		<s:if test="listFlg == 1">
+			<!--  1ページ目 -->
+			<s:if test="pageNum==1">
+				<span>&laquo;<s:text name="戻る" /></span>
+			</s:if>
+			<!-- ページネート:1ページ目以外 -->
+		<s:else>
+			<a
+				href='<s:url action="ProductListAction">
+				<s:param name="pageNum" value="pageNum-1" />
+				<s:param name="listFlg" value="listFlg" />
+				</s:url>'><span>&laquo;<s:text name="戻る" /></span></a>
+		</s:else>
+		<!-- 最終ページ -->
+		<s:property value="pageNum"/>
+			<s:if test="pageNum == maxPage">
+				<s:text name="進む" />&raquo;
+			</s:if>
+		<!-- 最終ページ以外 -->
+		<s:else>
+			<a
+				href='<s:url action="ProductListAction">
+				<s:param name="pageNum" value="pageNum+1"/>
+				<s:param name="listFlg" value="listFlg" />
+				</s:url>'><span>&laquo;<s:text name="戻る" /></span></a>
+		</s:else>
+		</s:if>
+	</s:if>
+
+
+
 
 </body>
 </html>

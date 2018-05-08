@@ -95,7 +95,7 @@ public class ProductDetailsDAO {
 		Connection con = db.getConnection();
 
 		//同カテ商品取得
-		String sql = "SELECT * FROM product_info WHERE status = 1 AND product_id NOT IN(?) ORDER BY RAND() LIMIT 3 ";
+		String sql = "SELECT * FROM  product_info WHERE status = 1 AND category_id NOT IN(?) ORDER BY RAND() LIMIT 3 ";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, productId);

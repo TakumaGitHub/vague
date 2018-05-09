@@ -49,8 +49,9 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	public String execute() throws SQLException{
 		String result =ERROR;
 		String userId;
+		LoginUserDTO loginUserDTO = new LoginUserDTO();
 	//ログイン判定
-	if((boolean)session.get("loginFlg")){
+		if(session.containsKey("LoginUserDTO")){
 		userId=((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 	}
 	else{
@@ -60,7 +61,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	CartDAO cartDAO=new CartDAO();
 	cartList=cartDAO.getCartInfo(userId);
 
-	if((boolean)session.get("loginFlg")){
+	if(userId!=null){
 		AddressDAO addressInfoDAO=new AddressDAO();
 		addressDTOList.addAll(addressInfoDAO.getAddressInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId()));
 	}
@@ -75,7 +76,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	//在庫オーバー時の処理
 	BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 	cartList=buyItemCompleteDAO.getCart(userId);
-	CartDeleteDAO cartDeleteDAO = new CartDeleteDAO();
 	int stockOverDelete;
 
 	if(cartList.size()>0){

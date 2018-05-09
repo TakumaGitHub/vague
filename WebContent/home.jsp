@@ -53,11 +53,11 @@
 
 			<h2>ログイン認証</h2>
 
-			<s:form action="vague/userInterface.jsp" method="post">
+			<form action="/vague/userInterface.jsp" method="post">
 
 				<input type="submit" value="一般ユーザーでログインする" />
 
-			</s:form>
+			</form>
 
 
 			<h2>ログインユーザーのレビュー</h2>

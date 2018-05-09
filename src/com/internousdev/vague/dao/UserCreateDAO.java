@@ -51,7 +51,7 @@ public class UserCreateDAO {
 	public LoginUserDTO getUserInfo(String userId,String password) throws SQLException{
 
 		LoginUserDTO dto = new LoginUserDTO();
-		String sql = "SELECT * from user_info WHERE user_id=? AND password=?";
+		String sql = "SELECT * from user_info WHERE user_id = ? AND password = ?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -10,11 +10,11 @@
 
 </head>
 <body>
-	<br><h3>ユーザー名とパスワードを入力してください。</h3>
-	<s:form acion="userCreate">
-		ユーザー名：<input type="text" name="userName">
+	<br><h3>ログインIDとパスワードを入力してください。</h3>
+	<s:form action="LoginAction">
+		ログインID：<input type="text" name="userId">
 		<br>
-		パスワード：<input type="text" name="userPassword">
+		パスワード：<input type="text" name="password">
 		<s:submit value="ログイン"/>
 	</s:form>
 

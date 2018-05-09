@@ -13,7 +13,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class CartInsertAction extends ActionSupport implements SessionAware {
 	private Map<String,Object>session;
-	private String SUCCESS;
 	private String userId ;
 	private int productId;
 	private int productCount;
@@ -49,14 +48,12 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			}else{
 			session.put("ProductCount", productCount);
 			}
-			System.out.println(productCount);
 			int intCount = Integer.parseInt(session.get("ProductCount").toString());
 
 			int Price = detail.getPrice();
 			session.put("productTotalPrice", intCount * Price);
 
 			productTotalPrice = (int)session.get("productTotalPrice");
-			System.out.println(productTotalPrice);
 
 			cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
 

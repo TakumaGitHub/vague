@@ -9,11 +9,11 @@
 </head>
 <body>
 
-	<s:if test='cartDTOList.isEmpty()'>
+	<s:if test='#session.CartDTOList.isEmpty()'>
 		<p>かーとに入れた商品はありません。</p>
 	</s:if>
 	<s:else>
-		<s:iterator value="cartDTOList">
+		<s:iterator value="#session.CartDTOList">
 			<s:property value="productName" />
 			<s:property value="productNameKana" />
 			<s:property value="releaseDate" />
@@ -27,12 +27,11 @@
 				<s:submit value="削除"/>
 			</s:form>
 		</s:iterator>
-			<s:property value="totalPrice" />
+			<s:property value="#session.CartTotalPrice" />
 	</s:else>
-	<%-- <s:form action="BuyItemConfirmAction">
+	<s:form action="BuyItemConfirmAction">
 		<s:submit value="決済"/>
 	</s:form>
- --%>
 
 
 </body>

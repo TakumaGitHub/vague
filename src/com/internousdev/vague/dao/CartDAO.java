@@ -19,7 +19,7 @@ public class CartDAO {
 		Connection con = dbConnector.getConnection();
 		ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
-		String sql = "select * from cart_info left outer join product_info ON cart_info.product_id= product_info.product_id where user_id = ?";
+		String sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where user_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -34,7 +34,7 @@ public class CartDAO {
 				cartDTO.setProductCount(rs.getInt("product_count"));
 				cartDTO.setProductTotalPrice(rs.getInt("cart_info.price"));//指定の仕方怪しい
 				cartDTO.setImageFilePath(rs.getString("image_file_path"));
-				cartDTO.setReleaseConpany(rs.getString("release_conpany"));
+				cartDTO.setReleaseConpany(rs.getString("release_company"));
 				cartDTO.setReleaseDate(rs.getString("release_date"));
 				cartDTO.setProductStock(rs.getInt("product_stock"));
 				cartDTOList.add(cartDTO);

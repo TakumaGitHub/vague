@@ -113,5 +113,9 @@
 		<result name="success" type="chain">CartAction</result>
 		</action>
 
+
+		<!--カートのアクション -->
+
+
 	</package>
 </struts>

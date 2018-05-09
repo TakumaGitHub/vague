@@ -141,7 +141,7 @@ public class InputChecker {
 		}
 
 	//郵便番号エラーメッセージ管理
-	public static String zip11Chk(String zip11) {
+	public static String postalCodeChk(String zip11) {
 		String result = "TRUE";
 
 		if(zip11.equals("")) {

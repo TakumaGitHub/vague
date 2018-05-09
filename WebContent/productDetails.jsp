@@ -17,76 +17,91 @@
 
 
 
-	<%-- <s:form action="CartProductAction" name="select"> --%>
-	<table class="detailsTable">
-	<tr>
-	<th>
-		<!-- カテゴリ分類 -->
-		<span>
-			<s:if test="#session.category_id==1">
-				<h2>Chair</h2>
-			</s:if>
-			<s:if test="#session.category_id==2">
-				<h2>Sofa</h2>
-			</s:if>
-			<s:if test="#session.category_id==3">
-				<h2>Lighting</h2>
-			</s:if>
-			<s:if test="#session.category_id==4">
-				<h2>Table</h2>
-			</s:if>
-		</span>
-	</th>
-	</tr>
-<!-- 画像の表示 -->
-	<tr>
-	<td>
-		<span>
-			<img class="image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="max-width:400px; max-height:300px;">
-		</span>
-	</td>
-<!-- 商品名 -->
-	<td>
-		<span>
-			<s:property value="#session.DetailProductDTO.productName"/>
-		</span>
-	</td>
-<!-- 商品名かな -->
-	<td>
-		<span>
-			<s:property value="#sessioon.DetailProductDTO.productNameKana"/>
-		</span>
-	</td>
-<!-- 商品詳細 -->
-	<td>
-		<span>
-			<s:property value="#session.DetailProductDTO.productDescription"/>
-		</span>
-	</td>
-<!-- 在庫  -->
-	<td>
-		<span>
-			<select name="product_stock">
-			<option value="1" selected="selected">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-			</select>
-		</span>
-	</td>
-<!-- 金額  -->
-	<td>
-		<s:property value="#session.DetailProductDTO.price"/>
-	</td>
-<!-- 販売会社・販売日  -->
-	<td>
-		<s:property value="#session.DetailProductDTO.releaseCompany"/>
-		<s:property value="#session.DetailProductDTO.releaseDate"/>
-	</td>
-	</tr>
-	</table>
-<%-- </s:form> --%>
+	<s:form action="CartInsertAction">
+		<table class="detailsTable">
+		<tr>
+		<th>
+			<!-- カテゴリ分類 -->
+			<span>
+				<s:if test="#session.category_id==1">
+					<h2>Chair</h2>
+				</s:if>
+				<s:if test="#session.category_id==2">
+					<h2>Sofa</h2>
+				</s:if>
+				<s:if test="#session.category_id==3">
+					<h2>Lighting</h2>
+				</s:if>
+				<s:if test="#session.category_id==4">
+					<h2>Table</h2>
+				</s:if>
+			</span>
+		</th>
+		</tr>
+	<!-- 画像の表示 -->
+		<tr>
+		<td>
+			<span>
+				<img class="image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="max-width:400px; max-height:300px;">
+			</span>
+		</td>
+	<!-- 商品名 -->
+		<td>
+			<span>
+				<s:property value="#session.DetailProductDTO.productName"/>
+			</span>
+		</td>
+	<!-- 商品名かな -->
+		<td>
+			<span>
+				<s:property value="#sessioon.DetailProductDTO.productNameKana"/>
+			</span>
+		</td>
+	<!-- 商品詳細 -->
+		<td>
+			<span>
+				<s:property value="#session.DetailProductDTO.productDescription"/>
+			</span>
+		</td>
+	<!-- 在庫  -->
+		<td>
+			<span>
+				<select name="productCount">
+
+					<s:if test="#session.DetailProductDTO.productStock < 5">
+
+						<s:iterator begin="1" end="#session.DetailProductDTO.productStock" step="1" status="st" >
+							<option value="<s:property value='#st.count' />" ><s:property value='#st.count' /></option>
+						</s:iterator>
+
+					</s:if>
+					<s:else>
+
+						<option value="1" selected="selected">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+
+					</s:else>
+
+
+				</select>
+			</span>
+		</td>
+	<!-- 金額  -->
+		<td>
+			<s:property value="#session.DetailProductDTO.price"/>
+		</td>
+	<!-- 販売会社・販売日  -->
+		<td>
+			<s:property value="#session.DetailProductDTO.releaseCompany"/>
+			<s:property value="#session.DetailProductDTO.releaseDate"/>
+		</td>
+		</tr>
+		</table>
+		<s:submit value="カートに入れる"/>
+    </s:form>
 
 <!-- オススメリスト -->
 <s:iterator value="#session.SuggestList">

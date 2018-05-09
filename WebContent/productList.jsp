@@ -90,8 +90,9 @@
        <s:if test="status == 1" >
 
                <div>
-
+					   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>">
                        <img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
+                       </a>
                        <p><s:property value="productName" /></p>
 
                </div>

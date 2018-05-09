@@ -92,7 +92,7 @@
     			<tr>
 
     				<th>更新する画像</th>
-    				<td><img src="<s:property value='#session.MasterChangeCompleteDTO.fromImageFilePath' />" width="200" height="auto" /></td>
+    				<td><img src="<s:property value='#session.MasterChangeCompleteDTO.productDTO.imageFilePath' />" width="200" height="auto" /></td>
 
     			</tr>
 

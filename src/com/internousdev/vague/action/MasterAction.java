@@ -82,7 +82,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 		}
 
 
-
+		//検索キーワードのエラーチェック
 		inputErrorMsg = InputChecker.keywordChk(retrievalValue);
 
 		productSearchDTOList = productSearchDAO.search(retrievalValue, category_id, rule);

@@ -44,21 +44,12 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	private ReviewDTO review = new ReviewDTO();
 	private ReviewDAO reviewDAO = new ReviewDAO();
 
-	public String execute(int product_id) throws SQLException {
+	public String execute() throws SQLException {
 		//商品詳細取得
 		try {
 			detail = productDetailsDAO.getProductDetailsInfo(productId);
 			if(detail != null){
-				session.put("product_id", detail.getProductId());
-				session.put("image_file_path", detail.getImageFilePath());
-				session.put("product_name", detail.getProductName());
-				session.put("product_name_kana", detail.getProductNameKana());
-				session.put("product_description", detail.getProductDescription());
-				session.put("release_date", detail.getReleaseDate());
-				session.put("price", detail.getPrice());
-				session.put("release_company", detail.getReleaseCompany());
-				session.put("product_stock", detail.getProductStock());
-				session.put("category_id", detail.getCategoryId());
+				session.put("DetailProductDTO", detail);
 			}else{
 				return ERROR;
 			}
@@ -72,15 +63,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		try {
 			suggestList = productDetailsDAO.getSuggestProductInfo(productId);
 			if(suggestList != null) {
-				session.put("image_file_path", detail.getImageFilePath());
-				session.put("product_name", detail.getProductName());
-				session.put("product_name_kana", detail.getProductNameKana());
-				session.put("product_description", detail.getProductDescription());
-				session.put("product_price", detail.getPrice());
-				session.put("release_date", detail.getReleaseDate());
-				session.put("release_company", detail.getReleaseCompany());
-				session.put("product_id", detail.getProductId());
-				session.put("category_id", detail.getCategoryId());
+				session.put("SuggestList", suggestList);
 
 			}else{
 				return ERROR;
@@ -91,15 +74,9 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		}
 		//レビュー情報取得
 		try {
-			reviewList = reviewDAO.searchProductDetails(product_id) ;
+			reviewList = reviewDAO.searchProductDetails(Integer.parseInt(productId)) ;
 			if(reviewList != null){
-				session.put("review_title", review.getReviewTitle());
-				session.put("user_id", review.getUserId());
-				session.put("product_id", review.getProductId());
-				session.put("review_body", review.getReviewBody());
-				session.put("insert_date", review.getInsertDate());
-				session.put("review_score", review.getReviewScore());
-				session.put("update_date", review.getUpdateDate());
+				session.put("ReviewList", reviewList);
 
 			}else{
 				return ERROR;
@@ -112,7 +89,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		for(int i = 1; i <= detail.getProductStock(); i++) {
 			stockList.add(i);
 		}
-		if (session.get("category_id").equals("")) {
+		if (session.get("category_id") != null) {
 			return ERROR;
 		}
 		String result = SUCCESS;

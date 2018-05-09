@@ -70,7 +70,7 @@
 	</s:if>
 
 <!-- 検索結果 -->
-<h3>商品の検索結果</h3>
+
        <s:if test="#session.SearchListLength != null">
 
                <span>ページ数</span>

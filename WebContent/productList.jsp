@@ -21,6 +21,7 @@
 
 <!-- 一覧ボタン押下 -->
 <s:iterator value="displayList">
+
 <div class="itemList">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
 		<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>">
@@ -70,7 +71,7 @@
 	</s:if>
 
 <!-- 検索結果 -->
-<h3>商品の検索結果</h3>
+
        <s:if test="#session.SearchListLength != null">
 
                <span>ページ数</span>

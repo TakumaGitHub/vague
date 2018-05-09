@@ -36,10 +36,10 @@ public class CartDTO {
 	public void setImageFilePath(String imageFilePath){
 	this.imageFilePath = imageFilePath;
 	}
-		public String getReleaseConpany(){
+		public String getReleaseCompany(){
 	return releaseCompany;
 	}
-	public void setReleaseConpany(String releaseConpany){
+	public void setReleaseCompany(String releaseConpany){
 	this.releaseCompany = releaseConpany;
 	}
 	public String getReleaseDate(){

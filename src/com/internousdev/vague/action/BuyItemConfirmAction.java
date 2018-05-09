@@ -31,7 +31,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	public ArrayList<AddressDTO> addressList= new ArrayList<AddressDTO>();
 	private int finallyTotalPrice;
-	private ArrayList<CartDTO> cartInfoList= new ArrayList<CartDTO>();
+	private ArrayList<CartDTO> cartListInfo= new ArrayList<CartDTO>();
 	private int cartTotalPrice;
 	private String errorMessage;
 
@@ -58,7 +58,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	}
 	//ログインユーザーのカート情報取得
 	CartDAO cartDAO=new CartDAO();
-	cartList=cartDAO.getUserCartList(userId);
+	cartList=cartDAO.getCartInfo(userId);
 
 	if((boolean)session.get("loginFlg")){
 		AddressDAO addressInfoDAO=new AddressDAO();
@@ -107,7 +107,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		totalPrice += dto.getPrice();
 	}
 	for(int i=0; i<cartList.size(); i++){
-		finallyTotalPrice += cartList.get(i).getTotalPrice();
+		finallyTotalPrice += cartList.get(i).getPrice();
 	}
 
 	if(addressDTOList.size()>0){

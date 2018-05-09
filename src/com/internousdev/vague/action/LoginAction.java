@@ -22,7 +22,7 @@ public class LoginAction extends ActionSupport{
 			result = ERROR;
 			dto = dao.getUserInfo(userId,password);
 			//dtoをセッションに格納
-			session.put("loginUser",dto);
+			session.put("LoginUserDTO",dto);
 
 			if(dto.getUserId() != null){
 				result = SUCCESS;

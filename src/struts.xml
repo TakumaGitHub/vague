@@ -101,15 +101,15 @@
 		</action>
 
 		<!--カートのアクション -->
-		<action name="CartAction" class="com.internousdev.ecsite.action.CartAction" method="execute">
+		<action name="CartAction" class="com.internousdev.vague.action.CartAction" method="execute">
 		<result name="success">cart.jsp</result>
 		</action>
 
-		<action name="CartInsertAction" class="com.internousdev.ecsite.action.CartInsertAction" method="execute">
+		<action name="CartInsertAction" class="com.internousdev.vague.action.CartInsertAction" method="execute">
 		<result name="success" type="chain">cart.jsp</result>
 		</action>
 
-		<action name="CartDeleteAction" class="com.internousdev.ecsite.action.CartDeleteAction" method="execute">
+		<action name="CartDeleteAction" class="com.internousdev.vague.action.CartDeleteAction" method="execute">
 		<result name="success" type="chain">CartAction</result>
 		</action>
 

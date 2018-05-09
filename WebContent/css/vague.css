@@ -1,0 +1,435 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/earlyaccess/mplus1p.css);
+
+/* ======== Reset Css→ ======== */
+
+body {
+
+	margin : 0;
+	padding : 0;
+	padding-top : 150px;
+
+}
+
+div {
+	margin : 0;
+	padding : 0;
+	border : none;
+}
+
+a {
+	text-decoration : none;
+	color : black;
+	transition : all 0.3s;
+}
+
+a:hover {
+	color: grey;
+	opacity : 0.8;
+}
+
+ol,ul {
+	list-style : none;
+	margin : 0;
+	padding : 0;
+}
+
+img {
+
+	margin : 0;
+	padding : 0;
+	vertical-align: middle;
+
+}
+
+
+
+form {
+
+	margin : 0;
+	padding : 0;
+
+}
+
+/* ======== →Reset Css ======== */
+
+/* ======== 共通のCss→ ======== */
+
+body {
+    background-color: #faf9f4;
+    font-family: 'Mplus 1p',sans-serif;
+    font-size : 16px;
+}
+
+h1,h2,h3,h4,h5 {
+
+    font-family: "Yu Gothic Medium",Yu Gothic, sans-serif;
+
+}
+
+.container {
+
+    overflow : hidden;
+    width : 1080px;
+    padding : 0 10px;
+    margin : 0 auto;
+
+
+}
+
+/* ======== 各部品のCss→ ======== */
+
+input,textarea {
+
+	margin-top : 0.5em;
+	padding : 6px;
+
+	font-family : 'Mplus 1p';
+	font-size : 1rem;
+
+	border : 1px solid #ccc;
+	border-radius : 6px;
+}
+
+
+
+input:valid {
+
+    background-color: transparent;
+}
+
+input:focus {
+
+	background-color : #fff0b5;
+
+}
+
+input[type="submit"] {
+
+	display : block;
+	cursor : pointer;
+    padding : 10px 20px;
+    margin : 10px auto;
+    position : relative;
+
+	border : none;
+    border-radius: 10px;
+    border-bottom : 3px solid #7379AE;
+
+    background-color : #A4A9CF;
+
+    font-size : 1rem;
+    font-weight : bold;
+    color: #fff;
+
+    transition : all 0.3s;
+
+
+}
+
+input[type="submit"]:hover {
+
+	border : none;
+	border-bottom : 3px solid transparent;
+	top : 3px;
+    opacity : 0.7;
+}
+
+select {
+
+	width : 150px;
+	height : 30px;
+	pading-left : 5px;
+
+}
+
+.introduce-msg {
+
+	position: relative;
+	padding: 0.6em;
+	background: #e0edff;
+
+}
+
+.introduce-msg:after {
+
+position: absolute;
+content: '';
+top: 100%;
+left: 30px;
+border: 15px solid transparent;
+border-top: 15px solid #e0edff;
+width: 0;
+height: 0;
+}
+
+
+.small-msg {
+
+	margin : 0;
+	padding : 0;
+	font-size :14px;
+	font-family : 'Impact';
+}
+
+.error-msg, .caution-msg {
+
+	color :red;
+
+}
+
+.error-msg {
+
+	font-weight : bold;
+
+}
+
+/*.check-box {
+
+	display : inline-block;
+	position :relative;
+	box-sizing : border-box;
+	border : 1px solid black;
+
+	border-radius : 6px;
+
+	width : 16px;
+	height : 16px;
+	cursor : pointer;
+
+	background-color : white;
+
+}*/
+
+
+/* ======== →各部品のCss ======== */
+
+
+/* ======== headerのcss→ ======== */
+
+header {
+
+	z-index : 50;
+	position : fixed;
+	top : 0;
+	left : 0;
+
+
+    width : 100%;
+    height : 125px;
+    padding-top : 25px;
+    background-color: #FFEA2A;
+
+}
+
+#header-left {
+
+	width : 30%;
+    height : 80px;
+
+	float: left;
+	color : black;
+	text-align : center;
+	font-weight : bold;
+
+}
+
+#header-center {
+
+	width : 40%;
+    /* height : 120px; */
+	text-align : center;
+	float: left;
+
+}
+
+#header-right {
+
+	width : 30%;
+    height : 80px;
+	color : black;
+	float: left;
+
+}
+
+
+
+
+
+
+#header-left p {
+   line-height: 55px;
+}
+
+
+#header-center img {
+
+	width : 350px;
+	height : auto;
+	margin-bottom : 4px;
+}
+
+#header-center p {
+
+	text-shadow : 2px 2px rgba(100,100,100,0.4);
+
+}
+
+
+#header-right i {
+
+	font-size : 12px;
+
+}
+
+
+#header-right ul {
+
+	text-align : center;
+	margin-top : 28px;
+}
+
+#header-right li {
+
+	display : inline-block;
+	background-color : white;
+
+	height : 35px;
+	padding : 0px 8px;
+	margin-left: 5px;
+
+	font-size : 12px;
+	font-weight : bold;
+	line-height : 35px;
+	border-radius : 4px;
+
+}
+
+
+
+#header-right img {
+
+    margin-bottom : 3px;
+	margin-left: 8px;
+}
+
+
+  /* スクロールボタン→ */
+
+  #scroll-button {
+
+	cursor : pointer;
+
+  	width : 50px;
+  	height : 50px;
+
+	z-index : 100;
+  	position : fixed;
+
+  	bottom : 40px;
+  	right : -55px;
+
+	border-radius : 50%;
+	overflow : hidden;
+
+  }
+
+  #scroll-button img {
+
+  	width : 100%;
+  	height : auto;
+  	background-color : white;
+
+  }
+
+
+
+  /* →スクロールボタン */
+
+
+/* ======== →headerのcss ======== */
+
+
+/* ======== head-logoのcss→ ======== */
+
+
+#head-logo {
+
+	width : 100%;
+	height : 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    position : relative;
+
+
+}
+
+#head-logo-wrapper {
+
+	width :100%;
+	height : 100%;
+	opacity : 0;
+
+	background-color : white;
+
+	position : absolute;
+	top : 0;
+	left : 0;
+
+}
+
+
+
+
+/* ======== →head-logoのcss ======== */
+
+
+
+/* ======== mainのcss→ ======== */
+
+
+#main {
+
+	overflow : hidden;
+	margin-top : 60px;
+
+
+
+}
+
+
+
+/* ======== →mainのcss ======== */
+
+
+/* ======== footerのCss→ ======== */
+
+footer {
+
+	height : 110px;
+	margin-top : 60px;
+	padding-top : 30px;
+	padding-bottom : 80px;
+
+	text-align : center;
+	background-color : #FFEA2A ;
+
+}
+
+footer h2 {
+
+	font-size : 40px;
+	padding : 0;
+	margin : 0;
+	margin-bottom : 30px;
+}
+
+/* ======== →footerのCss ======== */
+
+
+
+
+
+/* ======== →共通のCss ======== */

@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.MasterDTO;
 import com.internousdev.vague.dto.ProductDTO;
 
 public class InputChecker {
+
 
 	//姓エラーメッセージ管理
 	public static String familyNameChk(String familyName) {
@@ -93,6 +95,79 @@ public class InputChecker {
 		}
 		return result;
 	}
+
+	//新規ユーザー登録エラーメッセージ管理
+	public static Map<String, String> createNewUserChk(LoginUserDTO loginUserDTO){
+
+		Map<String,String> result = new HashMap<String,String>();
+
+		//姓エラーメッセージ管理
+		if(loginUserDTO.getFamilyName().equals("")) {
+			result.put("familyName", "【姓を入力してください】");
+		}else if(loginUserDTO.getFamilyName().length() < 1 || loginUserDTO.getFamilyName().length() > 16) {
+			result.put("familyName", "【姓は1文字以上16文字以下で入力してください】");
+		}else if(!loginUserDTO.getFamilyName().matches("^[a-zA-Zぁ-ゞ一-龠々]+$")) {
+			//"^[]+$"で囲われた文字以外が使われた時
+			result.put("familyName", "【姓は半角英語、漢字、ひらがなで入力してください】");
+		}
+
+
+		//名前エラーメッセージ管理
+		if(loginUserDTO.getFirstName().equals("")) {
+			result.put("firstName", "【名前を入力してください】");
+		}else if(loginUserDTO.getFirstName().length() < 1 || loginUserDTO.getFirstName().length() > 16) {
+			result.put("firstName", "【名前は1文字以上16文字以下で入力してください】");
+		}else if(!loginUserDTO.getFirstName().matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
+			result.put("firstName", "【名前は半角英語、漢字、ひらがなで入力してください】");
+		}
+
+		//姓仮名エラーメッセージ管理
+		if(loginUserDTO.getFamilyNameKana().equals("")) {
+			result.put("familyNameKana", "【姓のふりがなを入力してください】");
+		}else if(loginUserDTO.getFamilyNameKana().length() < 1 || loginUserDTO.getFamilyNameKana().length() > 16) {
+			result.put("familyNameKana", "【姓のふりがなは1文字以上16文字以下で入力してください】");
+		}else if(!loginUserDTO.getFamilyNameKana().matches("^[ぁ-ゞ]+$")){
+			result.put("familyNameKana", "【姓のふりがなはひらがなで入力してください】");
+		}
+
+		//名前仮名エラーメッセージ管理
+		if(loginUserDTO.getFirstNameKana().equals("")) {
+			result.put("firstNameKana", "【名前のふりがなを入力してください】");
+		}else if(loginUserDTO.getFirstNameKana().length() < 1 || loginUserDTO.getFirstNameKana().length() > 16) {
+			result.put("firstNameKana", "【名前のふりがなは1文字以上16文字以下で入力してください】");
+		}else if(!loginUserDTO.getFirstNameKana().matches("^[ぁ-ゞ]+$")){
+			result.put("firstNameKana", "【名前のふりがなはひらがなで入力してください】");
+		}
+
+
+		//ユーザーIDエラーメッセージ管理
+
+		if(loginUserDTO.getUserId().equals("")) {
+			result.put("userId", "【ユーザーIDを入力してください】");
+		}else if(loginUserDTO.getUserId().length() < 1 || loginUserDTO.getUserId().length() > 8) {
+			result.put("userId", "【ユーザーIDは1文字以上8文字以下で入力してください】");
+		}else if(!loginUserDTO.getUserId().matches("^[a-zA-Z0-9]+$")) {
+			result.put("userId", "【ユーザーIDは半角英数字で入力してください】");
+		}
+
+		//パスワードエラーメッセージ管理
+		if(loginUserDTO.getPassword().equals("")) {
+			result.put("password", "【パスワードを入力してください】");
+		}else if(loginUserDTO.getPassword().length() < 1 || loginUserDTO.getPassword().length() > 16) {
+			result.put("password", "【パスワードは1文字以上16文字以下で入力してください】");
+		}else if(!loginUserDTO.getPassword().matches("^[a-zA-Z0-9]+$")) {
+			result.put("password", "【パスワードは半角英数字で入力してください】");
+		}
+
+		return result;
+
+
+
+	}
+
+
+
+
 
 	//新しいパスワードエラーメッセージ管理
 	public static String newPasswordChk(String newPassword) {

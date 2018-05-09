@@ -3,6 +3,7 @@ package com.internousdev.vague.action;
 import java.sql.SQLException;
 import java.util.Map;
 
+import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dao.UserCreateDAO;
 import com.internousdev.vague.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +27,10 @@ public class LoginAction extends ActionSupport{
 
 			if(dto.getUserId() != null){
 				result = SUCCESS;
+				//ログイン成功時に以下を使用
+				CartDAO cartDAO = new CartDAO();
+				String tempUserId = session.get("tempUserId").toString();
+				cartDAO.changeTempUserId(userId,tempUserId);
 			}
 			return result;
 		}catch (SQLException e){

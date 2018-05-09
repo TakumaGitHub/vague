@@ -29,10 +29,10 @@
 		</s:iterator>
 			<s:property value="totalPrice" />
 	</s:else>
-	<s:form action="BuyItemConfirmAction">
+	<%-- <s:form action="BuyItemConfirmAction">
 		<s:submit value="決済"/>
 	</s:form>
-
+ --%>
 
 
 </body>

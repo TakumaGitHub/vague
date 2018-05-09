@@ -34,7 +34,7 @@ public class ProductSearchDAO {
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		String sql = "SELECT * FROM  product_info WHERE product_id = ?";
+		String sql = "SELECT * FROM  product_info WHERE product_id = ? AND status = 1";
 
 
 		try{
@@ -136,7 +136,7 @@ public class ProductSearchDAO {
 
 			if(category_id != 0){
 
-				sql += " AND category_id = " + category_id;
+				sql += " AND category_id = " + category_id + " AND status = 1 ";
 
 			}
 

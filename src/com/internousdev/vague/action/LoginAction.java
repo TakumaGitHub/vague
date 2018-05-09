@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dao.UserCreateDAO;
-import com.internousdev.vague.dto.LoginDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport{
@@ -17,7 +17,7 @@ public class LoginAction extends ActionSupport{
 
 	public String execute() throws SQLException {
 		UserCreateDAO dao = new UserCreateDAO();
-		LoginDTO dto = new LoginDTO();
+		LoginUserDTO dto = new LoginUserDTO();
 
 		try{
 			result = ERROR;

@@ -69,6 +69,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 			category_id = Integer.parseInt(session.get("retrievalCategory_id").toString());
 			rule = Integer.parseInt(session.get("retrievalRule").toString());
 
+
 		}else if(deleteFlg == 2){
 
 			//全ての商品を削除する
@@ -78,7 +79,6 @@ public class MasterAction extends ActionSupport implements SessionAware {
 			retrievalValue = session.get("retrievalValue").toString();
 			category_id = Integer.parseInt(session.get("retrievalCategory_id").toString());
 			rule = Integer.parseInt(session.get("retrievalRule").toString());
-
 		}
 
 

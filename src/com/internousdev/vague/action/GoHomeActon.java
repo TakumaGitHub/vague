@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class GoHomeActon extends ActionSupport implements SessionAware{
@@ -41,7 +40,7 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 		}
 
-		LoginUserDTO loginUserDTO = new LoginUserDTO();
+		/*LoginUserDTO loginUserDTO = new LoginUserDTO();
 
 		if(mFlg == 1){
 
@@ -65,7 +64,7 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 		}
 
-		session.put("LoginUserDTO", loginUserDTO);
+		session.put("LoginUserDTO", loginUserDTO);*/
 
 
 

@@ -53,16 +53,9 @@
 
 			<h2>ログイン認証</h2>
 
-			<s:form action="GoHomeActon" method="post">
+			<s:form action="vague/userInterface.jsp" method="post">
 
 				<input type="submit" value="一般ユーザーでログインする" />
-
-			</s:form>
-
-			<s:form action="GoHomeActon" method="post">
-
-				<input type="hidden" name="mFlg" value="1" />
-				<input type="submit" value="管理者ユーザーでログインする" />
 
 			</s:form>
 

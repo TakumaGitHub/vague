@@ -14,13 +14,13 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	private int productId ;
 	private Map<String,Object>session;
 	private String result = SUCCESS;
-	LoginUserDTO loginUserDTO = new LoginUserDTO();
-	CartDAO cartDAO = new CartDAO();
 
 	public String execute(){
-		boolean loginFlg = (boolean) session.get("loginFlg");
+		LoginUserDTO loginUserDTO = new LoginUserDTO();
+		CartDAO cartDAO = new CartDAO();
+
 		try{
-			if(loginFlg){
+			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
 			}

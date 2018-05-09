@@ -73,22 +73,22 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	public void setUserId(String userId){
 	this.userId = userId;
 	}
-	public String getproductId(){
+	public int getProductId(){
 	return productId;
 	}
-	public void setproductId(String productId){
+	public void setProductId(int productId){
 	this.productId = productId;
 	}
-	public int getproductCount(){
+	public int getProductCount(){
 	return productCount;
 	}
-	public void setproductCount(int productCount){
+	public void setProductCount(int productCount){
 	this.productCount = productCount;
 	}
-	public int getproductTotalPrice(){
+	public int getProductTotalPrice(){
 	return productTotalPrice;
 	}
-	public void setproductTotalPrice(int productTotalPrice){
+	public void setProductTotalPrice(int productTotalPrice){
 	this.productTotalPrice = productTotalPrice;
 	}
 

@@ -47,7 +47,7 @@ public class CartDAO {
 		return cartDTOList;
 	}
 
-		public void getCartInsertInfo(String userId,String productId,int productCount,int productTotalPrice) throws SQLException{
+		public void getCartInsertInfo(String userId,int productId,int productCount ,int productTotalPrice) throws SQLException{
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
@@ -56,7 +56,7 @@ public class CartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, userId);
-			ps.setString(3, productId);
+			ps.setInt(3, productId);
 			ps.setInt(4, productCount);
 			ps.setInt(5, productTotalPrice);
 			ps.setString(6, dateUtil.getDate());
@@ -71,7 +71,7 @@ public class CartDAO {
 	}
 
 
-	public int getproductCount(String userId,String productId)throws SQLException{
+	public int getProductCount(String userId,int productId)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		int productCount = 0;
@@ -81,7 +81,7 @@ public class CartDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, productId);
+			ps.setInt(2, productId);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -97,7 +97,7 @@ public class CartDAO {
 	}
 
 
-	public void cartDeleteInfo(String userId, String productId) throws SQLException {
+	public void cartDeleteInfo(String userId, int productId) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 
@@ -105,7 +105,7 @@ public class CartDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, productId);
+			ps.setInt(2, productId);
 			ps.executeUpdate();
 
 		}catch(SQLException e){
@@ -131,7 +131,7 @@ public class CartDAO {
 		}
 	}
 
-	public boolean duplicates(String userId, String productId) throws SQLException{
+	public boolean duplicates(String userId, int productId) throws SQLException{
 		boolean result = false;
 		String duplicate = null;
 		DBConnector dbConnector = new DBConnector();
@@ -140,7 +140,7 @@ public class CartDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, productId);
+			ps.setInt(2, productId);
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){

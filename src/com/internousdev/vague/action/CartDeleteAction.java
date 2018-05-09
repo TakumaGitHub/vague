@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 	private String userId;
-	private String productId ;
+	private int productId ;
 	private Map<String,Object>session;
 	private String result = SUCCESS;
 	LoginUserDTO loginUserDTO = new LoginUserDTO();
@@ -22,7 +22,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 		try{
 			if(loginFlg){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
-				userId = loginUserDTO.getLoginId();
+				userId = loginUserDTO.getUserId();
 			}
 			else{
 				userId = session.get("TempUserId").toString();
@@ -41,10 +41,10 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	public void setUserId(String userId){
 	this.userId = userId;
 	}
-	public String getProductId(){
+	public int getProductId(){
 	return productId;
 	}
-	public void setProductId(String productId){
+	public void setProductId(int productId){
 	this.productId = productId;
 	}
 	public Map<String, Object> getSession() {

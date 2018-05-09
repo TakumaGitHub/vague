@@ -9,7 +9,9 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.AddressDAO;
 import com.internousdev.vague.dao.BuyItemCompleteDAO;
+import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dto.AddressDTO;
+import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.dto.LoginUserDTO;
 /*
  * 決済確認画面に行くためのアクション
@@ -24,12 +26,12 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private Map<String,Object> session;
 	private int totalPrice=0;//合計金額
 	private int productCount;//個数
-	private List<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();//カート情報一覧
+	private List<CartDTO> cartList=new ArrayList<CartDTO>();//カート情報一覧
 	private ArrayList<AddressDTO> addressDTOList = new ArrayList<AddressDTO>();//宛先情報一覧
 
 	public ArrayList<AddressDTO> addressList= new ArrayList<AddressDTO>();
 	private int finallyTotalPrice;
-	private ArrayList<CartInfoDTO> cartInfoList= new ArrayList<CartInfoDTO>();
+	private ArrayList<CartDTO> cartInfoList= new ArrayList<CartDTO>();
 	private int cartTotalPrice;
 	private String errorMessage;
 
@@ -55,8 +57,8 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		userId=session.get("tempUserId").toString();
 	}
 	//ログインユーザーのカート情報取得
-	CartInfoDAO cartInfoDAO=new CartInfoDAO();
-	cartList=cartInfoDAO.getUserCartList(userId);
+	CartDAO cartDAO=new CartDAO();
+	cartList=cartDAO.getUserCartList(userId);
 
 	if((boolean)session.get("loginFlg")){
 		AddressDAO addressInfoDAO=new AddressDAO();
@@ -72,24 +74,24 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	//在庫オーバー時の処理
 	BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
-	cartInfoList=buyItemCompleteDAO.getCartInfo(userId);
+	cartList=buyItemCompleteDAO.getCart(userId);
 	CartDeleteDAO cartDeleteDAO = new CartDeleteDAO();
 	int stockOverDelete;
 
-	if(cartInfoList.size()>0){
-		for(CartInfoDTO cartInfoDTO:cartInfoList){
+	if(cartList.size()>0){
+		for(CartDTO cartDTO:cartList){
 			//trueのとき在庫オーバー
-			if(cartInfoDTO.getStockFlg()){
+			if(cartDTO.getStockFlg()){
 				//オーバーした商品を削除
-				stockOverDelete=cartDeleteDAO.deleteUserCart(userId,cartInfoDTO.getProductId());
+				stockOverDelete=cartDeleteDAO.deleteUserCart(userId,cartDTO.getProductId());
 				//があるとき
 				if(stockOverDelete > 0){
 
 				//残りのカート情報を取得する
-				cartList=cartInfoDAO.getUserCartList(userId);
+				cartList=cartDAO.getUserCartList(userId);
 
 				//カートの合計金額を計算する
-				for(CartInfoDTO dto: cartInfoList){
+				for(CartDTO dto: cartList){
 					cartTotalPrice += dto.getTotalPrice();
 				}
 				errorMessage = "申し訳ありません。在庫が不足しています。不足した商品をカートから削除しました。";
@@ -101,7 +103,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	}
 	}
 	//カート内の合計
-	for(CartInfoDTO dto:cartList){
+	for(CartDTO dto:cartList){
 		totalPrice += dto.getPrice();
 	}
 	for(int i=0; i<cartList.size(); i++){
@@ -119,10 +121,10 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 }
 
 
-public List<CartInfoDTO> getCartList(){
+public List<CartDTO> getCartList(){
 	return cartList;
 }
-public void setCartList(List<CartInfoDTO> cartList){
+public void setCartList(List<CartDTO> cartList){
 	this.cartList=cartList;
 }
 
@@ -175,12 +177,12 @@ public void setErrorMessage(String errorMessage){
 	this.errorMessage=errorMessage;
 }
 
-public ArrayList<CartInfoDTO> GetcartInfoList() {
-	return cartInfoList;
+public ArrayList<CartDTO> GetcartInfoList() {
+	return cartList;
 }
 
-public void setCartInfoDTOList(ArrayList<CartInfoDTO> cartInfoList) {
-	this.cartInfoList = cartInfoList;
+public void setCartInfoDTOList(ArrayList<CartDTO> cartInfoList) {
+	this.cartList = cartInfoList;
 }
 
 

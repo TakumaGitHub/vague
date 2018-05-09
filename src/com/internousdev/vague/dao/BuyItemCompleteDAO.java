@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.util.DBConnector;
 
 /*
@@ -15,12 +16,12 @@ import com.internousdev.vague.util.DBConnector;
 
 public class BuyItemCompleteDAO {
 	/*
-	 * カート内情報を取得しCartInfoDTOにsetするメソッド
+	 * カート内情報を取得しCartDTOにsetするメソッド
 	 */
-	public ArrayList<CartInfoDTO> getCartInfo(String userId)throws SQLException {
+	public ArrayList<CartDTO> getCartInfo(String userId)throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection= dbConnector.getConnection();
-		ArrayList<CartInfoDTO> cartInfoLIst=new ArrayList<CartInfoDTO>();
+		ArrayList<CartDTO> cartLIst=new ArrayList<CartDTO>();
 
 
 		 //↓cart_info,product_info内の共通product_idで２つのテーブルを結合
@@ -42,7 +43,7 @@ public class BuyItemCompleteDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()){
-				CartInfoDTO dto=new CartInfoDTO();
+				CartDTO dto=new CartDTO();
 				//product_infoテーブル
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
@@ -73,7 +74,7 @@ public class BuyItemCompleteDAO {
 
 	}
 	//product内の情報を取得しproductDTOに格納するメソッド
-	public int updateProductCount(ArrayList<CartInfoDTO> purchasedItems){
+	public int updateProductCount(ArrayList<CartDTO> purchasedItems){
 		DBConnector dbConnector = new DBConnector();
 		Connection connection= dbConnector.getConnection();
 		int result=0;
@@ -82,7 +83,7 @@ public class BuyItemCompleteDAO {
 		try{
 			PreparedStatement ps=connection.prepareStatement(sql);
 
-			for(CartInfoDTO item:purchasedItems){
+			for(CartDTO item:purchasedItems){
 
 				ps.setInt(1, item.getStock() - item.getProductCount());
 				ps.setInt(2, item.getProductId());
@@ -109,7 +110,7 @@ public class BuyItemCompleteDAO {
 	 * purchase_history_infoテーブルに登録
 	 *
 	 */
-	public int setPurchseHistory(List<CartInfoDTO> cartList) throws SQLException{
+	public int setPurchseHistory(List<CartDTO> cartList) throws SQLException{
 		DBConnector db= new DBConnector();
 		Connection con = db.getConnection();
 
@@ -143,7 +144,7 @@ public class BuyItemCompleteDAO {
 	 * cart_infoテーブル内のアイテムを削除
 	 */
 
-	public int deleteCartItems(String userId,ArrayList<CartInfoDTO> purchasedItems){
+	public int deleteCartItems(String userId,ArrayList<CartDTO> purchasedItems){
 		DBConnector db= new DBConnector();
 		Connection con = db.getConnection();
 
@@ -155,7 +156,7 @@ public class BuyItemCompleteDAO {
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 			//購入したアイテムの数だけdeleteを行う
-			for(CartInfoDTO item:purchasedItems){
+			for(CartDTO item:purchasedItems){
 				ps.setString(1, userId);
 				ps.setInt(2, item.getProductId());
 				ret += ps.executeUpdate();

@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.BuyItemCompleteDAO;
+import com.internousdev.vague.dao.CartDAO;
+import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,8 +27,8 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	private Map<String, Object> session;
 
 	private int cartTotalPrice;
-	private ArrayList<CartInfoDTO> cartList=new ArrayList<CartInfoDTO>();
-	private ArrayList<CartInfoDTO> cartInfoList=new ArrayList<CartInfoDTO>();
+	private ArrayList<CartDTO> cartList=new ArrayList<CartDTO>();
+	private ArrayList<CartDTO> cartInfoList=new ArrayList<CartDTO>();
 	private String errorMessage;
 
 
@@ -35,13 +37,11 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		String result = SUCCESS;
 		userId=((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 		BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
-		CartInfoDAO dao = new CartInfoDAO();
-
-		CartDeleteDAO cartDeleteDAO = new CartDeleteDAO();
+		CartDAO dao = new CartDAO();
 
 
 		// カート情報取得（getUserCartInfo)
-		cartList=buyItemCompleteDAO.getCartInfo(userId);
+		cartList=buyItemCompleteDAO.getCart(userId);
 
 
 		//在庫情報を取得
@@ -69,12 +69,13 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 
 			//カートの中身を削除
-			int deletedCount = 0;
-			deletedCount=cartDeleteDAO.deleteAllCartInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId().toString());
-
-			if (deletedCount <= 0) {
-				return ERROR;
-			}
+		   int deleteCount=0;
+		   deleteCount=dao.cartDeleteInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId(),session.get("productId"));
+		   
+		   if(deleteCount<=0){
+			   return ERROR;
+		   }
+		
 
 			cartTotalPrice =cartTotalPrice(getcartList());
 
@@ -85,9 +86,9 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 
 	// 合計金額計算メソッド
-	public int cartTotalPrice(ArrayList<CartInfoDTO> cartList) {
+	public int cartTotalPrice(ArrayList<CartDTO> cartList) {
 		int totalPrice = 0;
-		for (CartInfoDTO dto : cartList) {
+		for (CartDTO dto : cartList) {
 			totalPrice += dto.getPrice() * dto.getProductCount();
 		}
 
@@ -106,11 +107,11 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 	}
 
 
-	public ArrayList<CartInfoDTO> getcartList() {
+	public ArrayList<CartDTO> getcartList() {
 		return cartList;
 	}
 
-	public void setCartInfoDTOList(ArrayList<CartInfoDTO> cartList) {
+	public void setCartInfoDTOList(ArrayList<CartDTO> cartList) {
 		this.cartList = cartList;
 	}
 
@@ -138,11 +139,11 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 		this.errorMessage=errorMessage;
 	}
 
-	public ArrayList<CartInfoDTO> getCartInfoList() {
+	public ArrayList<CartDTO> getCartInfoList() {
 		return cartInfoList;
 	}
 
-	public void setCartInfoList(ArrayList<CartInfoDTO> cartInfoList) {
+	public void setCartInfoList(ArrayList<CartDTO> cartInfoList) {
 		this.cartInfoList = cartInfoList;
 	}
 

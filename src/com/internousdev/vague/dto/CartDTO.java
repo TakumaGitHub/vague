@@ -6,7 +6,7 @@ public class CartDTO {
 	private String productNameKana ;
 	private String imageFilePath ;
 	private int price ;
-	private String releaseConpany ;
+	private String releaseCompany ;
 	private String releaseDate ;
 	private int productTotalPrice ;
 	private int productCount ;
@@ -37,10 +37,10 @@ public class CartDTO {
 	this.imageFilePath = imageFilePath;
 	}
 		public String getReleaseConpany(){
-	return releaseConpany;
+	return releaseCompany;
 	}
 	public void setReleaseConpany(String releaseConpany){
-	this.releaseConpany = releaseConpany;
+	this.releaseCompany = releaseConpany;
 	}
 	public String getReleaseDate(){
 	return releaseDate;

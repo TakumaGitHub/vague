@@ -24,7 +24,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 
 		CartDAO cartDAO = new CartDAO();
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
-		ProductDTO productDTO = new ProductDTO();
+		ProductDTO detail = new ProductDTO();
 
 		try{
 
@@ -37,10 +37,10 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 
 			//合計金額を出すために以下を使用
 
-			productDTO = (ProductDTO)session.get("ProductDTO");
+			detail = (ProductDTO)session.get("DetailProductDTO");
 
 
-			productId = productDTO.getProductId();
+			productId = detail.getProductId();
 
 			if(cartDAO.duplicates(userId,productId)){
 			productCount = productCount + cartDAO.getProductCount(userId,productId);
@@ -49,12 +49,14 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			}else{
 			session.put("ProductCount", productCount);
 			}
+			System.out.println(productCount);
 			int intCount = Integer.parseInt(session.get("ProductCount").toString());
 
-			int Price = productDTO.getPrice();
+			int Price = detail.getPrice();
 			session.put("productTotalPrice", intCount * Price);
 
 			productTotalPrice = (int)session.get("productTotalPrice");
+			System.out.println(productTotalPrice);
 
 			cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
 

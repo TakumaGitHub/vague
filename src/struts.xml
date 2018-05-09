@@ -8,6 +8,7 @@
 	<constant name="struts.devMode" value="true" />
 	<package name="com.internousdev.vague.action" extends="struts-default">
 
+		<!-- 宮崎担当 -->
 		<!-- ホーム画面に戻るAction -->
 		<action name="GoHomeActon" class="com.internousdev.vague.action.GoHomeActon" method="execute">
 			<result name="success">home.jsp</result>
@@ -92,6 +93,7 @@
 			<result name="error">errorPage.html</result>
 		</action>
 
+		<!-- 柳沢担当 -->
  		<!-- 商品一覧・詳細を表示させるアクション -->
 		<action name="ProductListAction" class="com.internousdev.vague.action.ProductListAction" method="execute">
 		<result name="success">productList.jsp</result>
@@ -99,6 +101,48 @@
 		<action name="ProductDetailsAction" class="com.internousdev.vague.action.ProductDetailsAction" method="execute">
 		<result name="success">productDetails.jsp</result>
 		</action>
+
+		<!-- 長谷川担当 -->
+		<!--カートのアクション -->
+		<action name="CartAction" class="com.internousdev.vague.action.CartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		</action>
+
+		<action name="CartInsertAction" class="com.internousdev.vague.action.CartInsertAction" method="execute">
+		<result name="success" type="chain">cart.jsp</result>
+		</action>
+
+		<action name="CartDeleteAction" class="com.internousdev.vague.action.CartDeleteAction" method="execute">
+		<result name="success" type="chain">CartAction</result>
+		</action>
+
+		<!-- 入山担当 -->
+		<!-- 住所登録のアクション -->
+		<action name="AddressAction" class="com.internousdev.vague.action.AddressAction" method="execute">
+		<result name="success">Address.jsp</result>
+		</action>
+
+		<action name="AddressRegiConfirmAction" class="com.internousdev.vague.action.AddressRegiConfirmAction" method="execute">
+		<result name="success">AddressRegiConfirm.jsp</result>
+		<result name="error">Address.jsp</result>
+		<result name="login">login.jsp</result>
+		</action>
+
+		<action name="AddressRegiCompleteAction" class="com.internousdev.vague.action.AddressRegiCompleteAction" method="execute">
+		<result name="success">AddressRegiComplete.jsp</result>
+		</action>
+
+		<!-- 縄田担当 -->
+		<action name="MyPageAction" class="com.internousdev.vague.action.MyPageAction" method="execute">
+		<result name="success">myPage.jsp</result>
+		<result name="error">login.jsp</result>
+		</action>
+
+		<action name="PurchaseHistoryAction" class="com.internousdev.vague.action.PurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="error">login.jsp</result>
+		</action>
+
 
 	</package>
 </struts>

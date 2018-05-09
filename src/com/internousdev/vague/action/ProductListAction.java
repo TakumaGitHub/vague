@@ -65,6 +65,7 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 		}
 
 		session.remove("SearchList");
+		session.remove("SearchListLength");
 		return result;
 	}
 	 @Override

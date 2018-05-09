@@ -28,7 +28,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 		try{
 			if(loginFlg){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
-				userId = loginUserDTO.getLoginId();
+				userId = loginUserDTO.getUserId();
 			}
 			else{
 				userId = session.get("TempUserId").toString();
@@ -49,7 +49,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 	public int totalPrice(ArrayList<CartDTO> cartList){
 		int totalPrice = 0;
 		for(CartDTO cartDTO : cartList){
-			totalPrice += cartDTO.getItemTotalPrice();
+			totalPrice += cartDTO.getProductTotalPrice();
 		}
 		return totalPrice;
 	}

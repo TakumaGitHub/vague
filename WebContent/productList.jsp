@@ -21,6 +21,7 @@
 
 <!-- 一覧ボタン押下 -->
 <s:iterator value="displayList">
+
 <div class="itemList">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
 		<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>">

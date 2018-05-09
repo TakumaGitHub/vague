@@ -16,6 +16,7 @@
 <%-- <jsp:include page="include_header.jsp"/> --%>
 
 
+
 	<%-- <s:form action="CartProductAction" name="select"> --%>
 	<table class="detailsTable">
 	<tr>

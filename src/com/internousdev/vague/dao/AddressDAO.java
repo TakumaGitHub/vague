@@ -33,7 +33,7 @@ public class AddressDAO {
 			ps.setString(6, addressDTO.getAddr11());
 			ps.setString(7, addressDTO.getTelNumber());
 			ps.setString(8, addressDTO.getEmail());
-			ps.setString(9, addressDTO.getZip11());
+			ps.setString(9, addressDTO.getPostalCode());
 
 			updateCount = ps.executeUpdate();
 
@@ -73,7 +73,7 @@ public class AddressDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
-				addressDTO.setZip11(rs.getString("postal_code"));
+				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 				addressList.add(addressDTO);
 			}

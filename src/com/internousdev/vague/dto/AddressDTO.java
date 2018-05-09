@@ -8,8 +8,8 @@ public class AddressDTO {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String postalCode;
-	private String addr11;
+	private String postalCode;//郵便番号
+	private String addr11;//住所
 	private String telNumber;
 	private String email;
 

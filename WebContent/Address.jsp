@@ -58,7 +58,7 @@
 		<div>
 			<s:property value="errorAddr11Msg"/>
 		</div>
-			<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.zip11"/>' maxlength="50" size="50"/></span>
+			<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="50"/></span>
 
 		<!-- 電話番号 -->
 		<div>
@@ -121,7 +121,7 @@
 		<div>
 			<s:property value="errorAddr11Msg"/>
 		</div>
-			<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="zip11"/>' maxlength="50" size="50"/></span>
+			<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="addr11"/>' maxlength="50" size="50"/></span>
 
 		<!-- 電話番号 -->
 		<div>

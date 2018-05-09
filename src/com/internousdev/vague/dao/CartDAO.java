@@ -34,7 +34,7 @@ public class CartDAO {
 				cartDTO.setProductCount(rs.getInt("product_count"));
 				cartDTO.setProductTotalPrice(rs.getInt("cart_info.price"));//指定の仕方怪しい
 				cartDTO.setImageFilePath(rs.getString("image_file_path"));
-				cartDTO.setReleaseConpany(rs.getString("release_company"));
+				cartDTO.setReleaseCompany(rs.getString("release_company"));
 				cartDTO.setReleaseDate(rs.getString("release_date"));
 				cartDTO.setProductStock(rs.getInt("product_stock"));
 				cartDTOList.add(cartDTO);

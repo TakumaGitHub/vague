@@ -14,8 +14,8 @@ public class CartAction extends ActionSupport implements SessionAware {
 	private Map<String,Object>session;
 	private ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 	private String ERROR;
-	private  String userId;
 	private int totalPrice;
+	private String userId;
 
 
 	public String execute(){
@@ -31,14 +31,14 @@ public class CartAction extends ActionSupport implements SessionAware {
 			else{
 				userId = session.get("tempUserId").toString();
 			}
-				cartDTOList = cartDAO.getCartInfo(userId);
+			cartDTOList = cartDAO.getCartInfo(userId);
 
-				totalPrice = totalPrice(cartDTOList);
+			totalPrice = totalPrice(cartDTOList);
 
-				session.put("CartDTOList", cartDTOList);
-				session.put("CartTotalPrice", totalPrice);
+			session.put("CartDTOList", cartDTOList);
+			session.put("CartTotalPrice", totalPrice);
 
-				result = SUCCESS;
+			result = SUCCESS;
 		}
 		catch(Exception e){
 			e.printStackTrace();

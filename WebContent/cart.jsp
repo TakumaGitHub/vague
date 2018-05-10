@@ -29,7 +29,7 @@
 		</s:iterator>
 			<s:property value="#session.CartTotalPrice" />
 	</s:else>
-	<s:form action="BuyItemConfirmAction">
+	<s:form action="BuyItemAction">
 		<s:submit value="決済"/>
 	</s:form>
 

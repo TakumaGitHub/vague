@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.internousdev.vague.dto.CartDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
 
 /*
@@ -15,10 +17,11 @@ import com.internousdev.vague.util.DBConnector;
  */
 
 public class BuyItemCompleteDAO {
+	private Map<String,Object> session;
 	/*
 	 * カート内情報を取得しCartDTOにsetするメソッド
 	 */
-	public ArrayList<CartDTO> getCartInfo(String userId)throws SQLException {
+	public ArrayList<CartDTO> getCart(String userId)throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection= dbConnector.getConnection();
 		ArrayList<CartDTO> cartLIst=new ArrayList<CartDTO>();
@@ -50,25 +53,24 @@ public class BuyItemCompleteDAO {
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setStock(rs.getInt("product_stock"));
+				dto.setProductStock(rs.getInt("product_stock"));
 				dto.setPrice(rs.getInt("price"));
 				//cart_infoテーブル
-				dto.setUserId(rs.getString("userId"));
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductCount(rs.getInt("product_count"));
 
-				if(rs.getInt("product_count")>rs.getInt("product_stock")){
-					dto.setStockFlg(true);
+				if(rs.getInt("product_count")>=rs.getInt("product_stock")){
+					
 				}
 
-				cartInfoLIst.add(dto);
+				cartLIst.add(dto);
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			connection.close();
 		}
-		return cartInfoLIst;
+		return cartLIst;
 
 
 
@@ -85,7 +87,7 @@ public class BuyItemCompleteDAO {
 
 			for(CartDTO item:purchasedItems){
 
-				ps.setInt(1, item.getStock() - item.getProductCount());
+				ps.setInt(1, item.getProductStock() - item.getProductCount());
 				ps.setInt(2, item.getProductId());
 
 				result += ps.executeUpdate();
@@ -122,8 +124,8 @@ public class BuyItemCompleteDAO {
 			for(int i=0; i<cartList.size(); i++){
 				String sql="INSERT INTO purchase_history_info(user_id,product_id,product_count,price,insert_date,update_date)VALUES(?,?,?,?,NOW(),NOW())";
 				PreparedStatement ps=con.prepareStatement(sql);
-
-				ps.setString(1, cartList.get(i).getUserId());
+                String userID=((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
+				ps.setString(1,cartList.get(i).set(userID));
 				ps.setInt(2, cartList.get(i).getProductId());
 				ps.setInt(3, cartList.get(i).getProductCount());
 				ps.setInt(4, cartList.get(i).getPrice());

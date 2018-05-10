@@ -61,7 +61,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	CartDAO cartDAO=new CartDAO();
 	cartList=cartDAO.getCartInfo(userId);
 
-	if(userId!=null){
+	if(session.containsKey("LoginUserDTO")){
 		AddressDAO addressInfoDAO=new AddressDAO();
 		addressDTOList.addAll(addressInfoDAO.getAddressInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId()));
 	}

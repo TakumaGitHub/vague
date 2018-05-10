@@ -194,7 +194,15 @@ INSERT INTO product_info (product_id, product_name, product_name_kana, product_d
 
 
 INSERT INTO review (user_id, product_id, review_title, review_body, review_score, insert_date)
-			values ("miyazaki",1,"素晴らしい！","使いごこち最高です",5,now());
+			values ("miyazaki",1,"素晴らしい！","使いごこち最高です",5,now()),
+					("miyazaki",2,"素晴らしい！","使いごこち最高です",5,now()),
+					("miyazaki",3,"素晴らしい！","使いごこち最高です",5,now()),
+					("guest",1,"素晴らしい！","使いごこち最高です",5,now()),
+					("guest",2,"素晴らしい！","使いごこち最高です",5,now()),
+					("guest",3,"素晴らしい！","使いごこち最高です",5,now()),
+					("admin",1,"素晴らしい！","使いごこち最高です",5,now()),
+					("admin",2,"素晴らしい！","使いごこち最高です",5,now()),
+					("admin",3,"素晴らしい！","使いごこち最高です",5,now());
 
 
 /*
@@ -214,5 +222,9 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
 
 
 INSERT INTO purchase_history_info (user_id, product_id, product_count, price, insert_date)
-			values                ("miyazaki",1,30,30000,now());
+			values                ("miyazaki",1,30,30000,now()),
+								  ("miyazaki",2,30,30000,now()),
+								  ("miyazaki",3,30,30000,now()),
+								  ("miyazaki",4,30,30000,now()),
+								  ("miyazaki",5,30,30000,now());
 

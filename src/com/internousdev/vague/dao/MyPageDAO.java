@@ -24,7 +24,7 @@ public class MyPageDAO {
 	public ArrayList<MyPageDTO> getMyPageUserInfo(String userId)throws SQLException{
 		ArrayList<MyPageDTO>  myPageList = new ArrayList<MyPageDTO>();
 
-		String sql = "SELECT family_name,first_name,family_name_kana,first_name_kana,sex,email FROM user_info WHERE user_id=?";
+		String sql = "SELECT password,family_name,first_name,family_name_kana,first_name_kana,sex,email FROM user_info WHERE user_id=?";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -34,6 +34,7 @@ public class MyPageDAO {
 			while(rs.next()){
 
 				MyPageDTO dto = new MyPageDTO();
+				dto.setPassword(rs.getString("password"));
 				dto.setFamilyName(rs.getString("family_name"));
 				dto.setFirstName(rs.getString("first_name"));
 				dto.setFamilyNameKana(rs.getString("family_name_kana"));

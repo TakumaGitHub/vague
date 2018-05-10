@@ -24,7 +24,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 
 	public String execute() throws SQLException {
 		// ログインしてなければログインページに移動
-		if (!session.containsKey("userId")) {
+		if (!session.containsKey("LoginUserDTO")) {
 			return ERROR; //login.jspへ
 		}
 

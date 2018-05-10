@@ -57,6 +57,10 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	//------------------------------------------------------------------------------
 			}
 		}
+
+		session.put("MyPageList", myPageList);
+		session.put("invisiblePassword", invisiblePassword);
+
 	return result;
 	}
 

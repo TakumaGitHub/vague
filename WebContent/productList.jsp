@@ -40,6 +40,7 @@
 </script>
 </head>
 <body>
+
 <!-- ヘッダーのインクルード  -->
 <%-- <jsp:include page="include_header.jsp" /> --%>
 

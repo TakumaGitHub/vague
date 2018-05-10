@@ -32,8 +32,18 @@ public class ProductListDAO {
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
+				dto.setProductDescription(rs.getString("product_description"));
+				dto.setCategoryId(rs.getInt("category_id"));
+				dto.setProductStock(rs.getInt("product_stock"));
+				dto.setPrice(rs.getInt("price"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setImageFileName(rs.getString("image_file_name"));
+				dto.setReleaseDate(rs.getString("release_date"));
+				dto.setReleaseCompany(rs.getString("release_company"));
+				dto.setStatus(rs.getInt("status"));
+				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setUpdateDate(rs.getString("update_date"));
+
 				productList.add(dto);
 			}
 		}catch(Exception e){

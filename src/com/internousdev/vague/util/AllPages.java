@@ -9,17 +9,17 @@ import com.internousdev.vague.dto.ProductDTO;
 public class AllPages {
 	//ページネーションしてjsp上に表示するために格納する。
 
-	public ArrayList<PageObject> pagenate(ArrayList<ProductDTO> list, int count){
+	public ArrayList<PageObject> pagenate(ArrayList<ProductDTO> list, int productStock){
 		ArrayList<PageObject> displayBook = new ArrayList<PageObject>();
 
-		int itemCount = count;
+		int itemCount = productStock;
 		int index = 0;
 		int maxPages = 0;
 
-		if((list.size() % count) == 0){
-			maxPages = list.size() / count;
+		if((list.size() % productStock) == 0){
+			maxPages = list.size() / productStock;
 		}else{
-			maxPages = (list.size() / count) + 1;
+			maxPages = (list.size() / productStock) + 1;
 		}
 
 		for(int i = 0; i < maxPages; i++){
@@ -33,21 +33,21 @@ public class AllPages {
 
 		page.setPageId(i);
 		displayBook.add(page);
-		index += count;
-		itemCount += count;
+		index += productStock;
+		itemCount += productStock;
 		}
 		return displayBook;
 	}
 
 	//渡されたリスト数とページあたりのオブジェクト数から総ページ数を返す
 
-	public int getMaxPage(ArrayList<?> list, int count){
+	public int getMaxPage(ArrayList<?> list, int productStock){
 		int maxPages = 0;
 
-		if((list.size() % count) == 0) {
-			maxPages = list.size() / count;
+		if((list.size() % productStock) == 0) {
+			maxPages = list.size() / productStock;
 		}else{
-			maxPages = (list.size() / count) + 1;
+			maxPages = (list.size() / productStock) + 1;
 		}
 		return maxPages;
 	}

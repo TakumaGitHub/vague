@@ -89,16 +89,16 @@ public class ProductDetailsDAO {
 	}
 
 	//同カテゴリ商品の陳列
-	public ArrayList<ProductDTO> getSuggestProductInfo(String productId) throws SQLException {
+	public ArrayList<ProductDTO> getSuggestProductInfo(int categoryId) throws SQLException {
 		ArrayList<ProductDTO> suggestList = new ArrayList<>();
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
 		//同カテ商品取得
-		String sql = "SELECT * FROM  product_info WHERE status = 1 AND category_id NOT IN(?) ORDER BY RAND() LIMIT 3 ";
+		String sql = "SELECT * FROM  product_info WHERE status = 1 AND category_id = ? ORDER BY RAND() LIMIT 3 ";
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, productId);
+			ps.setInt(1, categoryId);
 
 			ResultSet rs = ps.executeQuery();
 
@@ -106,10 +106,10 @@ public class ProductDetailsDAO {
 				ProductDTO dto = new ProductDTO();
 
 				dto.setId(rs.getInt("id"));
+				dto.setCategoryId(rs.getInt("category_id"));
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductName(rs.getString("product_name"));
 				dto.setProductNameKana(rs.getString("product_name_kana"));
-				dto.setCategoryId(rs.getInt("category_id"));
 				dto.setPrice(rs.getInt("price"));
 				dto.setImageFilePath(rs.getString("image_file_path"));
 				dto.setReleaseCompany(rs.getString("release_company"));

@@ -5,103 +5,118 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta http-equiv="imagetoolbar" content="no"/>
+<link rel="stylesheet" href="./css/product.css">
+<link rel="stylesheet" href="./css/vague.css">
+
 <title>商品一覧</title>
 <style type="text/css">
+.top {
+	width: 100%;
+	text-align: center;
+}
 
+.list {
+	width: 100%;
+}
 
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
+<script>
+	$(function() {
+		$(".imageHover .image").hover(function() {
+			$(this).animate({
+				width : "240px",
+				height : "210px"
+			});
+		}, function() {
+			$(this).animate({
+				width : "200px",
+				height : "170px"
+			});
+		});
+	});
+</script>
 </head>
 <body>
 <!-- ヘッダーのインクルード  -->
 <%-- <jsp:include page="include_header.jsp" /> --%>
 
 <!-- 一覧ボタン押下 -->
-<s:iterator value="displayList">
 
-<div class="itemList">
+<s:iterator value="#session.ProductList">
+
+<div class="itemListBox">
+	<div class="imageHover">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
-		<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>">
+		<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
 		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
 		</a>
+	</div>
+	<div class="productInfo">
 		<!-- 商品名 -->
+		<div class="proName">
 		<s:property value="productName" />
 		<br>
+		</div>
 		<!-- 商品名かな -->
+		<div class="proName2">
 		<s:property value="productNameKana"/>
 		<br>
-		<%-- <!-- 価格 -->
-		<s:property value="price"/>
-		<br> --%>
+		</div>
+		<!-- 価格 -->
+		<div class="proPrice">
+		￥<s:property value="price"/>
+		<br>
+		</div>
+	</div>
 </div>
 </s:iterator>
-<!-- リストにデータが存在するとき  -->
 
-	<s:if test="number > 8">
-		<s:if test="listFlg == 1">
-			<!--  1ページ目 -->
-			<s:if test="pageNum==1">
-				<span>&laquo;<s:text name="戻る" /></span>
-			</s:if>
-			<!-- ページネート:1ページ目以外 -->
-		<s:else>
-			<a
-				href='<s:url action="ProductListAction">
-				<s:param name="pageNum" value="pageNum-1" />
-				<s:param name="listFlg" value="listFlg" />
-				</s:url>'><span>&laquo;<s:text name="戻る" /></span></a>
-		</s:else>
-		<!-- 最終ページ -->
-		<s:property value="pageNum"/>
-			<s:if test="pageNum == maxPage">
-				<s:text name="進む" />&raquo;
-			</s:if>
-		<!-- 最終ページ以外 -->
-		<s:else>
-			<a
-				href='<s:url action="ProductListAction">
-				<s:param name="pageNum" value="pageNum+1"/>
-				<s:param name="listFlg" value="listFlg" />
-				</s:url>'><span>&laquo;<s:text name="戻る" /></span></a>
-		</s:else>
-		</s:if>
-	</s:if>
+<div class="center" style="text-align: center;">
+ <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
+
+             <span>ページ数</span>
+
+                     <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
+
+						<a href="<s:url action='ProductListAction' />?pageNum=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
+
+                     </s:iterator>
+
+ </s:if>
+
+</div>
+
 
 <!-- 検索結果 -->
 
-       <s:if test="#session.SearchListLength != null">
+
+<div class="center" style="text-align: center;">
+       <s:iterator value="#session.SearchList">
+
+        <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 
                <span>ページ数</span>
-
                        <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-
                                <a href="<s:url action='ProductSearchAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
 
                        </s:iterator>
-
        </s:if>
-
-
-       <s:iterator value="#session.SearchList">
 
        <s:if test="status == 1" >
-
                <div>
-					   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>">
+					   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
                        <img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
                        </a>
-                       <p><s:property value="productName" /></p>
-
+                  	    <p><s:property value="productName" /></p>
                </div>
-
-
        </s:if>
-
-
        </s:iterator>
+</div>
+
+
 
 
 

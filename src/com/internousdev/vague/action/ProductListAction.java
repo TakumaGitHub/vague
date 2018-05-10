@@ -10,15 +10,14 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.ProductListDAO;
 import com.internousdev.vague.dto.ProductDTO;
-import com.internousdev.vague.util.AllPages;
-import com.internousdev.vague.util.PageObject;
+import com.internousdev.vague.util.DivideDTOList;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 
 public class ProductListAction extends ActionSupport implements SessionAware {
 
-	/*private static long serialVersionUID = -8716863678316756041L;*/
+	private static final long serialVersionUID = -8716863678316756041L;
 	//セッション情報取得
 	private Map<String, Object> session;
 	//商品情報取得
@@ -26,7 +25,9 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 	//商品情報格納
 	public ArrayList<ProductDTO> productList = new ArrayList<>();
 	//3*3で格納したリスト
-	private ArrayList<ArrayList<ProductDTO>> productListBy9Items = new ArrayList<>();
+	private List<List<ProductDTO>> productListBy9Items = new ArrayList<>();
+
+	private DivideDTOList<ProductDTO> divideDTOList = new DivideDTOList<ProductDTO>();
 
 	private int pageSelect;
 	private int pageCount;
@@ -37,9 +38,8 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 	public int number;
 
 	private int maxPage;
-	public ArrayList<ProductDTO> displayList = new ArrayList<ProductDTO>();
 
-	private int pageNum = 1;
+	private int pageNum = 0;
 
 	//商品情報取得メソッド
 	public String execute() throws SQLException {
@@ -54,18 +54,19 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 		}
 
 		if(number > 0) {
-			//ページネート処理
-			ArrayList<PageObject> allPages = new ArrayList<PageObject>();
-			AllPages allp = new AllPages();
-			allPages = allp.pagenate(productList, 9);
-			setMaxPage(allp.getMaxPage(productList, 9));
-			setDisplayList(allPages.get(pageNum-1).getPagenatedList());
+
+			productListBy9Items = divideDTOList.divide(productList, 9);
+
 			result = SUCCESS;
 
 		}
 
 		session.remove("SearchList");
-		session.remove("SearchListLength");
+		session.put("SearchListLength",productListBy9Items.size());
+		session.put("ProductList", productListBy9Items.get(pageNum));
+
+
+
 		return result;
 	}
 	 @Override
@@ -95,13 +96,13 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 
 
 
-	    public ArrayList<ArrayList<ProductDTO>> getProductListBy9Items() {
+	    public List<List<ProductDTO>> getProductListBy9Items() {
 			return productListBy9Items;
 		}
 
 
 
-		public void setProductListBy9Items(ArrayList<ArrayList<ProductDTO>> productListBy9Items) {
+		public void setProductListBy9Items(List<List<ProductDTO>> productListBy9Items) {
 			this.productListBy9Items = productListBy9Items;
 		}
 
@@ -155,17 +156,6 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 			this.maxPage = maxPage;
 		}
 
-
-
-		public ArrayList<ProductDTO> getDisplayList() {
-			return displayList;
-		}
-
-
-
-		public void setDisplayList(ArrayList<ProductDTO> displayList) {
-			this.displayList = displayList;
-		}
 
 
 

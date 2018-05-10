@@ -62,7 +62,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 		//お勧めリスト情報取得
 		try {
-			suggestList = productDetailsDAO.getSuggestProductInfo(productId);
+			suggestList = productDetailsDAO.getSuggestProductInfo(categoryId);
 			if(suggestList != null) {
 				session.put("SuggestList", suggestList);
 

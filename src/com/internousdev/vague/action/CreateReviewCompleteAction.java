@@ -27,7 +27,7 @@ public class CreateReviewCompleteAction  extends ActionSupport implements Sessio
 		//セッションにレビューの投稿内容がセットされていないとき
 		if(!(session.containsKey("CreateReviewCompleteDTO"))){
 
-			result = ERROR;
+			result = "home";
 
 		}else{
 

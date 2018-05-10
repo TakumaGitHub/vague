@@ -55,7 +55,14 @@
 
 			<form action="/vague/userInterface.jsp" method="post">
 
-				<input type="submit" value="一般ユーザーでログインする" />
+				<input type="submit" value="ログインする" />
+
+			</form>
+
+			<h2>ログアウト</h2>
+			<form action="LogoutAction" method="post">
+
+				<input type="submit" value="ログアウトする" />
 
 			</form>
 

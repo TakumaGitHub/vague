@@ -32,6 +32,14 @@ public class CreateReviewAction extends ActionSupport implements SessionAware{
 		ProductDTO createReviewProductDTO = productSearchDAO.search(product_id);
 
 
+		//ログインしていないとき
+		if(!(session.containsKey("LoginUserDTO"))){
+
+			return "login";
+
+		}
+
+
 		if(createReviewProductDTO != null){
 
 			session.put("CreateReviewProductDTO", createReviewProductDTO);

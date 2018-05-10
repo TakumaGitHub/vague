@@ -42,7 +42,7 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 
 		if(!(session.containsKey("LoginUserDTO"))){
 
-			return "home";
+			return "login";
 
 		}
 

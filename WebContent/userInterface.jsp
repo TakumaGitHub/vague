@@ -10,6 +10,15 @@
 
 </head>
 <body>
+
+<s:if test="#session.LoginUserDTO != null">
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
+
 	<br><h3>ログインIDとパスワードを入力してください。</h3>
 	<s:form action="LoginAction">
 		ログインID：<input type="text" name="userId">

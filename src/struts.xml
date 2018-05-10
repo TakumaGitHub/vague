@@ -15,6 +15,10 @@
 			<result name="error" >userInterface.jsp</result>
 		</action>
 
+		<action name="LogoutAction" class="com.internousdev.vague.action.LogoutAction" method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
 		<!-- 宮崎担当 -->
 		<!-- ホーム画面に戻るAction -->
 		<action name="GoHomeActon" class="com.internousdev.vague.action.GoHomeActon" method="execute">
@@ -24,13 +28,13 @@
 		<!--  商品を検索するAction -->
 		<action name="ProductSearchAction" class="com.internousdev.vague.action.ProductSearchAction" method="execute">
 			<result name="success">productList.jsp</result>
-			<result name="master">master.jsp</result>
 		</action>
 
 		<!--  レビューを投稿するAction -->
 		<action name="CreateReviewAction" class="com.internousdev.vague.action.CreateReviewAction" method="execute">
 			<result name="success">createReview.jsp</result>
 			<result name="error">myPage.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<action name="CreateReviewConfirmAction" class="com.internousdev.vague.action.CreateReviewConfirmAction" method="execute">
@@ -42,18 +46,20 @@
 		<action name="CreateReviewCompleteAction" class="com.internousdev.vague.action.CreateReviewCompleteAction" method="execute">
 			<result name="success">createReviewComplete.jsp</result>
 			<result name="error">errorPage.html</result>
+			<result name="home" type="redirect">home.jsp</result>
 		</action>
 
 		<!-- 投稿したレビュー一覧を表示するAction -->
 		<action name="ReviewMyListAction" class="com.internousdev.vague.action.ReviewMyListAction" method="execute">
 			<result name="success">reviewMyList.jsp</result>
-			<result name="home" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<!-- 管理者画面に推移するAction -->
 		<action name="MasterAction" class="com.internousdev.vague.action.MasterAction" method="execute">
 			<result name="success">master.jsp</result>
 			<result name="error" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<!-- 商品情報を変更するAction -->

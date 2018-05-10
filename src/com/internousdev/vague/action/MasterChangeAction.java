@@ -9,6 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.vague.dao.CategorySearchDAO;
 import com.internousdev.vague.dao.ProductSearchDAO;
 import com.internousdev.vague.dto.CategoryDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -63,6 +64,17 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 	public String execute() throws SQLException{
 
 		String result = SUCCESS;
+
+		//ログインしていないとき
+		if(!(session.containsKey("LoginUserDTO"))){
+
+			return "login";
+
+		}else if(((LoginUserDTO)session.get("LoginUserDTO")).getmFlg() != 1){
+
+			return ERROR;
+
+		}
 
 		//商品テーブルから商品を取得
 		ProductDTO masterBeforeChangeDTO = productSearchDAO.search(productId);

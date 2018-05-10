@@ -65,6 +65,8 @@
 		<!-- 商品情報を変更するAction -->
 		<action name="MasterChangeAction" class="com.internousdev.vague.action.MasterChangeAction" method="execute">
 			<result name="success">masterChange.jsp</result>
+			<result name="error" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<action name="MasterChangeConfirmAction" class="com.internousdev.vague.action.MasterChangeConfirmAction" method="execute">
@@ -87,6 +89,8 @@
 		<!-- 商品を追加するAction -->
 		<action name="MasterAddAction" class="com.internousdev.vague.action.MasterAddAction" method="execute">
 			<result name="success">masterAdd.jsp</result>
+			<result name="error" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<action name="MasterAddConfirmAction" class="com.internousdev.vague.action.MasterAddConfirmAction" method="execute">

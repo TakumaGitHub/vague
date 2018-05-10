@@ -21,6 +21,31 @@ public class BuyItemCompleteDAO {
 	/*
 	 * カート内情報を取得しCartDTOにsetするメソッド
 	 */
+	public int getCount(String userId,int productId)throws SQLException{
+		DBConnector dbConnector = new DBConnector();
+		Connection con = dbConnector.getConnection();
+		int Count = 0;
+
+		String sql = "select product_count from product_info where user_id = ? and product_id = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setInt(2, productId);
+
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+				Count += rs.getInt("product_count");
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return Count;
+	}
+
 	public ArrayList<CartDTO> getCart(String userId)throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection connection= dbConnector.getConnection();
@@ -59,9 +84,9 @@ public class BuyItemCompleteDAO {
 				dto.setProductId(rs.getInt("product_id"));
 				dto.setProductCount(rs.getInt("product_count"));
 
-				if(rs.getInt("product_count")>=rs.getInt("product_stock")){
-					
-				}
+//				if(rs.getInt("product_count")>=rs.getInt("product_stock")){
+//
+//				}
 
 				cartLIst.add(dto);
 			}
@@ -112,7 +137,7 @@ public class BuyItemCompleteDAO {
 	 * purchase_history_infoテーブルに登録
 	 *
 	 */
-	public int setPurchseHistory(List<CartDTO> cartList) throws SQLException{
+	public int setPurchaseHistory(List<CartDTO> cartList) throws SQLException{
 		DBConnector db= new DBConnector();
 		Connection con = db.getConnection();
 

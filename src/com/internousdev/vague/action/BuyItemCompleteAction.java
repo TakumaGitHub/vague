@@ -58,7 +58,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 		//履歴にいれる
 		int count = 0;
-		count = buyItemCompleteDAO.setPurchseHistory(cartList);
+		count = buyItemCompleteDAO.setPurchaseHistory(cartList);
 
 		if (count <= 0) {
 			return ERROR;

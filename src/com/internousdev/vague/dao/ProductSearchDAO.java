@@ -27,7 +27,6 @@ public class ProductSearchDAO {
 	 */
 	public ProductDTO search(int product_id){
 
-
 		ProductDTO productDTO = new ProductDTO();
 
 		DBConnector dbConnector = new DBConnector();

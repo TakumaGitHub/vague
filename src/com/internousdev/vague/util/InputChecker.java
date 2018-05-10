@@ -70,7 +70,7 @@ public class InputChecker {
 
 	//ユーザーIDエラーメッセージ管理
 	public static String userIdChk(String userId) {
-		String result = "TRUE";
+		String result = null;
 
 		if(userId.equals("")) {
 			result = "【ユーザーIDを入力してください】";
@@ -84,7 +84,7 @@ public class InputChecker {
 
 	//パスワードエラーメッセージ管理
 	public static String passwordChk(String password) {
-		String result = "TRUE";
+		String result = null;
 
 		if(password.equals("")) {
 			result = "【パスワードを入力してください】";

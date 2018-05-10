@@ -20,11 +20,29 @@ response.sendRedirect("/vague/home.jsp");
 </s:if>
 
 	<br><h3>ログインIDとパスワードを入力してください。</h3>
+	<p><s:property value="errorMsg" /></p>
 	<s:form action="LoginAction">
-		ログインID：<input type="text" name="userId">
+		<p><s:property value="userIdErrorMsg" /></p>
+		ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 		<br>
+		<p><s:property value="passwordErrorMsg" /></p>
 		パスワード：<input type="text" name="password">
 		<s:submit value="ログイン"/>
+
+		<div>
+			<p>ログインID保存
+			<s:if test="#session.savaId != 0" >
+			<input type="checkbox" name="saveId" value="1" checked="checked" >
+			</s:if>
+			<s:else>
+				<input type="checkbox" name="saveId" value="1">
+			</s:else>
+			</p>
+
+		</div>
+
+
+
 	</s:form>
 
 	<a href="userCreate.jsp">新規登録はこちら！</a><br>

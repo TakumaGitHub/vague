@@ -112,7 +112,7 @@
 			<form id="ProductSearchAction" action="<s:url action='ProductSearchAction' />" method="post">
 
 
-			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/></p>
+			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" pattern="^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]{1,16}$" required="required"/></p>
 			<s:if test="inputErrorMsg != ''">
 
 				<s:property value='inputErrorMsg' />

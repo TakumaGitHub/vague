@@ -78,6 +78,8 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 
 		}
 
+		session.put("reviewMyListLength",reviewMyListDTOList.size());
+
 		return result;
 
 

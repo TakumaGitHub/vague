@@ -42,6 +42,18 @@
 			</s:form>
 
 
+			<s:if test="#session.reviewMyListLength != null">
+
+               <span>ページ数</span>
+
+                       <s:iterator begin="1" end="#session.reviewMyListLength" step="1" status="st">
+
+                               <a href="<s:url action='ReviewMyListAction' />?ListNumber=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
+
+                       </s:iterator>
+
+       		</s:if>
+
 			<s:iterator value="#session.ReviewMyListDTOList" >
 
 				<p>

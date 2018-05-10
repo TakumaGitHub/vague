@@ -6,22 +6,72 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.CartDAO;
+import com.internousdev.vague.dao.LoginUserDAO;
 import com.internousdev.vague.dao.UserCreateDAO;
 import com.internousdev.vague.dto.LoginUserDTO;
+import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport implements SessionAware{
 
-	private String userId;
-	private String password;
+	private String userId = "";
+	private String password = "";
+
+	private String userIdErrorMsg;
+
+	private String passwordErrorMsg;
+
+	private String errorMsg;
+
+	private int saveId;
+
+
+	private UserCreateDAO dao = new UserCreateDAO();
+
+	private LoginUserDAO loginUserDAO = new LoginUserDAO();
+
+	private LoginUserDTO dto = new LoginUserDTO();
+
+
+
 	private String result;
 	private Map<String,Object> session;
 
 	public String execute() throws SQLException {
-		UserCreateDAO dao = new UserCreateDAO();
-		LoginUserDTO dto = new LoginUserDTO();
+
+		if(saveId != 0){
+
+			session.put("saveId",userId);
+
+		}else{
+
+			session.remove("saveId");
+
+		}
+
+
+		//エラーメッセージチェック
+		userIdErrorMsg = InputChecker.userIdChk(userId);
+		passwordErrorMsg = InputChecker.passwordChk(password);
+
+		if(userIdErrorMsg != null || passwordErrorMsg != null){
+
+			return ERROR;
+
+		}
+
 		try{
 			result = ERROR;
+
+			//入力されたIDとパスワードを持つユーザーがいるかどうか
+			errorMsg = loginUserDAO.passwordIsTrue(userId, password);
+
+			if(errorMsg != null){
+
+				return ERROR;
+
+			}
+
 			dto = dao.getUserInfo(userId,password);
 
 			if(dto.getUserId() != null){
@@ -56,12 +106,44 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.password = password;
 	}
 
+	public int getSaveId() {
+		return saveId;
+	}
+
+	public void setSaveId(int saveId) {
+		this.saveId = saveId;
+	}
+
 	public Map<String, Object> getSession() {
 		return session;
 	}
 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
+	public String getUserIdErrorMsg() {
+		return userIdErrorMsg;
+	}
+
+	public void setUserIdErrorMsg(String userIdErrorMsg) {
+		this.userIdErrorMsg = userIdErrorMsg;
+	}
+
+	public String getPasswordErrorMsg() {
+		return passwordErrorMsg;
+	}
+
+	public void setPasswordErrorMsg(String passwordErrorMsg) {
+		this.passwordErrorMsg = passwordErrorMsg;
 	}
 
 

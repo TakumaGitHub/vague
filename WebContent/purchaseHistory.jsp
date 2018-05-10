@@ -21,87 +21,86 @@
 		</div>
 
 		<div id="contents" class="border ph">
-
 			<div id="left" class="border">
-				<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
-				<p class="list _2"><a href='<s:url action="" />'>レビュー投稿</a></p>
+
+				<!-- 戻るボタン -->
+					<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
+					<s:form action="MyPageAction">
+						<s:submit class="button-layout button1" value="戻る" />
+					</s:form>
+
+				<!-- 履歴すべて削除ボタン -->
+					<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a></p>
+					<s:form action="PurchaseHistoryAction">
+						<input type="hidden" name="deleteFlg" value="1">
+						<s:submit class="button-layout button2" value="履歴をすべて削除" />
+					</s:form>
+
 			</div>
 
 			<div id="right">
-
 				<div id="rightcon">
-
 					<br>
 					<div class="message">
-						<span style="color: red;"><s:property value="message" /></span>
+						<span style="color:red;"><s:property value="message" /></span>
 
-						<s:if test="historyList==null">
+						<s:if test="#session.PurchaseHistoryList ==null">
 							<p>購入履歴はありません</p>
 						</s:if>
 					</div>
 
-					<s:elseif test="historyList != null && historyList.size() != 0">
+					<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
 						<div class="message">
 							<p>購入情報は以下になります。</p>
-
-
 						</div>
-
 
 						<s:form action="PurchaseHistoryAction">
 						<input type="hidden" name="deleteFlg" value="2" />
 						<div id="boxlist">
-							<s:iterator value="historyList" status="st">
 
+							<s:iterator value="#session.PurchaseHistoryList" status="st">
 								<div class="box">
-								<!-- ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ----ｰｰｰｰｰｰboxｰｰｰｰ-----ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ -->
+								<!-- -------------------------box--------------------------- -->
+									<!-- 商品情報 -->
+									<div class="number">No.<s:property value="id" /></div>
 									<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{productId}" /></s:url>">
-										<img src="<s:property value='imageFilePath'/>"
-											alt="Photo">
+										<img src="<s:property value='imageFilePath'/>" alt="Photo">
 									</a>
 									<div class="pname"><s:property value="productName" /></div>
 									<div class="kana"><s:property value="productNameKana" /></div>
-									<div class="info">購入個数　<s:property value="count" />点</div>
-
-										<!-- 購入日時 -->
-										<div class="info">購入日時：<s:property value="insertDate" /></div>
-										<div class="info">値段：<s:property value="price" /></div>
-										<div class="info">発売会社名：<s:property value="releaseCompany" /></div>
-										<div class="info">発売年月日：<s:property value="releaseDate" /></div>
-
-								<!-- チェックボックス,選択したものだけを削除 -->
-									<div class="info">
-										<s:if test="#st.index == 0">
-											<label><s:checkbox name="checkList" value="0"
-													fieldValue="%{id}" />チェック</label>
-										</s:if>
-										<s:else>
-											<label><s:checkbox name="checkList" value="0"
-													fieldValue="%{id}" />チェック</label>
-										</s:else>
-									</div>
+									<br>
+									<div class="info">値段：<s:property value="price" /> 円</div>
+									<div class="info">購入個数：<s:property value="count" /> 点</div>
+									<div class="info">購入日時：<s:property value="insertDate" /></div>
+									<br>
+									<div class="info">発売会社名：<s:property value="releaseCompany" /></div>
+									<div class="info">発売年月日：<s:property value="releaseDate" /></div>
 
 									<!-- レビュー -->
-									 <div class="review"><a
-										href="<s:url action="CreateReviewAction"><s:param name="productId" value="%{productId}" />
-										<s:param name="imageFilePath" value="%{imageFilePath}" />
-										<s:param name="productName" value="%{productName}" /></s:url>">レビューを投稿する</a></div>
-								<!-- ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰここまでｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ -->
+									<div class="review"><a href="<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>">【レビューを投稿する】</a></div>
+									<br>
+									<br>
+								<!-- ------------------------ここまで------------------------- -->
 								</div>
-
 							</s:iterator>
+
 						</div>
 						<div class="clear"></div>
-
-						<!--  ■削除ボタン■ -->
-							<s:submit class="button-layout button1" value="チェックした項目を削除" />
-
 						</s:form>
 
+						<!-- 戻るボタン -->
+							<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
+							<s:form action="MyPageAction">
+								<s:submit class="button-layout button1" value="戻る" />
+							</s:form>
+
+						<!-- 履歴すべて削除ボタン -->
+							<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a></p>
 							<s:form action="PurchaseHistoryAction">
 								<input type="hidden" name="deleteFlg" value="1">
-								<s:submit class="button-layout button1" value="履歴をすべて削除" />
+								<s:submit class="button-layout button2" value="履歴をすべて削除" />
 							</s:form>
+
 					</s:elseif>
 
 

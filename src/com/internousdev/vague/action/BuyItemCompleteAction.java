@@ -68,13 +68,13 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 
 
-			//カートの中身を削除
+		/*	//カートの中身を削除
 		   int deleteCount=0;
-		   deleteCount=dao.cartDeleteInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId(),session.get("productId"));
+		   deleteCount=dao.cartDeleteInfo(userId,session.get("productId"));
 		   
 		   if(deleteCount<=0){
 			   return ERROR;
-		   }
+		   }*/
 		
 
 			cartTotalPrice =cartTotalPrice(getcartList());

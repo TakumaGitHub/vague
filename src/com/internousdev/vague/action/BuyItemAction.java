@@ -12,7 +12,7 @@ import com.internousdev.vague.dto.LoginUserDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
-
+	private String userId;
 	AddressDAO addressDAO = new AddressDAO();
 	AddressDTO addressDTO = new AddressDTO();
 
@@ -21,13 +21,15 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public Map<String, Object> session;
 
 	String result;
-
+		private LoginUserDTO loginUserDTO = new LoginUserDTO();
 
 	public String execute() throws SQLException{
 		result = SUCCESS;
 
-		
-		addressInfoListDTO.addAll(addressDAO.getAddressInfo(((LoginUserDTO)session.get("LoginUserDTO")).getUserId()));
+		loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
+		userId = loginUserDTO.getUserId();
+
+		addressInfoListDTO.addAll(addressDAO.getAddressInfo(userId));
 
 		if(addressInfoListDTO.get(0) == null) {
 

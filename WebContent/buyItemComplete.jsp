@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<jsp:include page="includeHeader.jsp" />
+<%-- 	<jsp:include page="includeHeader.jsp" /> --%>
 	<div class="main">
 		<div class="form">
 			<div class="form-heading">
@@ -34,6 +34,6 @@
 
 			</div>
 		</div>
-	<jsp:include page="includeFooter.jsp" />
+	<%-- <jsp:include page="includeFooter.jsp" /> --%>
 </body>
 </html>

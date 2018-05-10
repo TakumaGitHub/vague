@@ -15,7 +15,7 @@
 	<title>決済確認</title>
 </head>
 <body>
-	<jsp:include page="includeHeader.jsp"/>
+	<%-- <jsp:include page="includeHeader.jsp"/> --%>
 
 <div id="main">
 
@@ -171,7 +171,7 @@
 
 
 
- <jsp:include page="includeFooter.jsp"/>
+ <%-- <jsp:include page="includeFooter.jsp"/> --%>
 
  <script>
  $(function(){

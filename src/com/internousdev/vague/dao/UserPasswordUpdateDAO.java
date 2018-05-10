@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
 
 /**
@@ -14,7 +15,7 @@ import com.internousdev.vague.util.DBConnector;
  */
 public class UserPasswordUpdateDAO {
 
-	//入力情報を合っているかどうか
+	//入力情報が合っているかどうか
 	public String isTrue(String userId, String password, int question, String answer){
 
 		String result = null;
@@ -78,7 +79,11 @@ public class UserPasswordUpdateDAO {
 
 
 	//パスワードを再設定するメソッド
-	public int updatePassword(String userId, String password){
+	public int updatePassword(LoginUserDTO loginUserDTO){
+
+		String userId = loginUserDTO.getUserId();
+
+		String password = loginUserDTO.getPassword();
 
 
 		String sql = " UPDATE user_info SET password = ? WHERE user_id = ? ";

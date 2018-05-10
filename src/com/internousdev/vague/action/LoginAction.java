@@ -15,6 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LoginAction extends ActionSupport implements SessionAware{
 
 	private String userId = "";
+
 	private String password = "";
 
 	private String userIdErrorMsg;

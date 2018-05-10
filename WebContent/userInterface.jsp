@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE>
 <html>
@@ -46,7 +47,7 @@ response.sendRedirect("/vague/home.jsp");
 	</s:form>
 
 	<a href="userCreate.jsp">新規登録はこちら！</a><br>
-	<a href="changePassword.jsp">パスワードの再設定はこちら！</a>
+	<a href="userPasswordUpdate.jsp">パスワードの再設定はこちら！</a>
 
 
 	<br><br>

@@ -13,6 +13,15 @@
 </head>
 
 <body>
+<body>
+
+<s:if test="#session.LoginUserDTO == null || #session.LoginUserDTO.mFlg != 1 || #session.MasterAddCompleteDTO == null" >
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 
 
 

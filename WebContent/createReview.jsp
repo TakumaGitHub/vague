@@ -15,6 +15,13 @@
 
 <body>
 
+<s:if test="#session.LoginUserDTO == null || #session.CreateReviewProductDTO == null" >
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 
 
 	<!--  headerの始まり -->

@@ -15,7 +15,13 @@
 
 <body>
 
+<s:if test="#session.LoginUserDTO == null || #session.LoginUserDTO.mFlg != 1 || #session.MasterChangeCompleteDTO == null" >
+<%
 
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 
 	<!--  headerの始まり -->
 

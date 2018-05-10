@@ -79,11 +79,15 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">masterChangeConfirm.jsp</result>
 			<result name="error">masterChange.jsp</result>
+			<result name="home" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<action name="MasterChangeCompleteAction" class="com.internousdev.vague.action.MasterChangeCompleteAction" method="execute">
 			<result name="success">masterChangeComplete.jsp</result>
 			<result name="error">errorPage.html</result>
+			<result name="home" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<!-- 商品を追加するAction -->
@@ -103,11 +107,15 @@
             <interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="success">masterAddConfirm.jsp</result>
 			<result name="error">masterAdd.jsp</result>
+			<result name="home" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<action name="MasterAddCompleteAction" class="com.internousdev.vague.action.MasterAddCompleteAction" method="execute">
 			<result name="success">masterAddComplete.jsp</result>
 			<result name="error">errorPage.html</result>
+			<result name="home" type="redirect">home.jsp</result>
+			<result name="login">userInterface.jsp</result>
 		</action>
 
 		<!-- 柳沢担当 -->

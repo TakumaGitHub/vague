@@ -14,6 +14,7 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.internousdev.vague.dao.CategorySearchDAO;
 import com.internousdev.vague.dao.ProductSearchDAO;
 import com.internousdev.vague.dto.CategoryDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.MasterDTO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.InputChecker;
@@ -88,6 +89,17 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 	public String execute() throws SQLException{
 
 		String result = ERROR;
+
+		//ログインしていないとき
+		if(!(session.containsKey("LoginUserDTO"))){
+
+			return "login";
+
+		}else if(((LoginUserDTO)session.get("LoginUserDTO")).getmFlg() != 1){
+
+			return "home";
+
+		}
 
 
 		String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("images");

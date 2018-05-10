@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.MasterDAO;
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.MasterDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -23,6 +24,17 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 	public String execute(){
 
 		String result = SUCCESS;
+
+		//ログインしていないとき
+		if(!(session.containsKey("LoginUserDTO"))){
+
+			return "login";
+
+		}else if(((LoginUserDTO)session.get("LoginUserDTO")).getmFlg() != 1){
+
+			return "home";
+
+		}
 
 		if(!(session.containsKey("MasterChangeCompleteDTO"))){
 

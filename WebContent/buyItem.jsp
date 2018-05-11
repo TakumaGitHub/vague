@@ -8,13 +8,15 @@
 <title>宛先の選択</title>
 </head>
 <body>
-  <h3>宛先の選択</h3>
-     <s:iterator value="#session.AddressInfoListDTO">
-  	   <%--<s:radio name="addressId" value="#session.AddressInfoListDTO"/>--%>
-        <s:property value="familyName"/>
-        <s:property value="firstName"/>
-        <s:property value="postalCode"/>
-        <s:property value="addr11"/>
-     </s:iterator>
+<s:iterator value="#session.AddressInfoListDTO">
+
+	<s:property value="familyName" />
+	<s:property value="firstName" />
+	<s:property value="postalCode" />
+	<s:property value="addr11" />
+</s:iterator>
+
+<s:submit action="BuyItemConfirmAction"/>
+
 </body>
 </html>

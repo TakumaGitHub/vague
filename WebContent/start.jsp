@@ -12,6 +12,7 @@
 <meta http-equiv="refresh" content="0;URL=<s:url action='GoHomeAction' />">
 
 <title>Vague</title>
+
 </head>
 
 <body>

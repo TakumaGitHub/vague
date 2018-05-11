@@ -32,7 +32,7 @@
 <body>
 
 <!-- ヘッダーのインクルード -->
-<jsp:include page="headerSearch.jsp"/>
+<%-- <jsp:include page="headerSearch.jsp"/> --%>
 
 
 <!--  一覧表示ボタン押下 -->

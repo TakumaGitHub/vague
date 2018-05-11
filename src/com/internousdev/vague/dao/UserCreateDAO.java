@@ -2,7 +2,10 @@ package com.internousdev.vague.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
@@ -41,5 +44,51 @@ public class UserCreateDAO {
 		}
 	}
 
+	public String getOverlapping(String userId) throws SQLException {
+
+		String sql = " SELECT user_id FROM user_info ";
+
+		String result = null;
+
+		List<String> userIdList = new ArrayList<String>();
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+
+				userIdList.add(rs.getString("user_id"));
+
+
+			}
+
+			for(String Id : userIdList){
+
+				if(Id.equals(userId)){
+
+					result = "このIDは既に使われています";
+
+				}
+
+			}
+
+
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		}
+
+		return result;
+
+
+
 	}
+
+}
 

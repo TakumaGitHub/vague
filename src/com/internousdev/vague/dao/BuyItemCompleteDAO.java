@@ -5,9 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.util.DBConnector;
@@ -117,13 +115,13 @@ public class BuyItemCompleteDAO {
 
 	//在庫の数と購入数を比べるメソッド
 
-	public Map<String, String> compareCount(String userId){
+	public List<String> compareCount(String userId){
 
 		DBConnector dbConnector = new DBConnector();
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		Map<String, String> errorMsg = new HashMap<String, String>();
+		List<String> errorMsg = new ArrayList<String>();
 
 
 		String sql = " SELECT ci.product_count, pi.product_stock, pi.product_name  FROM  cart_info ci LEFT JOIN product_info pi ON ci.product_id =  pi.product_id WHERE user_id = ?  ";
@@ -141,7 +139,7 @@ public class BuyItemCompleteDAO {
 				//もし買う数が在庫より多かったら
 				if(rs.getInt("ci.product_count") > rs.getInt("pi.product_stock")){
 
-					errorMsg.put(rs.getString("pi.product_name"), rs.getString("pi.product_name") + "の購買個数が在庫を超過しています");
+					errorMsg.add(rs.getString("pi.product_name") + "の購買個数が在庫を超過しています");
 
 				}
 

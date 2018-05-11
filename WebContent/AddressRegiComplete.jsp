@@ -12,7 +12,7 @@
 		<h3>宛先が登録されました。</h3>
 	</div>
 	<div>
-		<p>決済画面に<a href='<s:url action="LoginAction"/>'>戻る</a></p>
+		<p>決済画面に<a href='<s:url action="BuyItemAction"/>'>戻る</a></p>
 	</div>
 </body>
 </html>

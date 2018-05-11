@@ -141,7 +141,7 @@ public class BuyItemCompleteDAO {
 				//もし買う数が在庫より多かったら
 				if(rs.getInt("ci.product_count") > rs.getInt("pi.product_stock")){
 
-					errorMsg.put(rs.getString("pi.product_name"), );
+					errorMsg.put(rs.getString("pi.product_name"), rs.getString("pi.product_name") + "の購買個数が在庫を超過しています");
 
 				}
 

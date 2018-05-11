@@ -9,7 +9,7 @@
 <head>
 
 <jsp:include page="WEB-INF/head.jsp" />
-<meta http-equiv="refresh" content="0;URL=<s:url action='GoHomeActon' />">
+<meta http-equiv="refresh" content="0;URL=<s:url action='GoHomeAction' />">
 
 <title>Vague</title>
 </head>

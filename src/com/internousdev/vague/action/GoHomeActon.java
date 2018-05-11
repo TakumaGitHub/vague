@@ -40,31 +40,7 @@ public class GoHomeActon extends ActionSupport implements SessionAware{
 
 		}
 
-		/*LoginUserDTO loginUserDTO = new LoginUserDTO();
 
-		if(mFlg == 1){
-
-			//管理ユーザー
-			loginUserDTO = new LoginUserDTO();
-
-			loginUserDTO.setId(2);
-			loginUserDTO.setmFlg(1);
-			loginUserDTO.setUserId("admin");
-
-		}else{
-
-			//テストユーザー
-			loginUserDTO = new LoginUserDTO();
-
-			loginUserDTO.setId(3);
-			loginUserDTO.setUserId("miyazaki");
-			loginUserDTO.setFamilyName("宮崎");
-			loginUserDTO.setFirstName("瞬");
-
-
-		}
-
-		session.put("LoginUserDTO", loginUserDTO);*/
 
 
 

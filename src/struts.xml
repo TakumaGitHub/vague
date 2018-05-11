@@ -36,7 +36,7 @@
 
 
 		<!-- ホーム画面に戻るAction -->
-		<action name="GoHomeActon" class="com.internousdev.vague.action.GoHomeActon" method="execute">
+		<action name="GoHomeAction" class="com.internousdev.vague.action.GoHomeAction" method="execute">
 			<result name="success">home.jsp</result>
 		</action>
 

@@ -160,17 +160,17 @@
 		<!-- 入山担当 -->
 		<!-- 住所登録のアクション -->
 		<action name="AddressAction" class="com.internousdev.vague.action.AddressAction" method="execute">
-		<result name="success">Address.jsp</result>
+		<result name="success">address.jsp</result>
 		</action>
 
 		<action name="AddressRegiConfirmAction" class="com.internousdev.vague.action.AddressRegiConfirmAction" method="execute">
-		<result name="success">AddressRegiConfirm.jsp</result>
-		<result name="error">Address.jsp</result>
+		<result name="success">addressRegiConfirm.jsp</result>
+		<result name="error">address.jsp</result>
 		<result name="login">login.jsp</result>
 		</action>
 
 		<action name="AddressRegiCompleteAction" class="com.internousdev.vague.action.AddressRegiCompleteAction" method="execute">
-		<result name="success">AddressRegiComplete.jsp</result>
+		<result name="success">addressRegiComplete.jsp</result>
 		</action>
 
 		<!-- 縄田担当 -->

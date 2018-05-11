@@ -3,37 +3,30 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 
 <head>
-
 <jsp:include page="WEB-INF/head.jsp" />
-
-<title>Vague</title>
+<title>マイページ</title>
 </head>
+
 <body>
 
-
-
 	<!--  headerの始まり -->
-
-   <header>
-
+	<header>
 
 
 
-   </header>
 
-    <!--  headerの終わり -->
-
-
+	</header>
+	<!--  headerの終わり -->
 
 
 
 	<!--  mainの始まり -->
-
-    <div id="main">
+	<div id="main">
 
 		<table><s:iterator value="myPageList">
 			<tr>
@@ -65,8 +58,8 @@
 
 
 
-		<input type="button" onclick="location.href='<s:url action="HomeAction" />'" value="Home">
-		<a href='<s:url action="HomeAction" />'>【ホームへ戻る】</a>
+		<input type="button" onclick="location.href='<s:url action="GoHomeAction" />'" value="Home">
+		<a href='<s:url action="GoHomeAction" />'>【ホームへ戻る】</a>
 
 		<br>
 
@@ -74,33 +67,16 @@
 		<a href='<s:url action="PurchaseHistoryAction" />'>【商品購入履歴】</a>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-    <!--  mainの終わり -->
-
-
+	</div>
+	<!--  mainの終わり -->
 
 
 	<!-- footerの始まり -->
-
 	<footer>
+
+
 	</footer>
-
 	<!-- footerの終わり -->
-
 
 </body>
 </html>

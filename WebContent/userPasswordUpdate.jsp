@@ -56,18 +56,6 @@ response.sendRedirect("/vague/home.jsp");
 			<p>新しいパスワード</p>
 			<p><input type="text" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
 
-			<p>秘密の質問</p>
-			<select name="question" >
-
-				<s:iterator value="{'嫌いな食べ物は何ですか','好きな映画は何ですか'}" status="st" >
-
-					<option value="<s:property value='#st.count' />"><s:property value='#st.count' />：<s:property/></option>
-				</s:iterator>
-
-			</select>
-
-			<p>秘密の質問の答え</p>
-			<p><input type="text" name="answer" value="<s:property value='#session.UserPasswordUpdateDTO.answer' />"/></p>
 
 			<input type="submit" value="確認画面に行く" />
 

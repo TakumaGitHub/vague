@@ -9,73 +9,106 @@
 
 
 <title>商品詳細ページ</title>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./js/jquery-1.8.2.min.js"></script>
+<script>
+	$(function() {
+		$(".imageHover .image").hover(function() {
+			$(this).animate({
+				width : "240px",
+				height : "210px"
+			});
+		}, function() {
+			$(this).animate({
+				width : "200px",
+				height : "170px"
+			});
+		});
+	});
+</script>
 </head>
 <body>
 
 <header>
 <!-- ヘッダーのインクルード -->
+
 </header>
 
-<%-- <jsp:include page="include_header.jsp"/> --%>
+
 
 	<div id="main" >
 
 		<div class="container">
 
-			<s:form action="CartInsertAction">
-		<table class="detailsTable">
+		<s:form action="CartInsertAction">
+
+
+		<table class="description-box">
+
+
 		<tr>
-		<th>
-			<!-- カテゴリ分類 -->
-			<span id="category">
-				<s:if test="#session.DetailProductDTO.categoryId==1">
-					<h2>Chair</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId==2">
-					<h2>Sofa</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId==3">
-					<h2>Lighting</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId==4">
-					<h2>Table</h2>
-				</s:if>
-			</span>
-		</th>
-		</tr>
-	<!-- 画像の表示 -->
-		<tr>
+
+		<!-- 画像の表示 -->
 		<td>
-			<span id="img">
+
+			<span>
 				<img class="image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="max-width:400px; max-height:300px;">
 			</span>
+
 		</td>
+		<td>
+
+			<!-- カテゴリ分類 -->
+			<span id="category">
+				<s:if test="#session.DetailProductDTO.categoryId == 1">
+					<h2>製品カテゴリ：Chair</h2>
+				</s:if>
+				<s:if test="#session.DetailProductDTO.categoryId == 2">
+					<h2>製品カテゴリ：Sofa</h2>
+				</s:if>
+				<s:if test="#session.DetailProductDTO.categoryId == 3">
+					<h2>製品カテゴリ：Lighting</h2>
+				</s:if>
+				<s:if test="#session.DetailProductDTO.categoryId == 4">
+					<h2>製品カテゴリ：Table</h2>
+				</s:if>
+			</span>
+
+
+
 	<!-- 商品名/かな -->
-		<td>
 			<span id="productName">
-				<s:property value="#session.DetailProductDTO.productName"/><br>
-				<s:property value="#sessioon.DetailProductDTO.productNameKana"/>
-			</span>
-		</td>
-	<%-- <!-- 商品名かな -->
-		<td>
-			<span id="productNameKana">
-				<s:property value="#sessioon.DetailProductDTO.productNameKana"/>
-			</span>
-		</td> --%>
+				<s:property value="#session.DetailProductDTO.productName"/><br></span>
+				<div id="proNameKana"><s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
+
+
+
 	<!-- 商品詳細 -->
-		<td>
+			<div id="description">
 			<fieldset>
 				<legend>商品詳細</legend>
-				<s:property value="#session.DetailProductDTO.productDescription"/>
+				<s:property value="#session.DetailProductDTO.productDescription"/><br>
 			</fieldset>
-		</td>
-		</tr>
+			</div>
+	<!-- 販売会社・販売日  -->
+
+		<div id="reCompany">
+			販売元：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
+			</div>
+		<div id="reDate">
+			発売開始日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/><br>
+			</div>
+
+	<!-- 金額  -->
+		<div id="proPrice">
+			製品価格：￥<s:property value="#session.DetailProductDTO.price"/><br>
+		</div>
+
 	<!-- 在庫  -->
-		<tr>
-		<td>
-			<span>
+
+		<div id="proPrice">
+			<span>購入個数：
 				<select name="productCount">
 
 					<s:if test="#session.DetailProductDTO.productStock < 5">
@@ -95,19 +128,9 @@
 
 					</s:else>
 
-
 				</select>
-			</span>
-		</td>
-
-	<!-- 金額  -->
-		<td>
-			製品価格：￥<s:property value="#session.DetailProductDTO.price"/>
-		</td>
-	<!-- 販売会社・販売日  -->
-		<td>
-			販売元：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
-			発売開始日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/>
+			</span><br>
+			</div>
 		</td>
 		</tr>
 		</table>
@@ -116,8 +139,8 @@
 
 <!-- オススメリスト -->
 
-<div id="sP">
-<h3 id="suggestProduct">この製品を見ている人はこんな商品も見ています</h3>
+
+<h3 id="suggestProduct">この製品を見ている人はこんな製品も見ています</h3>
 
 <div id="suggest-outer-box" >
 
@@ -125,12 +148,10 @@
 
 		<div class="suggest-box">
 
-			<div class="img">
-			<a
-				href="<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}" /></s:url>">
-				<img class="image" src="<s:property value='imageFilePath'/>"
-				alt="Photo" width="200" height="170"><br>
-				</a>
+			<div class="imageHover">
+			<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
+			<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+			</a>
 			</div>
 			<div class="sugName">
 			<s:property value="productName"/><br>
@@ -160,6 +181,10 @@
 <!-- レビュー -->
 <h3>商品レビュー</h3>
 <div class="reviewBox">
+<s:if test="#session.ReviewList.isEmpty()">
+<span>この商品にはまだレビューが投稿されていません。</span>
+</s:if>
+<s:else>
 <s:iterator value="#session.ReviewList">
 	<table>
 		<tr>
@@ -175,18 +200,15 @@
 			<td>評価：<s:property value="reviewDTO.reviewScore"/></td>
 		</tr>
 		<tr>
-			<td>投稿日：<s:property value="reviewDTO.insertDate" /></td>
+			<td>投稿日：<s:property value="reviewDTO.insertDate.substring(0,10)" /></td>
 		</tr>
 	</table>
+
 </s:iterator>
+</s:else>
+
 </div>
-
-
 		</div>
-
-
-	</div>
-
 
 
 <footer>

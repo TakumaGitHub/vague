@@ -11,7 +11,7 @@ import com.internousdev.vague.util.DBConnector;
 
 public class ProductListDAO {
 	//商品情報取得
-	//ユーザーに見せるリスト
+
 	public ArrayList<ProductDTO> getProductInfo() throws SQLException {
 
 		ArrayList<ProductDTO> productList = new ArrayList<>();
@@ -55,7 +55,7 @@ public class ProductListDAO {
 		return productList;
 	}
 
-	//商品情報一括取得
+/*	//商品情報一括取得
 	//ユーザーには非公開
 	public ArrayList<ProductDTO> getProductHideInfo() throws SQLException {
 		ArrayList<ProductDTO> productList = new ArrayList<>();
@@ -95,7 +95,7 @@ public class ProductListDAO {
 		}
 		return productList;
 	}
-
+*/
 	//IDが存在するかのチェック
 	public boolean existsProductId(String productId) throws SQLException {
 		boolean result = false;

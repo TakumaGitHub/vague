@@ -20,6 +20,7 @@ public class CartDAO {
 		ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
 		String sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where user_id = ?";
+
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);

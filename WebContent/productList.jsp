@@ -4,22 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<jsp:include page="WEB-INF/head.jsp" />
+
 <link rel="stylesheet" href="./css/product.css">
-<link rel="stylesheet" href="./css/vague.css">
 
 <title>商品一覧</title>
-<style type="text/css">
-.top {
-	width: 100%;
-	text-align: center;
-}
 
-.list {
-	width: 100%;
-}
-
-</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="./js/jquery-1.8.2.min.js"></script>
@@ -41,10 +31,11 @@
 </head>
 <body>
 
-<!-- ヘッダーのインクルード  -->
-<%-- <jsp:include page="include_header.jsp" /> --%>
+<!-- ヘッダーのインクルード -->
+<jsp:include page="headerSearch.jsp"/>
 
-<!-- 一覧ボタン押下 -->
+
+<!--  一覧表示ボタン押下 -->
 
 <s:iterator value="#session.ProductList">
 

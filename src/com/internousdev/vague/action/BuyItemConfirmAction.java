@@ -2,11 +2,13 @@ package com.internousdev.vague.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.AddressDAO;
+import com.internousdev.vague.dao.BuyItemCompleteDAO;
 import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dto.AddressDTO;
 import com.internousdev.vague.dto.CartDTO;
@@ -22,15 +24,16 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 
 	public Map<String,Object> session;
-	private ArrayList<AddressDTO> addressList = new ArrayList<>();
-	private ArrayList<CartDTO> cartList = new ArrayList<>();
+	private ArrayList<AddressDTO> addressList = new ArrayList<AddressDTO>();
+	private ArrayList<CartDTO> cartList = new ArrayList<CartDTO>();
+	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	private int addressId;
 	private int totalPrice;//小計金額
 	private int finallyPrice;//請求金額
 	private int productCount;
 //	エラーメッセージ
-
+	private List<String> errorMsg;
 
 	public String execute() throws SQLException {
 
@@ -52,9 +55,13 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 			return result;
 		}
 
+		errorMsg = buyItemCompleteDAO.compareCount(userId);
+
 //		在庫オーバー判定
-
-
+		if(!errorMsg.isEmpty()) {
+			result = "other";
+			return result;
+		}
 
 
 		AddressDAO addressDAO = new AddressDAO();
@@ -135,6 +142,14 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	public void setProductCount(int productCount) {
 		this.productCount = productCount;
+	}
+
+	public List<String> getErrorMsg(){
+		return errorMsg;
+	}
+
+	public void setErrorMsg(List<String> errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 

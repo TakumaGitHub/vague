@@ -66,7 +66,7 @@ public class AddressDAO {
 
 			while(rs.next()) {
 				AddressDTO addressDTO = new AddressDTO();
-				addressDTO.setId(rs.getInt("id"));
+				addressDTO.setAddressId(rs.getInt("id"));
 				addressDTO.setFamilyName(rs.getString("family_name"));
 				addressDTO.setFirstName(rs.getString("first_name"));
 				addressDTO.setFamilyNameKana(rs.getString("family_name_kana"));

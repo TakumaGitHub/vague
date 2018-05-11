@@ -2,7 +2,7 @@ package com.internousdev.vague.dto;
 
 public class AddressDTO {
 
-	private int id;
+	private int addressId;
 	private String userId;
 	private String familyName;
 	private String firstName;
@@ -13,12 +13,12 @@ public class AddressDTO {
 	private String telNumber;
 	private String email;
 
-	public int getId() {
-		return id;
+	public int getAddressId() {
+		return addressId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
 	}
 
 	public String getUserId() {

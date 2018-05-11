@@ -18,10 +18,6 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 	private String newPassword = "";
 
-	private int question;
-
-	private String answer;
-
 	private String hidePassword;
 
 
@@ -31,9 +27,9 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 	private String errorMsg;
 
-	private UserPasswordUpdateDAO userPasswordUpdateDAO = new UserPasswordUpdateDAO();
-
 	private LoginUserDTO loginUserDTO = new LoginUserDTO();
+
+	private UserPasswordUpdateDAO userPasswordUpdateDAO = new UserPasswordUpdateDAO();
 
 
 	public String execute() throws SQLException{
@@ -58,13 +54,14 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 		}
 
-		//入力情報(ID,秘密の質問,秘密の質問の答え)が合っているかどうか
-		errorMsg = userPasswordUpdateDAO.isTrue(userId, newPassword, question, answer);
+		errorMsg = userPasswordUpdateDAO.isTrue(userId, newPassword);
+
 		if(errorMsg != null){
 
 			return ERROR;
 
 		}
+
 
 		//入力情報をLoginUserDTOに格納する
 		loginUserDTO.setUserId(userId);
@@ -130,26 +127,6 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
-
-	public int getQuestion() {
-		return question;
-	}
-
-
-	public void setQuestion(int question) {
-		this.question = question;
-	}
-
-
-	public String getAnswer() {
-		return answer;
-	}
-
-
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
-
 
 	public String getUserIdErrorMsg() {
 		return userIdErrorMsg;

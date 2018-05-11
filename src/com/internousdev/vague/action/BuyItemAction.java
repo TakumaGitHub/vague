@@ -24,16 +24,16 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		private LoginUserDTO loginUserDTO = new LoginUserDTO();
 
 	public String execute() throws SQLException{
-		result = SUCCESS;
+		result = ERROR;
 
 		loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 		userId = loginUserDTO.getUserId();
 
 		addressInfoListDTO.addAll(addressDAO.getAddressInfo(userId));
 
-		if(addressInfoListDTO.get(0) == null) {
+		if(addressInfoListDTO.get(0) != null) {
 
-			result = ERROR;
+			result = SUCCESS;
 		}
 
 		return result;

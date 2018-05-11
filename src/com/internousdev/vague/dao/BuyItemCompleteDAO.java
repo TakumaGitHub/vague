@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -122,6 +123,8 @@ public class BuyItemCompleteDAO {
 
 		Connection con = (Connection)dbConnector.getConnection();
 
+		Map<String, String> errorMsg = new HashMap<String, String>();
+
 
 		String sql = " SELECT ci.product_count, pi.product_stock, pi.product_name  FROM  cart_info ci LEFT JOIN product_info pi ON ci.product_id =  pi.product_id WHERE user_id = ?  ";
 
@@ -132,8 +135,19 @@ public class BuyItemCompleteDAO {
 			ps.setString(1, userId);
 
 			ResultSet rs = ps.executeQuery();
-			
-			
+
+			while(rs.next()){
+
+				//もし買う数が在庫より多かったら
+				if(rs.getInt("ci.product_count") > rs.getInt("pi.product_stock")){
+
+					errorMsg.put(rs.getString("pi.product_name"), );
+
+				}
+
+
+
+			}
 
 
 
@@ -159,6 +173,9 @@ public class BuyItemCompleteDAO {
 
 
 		}
+
+
+		return errorMsg;
 
 
 	}

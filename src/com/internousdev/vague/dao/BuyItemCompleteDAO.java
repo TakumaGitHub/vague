@@ -6,10 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import com.internousdev.vague.dto.BuyItemDTO;
 import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.util.DBConnector;
+import com.internousdev.vague.util.DateUtil;
 
 /*
  * 決済ボタンを押した後のアクション
@@ -30,13 +31,15 @@ public class BuyItemCompleteDAO {
 
 		List<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
-		List<BuyItemDTO> addressDTOList = new ArrayList<BuyItemDTO>();
 
 		String sqlSELECT = " SELECT * FROM  cart_info WHERE user_id = ?";
 
 		String sqlInsert = " INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, insert_date) values (?,?,?,?,?,?)";
 
 		String sqlDELETE = " DELETE FROM  cart_info WHERE user_id = ? ";
+
+		int ret = 0;
+
 
 		try{
 
@@ -52,15 +55,8 @@ public class BuyItemCompleteDAO {
 				CartDTO cartDTO = new CartDTO();
 
 				cartDTO.setProductId(rsSELECT.getInt("product_id"));
-				cartDTO.setProductName(rsSELECT.getString("product_name"));
-				cartDTO.setProductNameKana(rsSELECT.getString("product_name_kana"));
-				cartDTO.setPrice(rsSELECT.getInt("product_info.price"));
-				cartDTO.setProductCount(rsSELECT.getInt("product_count"));
-				cartDTO.setProductTotalPrice(rsSELECT.getInt("cart_info.price"));
-				cartDTO.setImageFilePath(rsSELECT.getString("image_file_path"));
-				cartDTO.setReleaseCompany(rsSELECT.getString("release_company"));
-				cartDTO.setReleaseDate(rsSELECT.getString("release_date"));
-				cartDTO.setProductStock(rsSELECT.getInt("product_stock"));
+				cartDTO.setPrice(rsSELECT.getInt("price"));
+				cartDTO.setProductCount(rsSELECT.getInt("product_count"));;
 
 
 				cartDTOList.add(cartDTO);
@@ -79,19 +75,19 @@ public class BuyItemCompleteDAO {
 				psInsert.setInt(3, cartDTO.getProductCount());
 				psInsert.setInt(4, cartDTO.getPrice());
 				psInsert.setInt(5, address_id);
-				psInsert.setString(6,);
+				psInsert.setString(6, dateUtil.getDate());
 
 
-				ResultSet rsInsert = psInsert.executeQuery();
-
-
-
+				psInsert.executeUpdate();
 
 			}
 
+			//カートのテーブルから、履歴を消す。
+			PreparedStatement psDELETE = con.prepareStatement(sqlDELETE);
 
+			psDELETE.setString(1, userId);
 
-
+			ret = psDELETE.executeUpdate();
 
 
 		}catch(SQLException e){
@@ -112,7 +108,53 @@ public class BuyItemCompleteDAO {
 
 		}
 
+		return ret;
 
+
+	}
+
+
+	//在庫の数と購入数を比べるメソッド
+
+	public Map<String, String> compareCount(String userId){
+
+		DBConnector dbConnector = new DBConnector();
+
+		Connection con = (Connection)dbConnector.getConnection();
+
+
+		String sql = " SELECT ci.product_count, pi.product_stock, pi.product_name  FROM  cart_info ci LEFT JOIN product_info pi ON ci.product_id =  pi.product_id WHERE user_id = ?  ";
+
+		try{
+
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1, userId);
+			
+
+
+
+		}catch(SQLException e){
+
+			e.printStackTrace();
+
+		}
+
+
+		finally{
+
+			try{
+
+				con.close();
+
+			}catch(SQLException e){
+
+				e.printStackTrace();
+
+			}
+
+
+		}
 
 
 	}

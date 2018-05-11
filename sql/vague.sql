@@ -26,8 +26,6 @@ create table user_info(
 	status tinyint default 0,
 	login_flg tinyint default 0,
 	m_flg tinyint default 0,
-	question int(255) not null default 1,/* 例：１嫌いな食べ物は？２：好きな映画は？ */
-    answer varchar(255) not null,
 	insert_date datetime not null,
 	update_date datetime
 );
@@ -85,6 +83,7 @@ create table purchase_history_info(
 	product_id int not null,
 	product_count int not null,
 	price int not null,
+	address_id int not null,
 	insert_date datetime not null,
 	update_date datetime
 );
@@ -148,10 +147,10 @@ create table review (
  */
 
 INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana,
-	first_name_kana, sex, email, status, question, answer, m_flg, insert_date)
-	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,1,"ピーマン",0,now()),
-		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,"ピーマン",1,now()),
-		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,1,"かぼちゃ",0,now());
+	first_name_kana, sex, email, status, m_flg, insert_date)
+	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,now()),
+		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,0,now());
 
 
 /*
@@ -215,16 +214,25 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
 					   (3, "Lighting", "照明のカテゴリー", now()),
 					   (4, "Table", "テーブルのカテゴリー", now());
 
+/*
+ * 宛先情報テーブルに情報挿入
+ */
+
+
+INSERT INTO destination_info (user_id, )
+			values           (),
+							 ();
+
 
 /*
  * 購入履歴情報テーブルに情報挿入
  */
 
 
-INSERT INTO purchase_history_info (user_id, product_id, product_count, price, insert_date)
-			values                ("miyazaki",1,30,30000,now()),
-								  ("miyazaki",2,30,30000,now()),
-								  ("miyazaki",3,30,30000,now()),
-								  ("miyazaki",4,30,30000,now()),
-								  ("miyazaki",5,30,30000,now());
+INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, insert_date)
+			values                ("miyazaki",1,30,30000,1,now()),
+								  ("miyazaki",2,30,30000,1,now()),
+								  ("miyazaki",3,30,30000,1,now()),
+								  ("miyazaki",4,30,30000,1,now()),
+								  ("miyazaki",5,30,30000,2,now());
 

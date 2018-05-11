@@ -219,9 +219,9 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
  */
 
 
-INSERT INTO destination_info (user_id, )
-			values           (),
-							 ();
+INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, postal_code, user_address, insert_date)
+			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp","09044444444", "1001100", "東京都千代田区霞が関1-1-1", now()),
+							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp","09044444444", "1001100", "東京都千代田区霞が関2-2-2", now());
 
 
 /*

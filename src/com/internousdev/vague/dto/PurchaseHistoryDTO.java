@@ -27,6 +27,13 @@ public class PurchaseHistoryDTO {
 	// 個数
 	private int count;
 
+	// 宛先住所
+	private int addressId;
+
+	private String postalCode;
+
+	private String userAddress;
+
 	// 発売会社名
 	private String releaseCompany;
 
@@ -97,6 +104,28 @@ public class PurchaseHistoryDTO {
 		this.count = count;
 	}
 
+	// 宛先住所
+	public int getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(int addressId) {
+		this.count = addressId;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getUserAddress() {
+		return userAddress;
+	}
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
+	}
+
 	// 発売会社名
 	public String getReleaseCompany() {
 		return releaseCompany;
@@ -138,6 +167,13 @@ public class PurchaseHistoryDTO {
 		return 	productcount;
 		}
 	public void setProductCount(String productcount) {
+		this.productcount = productcount;
+	}
+
+	public String getProductcount() {
+		return productcount;
+	}
+	public void setProductcount(String productcount) {
 		this.productcount = productcount;
 	}
 }

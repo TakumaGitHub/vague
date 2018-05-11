@@ -71,6 +71,9 @@
 									<br>
 									<div class="info">値段：<s:property value="price" /> 円</div>
 									<div class="info">購入個数：<s:property value="count" /> 点</div>
+									<div class="info">宛先</div>
+									<div class="info">・郵便番号：<s:property value="postalCode" /></div>
+									<div class="info">・住所：<s:property value="userAddress" /></div>
 									<div class="info">購入日時：<s:property value="insertDate" /></div>
 									<br>
 									<div class="info">発売会社名：<s:property value="releaseCompany" /></div>

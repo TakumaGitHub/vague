@@ -76,6 +76,7 @@
 			</span>
 
 
+
 	<!-- 商品名/かな -->
 			<span id="productName">
 				<s:property value="#session.DetailProductDTO.productName"/><br></span>

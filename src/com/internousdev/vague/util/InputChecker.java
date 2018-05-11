@@ -293,9 +293,9 @@ public class InputChecker {
 		if(keywords.equals("")) {
 			result = "【検索キーワードを入力してください】";
 		}else if(keywords.length() > 16) {
-			result = "【検索は、1文字以上16文字以下で入力してください】";
+			result = "【検索キーワードは、1文字以上16文字以下で入力してください】";
 		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]*$") && keywords != "") {
-			result = "【検索は半角英数字、漢字、ひらがな、カタカナで入力してください】";
+			result = "【検索キーワードは半角英数字、漢字、ひらがな、カタカナで入力してください】";
 		}
 		return result;
 	}

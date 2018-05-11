@@ -88,6 +88,7 @@
 <div class="center" style="text-align: center;">
 
 		<s:property value="errorMsg" />
+		<s:property value="inputErrorMsg" />
 
 		<s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 

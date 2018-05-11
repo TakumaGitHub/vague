@@ -48,7 +48,7 @@ public class CartDAO {
 		return cartDTOList;
 	}
 
-		public void getCartInsertInfo(String userId,int productId,int productCount ,int productTotalPrice) throws SQLException{
+		public void getCartInsertInfo(String userId,String tempUserId, int productId,int productCount ,int productTotalPrice) throws SQLException{
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
@@ -56,11 +56,32 @@ public class CartDAO {
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, userId);
+			ps.setString(2, tempUserId);
 			ps.setInt(3, productId);
 			ps.setInt(4, productCount);
 			ps.setInt(5, productTotalPrice);
 			ps.setString(6, dateUtil.getDate());
+
+			ps.executeUpdate();
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+	}
+		public void getTempCartInsertInfo(String tempUserId, int productId,int productCount ,int productTotalPrice) throws SQLException{
+			DBConnector dbConnector = new DBConnector();
+			Connection con = dbConnector.getConnection();
+			DateUtil dateUtil = new DateUtil();
+			String sql = "INSERT INTO cart_info(temp_user_id,product_id,product_count,price,insert_date) VALUES(?,?,?,?,?)";
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, tempUserId);
+			ps.setInt(2, productId);
+			ps.setInt(3, productCount);
+			ps.setInt(4, productTotalPrice);
+			ps.setString(5, dateUtil.getDate());
 
 			ps.executeUpdate();
 
@@ -124,7 +145,7 @@ public class CartDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, tempUserId);
-			ps.executeQuery();
+			ps.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {

@@ -5,21 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <!-- ホーム画面に10秒後遷移 content="秒数" -->
 <meta http-equiv="refresh" content="10;URL=GoHomeAction">
 
 <title>決済完了画面</title>
-
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="./css/fifties.css">
-<link rel="stylesheet" href="./css/complete.css">
+<jsp:include page="WEB-INF/head.jsp" />
 
 </head>
 
 <body>
-<%-- 	<jsp:include page="includeHeader.jsp" /> --%>
+
 	<div class="main">
 		<div class="form">
 			<div class="form-heading">
@@ -34,6 +29,6 @@
 
 			</div>
 		</div>
-	<%-- <jsp:include page="includeFooter.jsp" /> --%>
+
 </body>
 </html>

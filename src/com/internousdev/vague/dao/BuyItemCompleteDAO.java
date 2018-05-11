@@ -11,8 +11,14 @@ import com.internousdev.vague.dto.CartDTO;
 import com.internousdev.vague.util.DBConnector;
 import com.internousdev.vague.util.DateUtil;
 
-/*
+/**
  * 決済ボタンを押した後のアクション
+ *
+ * カートテーブルからログインユーザーの情報を引き出す
+ * 購入履歴のテーブルにINSERT
+ * カートテーブルからユーザーに紐づいている情報は削除
+ * 買った個数だけ在庫から引く
+ *
  */
 
 public class BuyItemCompleteDAO {
@@ -36,6 +42,8 @@ public class BuyItemCompleteDAO {
 		String sqlInsert = " INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, insert_date) values (?,?,?,?,?,?)";
 
 		String sqlDELETE = " DELETE FROM  cart_info WHERE user_id = ? ";
+
+		String sqlUpdate = " UPDATE product_info SET product_stock = product_stock - ? WHERE product_id = ? ";
 
 		int ret = 0;
 
@@ -63,12 +71,14 @@ public class BuyItemCompleteDAO {
 			}
 
 
-			//取り出してきたカートの情報を、購入履歴に入れる
+			//取り出してきたカートの情報を、購入履歴に入れると同時に在庫から購入数を引く
 			PreparedStatement psInsert = con.prepareStatement(sqlInsert);
+			PreparedStatement psUpdate = con.prepareStatement(sqlUpdate);
 
 
 			for(CartDTO cartDTO : cartDTOList){
 
+				//カートテーブルから購入履歴テーブルへ
 				psInsert.setString(1, userId);
 				psInsert.setInt(2, cartDTO.getProductId());
 				psInsert.setInt(3, cartDTO.getProductCount());
@@ -78,6 +88,13 @@ public class BuyItemCompleteDAO {
 
 
 				psInsert.executeUpdate();
+
+				//商品テーブルの在庫から購入数を引く
+				psUpdate.setInt(1, cartDTO.getProductId());
+				psUpdate.setString(2, userId);
+
+				psUpdate.executeUpdate();
+
 
 			}
 

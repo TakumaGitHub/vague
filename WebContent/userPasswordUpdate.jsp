@@ -38,6 +38,7 @@ response.sendRedirect("/vague/home.jsp");
 			<strong><s:property value="errorMsg"/></strong>
 
 			<p><s:property value="userIdErrorMsg"/></p>
+			<p>半角英数字1～8文字で入力してください。</p>
 			<p>ログインID</p>
 
 			<s:if test="#session.UserPasswordUpdateDTO.userId != null">
@@ -53,8 +54,11 @@ response.sendRedirect("/vague/home.jsp");
 
 
 			<p><s:property value="passwordErrorMsg"/></p>
+			<p>半角英数字1～16文字で入力してください。</p>
 			<p>新しいパスワード</p>
-			<p><input type="text" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+			<p><input type="password" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+			<p>新しいパスワード(確認)</p>
+			<p><input type="password" name="newPasswordConfirm" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
 
 
 			<input type="submit" value="確認画面に行く" />

@@ -27,7 +27,7 @@ response.sendRedirect("/vague/home.jsp");
 		ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 		<br>
 		<p><s:property value="passwordErrorMsg" /></p>
-		パスワード：<input type="text" name="password">
+		パスワード：<input type="password" name="password">
 		<s:submit value="ログイン"/>
 
 		<div>

@@ -186,51 +186,6 @@
 		</div>
 
 
-		<!-- ======= 商品の検索結果を表示する ======= -->
-
-		<div class="right">
-
-			<h3>商品の検索結果</h3>
-			<s:if test="#session.SearchListLength != null">
-
-				<span>ページ数</span>
-
-					<s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-
-						<a href="<s:url action='ProductSearchAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
-
-					</s:iterator>
-
-			</s:if>
-
-
-			<s:iterator value="#session.SearchList">
-
-			<s:if test="status == 1" >
-
-				<div>
-
-					<img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
-					<p><s:property value="productName" /></p>
-
-					<s:form action="CreateReviewAction" method="post">
-
-						<input type="hidden" name="product_id" value="<s:property value='productId' />" />
-						<input type="submit" value="レビューを投稿する" />
-
-					</s:form>
-
-				</div>
-
-
-			</s:if>
-
-
-			</s:iterator>
-
-		</div>
-
-
     </div>
 
     <!--  mainの終わり -->

@@ -16,7 +16,7 @@ import com.internousdev.vague.util.DBConnector;
 public class UserPasswordUpdateDAO {
 
 	//入力情報が合っているかどうか
-	public String isTrue(String userId, String password, int question, String answer){
+	public String isTrue(String userId, String password){
 
 		String result = null;
 
@@ -38,14 +38,6 @@ public class UserPasswordUpdateDAO {
 				if(!rs.next()){
 
 					result = "IDが間違っています";
-
-				}else if(question != rs.getInt("question")){
-
-					result = "秘密の質問が間違っています";
-
-				}else if(!answer.equalsIgnoreCase(rs.getString("answer")) || compareHiraganaKatakana(answer, rs.getString("answer")) != 0){
-
-					result = "秘密の答えが間違っています";
 
 				}else if(password.equals(rs.getString("password"))){
 
@@ -128,33 +120,6 @@ public class UserPasswordUpdateDAO {
 
 	}
 
-
-
-	//以下サブメソッド(文字列の比較)
-
-	private int compareHiraganaKatakana(String s1, String s2) {
-
-		return getHiraFrom(s1).compareTo(getHiraFrom(s2));
-
-		}
-
-	private String getHiraFrom(String s) {
-
-		StringBuilder sb = new StringBuilder();
-
-		for (int i = 0; i < s.length(); i++) {
-
-		char c = s.charAt(i);
-
-		if (0x30A1 <= c && c <= 0x30F3) {
-
-		c -= 0x0060;
-
-		}
-		sb.append(c);
-		}
-		return sb.toString();
-		}
 
 
 

@@ -187,7 +187,7 @@
 		<!-- 野崎担当 -->
 		<action name="BuyItemAction" class="com.internousdev.vague.action.BuyItemAction" method="execute">
 		<result name="success">buyItemConfirm.jsp</result>
-		<result name="errror">addressRegister.jsp</result>
+		<result name="error">addressRegister.jsp</result>
 		</action>
 
 		<action name="BuyItemConfirmAction" class="com.internousdev.vague.action.BuyItemConfirmAction" method="execute">

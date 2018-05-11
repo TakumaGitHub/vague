@@ -5,9 +5,53 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
+import com.internousdev.vague.util.DateUtil;
 
 public class LoginUserDAO {
+
+	public LoginUserDTO getUserInfo(String userId,String password) throws SQLException{
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+		DateUtil dateUtil = new DateUtil();
+
+		LoginUserDTO dto = new LoginUserDTO();
+		String sql = "SELECT * from user_info WHERE user_id = ? AND password = ?";
+
+		try{
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, password);
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+				dto.setUserId(rs.getString("user_id"));
+				dto.setPassword(rs.getString("password"));
+				dto.setFamilyName(rs.getString("family_name"));
+				dto.setFirstName(rs.getString("first_name"));
+				dto.setFamilyNameKana(rs.getString("family_name_kana"));
+				dto.setFirstName(rs.getString("first_name_kana"));
+				dto.setEmail(rs.getString("email"));
+				dto.setStatus(rs.getInt("status"));
+				dto.setLoginFlg(rs.getInt("login_flg"));
+				dto.setmFlg(rs.getInt("m_flg"));
+				dto.setQuestion(rs.getInt("question"));
+				dto.setAnswer(rs.getString("answer"));
+				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setUpdateDate(rs.getString("update_date"));
+
+			}
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+		}
+			return dto;
+
+		}
 
 
 	//IDとパスワードが合っているか確かめるメソッド

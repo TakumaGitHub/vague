@@ -73,7 +73,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 			}
 
-			dto = dao.getUserInfo(userId,password);
+			dto = loginUserDAO.getUserInfo(userId,password);
 
 			if(dto.getUserId() != null){
 				result = SUCCESS;

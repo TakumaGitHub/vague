@@ -130,7 +130,11 @@ public class BuyItemCompleteDAO {
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			ps.setString(1, userId);
+
+			ResultSet rs = ps.executeQuery();
 			
+			
+
 
 
 

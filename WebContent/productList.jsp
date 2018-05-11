@@ -67,11 +67,11 @@
 </s:iterator>
 
 <div class="center" style="text-align: center;">
- <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
+ <s:if test="#session.ProductListLength != null && #session.ProductListLength >= 1">
 
              <span>ページ数</span>
 
-                     <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
+                     <s:iterator begin="1" end="#session.ProductListLength" step="1" status="st">
 
 						<a href="<s:url action='ProductListAction' />?pageNum=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
 
@@ -86,9 +86,10 @@
 
 
 <div class="center" style="text-align: center;">
-       <s:iterator value="#session.SearchList">
 
-        <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
+		<s:property value="errorMsg" />
+
+		<s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 
                <span>ページ数</span>
                        <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
@@ -97,14 +98,17 @@
                        </s:iterator>
        </s:if>
 
-       <s:if test="status == 1" >
-               <div>
-					   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
-                       <img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
-                       </a>
-                  	    <p><s:property value="productName" /></p>
-               </div>
-       </s:if>
+       <s:iterator value="#session.SearchList">
+
+	       <s:if test="status == 1" >
+	               <div>
+						   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
+	                       <img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
+	                       </a>
+	                  	    <p><s:property value="productName" /></p>
+	               </div>
+	       </s:if>
+
        </s:iterator>
 </div>
 

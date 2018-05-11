@@ -52,27 +52,43 @@
 
 			<div id="left">
 
-			<h2>ログイン認証</h2>
+			<s:if test="#session.LoginUserDTO == null" >
 
-			<form action="/vague/userInterface.jsp" method="post">
+				<h2>ログイン認証</h2>
 
-				<input type="submit" value="ログインする" />
+				<form action="/vague/userInterface.jsp" method="post">
 
-			</form>
+					<input type="submit" value="ログインする" />
 
-			<h2>ログアウト</h2>
-			<form action="LogoutAction" method="post">
-
-				<input type="submit" value="ログアウトする" />
-
-			</form>
+				</form>
 
 
-			<h2>ログインユーザーのレビュー</h2>
+			</s:if>
+			<s:else>
 
-			<form action="ReviewMyListAction" method="post">
-				<input type="submit" value="レビューを見る" />
-			</form>
+				<h2>ログアウト</h2>
+				<form action="LogoutAction" method="post">
+
+					<input type="submit" value="ログアウトする" />
+
+				</form>
+
+				<h2>ログインユーザーのレビュー</h2>
+
+				<form action="ReviewMyListAction" method="post">
+					<input type="submit" value="レビューを見る" />
+				</form>
+
+
+				<h2>マイページに行く</h2>
+
+				<s:form action="MyPageAction" method="post">
+
+					<input type="submit" value="マイページ" />
+
+				</s:form>
+
+			</s:else>
 
 
 			<h2>管理者ページに行く</h2>
@@ -99,13 +115,6 @@
 
 			</s:form>
 
-			<h2>マイページに行く</h2>
-
-			<s:form action="MyPageAction" method="post">
-
-				<input type="submit" value="マイページ" />
-
-			</s:form>
 
 			<h2>ProductSearchAction</h2>
 

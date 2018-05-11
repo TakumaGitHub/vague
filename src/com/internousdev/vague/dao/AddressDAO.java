@@ -52,7 +52,7 @@ public class AddressDAO {
 
 	public ArrayList<AddressDTO> getAddressInfo(String userId) throws SQLException{
 
-		ArrayList<AddressDTO> addressList = new ArrayList<AddressDTO>();
+		ArrayList<AddressDTO> addressInfoListDTO = new ArrayList<AddressDTO>();
 
 
 		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE user_id = ?";
@@ -75,13 +75,13 @@ public class AddressDAO {
 				addressDTO.setTelNumber(rs.getString("tel_number"));
 				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
-				addressList.add(addressDTO);
+				addressInfoListDTO.add(addressDTO);
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			con.close();
 		}
-		return addressList;
+		return addressInfoListDTO;
 	}
 }

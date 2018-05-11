@@ -44,7 +44,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 			e.printStackTrace();
 		}
 			return result;
-		}
+	}
 
 	public int totalPrice(ArrayList<CartDTO> cartList){
 		int totalPrice = 0;

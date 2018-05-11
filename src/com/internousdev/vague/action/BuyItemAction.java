@@ -32,7 +32,7 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 		addressInfoListDTO = addressDAO.getAddressInfo(userId);
 
-		if(addressInfoListDTO.isEmpty()) {
+		if(!addressInfoListDTO.isEmpty()) {
 
 			result = SUCCESS;
 			session.put("AddressInfoListDTO", addressInfoListDTO);

@@ -8,7 +8,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GoHomeActon extends ActionSupport implements SessionAware{
+public class GoHomeAction extends ActionSupport implements SessionAware{
 
 	//フィールド
 	private Map<String, Object> session;

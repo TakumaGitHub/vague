@@ -22,20 +22,6 @@
 
 		<div id="contents" class="border ph">
 			<div id="left" class="border">
-
-				<!-- 戻るボタン -->
-					<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
-					<s:form action="MyPageAction">
-						<s:submit class="button-layout button1" value="戻る" />
-					</s:form>
-
-				<!-- 履歴すべて削除ボタン -->
-					<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a></p>
-					<s:form action="PurchaseHistoryAction">
-						<input type="hidden" name="deleteFlg" value="1">
-						<s:submit class="button-layout button2" value="履歴をすべて削除" />
-					</s:form>
-
 			</div>
 
 			<div id="right">
@@ -92,17 +78,41 @@
 						</s:form>
 
 						<!-- 戻るボタン -->
+							<input type="button" onclick="location.href='<s:url action="MyPageAction" />'" value="戻る">
+
+<!--
 							<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
 							<s:form action="MyPageAction">
 								<s:submit class="button-layout button1" value="戻る" />
 							</s:form>
-
+-->
 						<!-- 履歴すべて削除ボタン -->
-							<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a></p>
+<!--
+							<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a>
+								<input type="hidden" name="deleteFlg" value="1">
+							</p>
+-->
 							<s:form action="PurchaseHistoryAction">
 								<input type="hidden" name="deleteFlg" value="1">
-								<s:submit class="button-layout button2" value="履歴をすべて削除" />
+								<s:submit class="button-layout button2" value="履歴をすべて削除" onclick="return deleteCheck();"/>
 							</s:form>
+
+							<script>
+								function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){
+									return true
+								}else{
+									return false;
+								}
+								}
+							</script>
+
+
+
+
+
+
+
+
 
 					</s:elseif>
 

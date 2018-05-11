@@ -8,9 +8,20 @@
 <html>
 
 <head>
-<jsp:include page="WEB-INF/head.jsp" />
+	<jsp:include page="WEB-INF/head.jsp" />
 <title>マイページ</title>
+<style type="text/css">
+
+
+
+
+
+</style>
 </head>
+
+
+
+
 
 <body>
 

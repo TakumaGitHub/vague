@@ -214,7 +214,9 @@
 
 		<action name="BuyItemCompleteAction" class="com.internousdev.vague.action.BuyItemCompleteAction" method="execute">
 		<result name="success">buyItemComplete.jsp</result>
-		<result name="error">purchaseHistory.jsp</result>
+		<result name="error">>buyItemConfirm.jsp</result>
+		<result name="login">login.jsp</result>
+		<result name="cart">cart.jsp</result>
 		</action>
 
 

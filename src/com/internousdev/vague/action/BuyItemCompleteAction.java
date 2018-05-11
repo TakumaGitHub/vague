@@ -33,7 +33,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 		if(!session.containsKey("LoginUserDTO")){
 
-			return "home";
+			return "login";
 
 		}
 

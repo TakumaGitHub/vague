@@ -13,6 +13,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String userId;
+	private String result;
+	private LoginUserDTO loginUserDTO = new LoginUserDTO();
+
 	AddressDAO addressDAO = new AddressDAO();
 	AddressDTO addressDTO = new AddressDTO();
 
@@ -20,8 +23,6 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
 
-	String result;
-		private LoginUserDTO loginUserDTO = new LoginUserDTO();
 
 	public String execute() throws SQLException{
 		result = ERROR;
@@ -31,9 +32,10 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 
 		addressInfoListDTO.addAll(addressDAO.getAddressInfo(userId));
 
-		if(addressInfoListDTO.get(0) != null) {
+		if(addressInfoListDTO.isEmpty()) {
 
 			result = SUCCESS;
+			session.put("AddressInfoListDTO", addressInfoListDTO);
 		}
 
 		return result;

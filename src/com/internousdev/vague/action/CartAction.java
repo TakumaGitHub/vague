@@ -17,26 +17,29 @@ public class CartAction extends ActionSupport implements SessionAware {
 	private int totalPrice;
 	private String userId;
 
-
 	public String execute(){
 		String result = ERROR;
 		CartDAO cartDAO = new CartDAO();
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
+
 		try{
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
+
 			}
 			else{
 				userId = session.get("tempUserId").toString();
+
 			}
-			cartDTOList = cartDAO.getCartInfo(userId);
 
 			totalPrice = totalPrice(cartDTOList);
 
 			session.put("CartDTOList", cartDTOList);
 			session.put("CartTotalPrice", totalPrice);
+
+			cartDTOList = cartDAO.getCartInfo(userId);
 
 			result = SUCCESS;
 		}
@@ -78,6 +81,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 	public void setSession(Map<String, Object> session) {
 	this.session = session;
 	}
+
 
 
 }

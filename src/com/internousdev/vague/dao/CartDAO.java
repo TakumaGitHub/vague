@@ -52,14 +52,15 @@ public class CartDAO {
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
-			String sql = "INSERT INTO cart_info(user_id,product_id,product_count,price,insert_date) VALUES(?,?,?,?,?)";
+			String sql = "INSERT INTO cart_info(user_id,temp_user_id product_id,product_count,price,insert_date) VALUES(?,?,?,?,?,?)";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setInt(2, productId);
-			ps.setInt(3, productCount);
-			ps.setInt(4, productTotalPrice);
-			ps.setString(5, dateUtil.getDate());
+			ps.setString(2, userId);
+			ps.setInt(3, productId);
+			ps.setInt(4, productCount);
+			ps.setInt(5, productTotalPrice);
+			ps.setString(6, dateUtil.getDate());
 
 			ps.executeUpdate();
 

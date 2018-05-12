@@ -26,35 +26,33 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 		ProductDTO detail = new ProductDTO();
 
 		try{
-
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
-
 			}else{
 				userId = session.get("tempUserId").toString();
 			}
-			//合計金額を出すために以下を使用
 			detail = (ProductDTO)session.get("DetailProductDTO");
 			productId = detail.getProductId();
 
+
 			//かぶりの処理
-			int intCount = Integer.parseInt(session.get("ProductCount").toString());
-			int Price = detail.getPrice();
-			session.put("productTotalPrice", intCount * Price);
-
-			productTotalPrice = (int)session.get("productTotalPrice");
-
 			if(cartDAO.duplicates(userId,productId)){
 				productCount = productCount + cartDAO.getProductCount(userId,productId);
 				session.put("ProductCount", productCount);
 				cartDAO.cartDeleteInfo(userId,productId);
 			}else{
+
 				session.put("ProductCount", productCount);
 			}
 
-			cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
+			productCount = Integer.parseInt(session.get("ProductCount").toString());
+			int Price = detail.getPrice();
+			//合計金額を出すために以下を使用
+			session.put("productTotalPrice", productCount * Price);
+			productTotalPrice = Integer.parseInt(session.get("productTotalPrice").toString());
 
+			cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
 		}
 		catch(Exception e){
 			e.printStackTrace();

@@ -15,31 +15,31 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String userId;
 	private String result;
 	private LoginUserDTO loginUserDTO = new LoginUserDTO();
-
-	AddressDAO addressDAO = new AddressDAO();
-	AddressDTO addressDTO = new AddressDTO();
-
 	private ArrayList<AddressDTO> addressInfoListDTO = new ArrayList<AddressDTO>();
-
-	public Map<String, Object> session;
+	private Map<String, Object> session;
 
 
 	public String execute() throws SQLException{
-		result = ERROR;
 
-		loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
-		userId = loginUserDTO.getUserId();
+		if(session.containsKey("LoginUserDTO")){
+			loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
+			userId = loginUserDTO.getUserId();
 
-		addressInfoListDTO = addressDAO.getAddressInfo(userId);
+			AddressDAO addressDAO = new AddressDAO();
+			addressInfoListDTO = addressDAO.getAddressInfo(userId);
 
-		if(!addressInfoListDTO.isEmpty()) {
+			if(!addressInfoListDTO.isEmpty()){
+				result = SUCCESS;
+				session.put("AddressInfoListDTO", addressInfoListDTO);
 
-			result = SUCCESS;
-			session.put("AddressInfoListDTO", addressInfoListDTO);
+			}else {
+				result = ERROR;
+			}
+
+		}else {
+			result = LOGIN;
 		}
-
 		return result;
-
 	}
 
 	public ArrayList<AddressDTO> getAddressInfoListDTO(){

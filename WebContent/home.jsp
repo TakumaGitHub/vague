@@ -52,27 +52,43 @@
 
 			<div id="left">
 
-			<h2>ログイン認証</h2>
+			<s:if test="#session.LoginUserDTO == null" >
 
-			<form action="/vague/userInterface.jsp" method="post">
+				<h2>ログイン認証</h2>
 
-				<input type="submit" value="ログインする" />
+				<form action="/vague/userInterface.jsp" method="post">
 
-			</form>
+					<input type="submit" value="ログインする" />
 
-			<h2>ログアウト</h2>
-			<form action="LogoutAction" method="post">
-
-				<input type="submit" value="ログアウトする" />
-
-			</form>
+				</form>
 
 
-			<h2>ログインユーザーのレビュー</h2>
+			</s:if>
+			<s:else>
 
-			<form action="ReviewMyListAction" method="post">
-				<input type="submit" value="レビューを見る" />
-			</form>
+				<h2>ログアウト</h2>
+				<form action="LogoutAction" method="post">
+
+					<input type="submit" value="ログアウトする" />
+
+				</form>
+
+				<h2>ログインユーザーのレビュー</h2>
+
+				<form action="ReviewMyListAction" method="post">
+					<input type="submit" value="レビューを見る" />
+				</form>
+
+
+				<h2>マイページに行く</h2>
+
+				<s:form action="MyPageAction" method="post">
+
+					<input type="submit" value="マイページ" />
+
+				</s:form>
+
+			</s:else>
 
 
 			<h2>管理者ページに行く</h2>
@@ -99,20 +115,13 @@
 
 			</s:form>
 
-			<h2>マイページに行く</h2>
-
-			<s:form action="MyPageAction" method="post">
-
-				<input type="submit" value="マイページ" />
-
-			</s:form>
 
 			<h2>ProductSearchAction</h2>
 
 			<form id="ProductSearchAction" action="<s:url action='ProductSearchAction' />" method="post">
 
 
-			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" pattern="^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]{1,16}$" required="required"/></p>
+			<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/></p>
 			<s:if test="inputErrorMsg != ''">
 
 				<s:property value='inputErrorMsg' />
@@ -166,58 +175,12 @@
 
 			</select>
 
-			<input type="hidden" name="" value=""/>
 			<input type="submit" value="検索する"/>
 
 			</form>
 
 
 
-
-		</div>
-
-
-		<!-- ======= 商品の検索結果を表示する ======= -->
-
-		<div class="right">
-
-			<h3>商品の検索結果</h3>
-			<s:if test="#session.SearchListLength != null">
-
-				<span>ページ数</span>
-
-					<s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-
-						<a href="<s:url action='ProductSearchAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
-
-					</s:iterator>
-
-			</s:if>
-
-
-			<s:iterator value="#session.SearchList">
-
-			<s:if test="status == 1" >
-
-				<div>
-
-					<img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
-					<p><s:property value="productName" /></p>
-
-					<s:form action="CreateReviewAction" method="post">
-
-						<input type="hidden" name="product_id" value="<s:property value='productId' />" />
-						<input type="submit" value="レビューを投稿する" />
-
-					</s:form>
-
-				</div>
-
-
-			</s:if>
-
-
-			</s:iterator>
 
 		</div>
 

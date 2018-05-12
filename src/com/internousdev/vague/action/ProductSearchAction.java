@@ -79,7 +79,8 @@ public class ProductSearchAction extends ActionSupport implements SessionAware{
 		session.put("retrievalValue", retrievalValue);
 		session.put("retrievalCategory_id", category_id);
 		session.put("retrievalRule", rule);
-
+		session.remove("ProductList");
+		session.remove("ProductListLength");
 
 		return result;
 

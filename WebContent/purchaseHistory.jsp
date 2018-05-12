@@ -33,12 +33,14 @@
 						<s:if test="#session.PurchaseHistoryList ==null">
 							<p>購入履歴はありません</p>
 						</s:if>
+						<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
+							<div class="message">
+								<p>購入情報は以下になります。</p>
+							</div>
+						</s:elseif>
 					</div>
 
-					<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
-						<div class="message">
-							<p>購入情報は以下になります。</p>
-						</div>
+
 
 						<s:form action="PurchaseHistoryAction">
 						<input type="hidden" name="deleteFlg" value="2" />
@@ -78,20 +80,16 @@
 						</s:form>
 
 						<!-- 戻るボタン -->
-							<input type="button" onclick="location.href='<s:url action="MyPageAction" />'" value="戻る">
-
 <!--
+							<input type="button" onclick="location.href='<s:url action="MyPageAction" />'" value="戻る">
+-->
 							<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
 							<s:form action="MyPageAction">
 								<s:submit class="button-layout button1" value="戻る" />
 							</s:form>
--->
+
 						<!-- 履歴すべて削除ボタン -->
-<!--
-							<p class="list_2"><a href='<s:url action="PurchaseHistoryAction" />'>履歴をすべて削除</a>
-								<input type="hidden" name="deleteFlg" value="1">
-							</p>
--->
+
 							<s:form action="PurchaseHistoryAction">
 								<input type="hidden" name="deleteFlg" value="1">
 								<s:submit class="button-layout button2" value="履歴をすべて削除" onclick="return deleteCheck();"/>
@@ -108,18 +106,7 @@
 
 
 
-
-
-
-
-
-
-					</s:elseif>
-
-
-
-
-
+<!--
 			<!-- ページネーション -->
 					<div id="page_move">
 						<ul>
@@ -132,9 +119,7 @@
 									</form>
 								</s:if>
 							</li>
-
 							<li class="pm"><s:property value="pageSelect+1" /></li>
-
 							<li>
 								<s:if
 									test="pageSelect < mainList.size() -1 && historyList.size() != allHistoryList.size()">
@@ -147,6 +132,8 @@
 							</li>
 						</ul>
 					</div>
+-->
+
 				</div>
 			</div>
 		</div>

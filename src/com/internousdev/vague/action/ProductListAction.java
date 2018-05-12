@@ -62,7 +62,9 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 		}
 
 		session.remove("SearchList");
-		session.put("SearchListLength",productListBy9Items.size());
+		session.remove("SearchListLength");
+
+		session.put("ProductListLength",productListBy9Items.size());
 		session.put("ProductList", productListBy9Items.get(pageNum));
 
 

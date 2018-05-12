@@ -18,6 +18,8 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 	private String newPassword = "";
 
+	private String newPasswordConfirm = "";
+
 	private String hidePassword;
 
 
@@ -53,6 +55,14 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 			return ERROR;
 
 		}
+
+		if(!newPassword.equals(newPasswordConfirm)){
+
+			passwordErrorMsg = "入力されたパスワードが異なります。";
+			return ERROR;
+
+		}
+
 
 		errorMsg = userPasswordUpdateDAO.isTrue(userId, newPassword);
 
@@ -127,6 +137,16 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
+
+	public String getNewPasswordConfirm() {
+		return newPasswordConfirm;
+	}
+
+
+	public void setNewPasswordConfirm(String newPasswordConfirm) {
+		this.newPasswordConfirm = newPasswordConfirm;
+	}
+
 
 	public String getUserIdErrorMsg() {
 		return userIdErrorMsg;

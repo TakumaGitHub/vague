@@ -30,12 +30,11 @@ public class CartAction extends ActionSupport implements SessionAware {
 			else{
 				userId = session.get("tempUserId").toString();
 			}
-			totalPrice = totalPrice(cartDTOList);
+			cartDTOList = cartDAO.getCartInfo(userId);
 
 			session.put("CartDTOList", cartDTOList);
-			session.put("CartTotalPrice", totalPrice);
 
-			cartDTOList = cartDAO.getCartInfo(userId);
+			totalPrice = totalPrice(cartDTOList);
 
 			result = SUCCESS;
 		}

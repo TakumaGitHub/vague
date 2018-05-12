@@ -42,7 +42,6 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 				session.put("ProductCount", productCount);
 				cartDAO.cartDeleteInfo(userId,productId);
 			}else{
-
 				session.put("ProductCount", productCount);
 			}
 

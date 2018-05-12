@@ -9,11 +9,14 @@
 </head>
 <body>
 <s:iterator value="#session.AddressInfoListDTO">
-
+<s:form action="BuyItemConfirmAction">
 	<s:property value="familyName" />
 	<s:property value="firstName" />
 	<s:property value="postalCode" />
 	<s:property value="addr11" />
+	<s:hidden name="addressId" value="addressId"/>
+	<s:submit value="選択"/>
+</s:form>
 </s:iterator>
 
 <s:submit action="BuyItemConfirmAction"/>

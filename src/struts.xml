@@ -15,6 +15,8 @@
 			<result name="error" >userInterface.jsp</result>
 		</action>
 
+
+		<!-- 柳沢・田中担当 -->
 		<!-- ユーザー新規登録機能 -->
 		<action name="UserCreateAction" class="com.internousdev.vague.action.UserCreateAction" method="execute">
 		<result name="success">userCreateComfirm.jsp</result>
@@ -206,6 +208,7 @@
 		<result name="login">userInterface.jsp</result>
 		</action>
 
+		<!-- 入山担当 -->
 		<action name="BuyItemConfirmAction" class="com.internousdev.vague.action.BuyItemConfirmAction" method="execute">
 		<result name="success">buyItemConfirm.jsp</result>
 		<result name="error">login.jsp</result>
@@ -213,6 +216,7 @@
 		<result name="noaddress">address.jsp</result>
 		</action>
 
+		<!-- 宮崎担当 -->
 		<action name="BuyItemCompleteAction" class="com.internousdev.vague.action.BuyItemCompleteAction" method="execute">
 		<result name="success">buyItemComplete.jsp</result>
 		<result name="error">>buyItemConfirm.jsp</result>

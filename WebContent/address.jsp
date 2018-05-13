@@ -65,7 +65,7 @@
 			<s:property value="errorTelNumberMsg"/>
 		</div>
 		<div>
-			<span>電話番号<br><input type="text" pleceholder="電話番号" name="telNumber" value='<s:property value="#session.AddressDTO.telNumber"/>' maxlength="13" size="13"/></span>
+			<span>電話番号<br><input type="text" placeholder="電話番号" name="telNumber" value='<s:property value="#session.AddressDTO.telNumber"/>' maxlength="13" size="13"/></span>
 			</div>
 
 		<!-- メールアドレス -->

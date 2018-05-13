@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page isELIgnored="false"%>
+<!DOCTYPE html>
+<html>
+<head>
+<!-- ホーム画面に5秒後遷移 content="秒数" -->
+<meta http-equiv="refresh" content="5;URL=GoHomeAction">
+
+<title>新規ユーザー登録完了画面</title>
+<jsp:include page="WEB-INF/head.jsp" />
+
+</head>
+
+<body>
+				<div id="main">
+
+					<h2>ユーザー登録完了</h2>
+
+					<h2>ご注文ありがとうございました。</h2>
+					<a href='<s:url action="GoHomeAction" />'>ホーム画面へ</a>
+
+				</div>
+
+
+</body>
+</html>

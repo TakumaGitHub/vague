@@ -12,7 +12,7 @@
 
 
 <!-- 共通のCSS -->
-<link href="css/vague.css" type="text/css" />
+<link rel="stylesheet" href="css/vague.css" type="text/css" />
 
 
 <!-- 共通のjavascript -->

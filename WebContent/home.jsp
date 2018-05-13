@@ -13,22 +13,6 @@
 <title>Vague</title>
 </head>
 
-<style type="text/css">
-
-	.left {
-
-	  float :left;
-
-	}
-
-	.right {
-
-	  float :right;
-
-	}
-
-
-</style>
 <body>
 
 
@@ -50,7 +34,9 @@
 
     <div id="main">
 
-			<div id="left">
+		<div class="container">
+
+
 
 			<s:if test="#session.LoginUserDTO == null" >
 
@@ -90,14 +76,19 @@
 
 			</s:else>
 
+			<s:if test="#session.LoginUserDTO !=null && #session.LoginUserDTO.mFlg == 1">
 
-			<h2>管理者ページに行く</h2>
+				<h2>管理者ページに行く</h2>
 
-			<s:form action="MasterAction" method="post">
+				<s:form action="MasterAction" method="post">
 
-				<input type="submit" value="管理者ページ" />
+					<input type="submit" value="管理者ページ" />
 
-			</s:form>
+				</s:form>
+
+			</s:if>
+
+
 
 			<h2>商品一覧ページに行く</h2>
 
@@ -181,9 +172,7 @@
 
 
 
-
 		</div>
-
 
     </div>
 

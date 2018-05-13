@@ -73,6 +73,8 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		}
 
+		session.put("CreateUserDTO", loginUserDTO);
+
 
 		return SUCCESS;
 

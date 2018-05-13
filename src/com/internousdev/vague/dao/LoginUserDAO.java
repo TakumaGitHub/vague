@@ -37,8 +37,6 @@ public class LoginUserDAO {
 				dto.setStatus(rs.getInt("status"));
 				dto.setLoginFlg(rs.getInt("login_flg"));
 				dto.setmFlg(rs.getInt("m_flg"));
-				dto.setQuestion(rs.getInt("question"));
-				dto.setAnswer(rs.getString("answer"));
 				dto.setInsertDate(rs.getString("insert_date"));
 				dto.setUpdateDate(rs.getString("update_date"));
 

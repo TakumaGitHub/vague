@@ -84,4 +84,40 @@ public class AddressDAO {
 		}
 		return addressInfoListDTO;
 	}
+
+	public AddressDTO getAddressInfo(int addressId) throws SQLException{
+
+		AddressDTO addressDTO = new AddressDTO();
+
+
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE id = ?";
+
+
+		try {
+			con = db.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, addressId);
+			ResultSet rs = ps.executeQuery();
+
+			if(rs.next()) {
+
+				addressDTO.setAddressId(rs.getInt("id"));
+				addressDTO.setFamilyName(rs.getString("family_name"));
+				addressDTO.setFirstName(rs.getString("first_name"));
+				addressDTO.setFamilyNameKana(rs.getString("family_name_kana"));
+				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
+				addressDTO.setEmail(rs.getString("email"));
+				addressDTO.setTelNumber(rs.getString("tel_number"));
+				addressDTO.setPostalCode(rs.getString("postal_code"));
+				addressDTO.setAddr11(rs.getString("user_address"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			con.close();
+		}
+		return addressDTO;
+	}
+
+
 }

@@ -66,6 +66,7 @@ public class BuyItemCompleteAction extends ActionSupport implements SessionAware
 
 		//セッションの掃除
 		session.remove("addressId");
+		session.remove("ChooseAddressDTO");
 
 
 		return result;

@@ -12,6 +12,7 @@ import com.internousdev.vague.dao.BuyItemCompleteDAO;
 import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dto.AddressDTO;
 import com.internousdev.vague.dto.CartDTO;
+import com.internousdev.vague.dto.LoginUserDTO;
 /*
  * 決済確認画面に行くためのアクション
  * ログイン状態の確認
@@ -33,12 +34,12 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private int finallyPrice;//請求金額
 	private int productCount;
 //	エラーメッセージ
-	private List<String> errorMsg;
+	private List<String> errorMsg = new ArrayList<String>();
 
 	public String execute() throws SQLException {
 
 		String result = SUCCESS;
-		String userId = (String)session.get("LoginUserId");
+		String userId = ((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 
 //		ログイン判定
 		if(!session.containsKey("LoginUserDTO")) {
@@ -65,10 +66,10 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 
 		AddressDAO addressDAO = new AddressDAO();
-		addressList = addressDAO.getAddressInfo(userId);
+		AddressDTO addressDTO = addressDAO.getAddressInfo(addressId);
 
 //		宛先判定
-		if(addressList.isEmpty()) {
+		if(addressDTO == null) {
 			result = "noaddress";
 			return result;
 		}
@@ -84,6 +85,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		}
 
 		session.put("addressId",addressId);
+		session.put("ChooseAddressDTO", addressDTO);
 
 		return result;
 
@@ -150,6 +152,11 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	public void setErrorMsg(List<String> errorMsg) {
 		this.errorMsg = errorMsg;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
 

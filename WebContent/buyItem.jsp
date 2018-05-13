@@ -8,18 +8,34 @@
 <title>宛先の選択</title>
 </head>
 <body>
-<s:iterator value="#session.AddressInfoListDTO">
-<s:form action="BuyItemConfirmAction">
+<s:iterator value="#session.AddressInfoListDTO" status="st">
+
+	<div>
+
+		<s:if test="#st.first" >
+			<input form="BuyItemForm" type="radio" name="addressId" value="<s:property value='addressId' />" checked="checked" />
+		</s:if>
+		<s:else>
+			<input form="BuyItemForm" type="radio" name="addressId" value="<s:property value='addressId' />" />
+		</s:else>
+
 	<s:property value="familyName" />
 	<s:property value="firstName" />
+	<s:property value="familyNameKana" />
+	<s:property value="firstNameKana" />
+	<s:property value="telNumber" />
+	<s:property value="email" />
 	<s:property value="postalCode" />
 	<s:property value="addr11" />
-	<s:hidden name="addressId" value="<s:property value='addressId'/>"/>
-	<s:submit value="選択"/>
-</s:form>
+
+	</div>
+
 </s:iterator>
 
-<s:submit action="BuyItemConfirmAction"/>
+
+<form id="BuyItemForm" action="BuyItemConfirmAction" >
+	<input type="submit" value="確認画面に行く" />
+</form>
 
 </body>
 </html>

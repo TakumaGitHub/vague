@@ -50,15 +50,6 @@ response.sendRedirect("/vague/home.jsp");
 	<a href="userPasswordUpdate.jsp">パスワードの再設定はこちら！</a>
 
 
-	<br><br>
-	<s:form action="">
-		<h3>パスワードをお忘れの場合、秘密の質問にお答えください</h3><br>
-		あなたの好きな食べ物は？：<input type="password" name="dislikeFood">
-		<br>
-		あなたのお気に入りの映画は？；<input type="password" name="favFood">
-	</s:form>
-
-
 	<br><br><a href="home.jsp" >ホーム画面に戻る</a>
 
 

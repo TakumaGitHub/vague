@@ -36,6 +36,8 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 			totalPrice = totalPrice(cartDTOList);
 
+			session.put("CartTotalPrice", totalPrice);
+
 			result = SUCCESS;
 		}
 		catch(Exception e){

@@ -8,7 +8,7 @@
 <title>入力情報確認</title>
 </head>
 <body>
-	<s:form name="comfirm">
+	<s:form action="UserCreateCompleteAction" method="post">
 		姓：<s:property value="familyName"/> <br>
 		名：<s:property value="firstName"/> <br>
 		姓かな：<s:property value="familyName_kana"/> <br>
@@ -19,14 +19,7 @@
 		ログインID：<s:property value="loginId"/> <br>
 		パスワード：<s:property value="password"/> <br>
 
-		<%--
-		秘密の質問：<s:if test="question == 0">嫌いな食べ物</s:if>
-		<s:if test="question == 1">好きな映画</s:if> <br>
-		質問の答え：<s:property value="answer"/> <br>
-		--%>
-
-
-		<s:submit  value="この情報で登録" onclick="UserCreateCompleteAction" />
+		<s:submit  value="この情報で登録"/>
 
 
 

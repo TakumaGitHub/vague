@@ -17,10 +17,11 @@
 
     <!--  headerの終わり -->
 
+	<%-- 在庫数を購入個数が上回っているときのエラーメッセージ --%>
 	<s:iterator value="errorMsg">
 		<strong><s:property /></strong>
 	</s:iterator>
-	<s:if test='#session.CartDTOList.isEmpty()'>
+	<s:if test='#session.CartDTOList == null || #session.CartDTOList.isEmpty()'>
 		<p>かーとに入れた商品はありません。</p>
 	</s:if>
 	<s:else>

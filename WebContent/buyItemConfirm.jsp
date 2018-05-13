@@ -15,12 +15,16 @@
 		<h3>決済確認</h3>
 		<p>以下の内容でよろしいですか？</p>
 	</div>
-	<s:form action="BuyItemCompleteAction">
 	<!-- カートの情報 -->
 		<s:iterator value="cartList">
 			<div>
 				<span>商品名：<s:property value="productName"/></span>
 			</div>
+
+			<div>
+				<img src="<s:property value='imageFilePath' />" width="100" height="auto" />.
+			</div>
+
 			<div>
 				<span>金額：<s:property value="price"/></span>
 			</div>
@@ -34,15 +38,14 @@
 		<div>
 			<span>請求金額：<s:property value="finallyPrice"/></span>
 		</div>
+		<br>
+		<br>
 
-		<!-- 二重送信防止 -->
-		<s:token/>
-	</s:form>
 
-	<s:form action="BuyItemAction">
+	<s:form action="BuyItemCompleteAction">
 
 	<!-- 宛先情報 -->
-		<s:iterator value="addressList">
+		<s:iterator value="ChooseAddressDTO">
 			<div>
 				<span>名前：<s:property value="familyName"/><s:property value="firstName"/></span>
 			</div>

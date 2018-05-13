@@ -2,6 +2,8 @@ package com.internousdev.vague.action;
 
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -15,6 +17,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	private Map<String,Object>session;
 	private String userId ;
 	private int productId;
+	private List<Integer> productIdList = new ArrayList<Integer>();
 	private int productCount;
 	private int productTotalPrice;
 
@@ -40,7 +43,8 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			if(cartDAO.duplicates(userId,productId)){
 				productCount = productCount + cartDAO.getProductCount(userId,productId);
 				session.put("ProductCount", productCount);
-				cartDAO.cartDeleteInfo(userId,productId);
+				productIdList.add(productId);
+				cartDAO.cartDeleteInfo(userId, productIdList);
 			}else{
 				session.put("ProductCount", productCount);
 			}

@@ -241,5 +241,5 @@ INSERT INTO purchase_history_info (user_id, product_id, product_count, price, ad
  */
 
 INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, insert_date)
-			values     ("miyazaki","79a6b81bb772b4268753940e1b923111c7745c5c7e7bb475c2eed313514769e9c830cf9f27b9199fe100a194873a7a3deff4dd6a9003b74c08947f25dbdb89c1",1,5,15000,now());
+			values     ("miyazaki","miyazaki",1,5,15000,now());
 

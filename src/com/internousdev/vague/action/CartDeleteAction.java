@@ -1,5 +1,6 @@
 package com.internousdev.vague.action;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -11,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CartDeleteAction extends ActionSupport implements SessionAware {
 
 	private String userId;
-	private int productId ;
+	private List<Integer> productId ;
 	private Map<String,Object>session;
 	private String result = SUCCESS;
 
@@ -25,7 +26,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 				userId = loginUserDTO.getUserId();
 			}
 			else{
-				userId = session.get("TempUserId").toString();
+				userId = session.get("tempUserId").toString();
 			}
 
 			cartDAO.cartDeleteInfo(userId,productId);
@@ -41,10 +42,10 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	public void setUserId(String userId){
 	this.userId = userId;
 	}
-	public int getProductId(){
+	public List<Integer> getProductId(){
 	return productId;
 	}
-	public void setProductId(int productId){
+	public void setProductId(List<Integer> productId){
 	this.productId = productId;
 	}
 	public Map<String, Object> getSession() {

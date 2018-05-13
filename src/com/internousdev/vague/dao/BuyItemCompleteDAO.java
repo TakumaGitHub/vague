@@ -90,8 +90,8 @@ public class BuyItemCompleteDAO {
 				psInsert.executeUpdate();
 
 				//商品テーブルの在庫から購入数を引く
-				psUpdate.setInt(1, cartDTO.getProductId());
-				psUpdate.setString(2, userId);
+				psUpdate.setInt(1, cartDTO.getProductCount());
+				psUpdate.setInt(2, cartDTO.getProductId());
 
 				psUpdate.executeUpdate();
 

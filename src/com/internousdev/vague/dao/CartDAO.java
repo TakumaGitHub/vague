@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.internousdev.vague.dto.CartDTO;
@@ -97,16 +98,22 @@ public class CartDAO {
 	}
 
 
-	public void cartDeleteInfo(String userId, int productId) throws SQLException {
+	public void cartDeleteInfo(String userId, List<Integer> productId) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 
 		String sql = "DELETE from cart_info where user_id = ? and product_id = ?";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, userId);
-			ps.setInt(2, productId);
-			ps.executeUpdate();
+
+			for(int PI : productId){
+
+				ps.setString(1, userId);
+				ps.setInt(2, PI);
+				ps.executeUpdate();
+
+			}
+
 
 		}catch(SQLException e){
 			e.printStackTrace();

@@ -14,7 +14,7 @@
 	<s:property value="firstName" />
 	<s:property value="postalCode" />
 	<s:property value="addr11" />
-	<s:hidden name="addressId" value="addressId"/>
+	<s:hidden name="addressId" value="<s:property value='addressId'/>"/>
 	<s:submit value="選択"/>
 </s:form>
 </s:iterator>

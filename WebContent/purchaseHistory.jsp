@@ -8,10 +8,19 @@
 <html>
 
 <head>
-<title>purchaseHistory.jsp</title>
+<jsp:include page="WEB-INF/head.jsp" />
+<title>商品購入履歴画面</title>
 </head>
 
 <body>
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
+
 	<div id="main" class="ph">
 		<div class="title">
 			<div class="titlefont">
@@ -106,7 +115,7 @@
 
 
 
-<!--
+<%--
 			<!-- ページネーション -->
 					<div id="page_move">
 						<ul>
@@ -132,14 +141,18 @@
 							</li>
 						</ul>
 					</div>
--->
+--%>
 
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<!-- footerの始まり -->
 
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 

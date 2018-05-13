@@ -12,7 +12,7 @@
 
 <meta http-equiv="refresh" content="5;URL=<s:property value='GoHomeAction' />" />
 <script src="js/blowserBackPrevent.js" type="text/javascript"></script>
-<title>Vague</title>
+<title>レビュー投稿完了画面</title>
 </head>
 
 <body>
@@ -21,9 +21,7 @@
 
 	<!--  headerの始まり -->
 
-   <header>
-
-   </header>
+   		<jsp:include page="WEB-INF/header.jsp" />
 
     <!--  headerの終わり -->
 
@@ -48,8 +46,7 @@
 
 	<!-- footerの始まり -->
 
-	<footer>
-	</footer>
+	<jsp:include page="WEB-INF/footer.jsp" />
 
 	<!-- footerの終わり -->
 

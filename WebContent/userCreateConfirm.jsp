@@ -8,6 +8,13 @@
 <title>入力情報確認</title>
 </head>
 <body>
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
 	<s:form action="UserCreateCompleteAction" method="post">
 		姓：<s:property value="familyName"/> <br>
 		名：<s:property value="firstName"/> <br>
@@ -26,6 +33,13 @@
 	</s:form>
 
 	<a href="userCreate.jsp">戻って修正する</a>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 </html>

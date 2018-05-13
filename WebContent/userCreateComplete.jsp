@@ -14,6 +14,14 @@
 </head>
 
 <body>
+
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
 				<div id="main">
 
 					<h2>ユーザー登録完了</h2>
@@ -24,5 +32,11 @@
 				</div>
 
 
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 </body>
 </html>

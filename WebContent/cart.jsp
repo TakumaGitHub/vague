@@ -4,10 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="WEB-INF/head.jsp" />
 <title><s:property value="#session.LoginUserDTO.userId" />のカート</title>
 </head>
 <body>
+
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+
+    <!--  headerの終わり -->
 
 	<s:iterator value="errorMsg">
 		<strong><s:property /></strong>
@@ -52,6 +60,13 @@
 	<form action="<s:url action='GoHomeAction' />" >
 		<input type="submit" value="HOMEに戻る" />
 	</form>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 </html>

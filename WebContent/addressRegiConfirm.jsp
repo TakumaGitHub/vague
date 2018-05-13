@@ -4,10 +4,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="WEB-INF/head.jsp" />
 <title>宛先入力情報確認画面</title>
 </head>
 <body>
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+
+    <!--  headerの終わり -->
+
 	<div>
 		<h3>登録する宛先情報は以下でよろしいですか？</h3>
 		<s:form action="AddressRegiCompleteAction">
@@ -45,5 +53,13 @@
 		</s:form>
 		</div>
 	</div>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
+
 </body>
 </html>

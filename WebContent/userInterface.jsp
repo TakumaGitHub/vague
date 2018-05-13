@@ -20,6 +20,13 @@ response.sendRedirect("/vague/home.jsp");
 %>
 </s:if>
 
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
 	<br><h3>ログインIDとパスワードを入力してください。</h3>
 	<p><s:property value="errorMsg" /></p>
 	<s:form action="LoginAction">
@@ -51,6 +58,13 @@ response.sendRedirect("/vague/home.jsp");
 
 
 	<br><br><a href="home.jsp" >ホーム画面に戻る</a>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 
 </body>

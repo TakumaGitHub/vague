@@ -4,11 +4,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="WEB-INF/head.jsp" />
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <title>宛先情報登録画面</title>
 </head>
 <body>
+
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+
+    <!--  headerの終わり -->
+
+
 	<div>
 		<h3>宛先登録</h3>
 
@@ -146,6 +156,14 @@
 			<s:submit value="確認"/>
 		</div>
 	</s:form>
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
+
+
 	</div>
 </body>
 </html>

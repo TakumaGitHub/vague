@@ -6,11 +6,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<jsp:include page="WEB-INF/head.jsp" />
 	<title>決済確認</title>
 </head>
 <body>
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+
+    <!--  headerの終わり -->
+
+
 	<div>
 		<h3>決済確認</h3>
 		<p>以下の内容でよろしいですか？</p>
@@ -72,5 +80,13 @@
 
 	<!-- 戻って編集する場合 -->
 	<s:form action="BuyItemAction"><s:submit value="戻る"/></s:form>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
+
 </body>
 </html>

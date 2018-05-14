@@ -80,11 +80,12 @@
             <div id="header-center">
 
             	<a href="/vague/home.jsp"><img src="aaa" /></a>
-            	<s:form action="ProductListAction" method="post">
+            	<ul>
+            		<li><a href="<s:url action='MasterAction' />">管理画面<img src="LogoImage/administer.png" /></a></li>
+            	</ul>
 
-				<input type="submit" value="商品一覧ページ" />
 
-				</s:form>
+
 
             </div>
 
@@ -93,25 +94,26 @@
 				<ul>
 					<s:if test="#session.LoginUserDTO == null">
 
-						<a href="/vague/userInterface.jsp" ><li>ログイン<img src="LogoImage/Login.png" /></li></a>
+						<li><a href="/vague/userInterface.jsp" >ログイン<img src="LogoImage/Login.png" /></a></li>
 
 					</s:if>
 
 					<s:elseif test="#session.LoginUserDTO.mFlg == 1 ">
 
-						<a href="<s:url action='LogoutAction' />"><li>ログアウト<img src="LogoImage/LogOut.png" /></li></a>
-						<a href="<s:url action='MasterAction' />"><li>管理画面<img src="LogoImage/administer.png" /></li></a>
+						<li><a href="<s:url action='LogoutAction' />">ログアウト<img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='MasterAction' />">管理画面<img src="LogoImage/administer.png" /></a></li>
 
 					</s:elseif>
 
 					<s:else>
 
-						<a href="<s:url action='LogoutAction' />"><li>ログアウト<img src="LogoImage/LogOut.png" /></li></a>
-						<a href="<s:url action='MyPageAction' />"><li>マイページ<img src="LogoImage/mypage.png" /></li></a>
+						<li><a href="<s:url action='LogoutAction' />">ログアウト<img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='MyPageAction' />">マイページ<img src="LogoImage/mypage.png" /></a></li>
+						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー<img src="LogoImage/mypage.png" /></a></li>
 
 					</s:else>
 
-						<a href="<s:url action='CartAction' />"><li>カート<img src="LogoImage/mypage.png" /></li></a>
+						<li><a href="<s:url action='CartAction' />">カート<img src="LogoImage/mypage.png" /></a></li>
 
 				</ul>
 

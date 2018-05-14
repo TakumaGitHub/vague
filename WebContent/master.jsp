@@ -134,13 +134,20 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="right">
 
-			<s:form action="MasterAction" method="post" >
-				<button name="deleteFlg" value="2" >商品を全削除</button>
-			</s:form>
+			<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
 
-			<s:form id="checkDelete" action="MasterAction" method="post" >
-				<button name="deleteFlg" value="1" >チェックした商品を削除</button>
-			</s:form>
+				<s:form action="MasterAction" method="post" >
+				<button name="deleteFlg" value="2" >商品を全削除</button>
+				</s:form>
+
+				<s:form id="checkDelete" action="MasterAction" method="post" >
+					<button name="deleteFlg" value="1" >チェックした商品を削除</button>
+				</s:form>
+
+
+			</s:if>
+
+
 
 			<h3>商品の検索結果</h3>
 			<s:if test="#session.SearchListLength != null">

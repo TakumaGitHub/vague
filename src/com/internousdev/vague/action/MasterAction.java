@@ -20,7 +20,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 	//フィールド
 	private Map<String, Object> session;
 
-	private String retrievalValue = "";
+	private String retrievalValue = " ";
 
 	private int category_id = 0;
 
@@ -52,6 +52,8 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 		String result = SUCCESS;
 
+		int ret = 0;
+
 		//ログインユーザーが管理者ではない場合
 
 		if(!(session.containsKey("LoginUserDTO"))){
@@ -67,7 +69,13 @@ public class MasterAction extends ActionSupport implements SessionAware {
 		if(deleteFlg == 1){
 
 			//選択された商品を削除する
-			masterDAO.deleteChoose(product_id);
+			 ret =  masterDAO.deleteChoose(product_id);
+
+			 if(ret <= 0){
+
+				 return ERROR;
+
+			 }
 
 			//セッションから検索キーワード、検索カテゴリー、検索ルールを引き出す。
 			retrievalValue = session.get("retrievalValue").toString();
@@ -78,7 +86,13 @@ public class MasterAction extends ActionSupport implements SessionAware {
 		}else if(deleteFlg == 2){
 
 			//全ての商品を削除する
-			masterDAO.deleteAll();
+			ret = masterDAO.deleteAll();
+
+			if(ret <= 0){
+
+				 return ERROR;
+
+			 }
 
 			//セッションから検索キーワード、検索カテゴリー、検索ルールを引き出す。
 			retrievalValue = session.get("retrievalValue").toString();

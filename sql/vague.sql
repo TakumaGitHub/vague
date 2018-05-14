@@ -103,7 +103,6 @@ create table destination_info(
 	first_name_kana varchar (32) not null,
 	email varchar (32) not null,
 	tel_number varchar (13) not null,
-	postal_code varchar(11) not null,
 	user_address varchar (50) not null,
 	regist_date datetime not null,
 	update_date datetime

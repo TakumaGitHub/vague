@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <link rel="stylesheet" href="./css/userInterface.css">
 <title>ログイン画面</title>
 
@@ -24,7 +24,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
     <!--  headerの終わり -->
 

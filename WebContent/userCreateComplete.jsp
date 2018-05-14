@@ -9,7 +9,7 @@
 <meta http-equiv="refresh" content="5;URL=GoHomeAction">
 
 <title>新規ユーザー登録完了画面</title>
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 
 </head>
 
@@ -18,7 +18,7 @@
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
     <!--  headerの終わり -->
 

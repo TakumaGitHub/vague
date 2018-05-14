@@ -27,7 +27,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!--  headerの始まり -->
 
- 	  <jsp:include page="header.jsp" />
+ 	  <jsp:include page="headerMaster.jsp" />
 
     <!--  headerの終わり -->
 

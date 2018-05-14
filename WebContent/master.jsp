@@ -157,7 +157,7 @@ response.sendRedirect("/vague/home.jsp");
 			</s:if>
 
 
-			<s:iterator value="#session.SearchList">
+			<s:iterator value="#session.SearchList" status="row">
 
 				<!-- statusが１（有効）であれば -->
 				<s:if test="status == 1" >

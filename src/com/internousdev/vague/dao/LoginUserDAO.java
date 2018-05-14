@@ -35,9 +35,9 @@ public class LoginUserDAO {
 				dto.setFirstName(rs.getString("first_name_kana"));
 				dto.setEmail(rs.getString("email"));
 				dto.setStatus(rs.getInt("status"));
-				dto.setLoginFlg(rs.getInt("login_flg"));
+				dto.setLoginFlg(rs.getInt("logined"));
 				dto.setmFlg(rs.getInt("m_flg"));
-				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setInsertDate(rs.getString("regist_date"));
 				dto.setUpdateDate(rs.getString("update_date"));
 
 			}

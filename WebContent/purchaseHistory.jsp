@@ -3,10 +3,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-
 <html>
-
 <head>
 <jsp:include page="WEB-INF/head.jsp" />
 <title>商品購入履歴画面</title>

@@ -201,6 +201,24 @@ height: 0;
 
 }*/
 
+/* 横並びにするCSS */
+
+.select-box-outer {
+
+	text-align : center;
+
+
+}
+
+
+
+.select-box {
+
+	width : 30%;
+	display : inline-block;
+
+
+}
 
 /* ======== →各部品のCss ======== */
 

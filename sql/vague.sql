@@ -42,9 +42,9 @@ create table product_info(
 	product_name varchar (100) not null unique,
 	product_name_kana varchar (100) not null unique,
 	product_description varchar (255) not null,
-	category_id int not null,
+	category_id int not null REFERENCES m_category(category_id),
 	product_stock int not null,
-	price int not null,
+	price int ,
 	image_file_path varchar (100),
 	image_file_name varchar (50),
 	release_date datetime not null,
@@ -62,9 +62,9 @@ drop table if exists cart_info;
 
 create table cart_info(
 	id int not null primary key auto_increment,
-	user_id varchar(128),
-	temp_user_id varchar(128) not null,
-	product_id int not null,
+	user_id varchar(16) not null,
+	temp_user_id varchar(128),
+	product_id int not null REFERENCES product_info(product_id),
 	product_count int not null,
 	price int not null,
 	regist_date datetime not null,
@@ -79,8 +79,8 @@ drop table if exists purchase_history_info;
 
 create table purchase_history_info(
 	id int not null primary key auto_increment,
-	user_id varchar (16) not null,
-	product_id int not null,
+	user_id varchar (16) not null REFERENCES user_info(user_id),
+	product_id int not null REFERENCES product_info(product_id),
 	product_count int not null,
 	price int not null,
 	address_id int not null,
@@ -139,6 +139,17 @@ create table review (
 	regist_date datetime not null,
 	update_date datetime
 );
+
+/*
+ * カテゴリーマスターテーブルに情報挿入
+ */
+
+INSERT INTO m_category (category_id, category_name, category_description, insert_date)
+			values     (1, "Chair", "椅子のカテゴリー", now()),
+					   (2, "Sofa", "ソファのカテゴリー", now()),
+					   (3, "Lighting", "照明のカテゴリー", now()),
+					   (4, "Table", "テーブルのカテゴリー", now());
+
 
 
 /*
@@ -203,15 +214,6 @@ INSERT INTO review (user_id, product_id, review_title, review_body, review_score
 					("admin",3,"素晴らしい！","使いごこち最高です",5,now());
 
 
-/*
- * カテゴリーマスターテーブルに情報挿入
- */
-
-INSERT INTO m_category (category_id, category_name, category_description, insert_date)
-			values     (1, "Chair", "椅子のカテゴリー", now()),
-					   (2, "Sofa", "ソファのカテゴリー", now()),
-					   (3, "Lighting", "照明のカテゴリー", now()),
-					   (4, "Table", "テーブルのカテゴリー", now());
 
 /*
  * 宛先情報テーブルに情報挿入

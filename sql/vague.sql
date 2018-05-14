@@ -24,9 +24,9 @@ create table user_info(
 	sex tinyint default 0,
 	email varchar (50) not null,
 	status tinyint default 0,
-	login_flg tinyint default 0,
+	logined tinyint default 0,
 	m_flg tinyint default 0,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -50,7 +50,7 @@ create table product_info(
 	release_date datetime not null,
 	release_company varchar (50),
 	status tinyint default 0 not null,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -67,7 +67,7 @@ create table cart_info(
 	product_id int not null,
 	product_count int not null,
 	price int not null,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -84,7 +84,7 @@ create table purchase_history_info(
 	product_count int not null,
 	price int not null,
 	address_id int not null,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -103,8 +103,6 @@ create table destination_info(
 	first_name_kana varchar (32) not null,
 	email varchar (32) not null,
 	tel_number varchar (13) not null,
---	郵便番号は一旦保留
---	postal_code varchar(11) not null,
 	user_address varchar (50) not null,
 	regist_date datetime not null,
 	update_date datetime
@@ -138,7 +136,7 @@ create table review (
 	review_title varchar (100),
 	review_body varchar (255),
 	review_score int not null,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 
@@ -148,7 +146,7 @@ create table review (
  */
 
 INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana,
-	first_name_kana, sex, email, status, m_flg, insert_date)
+	first_name_kana, sex, email, status, m_flg, regist_date)
 	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
 		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,now()),
 		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,0,now());
@@ -159,7 +157,7 @@ INSERT INTO user_info(user_id, password, family_name, first_name, family_name_ka
  */
 
 INSERT INTO product_info (product_id, product_name, product_name_kana, product_description,
-						 category_id, product_stock,price, image_file_path, image_file_name, release_date, release_company,status,insert_date)
+						 category_id, product_stock,price, image_file_path, image_file_name, release_date, release_company,status,regist_date)
  						 values(1,"カウンターチェア","かうんたーちぇあ","シンプルかつエレガント！座りやすさまで考慮された椅子です",1,30,3000,"images/1Chair/counterChair.jpg","counterChair.jpg",19950809,"NITYORI",1,now()),
  	(2,"宇宙椅子","うちゅういす","まるで宇宙船にいるかのような気分に浸れます",1,40,6000,"images/1Chair/universChair.jpg","universChair.jpg",19950809,"NITYORI",1,now()),
 	(3,"曲げ木オフィスチェア","まげきおふぃすちぇあ","曲げ木の美しさと優れたクッション性で作業の快適性を高めてくれます。",1,50,4800,"images/1Chair/magekiChair.jpg","magekiChair",20080721,"NITYORI",1,now()),
@@ -193,7 +191,7 @@ INSERT INTO product_info (product_id, product_name, product_name_kana, product_d
  */
 
 
-INSERT INTO review (user_id, product_id, review_title, review_body, review_score, insert_date)
+INSERT INTO review (user_id, product_id, review_title, review_body, review_score, regist_date)
 			values ("miyazaki",1,"素晴らしい！","使いごこち最高です",5,now()),
 					("miyazaki",2,"素晴らしい！","使いごこち最高です",5,now()),
 					("miyazaki",3,"素晴らしい！","使いごこち最高です",5,now()),
@@ -220,9 +218,9 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
  */
 
 
-INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, postal_code, user_address, insert_date)
-			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp","09044444444", "1001100", "東京都千代田区霞が関1-1-1", now()),
-							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp","09044444444", "1001100", "東京都千代田区霞が関2-2-2", now());
+INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number,user_address, regist_date)
+			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100", "東京都千代田区霞が関1-1-1", now()),
+							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100", "東京都千代田区霞が関2-2-2", now());
 
 
 /*
@@ -230,7 +228,7 @@ INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana
  */
 
 
-INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, insert_date)
+INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date)
 			values                ("miyazaki",1,30,30000,1,now()),
 								  ("miyazaki",2,30,30000,1,now()),
 								  ("miyazaki",3,30,30000,1,now()),
@@ -241,6 +239,6 @@ INSERT INTO purchase_history_info (user_id, product_id, product_count, price, ad
  * カートテーブルに情報挿入
  */
 
-INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, insert_date)
+INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, regist_date)
 			values     ("miyazaki","miyazaki",1,5,15000,now());
 

@@ -53,26 +53,24 @@
 	<s:form action="BuyItemCompleteAction">
 
 	<!-- 宛先情報 -->
-		<s:iterator value="ChooseAddressDTO">
 			<div>
-				<span>名前：<s:property value="familyName"/><s:property value="firstName"/></span>
+				<span>名前：<s:property value="#session.ChooseAddressDTO.familyName"/><s:property value="firstName"/></span>
 			</div>
 			<div>
-				<span>ふりがな：<s:property value="familyNameKana"/><s:property value="firstNameKana"/></span>
+				<span>ふりがな：<s:property value="#session.ChooseAddressDTO.familyNameKana"/><s:property value="firstNameKana"/></span>
 			</div>
 			<div>
-				<span>郵便番号：<s:property value="postalCode"/></span>
+				<span>郵便番号：<s:property value="#session.ChooseAddressDTO.postalCode"/></span>
 			</div>
 			<div>
-				<span>住所：<s:property value="addr11"/></span>
+				<span>住所：<s:property value="#session.ChooseAddressDTO.addr11"/></span>
 			</div>
 			<div>
-				<span>電話番号：<s:property value="telNumber"/></span>
+				<span>電話番号：<s:property value="#session.ChooseAddressDTO.telNumber"/></span>
 			</div>
 			<div>
-				<span>メールアドレス：<s:property value="email"/></span>
+				<span>メールアドレス：<s:property value="#session.ChooseAddressDTO.email"/></span>
 			</div>
-		</s:iterator>
 		<div>
 			<s:submit value="完了"/>
 		</div>

@@ -3,10 +3,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
-
 <html>
-
 <head>
 <jsp:include page="WEB-INF/head.jsp" />
 <title>商品購入履歴画面</title>
@@ -60,7 +59,7 @@
 								<!-- -------------------------box--------------------------- -->
 									<!-- 商品情報 -->
 									<div class="number">No.<s:property value="id" /></div>
-									<a href="<s:url action="ProductDetailsAction"><s:param name="product_id" value="%{productId}" /></s:url>">
+									<a href="<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}" /></s:url>">
 										<img src="<s:property value='imageFilePath'/>" alt="Photo">
 									</a>
 									<div class="pname"><s:property value="productName" /></div>
@@ -92,7 +91,7 @@
 <!--
 							<input type="button" onclick="location.href='<s:url action="MyPageAction" />'" value="戻る">
 -->
-							<p class="list _1"><a href='<s:url action="MyPageAction" />'>戻る</a></p>
+
 							<s:form action="MyPageAction">
 								<s:submit class="button-layout button1" value="戻る" />
 							</s:form>

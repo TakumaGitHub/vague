@@ -11,12 +11,69 @@
 
             <div id="header-left">
 
-	            <s:if test="#session.LoginUserDTO == null">
-	            <p>- ようこそゲストさん -</p>
+	            <%-- <s:if test="#session.LoginUserDTO == null">
+	            - ようこそゲストさん -
 	            </s:if>
 	            <s:else>
-	            <p>- ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -</p>
-	            </s:else>
+	            - ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -
+	            </s:else> --%>
+
+	            <form id="ProductSearchAction" action="<s:url action='ProductSearchAction' />" method="post">
+
+
+					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>
+
+
+						<s:property value='inputErrorMsg' />
+
+					<button type="submit" style="float : right;"><img src="LogoImages/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
+
+
+					<select name="category_id">
+
+						<s:iterator value="{'全てのカテゴリー','椅子','ソファ','照明','テーブル'}" status="st">
+
+							<s:if test="#session.retrievalCategory_id == #st.index" >
+
+								<option value="<s:property value='#st.index' />" selected="selected"><s:property /></option>
+
+							</s:if>
+							<s:else>
+
+								<option value="<s:property value='#st.index' />" ><s:property /></option>
+
+							</s:else>
+
+
+
+						</s:iterator>
+
+					</select>
+
+					<select name="rule">
+
+						<s:iterator value="{'選択してください','価格の高い順','価格の安い順','在庫の多い順','在庫の少ない順'}" status="st">
+
+							<s:if test="#session.retrievalRule == #st.index" >
+
+								<option value="<s:property value='#st.index' />" selected="selected"><s:property /></option>
+
+							</s:if>
+							<s:else>
+
+								<option value="<s:property value='#st.index' />" ><s:property /></option>
+
+							</s:else>
+
+
+
+						</s:iterator>
+
+					</select>
+
+
+
+					</form>
 
             </div>
 

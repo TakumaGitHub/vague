@@ -24,7 +24,7 @@
 <%-- セッションにCreateUserDTOがあるとき --%>
 <s:if test="#session.CreateUserDTO != null" >
 
-	<p>氏名を漢字で入力してください。<p>
+	<p>氏名を入力してください。<p>
 	<p><s:property value='errorMsg.familyName' /></p>
 	<p>名字：<input type="text" name="familyName" value="<s:property value='#session.CreateUserDTO.familyName' />"> </p>
 	<p><s:property value='errorMsg.firstName' /></p>

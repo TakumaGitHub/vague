@@ -22,6 +22,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException{
 
 		if(session.containsKey("LoginUserDTO")){
+			result = SUCCESS;
+
+
 			loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 			userId = loginUserDTO.getUserId();
 
@@ -29,11 +32,9 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 			addressInfoListDTO = addressDAO.getAddressInfo(userId);
 
 			if(!addressInfoListDTO.isEmpty()){
-				result = SUCCESS;
+
 				session.put("AddressInfoListDTO", addressInfoListDTO);
 
-			}else {
-				result = ERROR;
 			}
 
 		}else {

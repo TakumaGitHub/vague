@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<jsp:include page="header.jsp" />
+<jsp:include page="head.jsp" />
 <title>宛先の選択</title>
 <style type="text/css">
 h3{ font-size:20px;
@@ -18,7 +18,7 @@ h3{ font-size:20px;
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
 
     <!--  headerの終わり -->

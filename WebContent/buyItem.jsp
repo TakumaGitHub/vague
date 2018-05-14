@@ -48,7 +48,7 @@
 <form id="BuyItemForm" action="BuyItemConfirmAction" >
 	<input type="submit" value="確認画面に行く" />
 </form>
-<form action="AdressAction" >
+<form action="AddressAction" >
 	<input type="submit" value="宛先の新規登録" />
 </form>
 

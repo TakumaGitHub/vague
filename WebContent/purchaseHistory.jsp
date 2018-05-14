@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <title>商品購入履歴画面</title>
 </head>
 

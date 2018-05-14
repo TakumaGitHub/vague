@@ -206,7 +206,6 @@
 		<!-- 野崎担当 -->
 		<action name="BuyItemAction" class="com.internousdev.vague.action.BuyItemAction" method="execute">
 		<result name="success">buyItem.jsp</result>
-		<result name="error">address.jsp</result>
 		<result name="login">userInterface.jsp</result>
 		</action>
 

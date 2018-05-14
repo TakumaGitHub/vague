@@ -7,7 +7,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.vague.dao.CartDAO;
 import com.internousdev.vague.dao.LoginUserDAO;
-import com.internousdev.vague.dao.UserCreateDAO;
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.InputChecker;
 import com.opensymphony.xwork2.ActionSupport;
@@ -25,9 +24,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private String errorMsg;
 
 	private int saveId;
-
-
-	private UserCreateDAO dao = new UserCreateDAO();
 
 	private LoginUserDAO loginUserDAO = new LoginUserDAO();
 

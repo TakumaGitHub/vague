@@ -9,19 +9,17 @@ import java.util.List;
 
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
-import com.internousdev.vague.util.DateUtil;
 
 public class UserCreateDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = db.getConnection();
-	DateUtil dateUtil = new DateUtil();
 
 
 	//以下新規ユーザー登録用メソッド
 
 	public void createUserInfo(LoginUserDTO loginUserDTO) throws SQLException {
 
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 		String sql = "INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,regist_date)VALUES(?,?,?,?,?,?,?,?,?)";
 
 		try {
@@ -46,6 +44,8 @@ public class UserCreateDAO {
 
 	public String getOverlapping(String userId) throws SQLException {
 
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 		String sql = " SELECT user_id FROM user_info ";
 
 		String result = null;

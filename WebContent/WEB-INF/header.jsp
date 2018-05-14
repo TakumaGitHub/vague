@@ -80,6 +80,11 @@
             <div id="header-center">
 
             	<a href="/vague/home.jsp"><img src="aaa" /></a>
+            	<s:form action="ProductListAction" method="post">
+
+				<input type="submit" value="商品一覧ページ" />
+
+				</s:form>
 
             </div>
 

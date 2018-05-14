@@ -26,7 +26,6 @@
 
 					<h2>ユーザー登録完了</h2>
 
-					<h2>ご注文ありがとうございました。</h2>
 					<a href='<s:url action="GoHomeAction" />'>ホーム画面へ</a>
 
 				</div>

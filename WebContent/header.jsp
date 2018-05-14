@@ -26,7 +26,7 @@
 
 						<s:property value='inputErrorMsg' />
 
-					<button type="submit" style="float : right;"><img src="LogoImages/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
+					<button type="submit" style="float : right;"><img src="LogoImage/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
 
 
 					<select name="category_id">
@@ -76,11 +76,7 @@
 
             <div id="header-center">
 
-            	<a href="/vague/home.jsp"><img src="aaa" /></a>
-
-
-
-
+            	<a href="/vague/home.jsp"><img src="LogoImage/headerLogo.png" /></a>
 
             </div>
 

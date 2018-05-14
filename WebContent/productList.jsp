@@ -100,8 +100,8 @@
 
 <div class="center" style="text-align: center;">
 
-		<s:property value="errorMsg" />
-		<s:property value="inputErrorMsg" />
+		<p><s:property value="errorMsg" /></p>
+		<p><s:property value="inputErrorMsg" /></p>
 
 		<div class="select-box-outer">
 

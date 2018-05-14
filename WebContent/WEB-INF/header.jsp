@@ -22,17 +22,12 @@
 
 
 					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>
-					<s:if test="inputErrorMsg != ''">
+
 
 						<s:property value='inputErrorMsg' />
 
-					</s:if>
-
 					<button type="submit" style="float : right;"><img src="LogoImages/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
 
-
-
-					<p><s:property value="errorMsg" /></p>
 
 					<select name="category_id">
 

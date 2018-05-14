@@ -17,7 +17,7 @@ public class InputChecker {
 
 		if(familyName.equals("")) {
 			result = "【姓を入力してください】";
-		}else if(familyName.length() < 1 || familyName.length() > 16) {
+		}else if(familyName.length() <= 1 || familyName.length() >= 16) {
 			result = "【姓は1文字以上16文字以下で入力してください】";
 		}else if(!familyName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")) {
 			//"^[]+$"で囲われた文字以外が使われた時
@@ -32,7 +32,7 @@ public class InputChecker {
 
 		if(firstName.equals("")) {
 			result = "【名前を入力してください】";
-		}else if(firstName.length() < 1 || firstName.length() > 16) {
+		}else if(firstName.length() <= 1 || firstName.length() >= 16) {
 			result = "【名前は1文字以上16文字以下で入力してください】";
 		}else if(!firstName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
 			result = "【名前は半角英語、漢字、ひらがなで入力してください】";
@@ -46,7 +46,7 @@ public class InputChecker {
 
 		if(familyNameKana.equals("")) {
 			result = "【姓のふりがなを入力してください】";
-		}else if(familyNameKana.length() < 1 || familyNameKana.length() > 16) {
+		}else if(familyNameKana.length() <= 1 || familyNameKana.length() >= 16) {
 			result = "【姓のふりがなは1文字以上16文字以下で入力してください】";
 		}else if(!familyNameKana.matches("^[ぁ-ゞ]+$")){
 			result = "【姓のふりがなはひらがなで入力してください】";
@@ -60,7 +60,7 @@ public class InputChecker {
 
 		if(firstNameKana.equals("")) {
 			result = "【名前のふりがなを入力してください】";
-		}else if(firstNameKana.length() < 1 || firstNameKana.length() > 16) {
+		}else if(firstNameKana.length() <= 1 || firstNameKana.length() >= 16) {
 			result = "【名前のふりがなは1文字以上16文字以下で入力してください】";
 		}else if(!firstNameKana.matches("^[ぁ-ゞ]+$")){
 			result = "【名前のふりがなはひらがなで入力してください】";
@@ -104,7 +104,7 @@ public class InputChecker {
 		//姓エラーメッセージ管理
 		if(loginUserDTO.getFamilyName().equals("")) {
 			result.put("familyName", "【姓を入力してください】");
-		}else if(loginUserDTO.getFamilyName().length() < 1 || loginUserDTO.getFamilyName().length() > 16) {
+		}else if(loginUserDTO.getFamilyName().length() <= 1 || loginUserDTO.getFamilyName().length() >= 16) {
 			result.put("familyName", "【姓は1文字以上16文字以下で入力してください】");
 		}else if(!loginUserDTO.getFamilyName().matches("^[a-zA-Zぁ-ゞ一-龠々]+$")) {
 			//"^[]+$"で囲われた文字以外が使われた時
@@ -115,7 +115,7 @@ public class InputChecker {
 		//名前エラーメッセージ管理
 		if(loginUserDTO.getFirstName().equals("")) {
 			result.put("firstName", "【名前を入力してください】");
-		}else if(loginUserDTO.getFirstName().length() < 1 || loginUserDTO.getFirstName().length() > 16) {
+		}else if(loginUserDTO.getFirstName().length() <= 1 || loginUserDTO.getFirstName().length() >= 16) {
 			result.put("firstName", "【名前は1文字以上16文字以下で入力してください】");
 		}else if(!loginUserDTO.getFirstName().matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
 			result.put("firstName", "【名前は半角英語、漢字、ひらがなで入力してください】");
@@ -124,7 +124,7 @@ public class InputChecker {
 		//姓仮名エラーメッセージ管理
 		if(loginUserDTO.getFamilyNameKana().equals("")) {
 			result.put("familyNameKana", "【姓のふりがなを入力してください】");
-		}else if(loginUserDTO.getFamilyNameKana().length() < 1 || loginUserDTO.getFamilyNameKana().length() > 16) {
+		}else if(loginUserDTO.getFamilyNameKana().length() <= 1 || loginUserDTO.getFamilyNameKana().length() >= 16) {
 			result.put("familyNameKana", "【姓のふりがなは1文字以上16文字以下で入力してください】");
 		}else if(!loginUserDTO.getFamilyNameKana().matches("^[ぁ-ゞ]+$")){
 			result.put("familyNameKana", "【姓のふりがなはひらがなで入力してください】");
@@ -133,7 +133,7 @@ public class InputChecker {
 		//名前仮名エラーメッセージ管理
 		if(loginUserDTO.getFirstNameKana().equals("")) {
 			result.put("firstNameKana", "【名前のふりがなを入力してください】");
-		}else if(loginUserDTO.getFirstNameKana().length() < 1 || loginUserDTO.getFirstNameKana().length() > 16) {
+		}else if(loginUserDTO.getFirstNameKana().length() <= 1 || loginUserDTO.getFirstNameKana().length() >= 16) {
 			result.put("firstNameKana", "【名前のふりがなは1文字以上16文字以下で入力してください】");
 		}else if(!loginUserDTO.getFirstNameKana().matches("^[ぁ-ゞ]+$")){
 			result.put("firstNameKana", "【名前のふりがなはひらがなで入力してください】");
@@ -161,7 +161,7 @@ public class InputChecker {
 
 		if(loginUserDTO.getEmail().equals("")) {
 			result.put("email", "【メールアドレスを入力してください】");
-		}else if(loginUserDTO.getEmail().length() < 14 || loginUserDTO.getEmail().length() > 32) {
+		}else if(loginUserDTO.getEmail().length() <= 18 || loginUserDTO.getEmail().length() >= 32) {
 			result.put("email",  "【メールアドレスは14文字以上32文字以下で入力してください】");
 		}else if(!loginUserDTO.getEmail().matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
 			result.put("email",  "【メールアドレスは半角英数字記号で、正しいものを入力してください】");
@@ -223,19 +223,6 @@ public class InputChecker {
 			return result;
 		}
 
-	//郵便番号エラーメッセージ管理
-	public static String postalCodeChk(String zip11) {
-		String result = "TRUE";
-
-		if(zip11.equals("")) {
-			result = "【郵便番号を入力してください】";
-		}else if(zip11.length() < 7 || zip11.length() > 8) {
-			result = "【郵便番号は7桁で入力してください】";
-		}else if(!zip11.matches("^[0-9-]+$")) {
-			result = "【郵便番号は半角数字で入力してください】";
-		}
-		return result;
-	}
 
 	//住所エラーメッセージ管理
 	public static String addr11Chk(String addr11) {
@@ -243,7 +230,7 @@ public class InputChecker {
 
 		if(addr11.equals("")) {
 			result = "【住所を入力してください】";
-		}else if(addr11.length() < 15 || addr11.length() > 50) {
+		}else if(addr11.length() <= 15 || addr11.length() >= 50) {
 			result = "【住所は15文字以上50文字以下で入力してください】";
 		}else if(!addr11.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
 			result = "【住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】";
@@ -257,7 +244,7 @@ public class InputChecker {
 
 		if(telNumber.equals("")) {
 			result = "【電話番号を入力してください】";
-		}else if(telNumber.length() < 10 || telNumber.length() > 13) {
+		}else if(telNumber.length() <= 11 || telNumber.length() >= 13) {
 			result = "【電話番号は10文字以上13文字以下で入力してください】";
 		}else if(!telNumber.matches("^[0-9\\-]+$")) {
 			result = "【電話番号は半角数字で、正しいものを入力してください】";
@@ -271,7 +258,7 @@ public class InputChecker {
 
 		if(email.equals("")) {
 			result = "【メールアドレスを入力してください】";
-		}else if(email.length() < 14 || email.length() > 32) {
+		}else if(email.length() <= 18 || email.length() >= 32) {
 			result = "【メールアドレスは14文字以上32文字以下で入力してください】";
 		}else if(!email.matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
 			result = "【メールアドレスは半角英数字記号で、正しいものを入力してください】";
@@ -285,7 +272,7 @@ public class InputChecker {
 
 		if(newEmail.equals("")) {
 			result = "【新しいメールアドレスを入力してください】";
-		}else if(newEmail.length()<14 || newEmail.length()>32){
+		}else if(newEmail.length() <= 18 || newEmail.length() >= 32){
 			result = "【新しいメールアドレスは14文字以上32文字以下で入力してください】";
 		}else if((!newEmail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"))){
 			result = "【新しいメールアドレスは半角英数字で、正しいものを入力してください】";
@@ -313,11 +300,11 @@ public class InputChecker {
 
 		Map<String, String> result = new HashMap<String, String>();
 
-		if(reviewTitle.length() < 1 || reviewTitle.length() > 100){
+		if(reviewTitle.length() > 100){
 			result.put("reviewTitle", "【タイトルは、1文字以上100文字以下で入力してください】");
 		}
 
-		if(reviewBody.length() < 1 || reviewBody.length() > 255){
+		if(reviewBody.length() > 255){
 			result.put("reviewBody", "【本文は、1文字以上255文字以下で入力してください】");
 		}
 

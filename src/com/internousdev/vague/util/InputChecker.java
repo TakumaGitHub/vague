@@ -159,6 +159,14 @@ public class InputChecker {
 			result.put("password", "【パスワードは半角英数字で入力してください】");
 		}
 
+		if(loginUserDTO.getEmail().equals("")) {
+			result.put("email", "【メールアドレスを入力してください】");
+		}else if(loginUserDTO.getEmail().length() < 14 || loginUserDTO.getEmail().length() > 32) {
+			result.put("email",  "【メールアドレスは14文字以上32文字以下で入力してください】");
+		}else if(!loginUserDTO.getEmail().matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
+			result.put("email",  "【メールアドレスは半角英数字記号で、正しいものを入力してください】");
+		}
+
 		return result;
 
 

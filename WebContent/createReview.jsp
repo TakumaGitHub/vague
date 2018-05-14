@@ -10,7 +10,7 @@
 
 <jsp:include page="WEB-INF/head.jsp" />
 
-<title>Vague</title>
+<title>レビュー投稿画面</title>
 </head>
 
 <body>
@@ -26,9 +26,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!--  headerの始まり -->
 
-   <header>
-
-   </header>
+   <jsp:include page="WEB-INF/header.jsp" />
 
     <!--  headerの終わり -->
 
@@ -117,8 +115,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!-- footerの始まり -->
 
-	<footer>
-	</footer>
+	<jsp:include page="WEB-INF/footer.jsp" />
 
 	<!-- footerの終わり -->
 

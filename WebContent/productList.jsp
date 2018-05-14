@@ -31,8 +31,11 @@
 </head>
 <body>
 
-<!-- ヘッダーのインクルード -->
-<%-- <jsp:include page="headerSearch.jsp"/> --%>
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
 
 
 <!--  一覧表示ボタン押下 -->
@@ -114,6 +117,11 @@
 </div>
 
 
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 
 

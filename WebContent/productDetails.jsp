@@ -30,10 +30,11 @@
 </head>
 <body>
 
-<header>
-<!-- ヘッダーのインクルード -->
+	<!--  headerの始まり -->
 
-</header>
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
 
 
 
@@ -211,9 +212,11 @@
 		</div>
 
 
-<footer>
-<!-- footerのインクルード -->
-</footer>
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 </html>

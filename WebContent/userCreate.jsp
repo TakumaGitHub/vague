@@ -9,6 +9,12 @@
 </head>
 <body>
 
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
 <p><s:property value="userIdErrorMsg" /></p>
 
 
@@ -90,6 +96,13 @@
 
 <input type="submit" value="確認画面に行く"/>
 </form>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 </html>

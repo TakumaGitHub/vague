@@ -26,12 +26,7 @@
 <body>
 
 	<!--  headerの始まり -->
-	<header>
-
-
-
-
-	</header>
+	<jsp:include page="WEB-INF/header.jsp" />
 	<!--  headerの終わり -->
 
 
@@ -83,10 +78,7 @@
 
 
 	<!-- footerの始まり -->
-	<footer>
-
-
-	</footer>
+	<jsp:include page="WEB-INF/footer.jsp" />
 	<!-- footerの終わり -->
 
 </body>

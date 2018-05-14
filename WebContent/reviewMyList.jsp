@@ -10,7 +10,7 @@
 
 <jsp:include page="WEB-INF/head.jsp" />
 
-<title>Vague</title>
+<title>マイレビュー画面</title>
 </head>
 
 <body>
@@ -19,9 +19,7 @@
 
 	<!--  headerの始まり -->
 
-   <header>
-
-   </header>
+	<jsp:include page="WEB-INF/header.jsp" />
 
     <!--  headerの終わり -->
 
@@ -77,8 +75,7 @@
 
 	<!-- footerの始まり -->
 
-	<footer>
-	</footer>
+	<jsp:include page="WEB-INF/footer.jsp" />
 
 	<!-- footerの終わり -->
 

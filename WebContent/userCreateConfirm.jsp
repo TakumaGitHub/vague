@@ -4,10 +4,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:include page="WEB-INF/head.jsp" />
 <title>入力情報確認</title>
 </head>
 <body>
+
+	<!--  headerの始まり -->
+
+	<jsp:include page="WEB-INF/header.jsp" />
+
+    <!--  headerの終わり -->
+
 	<s:form action="UserCreateCompleteAction" method="post">
 		姓：<s:property value="familyName"/> <br>
 		名：<s:property value="firstName"/> <br>
@@ -26,6 +33,13 @@
 	</s:form>
 
 	<a href="userCreate.jsp">戻って修正する</a>
+
+
+	<!-- footerの始まり -->
+
+	<jsp:include page="WEB-INF/footer.jsp" />
+
+	<!-- footerの終わり -->
 
 </body>
 </html>

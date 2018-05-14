@@ -44,7 +44,7 @@ response.sendRedirect("/vague/home.jsp");
 				<div>
 					<p>ログインID保存
 					<s:if test="#session.savaId != 0" >
-					<input type="checkbox" name="saveId" value="1" checked="checked" >
+					<input type="checkbox" name="saveId" value="1">
 					</s:if>
 					<s:else>
 						<input type="checkbox" name="saveId" value="1">

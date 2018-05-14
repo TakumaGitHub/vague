@@ -18,7 +18,7 @@
 
 
     <!--  headerの終わり -->
-
+	<h3>お届け先を選択して下さい</h3>
 
 <s:iterator value="#session.AddressInfoListDTO" status="st">
 
@@ -30,6 +30,7 @@
 		<s:else>
 			<input form="BuyItemForm" type="radio" name="addressId" value="<s:property value='addressId' />" />
 		</s:else>
+
 		<table border="0" cellspacing="0">
 	<tr>
 		<td><s:property value="familyName" />

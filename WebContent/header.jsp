@@ -31,20 +31,17 @@
 
 					<select name="category_id">
 
-						<s:iterator value="{'全てのカテゴリー','椅子','ソファ','照明','テーブル'}" status="st">
+						<option value="0" selected="selected">全てのカテゴリー</option>
 
-							<s:if test="#session.retrievalCategory_id == #st.index" >
+						<s:iterator value="#session.CategoryList">
 
-								<option value="<s:property value='#st.index' />" selected="selected"><s:property /></option>
 
+							<s:if test="#session.retrievalCategory_id == categoryId" >
+								<option value="<s:property value='categoryId' />" selected="selected"><s:property value='categoryId' />:<s:property value='categoryName' /></option>
 							</s:if>
 							<s:else>
-
-								<option value="<s:property value='#st.index' />" ><s:property /></option>
-
+								<option value="<s:property value='categoryId' />" ><s:property value='categoryId' />:<s:property value='categoryName' /></option>
 							</s:else>
-
-
 
 						</s:iterator>
 
@@ -80,9 +77,7 @@
             <div id="header-center">
 
             	<a href="/vague/home.jsp"><img src="aaa" /></a>
-            	<ul>
-            		<li><a href="<s:url action='MasterAction' />">管理画面<img src="LogoImage/administer.png" /></a></li>
-            	</ul>
+
 
 
 
@@ -114,6 +109,7 @@
 					</s:else>
 
 						<li><a href="<s:url action='CartAction' />">カート<img src="LogoImage/mypage.png" /></a></li>
+            			<li><a href="<s:url action='ProductListAction' />">商品一覧<img src="LogoImage/administer.png" /></a></li>
 
 				</ul>
 

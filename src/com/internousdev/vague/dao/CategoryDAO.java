@@ -1,13 +1,13 @@
 package com.internousdev.vague.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DBConnector;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 
 public class CategoryDAO {
 
@@ -38,7 +38,7 @@ public class CategoryDAO {
 					dto.setImageFilePath(rs.getString("image_file_path"));
 					dto.setReleaseCompany(rs.getString("release_company"));
 					dto.setReleaseDate(rs.getString("release_date"));
-					dto.setRegistDate(rs.getString("regist_date"));
+					dto.setInsertDate(rs.getString("regist_date"));
 					dto.setUpdateDate(rs.getString("update_date"));
 					dto.setProductStock(rs.getInt("product_stock"));
 

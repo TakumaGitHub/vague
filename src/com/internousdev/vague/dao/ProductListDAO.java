@@ -1,13 +1,13 @@
 package com.internousdev.vague.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DBConnector;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 
 public class ProductListDAO {
 	//商品情報取得
@@ -41,7 +41,7 @@ public class ProductListDAO {
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setStatus(rs.getInt("status"));
-				dto.setRegistDate(rs.getString("regist_date"));
+				dto.setInsertDate(rs.getString("regist_date"));
 				dto.setUpdateDate(rs.getString("update_date"));
 
 				productList.add(dto);

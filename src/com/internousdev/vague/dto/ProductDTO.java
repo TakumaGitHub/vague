@@ -29,7 +29,7 @@ public class ProductDTO {
 
 	private int status;
 
-	private String registDate;
+	private String insertDate;
 
 	private String updateDate;
 
@@ -139,12 +139,12 @@ public class ProductDTO {
 		this.status = status;
 	}
 
-	public String getRegistDate() {
-		return registDate;
+	public String getInsertDate() {
+		return insertDate;
 	}
 
-	public void setRegistDate(String registDate) {
-		this.registDate = registDate;
+	public void setInsertDate(String insertDate) {
+		this.insertDate = insertDate;
 	}
 
 	public String getUpdateDate() {

@@ -16,7 +16,7 @@
 	<meta name="keywords" content=""/>
 	<link rel="stylesheet" href="./css/alatanapizza.css">
 
-	<jsp:include page="WEB-INF/head.jsp" />
+	<jsp:include page="head.jsp" />
 
 <title>マイページ</title>
 <style type="text/css">

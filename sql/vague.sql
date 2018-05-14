@@ -105,7 +105,7 @@ create table destination_info(
 	tel_number varchar (13) not null,
 	postal_code varchar(11) not null,
 	user_address varchar (50) not null,
-	insert_date datetime not null,
+	regist_date datetime not null,
 	update_date datetime
 );
 

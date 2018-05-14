@@ -64,13 +64,11 @@
 
 
 
-		<input type="button" onclick="location.href='<s:url action="GoHomeAction" />'" value="Home">
-		<a href='<s:url action="GoHomeAction" />'>【ホームへ戻る】</a>
+		<input type="button" onclick="location.href='<s:url action="GoHomeAction" />'" value="ホームに戻る">
 
 		<br>
 
-		<input type="button" onclick="location.href='<s:url action="PurchaseHistoryAction" />'" value="商品購入履歴">
-		<a href='<s:url action="PurchaseHistoryAction" />'>【商品購入履歴】</a>
+		<input type="button" onclick="location.href='<s:url action="PurchaseHistoryAction" />'" value="商品購入履歴に行く">
 
 
 	</div>

@@ -7,7 +7,7 @@
 <!--  headerの始まり -->
     <header>
 
-        <div class="container">
+        <div class="header-container">
 
             <div id="header-left">
 
@@ -85,27 +85,28 @@
 				<ul>
 					<s:if test="#session.LoginUserDTO == null">
 
-						<li><a href="/vague/userInterface.jsp" >ログイン<img src="LogoImage/Login.png" /></a></li>
+						<li><a href="/vague/userInterface.jsp" >ログイン  <img src="LogoImage/Login.png" /></a></li>
 
 					</s:if>
 
 					<s:elseif test="#session.LoginUserDTO.mFlg == 1 ">
 
-						<li><a href="<s:url action='LogoutAction' />">ログアウト<img src="LogoImage/LogOut.png" /></a></li>
-						<li><a href="<s:url action='MasterAction' />">管理画面<img src="LogoImage/administer.png" /></a></li>
+						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='MasterAction' />">管理画面  <img src="LogoImage/administer.png" /></a></li>
 
 					</s:elseif>
 
 					<s:else>
 
-						<li><a href="<s:url action='LogoutAction' />">ログアウト<img src="LogoImage/LogOut.png" /></a></li>
-						<li><a href="<s:url action='MyPageAction' />">マイページ<img src="LogoImage/mypage.png" /></a></li>
-						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー<img src="LogoImage/mypage.png" /></a></li>
+						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='MyPageAction' />">マイページ  <img src="LogoImage/mypage.png" /></a></li>
+						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー  <img src="LogoImage/mypage.png" /></a></li>
 
 					</s:else>
 
-						<li><a href="<s:url action='CartAction' />">カート<img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='ProductListAction' />">商品一覧<img src="LogoImage/administer.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
+            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 
 				</ul>
 

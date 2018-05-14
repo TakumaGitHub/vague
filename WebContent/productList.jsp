@@ -49,8 +49,8 @@
 
 		<div class="imageHover">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
-		<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
-		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+		<a href="<s:url action='ProductDetailsAction'/>?productId=<s:param value='productId'/>&&categoryId=<s:param value='categoryId'/>">
+		<img class="image" src="<s:param value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
 		</a>
 		</div>
 		<div class="productInfo">

@@ -59,7 +59,7 @@
 
 		</td>
 		<td>
-
+<%--
 			<!-- カテゴリ分類 -->
 			<span id="category">
 				<s:if test="#session.DetailProductDTO.categoryId == 1">
@@ -76,34 +76,34 @@
 				</s:if>
 			</span>
 
-
+ --%>
 
 	<!-- 商品名/かな -->
-			<span id="productName">
+			<span id="productName">商品名：
 				<s:property value="#session.DetailProductDTO.productName"/><br></span>
-				<div id="proNameKana"><s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
+				<div id="proNameKana">商品名ふりがな：<s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
 
 
 
-	<!-- 商品詳細 -->
+	<!-- 商品詳細情報 -->
 			<div id="description">
 			<fieldset>
-				<legend>商品詳細</legend>
+				<legend>商品詳細情報</legend>
 				<s:property value="#session.DetailProductDTO.productDescription"/><br>
 			</fieldset>
 			</div>
-	<!-- 販売会社・販売日  -->
+	<!-- 発売会社名・発売年月日  -->
 
 		<div id="reCompany">
-			販売元：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
+			発売会社名：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
 			</div>
 		<div id="reDate">
-			発売開始日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/><br>
+			発売年月日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/><br>
 			</div>
 
 	<!-- 金額  -->
 		<div id="proPrice">
-			製品価格：￥<s:property value="#session.DetailProductDTO.price"/><br>
+			値段：￥<s:property value="#session.DetailProductDTO.price"/><br>
 		</div>
 
 	<!-- 在庫  -->
@@ -150,9 +150,9 @@
 		<div class="suggest-box">
 
 			<div class="imageHover">
-			<a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
-			<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
-			</a>
+			<a href="<s:url action='ProductDetailsAction'/>?productId=<s:param value='productId'/>&&categoryId=<s:param value='categoryId'/>">
+		<img class="image" src="<s:param value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+		</a>
 			</div>
 			<div class="sugName">
 			<s:property value="productName"/><br>

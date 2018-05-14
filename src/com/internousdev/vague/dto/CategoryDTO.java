@@ -10,7 +10,7 @@ public class CategoryDTO {
 
 	private String categoryDescription;
 
-	private String insertDate;
+	private String registDate;
 
 	private String updateDate;
 
@@ -48,13 +48,13 @@ public class CategoryDTO {
 		this.categoryDescription = categoryDescription;
 	}
 
-	public String getInsertDate() {
-		return insertDate;
+	public String getRegistDate() {
+		return registDate;
 	}
 
-	public void setInsertDate(String insertDate) {
-		this.insertDate = insertDate;
-	}
+	public void setRegistDate(String registDate) {
+		this.registDate = registDate;
+		}
 
 	public String getUpdateDate() {
 		return updateDate;

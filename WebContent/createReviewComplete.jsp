@@ -8,7 +8,7 @@
 
 <head>
 
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 
 <meta http-equiv="refresh" content="5;URL=<s:property value='GoHomeAction' />" />
 <script src="js/blowserBackPrevent.js" type="text/javascript"></script>
@@ -21,7 +21,7 @@
 
 	<!--  headerの始まり -->
 
-   		<jsp:include page="WEB-INF/header.jsp" />
+   		<jsp:include page="header.jsp" />
 
     <!--  headerの終わり -->
 
@@ -46,7 +46,7 @@
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

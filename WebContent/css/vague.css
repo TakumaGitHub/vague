@@ -7,7 +7,6 @@ body {
 
 	margin : 0;
 	padding : 0;
-	padding-top : 180px;
 
 }
 
@@ -76,6 +75,18 @@ h1,h2,h3,h4,h5 {
 
 
 }
+
+.header-container {
+
+    overflow : hidden;
+    max-width : 1080px;
+    width : 100%;
+    padding : 0 30px 30px;
+    margin : 0 auto;
+
+
+}
+
 
 /* ======== 各部品のCss→ ======== */
 
@@ -230,25 +241,22 @@ height: 0;
 
 header {
 
-	z-index : 50;
-	position : fixed;
-	top : 0;
-	left : 0;
-
-
     width : 100%;
-    height : 150px;
+    min-height : 120px;
     padding-top : 25px;
     background-color: #FFEA2A;
+
+    text-align : left;
 
 }
 
 #header-left {
 
-	width : 30%;
-    height : 80px;
+	width : 320px;
+    height : 120px;
 
-	float: left;
+	display : inline-block;
+	box-sizing : border-box;
 	color : black;
 	text-align : center;
 	font-weight : bold;
@@ -257,19 +265,21 @@ header {
 
 #header-center {
 
-	width : 40%;
+	width : 430px;
     height : 120px;
 	text-align : center;
-	float: left;
+	display : inline-block;
+	box-sizing : border-box;
 
 }
 
 #header-right {
 
-	width : 30%;
-    height : 80px;
+	width : 320px;
+    height : 120px;
 	color : black;
-	float: left;
+	display : inline-block;
+	box-sizing : border-box;
 
 }
 
@@ -285,7 +295,7 @@ header {
 
 #header-center img {
 
-	width : 350px;
+	width : 300px;
 	height : auto;
 	margin-bottom : 4px;
 }
@@ -306,7 +316,7 @@ header {
 
 #header-right ul {
 
-	text-align : center;
+	text-align : left;
 	margin-top : 28px;
 }
 
@@ -318,6 +328,7 @@ header {
 	height : 35px;
 	padding : 0px 8px;
 	margin-left: 5px;
+	margin-bottom : 10px;
 
 	font-size : 12px;
 	font-weight : bold;
@@ -332,6 +343,7 @@ header {
 
     margin-bottom : 3px;
 	margin-left: 8px;
+
 }
 
 

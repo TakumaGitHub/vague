@@ -55,7 +55,7 @@ public class ReviewDAO {
 				reviewDTO.setReviewTitle(rs.getString("r.review_title"));
 				reviewDTO.setReviewBody(rs.getString("r.review_body"));
 				reviewDTO.setReviewScore(rs.getInt("r.review_score"));
-				reviewDTO.setInsertDate(rs.getString("r.insert_date"));
+				reviewDTO.setInsertDate(rs.getString("r.regist_date"));
 				reviewDTO.setUpdateDate(rs.getString("r.update_date"));
 
 				ProductReviewDTO productReviewDTO = new ProductReviewDTO();
@@ -129,7 +129,7 @@ public class ReviewDAO {
 				reviewDTO.setReviewTitle(rs.getString("r.review_title"));
 				reviewDTO.setReviewBody(rs.getString("r.review_body"));
 				reviewDTO.setReviewScore(rs.getInt("r.review_score"));
-				reviewDTO.setInsertDate(rs.getString("r.insert_date"));
+				reviewDTO.setInsertDate(rs.getString("r.regist_date"));
 				reviewDTO.setUpdateDate(rs.getString("r.update_date"));
 
 				ProductDTO productDTO = new ProductDTO();
@@ -147,7 +147,7 @@ public class ReviewDAO {
 				productDTO.setReleaseDate(rs.getString("release_date"));
 				productDTO.setReleaseCompany(rs.getString("release_company"));
 				productDTO.setStatus(rs.getInt("status"));
-				productDTO.setInsertDate(rs.getString("insert_date"));
+				productDTO.setInsertDate(rs.getString("regist_date"));
 				productDTO.setUpdateDate(rs.getString("update_date"));
 
 				ReviewMyListDTO reviewMyListDTO = new ReviewMyListDTO();
@@ -198,7 +198,7 @@ public class ReviewDAO {
 
 		DateUtil dateUtil = new DateUtil();
 
-		String sql = "INSERT INTO review (user_id, product_id, review_title, review_body, review_score, insert_date) values (?,?,?,?,?,?)";
+		String sql = "INSERT INTO review (user_id, product_id, review_title, review_body, review_score, regist_date) values (?,?,?,?,?,?)";
 
 		int ret = 0;
 

@@ -26,7 +26,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware{
 
 	private List<ProductDTO> productSearchDTOList;
 
-	private List<CategoryDTO> categorytSearchDTOList;
+	private List<CategoryDTO> categorySearchDTOList;
 
 
 	public String execute() throws SQLException{
@@ -50,7 +50,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware{
 
 		//カテゴリーテーブルから情報を取得
 
-		categorytSearchDTOList = categorySearchDAO.searchAll();
+		categorySearchDTOList = categorySearchDAO.searchAll();
 
 		//最も大きいproduct_idを取得
 		for(ProductDTO PD : productSearchDTOList){
@@ -64,7 +64,7 @@ public class MasterAddAction extends ActionSupport implements SessionAware{
 		}
 
 		session.put("maxProductId", maxProductId);
-		session.put("CategorytSearchDTOList", categorytSearchDTOList);
+		session.put("CategorySearchDTOList", categorySearchDTOList);
 
 		return result;
 

@@ -8,7 +8,7 @@
 
 <head>
 
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <title>商品追加画面</title>
 </head>
 
@@ -27,7 +27,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!--  headerの始まり -->
 
- 	 <jsp:include page="WEB-INF/header.jsp" />
+ 	<jsp:include page="headerMaster.jsp" />
 
     <!--  headerの終わり -->
 
@@ -65,7 +65,7 @@ response.sendRedirect("/vague/home.jsp");
 				<s:property value="errorMsg.categoryId" />
 				<select name="categoryId" required="required">
 
-					<s:iterator value="#session.CategorytSearchDTOList">
+					<s:iterator value="#session.CategorySearchDTOList">
 						<s:if test="#session.MasterAddCompleteDTO.productDTO.categoryId == categoryId" >
 							<option value="<s:property value='categoryId' />" selected="selected"><s:property value='categoryId' />:<s:property value='categoryName' /></option>
 						</s:if>
@@ -233,7 +233,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

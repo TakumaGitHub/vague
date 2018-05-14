@@ -15,7 +15,7 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-	private String postalCode;
+//	private String postalCode;
 	private String addr11;
 	private String telNumber;
 	private String email;
@@ -26,7 +26,7 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	private String errorFirstNameMsg;
 	private String errorFamilyNameKanaMsg;
 	private String errorFirstNameKanaMsg;
-	private String errorPostalCodeMsg;
+//	private String errorPostalCodeMsg;
 	private String errorAddr11Msg;
 	private String errorTelNumberMsg;
 	private String errorEmailMsg;
@@ -65,10 +65,10 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 			errorFirstNameKanaMsg = InputChecker.firstNameKanaChk(firstNameKana);
 		}
 
-		if (!InputChecker.postalCodeChk(postalCode).equals("TRUE")) {
-			result = ERROR;
-			errorPostalCodeMsg = InputChecker.postalCodeChk(postalCode);
-		}
+//		if (!InputChecker.postalCodeChk(postalCode).equals("TRUE")) {
+//			result = ERROR;
+//			errorPostalCodeMsg = InputChecker.postalCodeChk(postalCode);
+//		}
 
 		if (!InputChecker.addr11Chk(addr11).equals("TRUE")) {
 			result = ERROR;
@@ -87,8 +87,9 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 
 		//		未入力項目がないか確認。[true = sessionに格納。]
 		if (!(familyName.equals("")) && !(firstName.equals("")) && !(familyNameKana.equals(""))
-				&& !(firstNameKana.equals("")) &&
-				!(postalCode.equals("")) && !(addr11.equals("")) && !(telNumber.equals("")) && !(email.equals(""))) {
+				&& !(firstNameKana.equals(""))
+//				&&!(postalCode.equals(""))
+				&& !(addr11.equals("")) && !(telNumber.equals("")) && !(email.equals(""))) {
 
 			//			sessionで
 			String userId = ((LoginUserDTO) session.get("LoginUserDTO")).getUserId();
@@ -99,7 +100,7 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 			addressDTO.setFirstName(firstName);
 			addressDTO.setFamilyNameKana(familyNameKana);
 			addressDTO.setFirstNameKana(firstNameKana);
-			addressDTO.setPostalCode(postalCode);
+//			addressDTO.setPostalCode(postalCode);
 			addressDTO.setAddr11(addr11);
 			addressDTO.setTelNumber(telNumber);
 			addressDTO.setEmail(email);
@@ -142,13 +143,13 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 		this.firstNameKana = firstNameKana;
 	}
 
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
+//	public String getPostalCode() {
+//		return postalCode;
+//	}
+//
+//	public void setPostalCode(String postalCode) {
+//		this.postalCode = postalCode;
+//	}
 
 	public String getAddr11() {
 		return addr11;
@@ -214,13 +215,13 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 		this.errorFirstNameKanaMsg = errorFirstNameKanaMsg;
 	}
 
-	public String getErrorPostalCodeMsg() {
-		return errorPostalCodeMsg;
-	}
-
-	public void setErrorPostalCodeMsg(String errorPostalCodeMsg) {
-		this.errorPostalCodeMsg = errorPostalCodeMsg;
-	}
+//	public String getErrorPostalCodeMsg() {
+//		return errorPostalCodeMsg;
+//	}
+//
+//	public void setErrorPostalCodeMsg(String errorPostalCodeMsg) {
+//		this.errorPostalCodeMsg = errorPostalCodeMsg;
+//	}
 
 	public String getErrorAddr11Msg() {
 		return errorAddr11Msg;

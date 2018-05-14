@@ -39,7 +39,7 @@ public class BuyItemCompleteDAO {
 
 		String sqlSELECT = " SELECT * FROM  cart_info WHERE user_id = ?";
 
-		String sqlInsert = " INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, insert_date) values (?,?,?,?,?,?)";
+		String sqlInsert = " INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date) values (?,?,?,?,?,?)";
 
 		String sqlDELETE = " DELETE FROM  cart_info WHERE user_id = ? ";
 

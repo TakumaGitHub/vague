@@ -25,6 +25,8 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 
 		String result = SUCCESS;
 
+		int ret = 0;
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -45,7 +47,14 @@ public class MasterChangeCompleteAction extends ActionSupport implements Session
 		masterDTO = (MasterDTO)session.get("MasterChangeCompleteDTO");
 
 		//商品情報を変更する
-		masterDAO.update(masterDTO);
+		ret =  masterDAO.update(masterDTO);
+
+
+		if(ret <= 0){
+
+			return ERROR;
+
+		}
 
 
 		//セッションの掃除

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.DBConnector;
-import com.internousdev.vague.util.DateUtil;
 
 public class LoginUserDAO {
 
@@ -15,7 +14,6 @@ public class LoginUserDAO {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
-		DateUtil dateUtil = new DateUtil();
 
 		LoginUserDTO dto = new LoginUserDTO();
 		String sql = "SELECT * from user_info WHERE user_id = ? AND password = ?";
@@ -35,9 +33,9 @@ public class LoginUserDAO {
 				dto.setFirstName(rs.getString("first_name_kana"));
 				dto.setEmail(rs.getString("email"));
 				dto.setStatus(rs.getInt("status"));
-				dto.setLoginFlg(rs.getInt("login_flg"));
+				dto.setLoginFlg(rs.getInt("logined"));
 				dto.setmFlg(rs.getInt("m_flg"));
-				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setInsertDate(rs.getString("regist_date"));
 				dto.setUpdateDate(rs.getString("update_date"));
 
 			}

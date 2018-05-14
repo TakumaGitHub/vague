@@ -8,7 +8,7 @@
 
         <div class="container">
 			<jsp:useBean id="date" class="java.util.Date"/>
-        	<a href="/vague/home.jsp"><h2>Vague</h2></a>
+        	<h2><a href="/vague/home.jsp">Vague</a></h2>
         	<p>Copyright © 2010-<fmt:formatDate value="${date}" pattern="yyyy" /> Vague All Rights Reserved.</p>
 
         </div>

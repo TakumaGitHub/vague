@@ -36,7 +36,7 @@ public class MasterDAO {
 		ProductDTO productDTO = masterDTO.getProductDTO();
 
 
-		String sql = " INSERT INTO product_info(product_id, product_name, product_name_kana, product_description, category_id, product_stock, price, image_file_path, image_file_name, release_date, release_company, status, insert_date) "
+		String sql = " INSERT INTO product_info(product_id, product_name, product_name_kana, product_description, category_id, product_stock, price, image_file_path, image_file_name, release_date, release_company, status, regist_date) "
 					+ " values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 		int ret = 0;//結果を入れる整数
@@ -57,7 +57,7 @@ public class MasterDAO {
 			ps.setString(10,productDTO.getReleaseDate());
 			ps.setString(11,productDTO.getReleaseCompany());
 			ps.setInt(12,1);//status
-			ps.setString(13,dateUtil.getDate());//insert_date
+			ps.setString(13,dateUtil.getDate());//regist_date
 
 			ret = ps.executeUpdate();
 

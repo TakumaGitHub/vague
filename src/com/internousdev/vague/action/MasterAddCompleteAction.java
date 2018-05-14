@@ -23,6 +23,8 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 
 		String result = SUCCESS;
 
+		int ret = 0;
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -42,7 +44,13 @@ public class MasterAddCompleteAction extends ActionSupport implements SessionAwa
 
 		masterDTO = (MasterDTO)session.get("MasterAddCompleteDTO");
 
-		masterDAO.insert(masterDTO);
+		ret = masterDAO.insert(masterDTO);
+
+		if(ret <= 0){
+
+			return ERROR;
+
+		}
 
 		session.remove("MasterAddCompleteDTO");
 		session.remove("maxProductId");

@@ -20,7 +20,7 @@ public class AddressDAO {
 		boolean result = false;
 
 
-		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code, insert_date) VALUES(?,?,?,?,?,?,?,?,?,NOW())";
+		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code, regist_date) VALUES(?,?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			con = db.getConnection();

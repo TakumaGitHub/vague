@@ -1,12 +1,12 @@
 package com.internousdev.vague.dao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DBConnector;
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 
 public class ProductDetailsDAO {
 
@@ -33,7 +33,7 @@ public class ProductDetailsDAO {
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setProductStock(rs.getInt("product_stock"));
 				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setRegistDate(rs.getString("regist_date"));
+				dto.setInsertDate(rs.getString("regist_date"));
 				dto.setProductDescription(rs.getString("product_description"));
 				dto.setPrice(rs.getInt("price"));
 
@@ -78,7 +78,7 @@ public class ProductDetailsDAO {
 			dto.setImageFileName(rs.getString("image_file_name"));
 			dto.setReleaseCompany(rs.getString("release_company"));
 			dto.setReleaseDate(rs.getString("release_date"));
-			dto.setRegistDate(rs.getString("regist_date"));
+			dto.setInsertDate(rs.getString("regist_date"));
 			dto.setUpdateDate(rs.getString("update_date"));
 
 			}

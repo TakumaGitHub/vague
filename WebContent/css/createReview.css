@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+
+.main-container {
+
+	width : 60%;
+	margin : 0 auto;
+
+}
+
+.main-container textarea {
+
+	width : 80%;
+
+
+}
+
+.main-container img {
+
+	width : 50%;
+	height : auto;
+
+
+}

@@ -7,11 +7,11 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.vague.dao.CategoryDAO;
 import com.internousdev.vague.dao.ProductDetailsDAO;
 import com.internousdev.vague.dao.ReviewDAO;
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.dto.ProductReviewDTO;
-import com.internousdev.vague.dto.ReviewDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 
@@ -33,16 +33,17 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	//購入個数リスト
 	private List<Integer> stockList = new ArrayList<Integer>();
 	//商品詳細リスト
+	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
 	public ProductDTO detail = new ProductDTO();
 	public List<ProductDTO> detailsList = new ArrayList<ProductDTO>();
 
 	//お勧めリスト
 	public List<ProductDTO> suggestList = new ArrayList<ProductDTO>();
-	private ProductDetailsDAO productDetailsDAO = new ProductDetailsDAO();
+	private CategoryDAO categoryDAO = new CategoryDAO();
 
 	//レビューリスト
 	public List<ProductReviewDTO> reviewList = new ArrayList<ProductReviewDTO>();
-	private ReviewDTO review = new ReviewDTO();
+
 	private ReviewDAO reviewDAO = new ReviewDAO();
 
 	public String execute() throws SQLException {
@@ -62,7 +63,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 		//お勧めリスト情報取得
 		try {
-			suggestList = productDetailsDAO.getSuggestProductInfo(categoryId,productId);
+			suggestList = categoryDAO.getSuggestProductInfo(categoryId,productId);
 			if(suggestList != null) {
 				session.put("SuggestList", suggestList);
 

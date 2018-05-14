@@ -98,10 +98,13 @@ input:valid {
     background-color: transparent;
 }
 
-input:focus {
+input:focus, textarea:focus {
 
 	background-color : #fff0b5;
 
+}
+textarea {
+    resize: none;
 }
 
 input[type="submit"] {

@@ -41,7 +41,7 @@ public class ProductListDAO {
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setReleaseCompany(rs.getString("release_company"));
 				dto.setStatus(rs.getInt("status"));
-				dto.setInsertDate(rs.getString("insert_date"));
+				dto.setRegistDate(rs.getString("regist_date"));
 				dto.setUpdateDate(rs.getString("update_date"));
 
 				productList.add(dto);
@@ -55,47 +55,7 @@ public class ProductListDAO {
 		return productList;
 	}
 
-/*	//商品情報一括取得
-	//ユーザーには非公開
-	public ArrayList<ProductDTO> getProductHideInfo() throws SQLException {
-		ArrayList<ProductDTO> productList = new ArrayList<>();
-		DBConnector db = new DBConnector();
-		Connection con = db.getConnection();
 
-		String sql ="SELECT * FROM product_info WHERE status = 1 ORDER BY product_id ASC";
-
-		try {
-			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery();
-
-			while(rs.next()){
-				ProductDTO dto = new ProductDTO();
-
-				dto.setId(rs.getInt("id"));
-				dto.setProductId(rs.getInt("product_id"));
-				dto.setProductName(rs.getString("product_name"));
-				dto.setProductNameKana(rs.getString("product_name_kana"));
-				dto.setProductDescription(rs.getString("product_description"));
-				dto.setCategoryId(rs.getInt("category_id"));
-				dto.setPrice(rs.getInt("price"));
-				dto.setProductStock(rs.getInt("product_stock"));
-				dto.setImageFilePath(rs.getString("image_file_path"));
-				dto.setImageFileName(rs.getString("image_file_name"));
-				dto.setReleaseCompany(rs.getString("release_company"));
-				dto.setReleaseDate(rs.getString("release_date"));
-				dto.setInsertDate(rs.getString("insert_date"));
-				dto.setUpdateDate(rs.getString("update_date"));
-				productList.add(dto);
-
-			}
-		}catch(Exception e){
-			throw new RuntimeException(e);
-		}finally{
-			con.close();
-		}
-		return productList;
-	}
-*/
 	//IDが存在するかのチェック
 	public boolean existsProductId(String productId) throws SQLException {
 		boolean result = false;

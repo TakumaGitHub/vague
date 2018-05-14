@@ -19,7 +19,7 @@ public class PurchaseHistoryDAO {
 	public ArrayList<PurchaseHistoryDTO> getPurchaseHistory(String userId) throws SQLException{
 		ArrayList<PurchaseHistoryDTO> purchaseHistoryDTOList = new ArrayList<PurchaseHistoryDTO>();
 
-		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, phi.address_id, di.postal_code, di.user_address, pi.release_company, pi.release_date, phi.insert_date  FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id LEFT JOIN destination_info as di ON phi.address_id = di.id  WHERE phi.user_id = ? ORDER BY insert_date DESC";
+		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, phi.address_id, di.postal_code, di.user_address, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id LEFT JOIN destination_info as di ON phi.address_id = di.id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class PurchaseHistoryDAO {
 				dto.setAddressId(rs.getInt("address_id"));
 				dto.setPostalCode(rs.getString("postal_code"));
 				dto.setUserAddress(rs.getString("user_address"));
-				dto.setInsertDate(rs.getString("insert_date").replaceAll("\\.0$", ""));
+				dto.setInsertDate(rs.getString("regist_date").replaceAll("\\.0$", ""));
 
 				purchaseHistoryDTOList.add(dto);
 			}

@@ -76,6 +76,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			dto = loginUserDAO.getUserInfo(userId,password);
 
 			if(dto.getUserId() != null){
+
 				result = SUCCESS;
 				//ログイン成功時に以下を使用
 				CartDAO cartDAO = new CartDAO();

@@ -60,7 +60,7 @@ public class ProductSearchDAO {
 					productDTO.setReleaseDate(rs.getString("release_date"));
 					productDTO.setReleaseCompany(rs.getString("release_company"));
 					productDTO.setStatus(rs.getInt("status"));
-					productDTO.setInsertDate(rs.getString("insert_date"));
+					productDTO.setInsertDate(rs.getString("regist_date"));
 					productDTO.setUpdateDate(rs.getString("update_date"));
 
 				}
@@ -211,7 +211,7 @@ public class ProductSearchDAO {
 						productDTO.setReleaseDate(rs.getString("release_date"));
 						productDTO.setReleaseCompany(rs.getString("release_company"));
 						productDTO.setStatus(rs.getInt("status"));
-						productDTO.setInsertDate(rs.getString("insert_date"));
+						productDTO.setInsertDate(rs.getString("regist_date"));
 						productDTO.setUpdateDate(rs.getString("update_date"));
 
 						productSearchDTOList.add(productDTO);
@@ -278,7 +278,7 @@ public class ProductSearchDAO {
 					productDTO.setReleaseDate(rs.getString("release_date"));
 					productDTO.setReleaseCompany(rs.getString("release_company"));
 					productDTO.setStatus(rs.getInt("status"));
-					productDTO.setInsertDate(rs.getString("insert_date"));
+					productDTO.setInsertDate(rs.getString("regist_date"));
 					productDTO.setUpdateDate(rs.getString("update_date"));
 
 					productSearchDTOList.add(productDTO);

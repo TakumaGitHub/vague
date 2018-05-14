@@ -7,6 +7,7 @@
 <html>
 <head>
 <jsp:include page="WEB-INF/head.jsp" />
+<link rel="stylesheet" href="./css/userInterface.css">
 <title>ログイン画面</title>
 
 </head>
@@ -35,10 +36,14 @@ response.sendRedirect("/vague/home.jsp");
 			<p><s:property value="errorMsg" /></p>
 			<s:form action="LoginAction">
 				<p><s:property value="userIdErrorMsg" /></p>
+
+				<div id="input">
 				ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 				<br>
 				<p><s:property value="passwordErrorMsg" /></p>
 				パスワード：<input type="password" name="password">
+				</div>
+
 				<s:submit value="ログイン"/>
 
 				<div>

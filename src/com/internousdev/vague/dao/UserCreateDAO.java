@@ -22,7 +22,7 @@ public class UserCreateDAO {
 
 	public void createUserInfo(LoginUserDTO loginUserDTO) throws SQLException {
 
-		String sql = "INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,insert_date)VALUES(?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,regist_date)VALUES(?,?,?,?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

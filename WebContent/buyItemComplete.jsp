@@ -6,8 +6,8 @@
 <html>
 <head>
 <!-- ホーム画面に10秒後遷移 content="秒数" -->
-<jsp:include page="WEB-INF/head.jsp" />
-<meta http-equiv="refresh" content="10;URL=GoHomeAction">
+<jsp:include page="head.jsp" />
+<meta http-equiv="refresh" content="3;URL=GoHomeAction">
 
 <title>決済完了画面</title>
 
@@ -19,7 +19,7 @@
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
 
     <!--  headerの終わり -->
@@ -42,7 +42,7 @@
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

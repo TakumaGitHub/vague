@@ -64,6 +64,8 @@ h3{ font-size:20px;
 </s:iterator>
 
 
+<s:if test="#session.AddressInfoListDTO != null">
+
 <form id="BuyItemForm" action="BuyItemConfirmAction" >
 	<input type="submit" value="確認画面に行く" />
 </form>
@@ -71,6 +73,17 @@ h3{ font-size:20px;
 <form action="AddressAction" >
 	<input type="submit" value="宛先の新規登録" />
 </form>
+
+</s:if>
+
+<s:else>
+
+<form action="AddressAction" >
+	<input type="submit" value="宛先を登録する" />
+</form>
+
+</s:else>
+
 
 
 

@@ -38,7 +38,7 @@
 					<div class="message">
 						<span style="color:red;"><s:property value="message" /></span>
 
-						<s:if test="#session.PurchaseHistoryList ==null">
+						<s:if test="#session.PurchaseHistoryList == null">
 							<p>購入履歴はありません</p>
 						</s:if>
 						<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">

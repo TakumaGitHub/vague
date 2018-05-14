@@ -36,7 +36,8 @@ public class AddressRegiCompleteDAO {
 			ps.setString(5,addressDTO.getFirstNameKana());
 			ps.setString(6,addressDTO.getEmail());
 			ps.setString(7,addressDTO.getTelNumber());
-			ps.setString(8,addressDTO.getPostalCode());
+//			postal_code保留
+//			ps.setString(8,addressDTO.getPostalCode());
 			ps.setString(9,addressDTO.getAddr11());
 			ps.setString(10,dateUtil.getDate());
 			i = ps.executeUpdate();
@@ -59,6 +60,7 @@ public class AddressRegiCompleteDAO {
 
 		ArrayList<AddressDTO> addressList = new ArrayList<AddressDTO>();
 
+//		postal_code保留
 		String sql = "user_id, family_name, first_name, family_name, first_name, email, tel_number, postal_code, user_address from destination_info where user_id = ?";
 
 		try {
@@ -78,7 +80,7 @@ public class AddressRegiCompleteDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
-				addressDTO.setPostalCode(rs.getString("postal_code"));
+//				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 
 				addressList.add(addressDTO);

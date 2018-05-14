@@ -5,6 +5,7 @@
 <html>
 <head>
 <jsp:include page="WEB-INF/head.jsp" />
+<!-- 郵便番号から住所自動検索 -->
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <title>宛先情報登録画面</title>
 </head>
@@ -57,12 +58,13 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<div>
+		<!-- 郵便番号一旦保留 -->
+		<%-- <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
 		<div>
 			<span>郵便番号<br>〒<input type="text" placeholder="郵便番号" name="postalCode" value='<s:property value="#session.AddressDTO.postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
-		</div>
+		</div> --%>
 
 		<!-- 住所 -->
 		<div>
@@ -120,12 +122,13 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<div>
+		<!-- 郵便番号一旦保留 -->
+		<%-- <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
 		<div>
 			<span>郵便番号<br>〒<input type="text" placeholder="郵便番号" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
-		</div>
+		</div> --%>
 
 		<!-- 住所 -->
 		<div>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <title><s:property value="#session.LoginUserDTO.userId" />のカート</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
 
     <!--  headerの終わり -->
@@ -22,7 +22,7 @@
 		<strong><s:property /></strong>
 	</s:iterator>
 	<s:if test='#session.CartDTOList == null || #session.CartDTOList.isEmpty()'>
-		<p>かーとに入れた商品はありません。</p>
+		<p>カートに入れた商品はありません。</p>
 	</s:if>
 	<s:else>
 
@@ -65,7 +65,7 @@
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

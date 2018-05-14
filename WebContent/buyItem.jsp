@@ -30,16 +30,30 @@
 		<s:else>
 			<input form="BuyItemForm" type="radio" name="addressId" value="<s:property value='addressId' />" />
 		</s:else>
+		<table border="0" cellspacing="0">
+	<tr>
+		<td><s:property value="familyName" />
+		<s:property value="firstName" /></td>
+	</tr>
+	<tr>
+		<td><s:property value="familyNameKana" />
+		<s:property value="firstNameKana" /></td>
+	</tr>
+	<tr>
+		<td><s:property value="postalCode" /></td>
+	</tr>
+	<tr>
+		<td><s:property value="addr11" /></td>
+	</tr>
+	<tr>
+		<td><s:property value="telNumber" /></td>
+	</tr>
+	<tr>
+		<td><s:property value="email" /></td>
+	</tr>
 
-		<s:property value="familyName" />
-		<s:property value="firstName" />
-		<s:property value="familyNameKana" />
-		<s:property value="firstNameKana" />
-		<s:property value="telNumber" />
-		<s:property value="email" />
-		<s:property value="postalCode" />
-		<s:property value="addr11" />
 
+		</table>
 	</div>
 
 </s:iterator>

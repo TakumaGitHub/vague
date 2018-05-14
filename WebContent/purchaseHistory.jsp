@@ -28,6 +28,14 @@
 			</div>
 		</div>
 
+		<s:if test="PurchaseHistoryList ==null">
+			<h3>購入履歴はありません</h3>
+		</s:if>
+		<s:elseif test="PurchaseHistoryList != null">
+			<h3>購入情報は以下になります。</h3>
+		</s:elseif>
+
+
 		<div id="contents" class="border ph">
 			<div id="left" class="border">
 			</div>

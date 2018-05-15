@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- ホーム画面に10秒後遷移 content="秒数" -->
+<!-- ホーム画面に3秒後遷移 content="秒数" -->
 <jsp:include page="head.jsp" />
 <meta http-equiv="refresh" content="3;URL=GoHomeAction">
 
@@ -32,7 +32,7 @@
 
 				<h2>ご注文ありがとうございました。</h2>
 				ご購入履歴の確認は<a href='<s:url action="PurchaseHistoryAction"/>'>こちら</a>
-				<p>10秒後に自動的にホーム画面へ遷移します。</p>
+				<p>3秒後に自動的にホーム画面へ遷移します。</p>
 				<p>ジャンプしない場合は、以下のリンクをクリックしてください。</p>
 				<a href='<s:url action="GoHomeAction" />'>ホーム画面へ</a>
 

@@ -244,6 +244,8 @@ header {
     width : 100%;
     min-height : 120px;
     padding-top : 25px;
+    margin-bottom : 60px;
+
     background-color: #FFEA2A;
 
     text-align : left;

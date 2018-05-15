@@ -108,7 +108,7 @@ public class PurchaseHistoryDTO {
 		return addressId;
 	}
 	public void setAddressId(int addressId) {
-		this.count = addressId;
+		this.addressId = addressId;
 	}
 
 	public String getPostalCode() {

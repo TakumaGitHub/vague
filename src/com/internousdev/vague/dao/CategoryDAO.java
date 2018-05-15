@@ -17,6 +17,7 @@ public class CategoryDAO {
 			DBConnector db = new DBConnector();
 			Connection con = db.getConnection();
 
+
 			//同カテ商品取得
 			String sql = "SELECT * FROM  product_info WHERE status = 1 AND category_id = ? AND product_id <> ? ORDER BY RAND() LIMIT 3 ";
 			try {

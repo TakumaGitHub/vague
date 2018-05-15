@@ -17,12 +17,14 @@ public class UserCreateDAO {
 
 	//以下新規ユーザー登録用メソッド
 
-	public void createUserInfo(LoginUserDTO loginUserDTO) throws SQLException {
+	public int createUserInfo(LoginUserDTO loginUserDTO) throws SQLException {
 
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 		DateUtil dateUtil = new DateUtil();
 		String sql = "INSERT INTO user_info(user_id,password,family_name,first_name,family_name_kana,first_name_kana,sex,email,regist_date)VALUES(?,?,?,?,?,?,?,?,?)";
+
+		int ret = 0;
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -36,12 +38,16 @@ public class UserCreateDAO {
 			ps.setString(8, loginUserDTO.getEmail());
 			ps.setString(9, dateUtil.getDate());  //DateUtilクラスのgetDateメソッドで登録時の日時をDBに格納
 
-			ps.execute();
+			ret = ps.executeUpdate();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			con.close();
 		}
+
+		return ret;
+
 	}
 
 	public String getOverlapping(String userId) throws SQLException {

@@ -32,6 +32,8 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="container">
 
+
+
 			<br><h3>ログインIDとパスワードを入力してください。</h3>
 			<p><s:property value="errorMsg" /></p>
 			<s:form action="LoginAction">
@@ -44,9 +46,10 @@ response.sendRedirect("/vague/home.jsp");
 				パスワード：<input type="password" name="password">
 				</div>
 
-				<s:submit value="ログイン"/>
 
-				<div>
+				<div class="button"><input type="submit" value="ログイン"/></div>
+
+				<div id="input">
 					<p>ログインID保存
 					<s:if test="#session.savaId != 0" >
 					<input type="checkbox" name="saveId" value="1">

@@ -22,6 +22,8 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 	public String execute() throws SQLException {
 
+		int ret = 0;
+
 		if(!session.containsKey("CreateUserDTO")){
 
 			return ERROR;
@@ -30,7 +32,13 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 		loginUserDTO = (LoginUserDTO)session.get("CreateUserDTO");
 
-		dao.createUserInfo(loginUserDTO);
+		ret = dao.createUserInfo(loginUserDTO);
+
+		if(ret <= 0){
+
+			return ERROR;
+
+		}
 
 
 		//新規登録したユーザーでログインするs

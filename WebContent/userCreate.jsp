@@ -74,8 +74,21 @@
 
 	<p>性別を選択して下さい。</p>
 	<p>
+	<s:if test="<s:property value='sex != null'/>">
 	<input type="radio" name="sex" value="0" checked>男性
 	<input type="radio" name="sex" value="1">女性
+	</s:if>
+
+	<s:if test="<s:property value='sex == 0'/>">
+	<input type="radio" name="sex" value="0" checked>男性
+	<input type="radio" name="sex" value="1">女性
+	</s:if>
+
+	<s:if test="<s:property value='sex == 1'/>">
+	<input type="radio" name="sex" value="0">男性
+	<input type="radio" name="sex" value="1" checked>女性
+	</s:if>
+
 	</p>
 
 

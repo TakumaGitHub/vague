@@ -62,8 +62,8 @@ drop table if exists cart_info;
 
 create table cart_info(
 	id int not null primary key auto_increment,
-	user_id varchar(16) not null REFERENCES user_info(user_id),
-	temp_user_id varchar(128) unique,
+	user_id varchar(16) REFERENCES user_info(user_id),
+	temp_user_id varchar(128) not null unique,
 	product_id int not null REFERENCES product_info(product_id),
 	product_count int not null,
 	price int not null,
@@ -103,6 +103,7 @@ create table destination_info(
 	first_name_kana varchar (32) not null,
 	email varchar (32) not null,
 	tel_number varchar (13) not null,
+	postal_code int(11) not null,
 	user_address varchar (50) not null,
 	regist_date datetime not null,
 	update_date datetime
@@ -220,9 +221,9 @@ INSERT INTO review (user_id, product_id, review_title, review_body, review_score
  */
 
 
-INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number,user_address, regist_date)
-			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100", "東京都千代田区霞が関1-1-1", now()),
-							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100", "東京都千代田区霞が関2-2-2", now());
+INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, postal_code, user_address, regist_date)
+			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関1-1-1", now()),
+							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関2-2-2", now());
 
 
 /*

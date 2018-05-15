@@ -89,6 +89,9 @@
 	<input type="radio" name="sex" value="1" checked>女性
 	</s:elseif>
 
+<s:property value="sex"/>
+
+
 	</p>
 
 

@@ -40,7 +40,7 @@
 				<span>購入個数：<s:property value="productCount"/></span>
 			</div>
 			<div>
-				<span>小計：<s:property value="totalCount"/></span>
+				<span>小計：<s:property value="totalPrice"/></span>
 			</div>
 		</s:iterator>
 		<div>

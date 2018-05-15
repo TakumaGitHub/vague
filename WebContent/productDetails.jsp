@@ -150,8 +150,8 @@
 		<div class="suggest-box">
 
 			<div class="imageHover">
-			<a href="<s:url action='ProductDetailsAction'/>?productId=<s:param value='productId'/>&&categoryId=<s:param value='categoryId'/>">
-		<img class="image" src="<s:param value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+			<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
 		</a>
 			</div>
 			<div class="sugName">

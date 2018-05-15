@@ -6,7 +6,7 @@
 <head>
 <jsp:include page="head.jsp" />
 
-<link rel="stylesheet" href="./css/product.css">
+<!-- <link rel="stylesheet" href="./css/product.css"> -->
 
 <title>商品一覧</title>
 
@@ -49,8 +49,8 @@
 
 		<div class="imageHover">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
-		<a href="<s:url action='ProductDetailsAction'/>?productId=<s:param value='productId'/>&&categoryId=<s:param value='categoryId'/>">
-		<img class="image" src="<s:param value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+		<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
 		</a>
 		</div>
 		<div class="productInfo">
@@ -109,9 +109,8 @@
 
 		       <s:if test="status == 1" >
 		               <div class="select-box">
-							   <a href="<s:url action='ProductDetailsAction' />?productId=<s:property value='productId'/>&&categoryId=<s:property value='categoryId'/>">
-		                       <img src="<s:property value="imageFilePath"/>" width="200" height="auto" />
-		                       </a>
+							   <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br></a>
 		                  	    <p><s:property value="productName" /></p>
 		                  	    <p><s:property value="productNameKana" /></p>
 		                  	    <p><s:property value="price" />円</p>

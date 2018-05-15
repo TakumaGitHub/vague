@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductListAction extends ActionSupport implements SessionAware {
 
-	private static final long serialVersionUID = -8716863678316756041L;
+	/*private static final long serialVersionUID = -8716863678316756041L;*/
 	//セッション情報取得
 	private Map<String, Object> session;
 	//商品情報取得

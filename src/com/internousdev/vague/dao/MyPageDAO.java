@@ -1,3 +1,6 @@
+// 担当：縄田
+// マイページに表示するユーザー情報をDBから取得し、DTOに格納
+
 package com.internousdev.vague.dao;
 
 import java.sql.Connection;
@@ -9,20 +12,12 @@ import java.util.ArrayList;
 import com.internousdev.vague.dto.MyPageDTO;
 import com.internousdev.vague.util.DBConnector;
 
-// 担当：縄田
-// マイページに表示するユーザー情報をDBから取得し、DTOに格納
-
 public class MyPageDAO {
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
-
-	/**
-	 * DBからユーザー情報を取得するためのメソッド
-	 * @return myPageList
-	 */
-
 	public ArrayList<MyPageDTO> getMyPageUserInfo(String userId)throws SQLException{
 		ArrayList<MyPageDTO>  myPageList = new ArrayList<MyPageDTO>();
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		String sql = "SELECT password,family_name,first_name,family_name_kana,first_name_kana,sex,email FROM user_info WHERE user_id=?";
 
@@ -32,7 +27,6 @@ public class MyPageDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-
 				MyPageDTO dto = new MyPageDTO();
 				dto.setPassword(rs.getString("password"));
 				dto.setFamilyName(rs.getString("family_name"));

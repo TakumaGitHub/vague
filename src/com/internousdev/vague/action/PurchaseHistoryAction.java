@@ -1,3 +1,6 @@
+// 注文履歴ページ 担当：縄田
+// マイページからとんでくる
+
 package com.internousdev.vague.action;
 
 import java.sql.SQLException;
@@ -11,9 +14,6 @@ import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.PurchaseHistoryDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-// 注文履歴ページ 担当：縄田
-// マイページからとんでくる
-
 public class PurchaseHistoryAction extends ActionSupport implements SessionAware {
 
 	public Map<String, Object> session;
@@ -25,7 +25,7 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 	public String execute() throws SQLException {
 		// ログインしてなければログインページに移動
 		if (!session.containsKey("LoginUserDTO")) {
-			return ERROR; //login.jspへ
+			return "login"; //login.jspへ
 		}
 
 		// 履歴の削除がされているか否か、チェックしている
@@ -33,7 +33,15 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 			String userId = ((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 			purchaseHistoryList = purchaseHistoryDAO.getPurchaseHistory(userId);
 		}else if(deleteFlg.equals("1")) {
-			delete();
+			int ret = 0;
+
+			ret = delete();
+
+			if(ret <= 0){
+
+				return ERROR;
+
+			}
 		}
 
 		String result = SUCCESS;
@@ -42,9 +50,13 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 	}
 
 	// 全件削除メソッド----------------------------------------------------------
-	public void delete() throws SQLException {
+	public int delete() throws SQLException {
+		int ret = 0;
+
 		String userId = ((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
-		purchaseHistoryDAO.deleteHistory(userId);
+		ret = purchaseHistoryDAO.deleteHistory(userId);
+
+		return ret;
 	}
 
 

@@ -1,3 +1,6 @@
+// マイページ機能 担当：縄田
+// ログイン状態かどうかを判別（未ログイン状態→ログイン画面へ、ログイン状態→ホーム画面へ）
+
 package com.internousdev.vague.action;
 
 import java.sql.SQLException;
@@ -11,9 +14,6 @@ import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.dto.MyPageDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
-// マイページ機能 担当：縄田
-// ログイン状態かどうかを判別（未ログイン状態→ログイン画面へ、ログイン状態→ホーム画面へ）
-
 public class MyPageAction extends ActionSupport implements SessionAware{
 
 	private Map<String,Object> session;
@@ -25,7 +25,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException{
 
 		 //----ログイン状態かどうかを判別
-		String result =ERROR;
+		String result = ERROR;
 
 		if(session.containsKey("LoginUserDTO")){
 
@@ -63,7 +63,6 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 	return result;
 	}
-
 
 	//---------------------getter/setter---------------------
 	public Map<String,Object> getSession(){

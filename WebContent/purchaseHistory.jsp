@@ -6,25 +6,37 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<jsp:include page="head.jsp" />
-<title>商品購入履歴画面</title>
-</head>
 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="Content-Style-Type" content="text/css"/>
+	<meta http-equiv="Content-Script-Type" content="text/javascript"/>
+	<meta http-equiv="imagetoolbar" content="no"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="./css/alatanapizza.css">
+
+	<jsp:include page="head.jsp" />
+
+<title>商品購入履歴画面</title>
+<style>
+
+
+
+
+</style>
+</head>
 <body>
 
 	<!--  headerの始まり -->
-
 	<jsp:include page="header.jsp" />
-
     <!--  headerの終わり -->
 
-
+	<!-- mainの始まり -->
 	<div id="main" class="ph">
 		<div class="title">
 			<div class="titlefont">
 				<h1 class="spacing">PURCHASE HISTORY</h1>
-				<p class="title">テストページ</p>
 			</div>
 		</div>
 
@@ -113,61 +125,15 @@
 								}
 								}
 							</script>
-
-
-
-<%--
-			<!-- ページネーション -->
-					<div id="page_move">
-						<ul>
-							<li>
-								<s:if test="pageSelect > 0">
-									<form action="PurchaseHistoryAction">
-										<s:hidden name="pageSelect" value="%{pageSelect - 1}" />
-										<s:hidden name="sort" value="%{sort}" />
-										<s:submit class="button-layout pm" value=" 前へ" />
-									</form>
-								</s:if>
-							</li>
-							<li class="pm"><s:property value="pageSelect+1" /></li>
-							<li>
-								<s:if
-									test="pageSelect < mainList.size() -1 && historyList.size() != allHistoryList.size()">
-									<form action="PurchaseHistoryAction" method="post">
-										<s:hidden name="sort" value="%{sort}" />
-										<s:hidden name="pageSelect" value="%{pageSelect + 1}" />
-										<s:submit class="button-layout pm" value=" 次へ" />
-									</form>
-								</s:if>
-							</li>
-						</ul>
-					</div>
---%>
-
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- mainの終わり -->
 
 	<!-- footerの始まり -->
-
 	<jsp:include page="footer.jsp" />
-
 	<!-- footerの終わり -->
 
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,3 +1,6 @@
+// 担当：縄田
+// 表示する商品購入履歴をDBから取得し、DTOに格納。
+
 package com.internousdev.vague.dao;
 
 import java.sql.Connection;
@@ -9,15 +12,12 @@ import java.util.ArrayList;
 import com.internousdev.vague.dto.PurchaseHistoryDTO;
 import com.internousdev.vague.util.DBConnector;
 
-// 担当：縄田
-// 表示する商品購入履歴をDBから取得し、DTOに格納。
-
 public class PurchaseHistoryDAO {
-	private DBConnector db = new DBConnector();
-	private Connection con = db.getConnection();
-
 	public ArrayList<PurchaseHistoryDTO> getPurchaseHistory(String userId) throws SQLException{
 		ArrayList<PurchaseHistoryDTO> purchaseHistoryDTOList = new ArrayList<PurchaseHistoryDTO>();
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
 		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, phi.address_id, di.postal_code, di.user_address, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id LEFT JOIN destination_info as di ON phi.address_id = di.id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
 

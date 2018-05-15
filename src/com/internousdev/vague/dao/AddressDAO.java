@@ -19,7 +19,7 @@ public class AddressDAO {
 		int updateCount = 0;
 
 //		郵便番号(postal_code)は一旦保留。
-		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, regist_date) VALUES(?,?,?,?,?,?,?,?,NOW())";
+		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, postal_code, email, regist_date) VALUES(?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			con = db.getConnection();
@@ -31,7 +31,8 @@ public class AddressDAO {
 			ps.setString(5, addressDTO.getFirstNameKana());
 			ps.setString(6, addressDTO.getAddr11());
 			ps.setString(7, addressDTO.getTelNumber());
-			ps.setString(8, addressDTO.getEmail());
+			ps.setString(8, addressDTO.getPostalCode());
+			ps.setString(9, addressDTO.getEmail());
 
 			updateCount = ps.executeUpdate();
 
@@ -53,7 +54,7 @@ public class AddressDAO {
 		Connection con = null;
 
 //		郵便番号(postal_code)は一旦保留。
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, postal_code, email FROM destination_info WHERE user_id = ?";
 
 
 		try {
@@ -71,6 +72,7 @@ public class AddressDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
+				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 				addressInfoListDTO.add(addressDTO);
 			}
@@ -89,7 +91,7 @@ public class AddressDAO {
 		Connection con = null;
 
 //		郵便番号(postal_code)は一旦保留。
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE id = ?";
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, postal_code, email FROM destination_info WHERE id = ?";
 
 
 		try {
@@ -107,6 +109,7 @@ public class AddressDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
+				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 			}
 		}catch(SQLException e) {

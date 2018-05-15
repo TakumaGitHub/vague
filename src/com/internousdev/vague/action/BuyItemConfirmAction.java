@@ -48,7 +48,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		}
 
 		CartDAO cartDAO = new CartDAO();
-		cartList = cartDAO.getCartInfo(userId);
+		cartList = cartDAO.getCartInfo(userId,0);
 
 //		カート内判定
 		if(cartList.isEmpty()) {

@@ -1,12 +1,12 @@
 package com.internousdev.vague.dao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.internousdev.vague.dto.ProductDTO;
 import com.internousdev.vague.util.DBConnector;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 
 public class ProductDetailsDAO {
 

@@ -34,8 +34,10 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
+				sqlBranch = 0;
 			}else{
 				userId = session.get("tempUserId").toString();
+				sqlBranch = 1;
 			}
 			detail = (ProductDTO)session.get("DetailProductDTO");
 			productId = detail.getProductId();

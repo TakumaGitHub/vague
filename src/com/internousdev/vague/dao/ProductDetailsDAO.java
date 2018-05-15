@@ -33,6 +33,7 @@ public class ProductDetailsDAO {
 				dto.setImageFileName(rs.getString("image_file_name"));
 				dto.setProductStock(rs.getInt("product_stock"));
 				dto.setReleaseCompany(rs.getString("release_company"));
+				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setInsertDate(rs.getString("regist_date"));
 				dto.setProductDescription(rs.getString("product_description"));
 				dto.setPrice(rs.getInt("price"));

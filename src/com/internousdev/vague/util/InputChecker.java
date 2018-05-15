@@ -223,6 +223,20 @@ public class InputChecker {
 			return result;
 		}
 
+		//郵便番号エラーメッセージ管理
+		public static String postalCodeChk(String postalCode) {
+			String result = "TRUE";
+
+			if(postalCode.equals("")) {
+				result = "【郵便番号を入力してください】";
+			}else if(postalCode.length() < 7 || postalCode.length() > 8) {
+				result = "【郵便番号は7桁で入力してください】";
+			}else if(!postalCode.matches("^[0-9]+$")) {
+				result = "【郵便番号は半角数字で入力してください】";
+			}
+			return result;
+		}
+
 
 	//住所エラーメッセージ管理
 	public static String addr11Chk(String addr11) {

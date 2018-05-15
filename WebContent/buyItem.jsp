@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="head.jsp" />
@@ -35,7 +35,7 @@ h3{ font-size:20px;
 			<input form="BuyItemForm" type="radio" name="addressId" value="<s:property value='addressId' />" />
 		</s:else>
 
-		<table border="0" cellspacing="5">
+		<table border="1">
 	<tr>
 		<td><s:property value="familyName" />
 		<s:property value="firstName" /></td>

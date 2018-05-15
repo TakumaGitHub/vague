@@ -12,18 +12,17 @@ import com.internousdev.vague.util.DateUtil;
 
 public class AddressRegiCompleteDAO {
 
-	DBConnector db = new DBConnector();
-	DateUtil dateUtil = new DateUtil();
-
-	Connection con = null;
 
 //	SQLのINSERT文を用意
-	String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, postal_code, user_address, insert_date) values(?,?,?,?,?,?,?,?,?,?)";
+	String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date) values(?,?,?,?,?,?,?,?,?,?)";
 
-	public boolean registerAddress(AddressDTO addressDTO) throws SQLException {
+	public int registerAddress(AddressDTO addressDTO) throws SQLException {
 
-		int i = 0;
-		boolean result = false;
+		DBConnector db = new DBConnector();
+		DateUtil dateUtil = new DateUtil();
+		Connection con = null;
+
+		int count = 0;
 
 		try {
 			con = db.getConnection();
@@ -36,11 +35,10 @@ public class AddressRegiCompleteDAO {
 			ps.setString(5,addressDTO.getFirstNameKana());
 			ps.setString(6,addressDTO.getEmail());
 			ps.setString(7,addressDTO.getTelNumber());
-//			postal_code保留
-//			ps.setString(8,addressDTO.getPostalCode());
 			ps.setString(9,addressDTO.getAddr11());
 			ps.setString(10,dateUtil.getDate());
-			i = ps.executeUpdate();
+
+			count = ps.executeUpdate();
 
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -48,24 +46,21 @@ public class AddressRegiCompleteDAO {
 			con.close();
 		}
 
-		if(i == 1) {
-			result = true;
-			System.out.println(i + "件登録されました。");
-		}
+		return count;
 
-		return result;
 	}
+
+
 
 	public ArrayList<AddressDTO> getAddressInfo(String userId) throws SQLException{
 
 		ArrayList<AddressDTO> addressList = new ArrayList<AddressDTO>();
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
 
-//		postal_code保留
-		String sql = "user_id, family_name, first_name, family_name, first_name, email, tel_number, postal_code, user_address from destination_info where user_id = ?";
+		String sql = "user_id, family_name, first_name, family_name, first_name, email, tel_number, user_address from destination_info where user_id = ?";
 
 		try {
-			DBConnector db = new DBConnector();
-			Connection con = db.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -80,7 +75,6 @@ public class AddressRegiCompleteDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
-//				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 
 				addressList.add(addressDTO);

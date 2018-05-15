@@ -8,7 +8,6 @@ public class AddressDTO {
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-//	private String postalCode;//郵便番号
 	private String addr11;//住所
 	private String telNumber;
 	private String email;
@@ -61,14 +60,6 @@ public class AddressDTO {
 		this.firstNameKana = firstNameKana;
 	}
 
-//	public String getPostalCode() {
-//		return postalCode;
-//	}
-//
-//	public void setPostalCode(String postalCode) {
-//		this.postalCode = postalCode;
-//	}
-
 	public String getAddr11() {
 		return addr11;
 	}
@@ -94,3 +85,4 @@ public class AddressDTO {
 	}
 
 }
+

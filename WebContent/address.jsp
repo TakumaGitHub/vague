@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <!-- 郵便番号から住所自動検索 -->
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <title>宛先情報登録画面</title>
@@ -14,7 +14,7 @@
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="WEB-INF/header.jsp" />
+	<jsp:include page="header.jsp" />
 
 
     <!--  headerの終わり -->
@@ -58,7 +58,7 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<!-- 郵便番号一旦保留 -->
+		<!-- 郵便番号一旦保留 patternでハイフンありに変える。 -->
 		<%-- <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
@@ -90,6 +90,10 @@
 
 
 		</s:if>
+
+
+
+
 		<s:else>
 
 			<!-- 氏名 -->
@@ -122,7 +126,7 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<!-- 郵便番号一旦保留 -->
+		<!-- 郵便番号一旦保留 patternでハイフンありに変える。-->
 		<%-- <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
@@ -162,7 +166,7 @@
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

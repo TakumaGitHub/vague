@@ -26,11 +26,12 @@ public class AddressRegiCompleteAction extends ActionSupport implements SessionA
 
 //		CompleteDAOのregisterAddressメソッドにaddressDTOを入れDBに格納されたかどうかを確認。
 //		⇨[DBに格納したら => trueを返す]
-		if(addressRegiCompleteDAO.registerAddress(addressDTO)) {
 
+		int count = addressRegiCompleteDAO.registerAddress(addressDTO);
+
+		if(count > 0) {
 			session.remove("AddressDTO");
 			result = SUCCESS;
-
 		}
 
 		return result;

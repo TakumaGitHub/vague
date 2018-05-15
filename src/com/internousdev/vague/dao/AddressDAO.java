@@ -11,16 +11,15 @@ import com.internousdev.vague.util.DBConnector;
 
 public class AddressDAO {
 
-	DBConnector db = new DBConnector();
-	Connection con = null;
+	public int registerAddress(AddressDTO addressDTO) throws SQLException{
 
-	public boolean registerAddress(AddressDTO addressDTO) throws SQLException{
+		DBConnector db = new DBConnector();
+		Connection con = null;
 
 		int updateCount = 0;
-		boolean result = false;
 
-
-		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code, regist_date) VALUES(?,?,?,?,?,?,?,?,?,NOW())";
+//		郵便番号(postal_code)は一旦保留。
+		String sql = "INSERT INTO destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, regist_date) VALUES(?,?,?,?,?,?,?,?,NOW())";
 
 		try {
 			con = db.getConnection();
@@ -33,7 +32,6 @@ public class AddressDAO {
 			ps.setString(6, addressDTO.getAddr11());
 			ps.setString(7, addressDTO.getTelNumber());
 			ps.setString(8, addressDTO.getEmail());
-			ps.setString(9, addressDTO.getPostalCode());
 
 			updateCount = ps.executeUpdate();
 
@@ -43,19 +41,19 @@ public class AddressDAO {
 			con.close();
 		}
 
-		if(updateCount == 1) {
-			result = true;
-		}
-		return result;
+		return updateCount;
+
 	}
 
 
 	public ArrayList<AddressDTO> getAddressInfo(String userId) throws SQLException{
 
 		ArrayList<AddressDTO> addressInfoListDTO = new ArrayList<AddressDTO>();
+		DBConnector db = new DBConnector();
+		Connection con = null;
 
-
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE user_id = ?";
+//		郵便番号(postal_code)は一旦保留。
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE user_id = ?";
 
 
 		try {
@@ -73,7 +71,6 @@ public class AddressDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
-				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 				addressInfoListDTO.add(addressDTO);
 			}
@@ -88,9 +85,11 @@ public class AddressDAO {
 	public AddressDTO getAddressInfo(int addressId) throws SQLException{
 
 		AddressDTO addressDTO = new AddressDTO();
+		DBConnector db = new DBConnector();
+		Connection con = null;
 
-
-		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email, postal_code FROM destination_info WHERE id = ?";
+//		郵便番号(postal_code)は一旦保留。
+		String sql = "SELECT id, family_name, first_name, family_name_kana, first_name_kana, user_address, tel_number, email FROM destination_info WHERE id = ?";
 
 
 		try {
@@ -108,7 +107,6 @@ public class AddressDAO {
 				addressDTO.setFirstNameKana(rs.getString("first_name_kana"));
 				addressDTO.setEmail(rs.getString("email"));
 				addressDTO.setTelNumber(rs.getString("tel_number"));
-				addressDTO.setPostalCode(rs.getString("postal_code"));
 				addressDTO.setAddr11(rs.getString("user_address"));
 			}
 		}catch(SQLException e) {

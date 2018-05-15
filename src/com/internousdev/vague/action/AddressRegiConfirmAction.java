@@ -1,9 +1,11 @@
 package com.internousdev.vague.action;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
+import com.internousdev.vague.dao.AddressDAO;
 import com.internousdev.vague.dto.AddressDTO;
 import com.internousdev.vague.dto.LoginUserDTO;
 import com.internousdev.vague.util.InputChecker;
@@ -15,7 +17,6 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	private String firstName;
 	private String familyNameKana;
 	private String firstNameKana;
-//	private String postalCode;
 	private String addr11;
 	private String telNumber;
 	private String email;
@@ -26,12 +27,11 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	private String errorFirstNameMsg;
 	private String errorFamilyNameKanaMsg;
 	private String errorFirstNameKanaMsg;
-//	private String errorPostalCodeMsg;
 	private String errorAddr11Msg;
 	private String errorTelNumberMsg;
 	private String errorEmailMsg;
 
-	public String execute() {
+	public String execute() throws SQLException{
 
 		String result = SUCCESS;
 
@@ -65,11 +65,6 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 			errorFirstNameKanaMsg = InputChecker.firstNameKanaChk(firstNameKana);
 		}
 
-//		if (!InputChecker.postalCodeChk(postalCode).equals("TRUE")) {
-//			result = ERROR;
-//			errorPostalCodeMsg = InputChecker.postalCodeChk(postalCode);
-//		}
-
 		if (!InputChecker.addr11Chk(addr11).equals("TRUE")) {
 			result = ERROR;
 			errorAddr11Msg = InputChecker.addr11Chk(addr11);
@@ -87,11 +82,8 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 
 		//		未入力項目がないか確認。[true = sessionに格納。]
 		if (!(familyName.equals("")) && !(firstName.equals("")) && !(familyNameKana.equals(""))
-				&& !(firstNameKana.equals(""))
-//				&&!(postalCode.equals(""))
-				&& !(addr11.equals("")) && !(telNumber.equals("")) && !(email.equals(""))) {
+				&& !(firstNameKana.equals("")) && !(addr11.equals("")) && !(telNumber.equals("")) && !(email.equals(""))) {
 
-			//			sessionで
 			String userId = ((LoginUserDTO) session.get("LoginUserDTO")).getUserId();
 			//			AddressDTOのsetterで各項目の入力値をセット。
 			//			⇨セットした値をsessionに格納。
@@ -100,12 +92,20 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 			addressDTO.setFirstName(firstName);
 			addressDTO.setFamilyNameKana(familyNameKana);
 			addressDTO.setFirstNameKana(firstNameKana);
-//			addressDTO.setPostalCode(postalCode);
 			addressDTO.setAddr11(addr11);
 			addressDTO.setTelNumber(telNumber);
 			addressDTO.setEmail(email);
 			session.put("AddressDTO", addressDTO);
 		}
+
+		AddressDAO addressDAO = new AddressDAO();
+
+		int updateCount = addressDAO.registerAddress(addressDTO);
+
+		if(updateCount > 0) {
+			result = SUCCESS;
+		}
+
 
 		return result;
 
@@ -142,14 +142,6 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	public void setFirstNameKana(String firstNameKana) {
 		this.firstNameKana = firstNameKana;
 	}
-
-//	public String getPostalCode() {
-//		return postalCode;
-//	}
-//
-//	public void setPostalCode(String postalCode) {
-//		this.postalCode = postalCode;
-//	}
 
 	public String getAddr11() {
 		return addr11;
@@ -214,14 +206,6 @@ public class AddressRegiConfirmAction extends ActionSupport implements SessionAw
 	public void setErrorFirstNameKanaMsg(String errorFirstNameKanaMsg) {
 		this.errorFirstNameKanaMsg = errorFirstNameKanaMsg;
 	}
-
-//	public String getErrorPostalCodeMsg() {
-//		return errorPostalCodeMsg;
-//	}
-//
-//	public void setErrorPostalCodeMsg(String errorPostalCodeMsg) {
-//		this.errorPostalCodeMsg = errorPostalCodeMsg;
-//	}
 
 	public String getErrorAddr11Msg() {
 		return errorAddr11Msg;

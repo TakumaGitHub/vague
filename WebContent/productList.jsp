@@ -86,7 +86,7 @@
 
                      <s:iterator begin="1" end="#session.ProductListLength" step="1" status="st">
 
-						<a href="<s:url action='ProductListAction' />?pageNum=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
+						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="#st.index" /></s:url>" ><s:property value='#st.count' /> </a>
 
                      </s:iterator>
 
@@ -128,7 +128,7 @@
 
                <span>ページ数</span>
                        <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-                               <a href="<s:url action='ProductSearchAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
+                               <a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="#st.index" /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" ><s:property value='#st.count' /> </a>
 
                        </s:iterator>
        </s:if>

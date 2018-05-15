@@ -53,10 +53,12 @@ public class CartDAO {
 		return cartDTOList;
 	}
 
-		public void getCartInsertInfo(String userId, int productId,int productCount ,int productTotalPrice) throws SQLException{
+		public int getCartInsertInfo(String userId, int productId,int productCount ,int productTotalPrice) throws SQLException{
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
+			int i=0;
+
 			if(session.containsKey("LoginUserDTO")){
 				sql = "INSERT INTO cart_info(user_id,product_id,product_count,price,regist_date) VALUES(?,?,?,?,?)";
 			}else{
@@ -70,13 +72,13 @@ public class CartDAO {
 			ps.setInt(4, productTotalPrice);
 			ps.setString(5, dateUtil.getDate());
 
-			ps.executeUpdate();
+			i += ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			con.close();
-		}
+		}return i;
 	}
 
 		public int getProductCount(String userId,int productId)throws SQLException{
@@ -107,9 +109,11 @@ public class CartDAO {
 	}
 
 
-	public void cartDeleteInfo(String userId, List<Integer> productId) throws SQLException {
+	public int cartDeleteInfo(String userId, List<Integer> productId) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
+		int i=0;
+
 		if(session.containsKey("LoginUserDTO")){
 			sql = "DELETE from cart_info where user_id = ? and product_id = ?";
 		}else{
@@ -121,7 +125,7 @@ public class CartDAO {
 			for(int PI : productId){
 				ps.setString(1, userId);
 				ps.setInt(2, PI);
-				ps.executeUpdate();
+				i += ps.executeUpdate();
 			}
 
 
@@ -129,23 +133,24 @@ public class CartDAO {
 			e.printStackTrace();
 		}finally{
 			con.close();
-		}
+		}return i;
 	}
 	//ログイン時に変更する際、カートの中身を移行するため使用。
-	public void changeTempUserId(String userId,String tempUserId) throws SQLException{
+	public int changeTempUserId(String userId,String tempUserId) throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
+		int i=0;
 		String sql = "UPDATE cart_info SET user_id = ? where temp_user_id = ? ";
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
 			ps.setString(2, tempUserId);
-			ps.executeUpdate();
+			i = ps.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
 			con.close();
-		}
+		}return i;
 	}
 
 	public boolean duplicates(String userId, int productId) throws SQLException{
@@ -177,6 +182,5 @@ public class CartDAO {
 			con.close();
 		}
 		return result;
-
 	}
 }

@@ -15,6 +15,7 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	private List<Integer> productId ;
 	private Map<String,Object>session;
 	private String result = SUCCESS;
+	private int i = 0;
 
 	public String execute(){
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
@@ -29,7 +30,11 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 				userId = session.get("tempUserId").toString();
 			}
 
-			cartDAO.cartDeleteInfo(userId,productId);
+			i = cartDAO.cartDeleteInfo(userId,productId);
+
+			if(i <= 0){
+				result = ERROR;
+			}
 		}
 		catch(Exception e){
 			e.printStackTrace();

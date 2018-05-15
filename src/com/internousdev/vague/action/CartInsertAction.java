@@ -20,9 +20,10 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	private List<Integer> productIdList = new ArrayList<Integer>();
 	private int productCount;
 	private int productTotalPrice;
+	private int i = 0;
 
 	public String execute() throws SQLException{
-		String result = SUCCESS;
+		String result = ERROR;
 
 		CartDAO cartDAO = new CartDAO();
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
@@ -44,7 +45,14 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 				productCount = productCount + cartDAO.getProductCount(userId,productId);
 				session.put("ProductCount", productCount);
 				productIdList.add(productId);
-				cartDAO.cartDeleteInfo(userId, productIdList);
+				i = cartDAO.cartDeleteInfo(userId, productIdList);
+
+				if(i <= 0){
+
+					return ERROR;
+
+				}
+
 			}else{
 				session.put("ProductCount", productCount);
 			}
@@ -55,7 +63,10 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			session.put("productTotalPrice", productCount * Price);
 			productTotalPrice = Integer.parseInt(session.get("productTotalPrice").toString());
 
-			cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
+			i = cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
+			if(i > 0) {
+				result = SUCCESS;
+			}
 		}
 		catch(Exception e){
 			e.printStackTrace();

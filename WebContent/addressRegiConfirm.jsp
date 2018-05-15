@@ -31,10 +31,9 @@
 			<div>
 				<span>[めい]<s:property value="#session.AddressDTO.firstNameKana" escape="false"/></span>
 			</div>
-			<!-- 郵便番号一旦保留 -->
-			<%-- <div>
+			<div>
 				<span>[郵便番号]<s:property value="#session.AddressDTO.postalCode" escape="false"/></span>
-			</div> --%>
+			</div>
 			<div>
 				<span>[住所]<s:property value="#session.AddressDTO.addr11" escape="false"/></span>
 			</div>

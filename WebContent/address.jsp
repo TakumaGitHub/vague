@@ -58,13 +58,12 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<!-- 郵便番号一旦保留 patternでハイフンありに変える。 -->
-		<%-- <div>
+		 <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
 		<div>
-			<span>郵便番号<br>〒<input type="text" placeholder="郵便番号" name="postalCode" value='<s:property value="#session.AddressDTO.postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
-		</div> --%>
+			<span>郵便番号<br>〒<input type="text" placeholder="xxxxxxx" name="postalCode" value='<s:property value="#session.AddressDTO.postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
+		</div>
 
 		<!-- 住所 -->
 		<div>
@@ -126,13 +125,12 @@
 		</div>
 
 		<!-- 郵便番号入力(7桁) -->
-		<!-- 郵便番号一旦保留 patternでハイフンありに変える。-->
-		<%-- <div>
+		 <div>
 			<s:property value="errorPostalCodeMsg"/>
 		</div>
 		<div>
-			<span>郵便番号<br>〒<input type="text" placeholder="郵便番号" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
-		</div> --%>
+			<span>郵便番号<br>〒<input type="text" placeholder="xxxxxxx" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
+		</div>
 
 		<!-- 住所 -->
 		<div>

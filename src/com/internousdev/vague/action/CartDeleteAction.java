@@ -20,17 +20,21 @@ public class CartDeleteAction extends ActionSupport implements SessionAware {
 	public String execute(){
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 		CartDAO cartDAO = new CartDAO();
+		int sqlBranch;
 
 		try{
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
+				sqlBranch = 0;
 			}
 			else{
 				userId = session.get("tempUserId").toString();
+				sqlBranch = 1;
+
 			}
 
-			i = cartDAO.cartDeleteInfo(userId,productId);
+			i = cartDAO.cartDeleteInfo(userId,productId,sqlBranch);
 
 			if(i <= 0){
 				result = ERROR;

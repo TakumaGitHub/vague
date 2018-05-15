@@ -19,6 +19,8 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 	public String execute(){
 		String result = ERROR;
+		int sqlBranch;
+
 		CartDAO cartDAO = new CartDAO();
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
@@ -26,10 +28,12 @@ public class CartAction extends ActionSupport implements SessionAware {
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
+				sqlBranch = 0;
 			}else{
 				userId = session.get("tempUserId").toString();
+				sqlBranch = 1;
 			}
-			cartDTOList = cartDAO.getCartInfo(userId);
+			cartDTOList = cartDAO.getCartInfo(userId, sqlBranch);
 
 			session.put("CartDTOList", cartDTOList);
 

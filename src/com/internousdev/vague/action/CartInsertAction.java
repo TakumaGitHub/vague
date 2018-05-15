@@ -21,6 +21,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	private int productCount;
 	private int productTotalPrice;
 	private int i = 0;
+	private int sqlBranch;
 
 	public String execute() throws SQLException{
 		String result = ERROR;
@@ -41,11 +42,11 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 
 
 			//かぶりの処理
-			if(cartDAO.duplicates(userId,productId)){
-				productCount = productCount + cartDAO.getProductCount(userId,productId);
+			if(cartDAO.duplicates(userId,productId,sqlBranch)){
+				productCount = productCount + cartDAO.getProductCount(userId,productId,sqlBranch);
 				session.put("ProductCount", productCount);
 				productIdList.add(productId);
-				i = cartDAO.cartDeleteInfo(userId, productIdList);
+				i = cartDAO.cartDeleteInfo(userId, productIdList,sqlBranch);
 
 				if(i <= 0){
 
@@ -63,7 +64,7 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 			session.put("productTotalPrice", productCount * Price);
 			productTotalPrice = Integer.parseInt(session.get("productTotalPrice").toString());
 
-			i = cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice);
+			i = cartDAO.getCartInsertInfo(userId,productId,productCount,productTotalPrice,sqlBranch);
 			if(i > 0) {
 				result = SUCCESS;
 			}

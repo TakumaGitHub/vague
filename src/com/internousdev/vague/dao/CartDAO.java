@@ -16,12 +16,13 @@ public class CartDAO {
 	public Map<String,Object>session;
 	private String sql;
 
-	public ArrayList<CartDTO> getCartInfo(String userId)throws SQLException{
+
+	public ArrayList<CartDTO> getCartInfo(String userId, int sqlBranch)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
-		if(session.containsKey("LoginUserDTO")){
+		if(sqlBranch == 0){
 			sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where user_id = ?";
 		}else{
 			sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where temp_user_id = ?";
@@ -53,13 +54,13 @@ public class CartDAO {
 		return cartDTOList;
 	}
 
-		public int getCartInsertInfo(String userId, int productId,int productCount ,int productTotalPrice) throws SQLException{
+		public int getCartInsertInfo(String userId, int productId,int productCount ,int productTotalPrice, int sqlBranch) throws SQLException{
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
 			int i=0;
 
-			if(session.containsKey("LoginUserDTO")){
+			if(sqlBranch == 0){
 				sql = "INSERT INTO cart_info(user_id,product_id,product_count,price,regist_date) VALUES(?,?,?,?,?)";
 			}else{
 				sql = "INSERT INTO cart_info(temp_user_id ,product_id,product_count,price,regist_date) VALUES(?,?,?,?,?)";
@@ -72,7 +73,7 @@ public class CartDAO {
 			ps.setInt(4, productTotalPrice);
 			ps.setString(5, dateUtil.getDate());
 
-			i += ps.executeUpdate();
+			i = ps.executeUpdate();
 
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -81,11 +82,11 @@ public class CartDAO {
 		}return i;
 	}
 
-		public int getProductCount(String userId,int productId)throws SQLException{
+		public int getProductCount(String userId,int productId, int sqlBranch)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		int productCount = 0;
-		if(session.containsKey("LoginUserDTO")){
+		if(sqlBranch == 0){
 			sql = "select product_count from cart_info where user_id = ? and product_id = ?";
 		}else{
 			sql = "select product_count from cart_info where temp_user_id = ? and product_id = ?";
@@ -109,12 +110,12 @@ public class CartDAO {
 	}
 
 
-	public int cartDeleteInfo(String userId, List<Integer> productId) throws SQLException {
+	public int cartDeleteInfo(String userId, List<Integer> productId, int sqlBranch) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		int i=0;
 
-		if(session.containsKey("LoginUserDTO")){
+		if(sqlBranch == 0){
 			sql = "DELETE from cart_info where user_id = ? and product_id = ?";
 		}else{
 			sql = "DELETE from cart_info where temp_user_id = ? and product_id = ?";
@@ -153,12 +154,12 @@ public class CartDAO {
 		}return i;
 	}
 
-	public boolean duplicates(String userId, int productId) throws SQLException{
+	public boolean duplicates(String userId, int productId, int sqlBranch) throws SQLException{
 		boolean result = false;
 		String duplicate = null;
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
-		if(session.containsKey("LoginUserDTO")){
+		if(sqlBranch == 0){
 			sql = "select user_id from cart_info where user_id = ? AND product_id = ? ";
 		}else{
 			sql = "select user_id from cart_info where temp_user_id = ? AND product_id = ? ";

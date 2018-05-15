@@ -31,13 +31,14 @@
 		<s:iterator value="#session.CartDTOList">
 			<div>
 				<p><input form="CartDeleteForm" type="checkbox" name="productId" value="<s:property value='productId'/>" /> </p>
-				<img src="<s:property value='imageFilePath' />" width="200" height="auto"/>
+				<p>商品画像</p><img src="<s:property value='imageFilePath' />" width="200" height="auto"/>
 				<p>商品名：<s:property value="productName" /></p>
 				<p>ふりがな：<s:property value="productNameKana" /></p>
 				<p>発売年月日：<s:property value="releaseDate" /></p>
-				<p>発売会社：<s:property value="releaseCompany" /></p>
+				<p>発売会社名：<s:property value="releaseCompany" /></p>
+				<p>値段：<s:property value="Price" /></p>
 				<p>購買個数：<s:property value="productCount" /></p>
-				<p>合計金額：<s:property value="productTotalPrice" /></p>
+				<p>購入個数合計金額：<s:property value="productTotalPrice" /></p>
 
 
 			</div>

@@ -26,8 +26,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 			if(session.containsKey("LoginUserDTO")){
 				loginUserDTO = (LoginUserDTO)session.get("LoginUserDTO");
 				userId = loginUserDTO.getUserId();
-			}
-			else{
+			}else{
 				userId = session.get("tempUserId").toString();
 			}
 			cartDTOList = cartDAO.getCartInfo(userId);

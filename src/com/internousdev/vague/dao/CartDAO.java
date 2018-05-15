@@ -14,14 +14,18 @@ import com.internousdev.vague.util.DateUtil;
 
 public class CartDAO {
 	public Map<String,Object>session;
+	private String sql;
 
 	public ArrayList<CartDTO> getCartInfo(String userId)throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		ArrayList<CartDTO> cartDTOList = new ArrayList<CartDTO>();
 
-		String sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where user_id = ?";
-
+		if(session.containsKey("LoginUserDTO")){
+			sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where user_id = ?";
+		}else{
+			sql = "select * from cart_info left outer join product_info ON cart_info.product_id = product_info.product_id where temp_user_id = ?";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -53,15 +57,18 @@ public class CartDAO {
 			DBConnector dbConnector = new DBConnector();
 			Connection con = dbConnector.getConnection();
 			DateUtil dateUtil = new DateUtil();
-			String sql = "INSERT INTO cart_info(user_id,temp_user_id ,product_id,product_count,price,insert_date) VALUES(?,?,?,?,?,?)";
+			if(session.containsKey("LoginUserDTO")){
+				sql = "INSERT INTO cart_info(user_id,product_id,product_count,price,regist_date) VALUES(?,?,?,?,?)";
+			}else{
+				sql = "INSERT INTO cart_info(temp_user_id ,product_id,product_count,price,regist_date) VALUES(?,?,?,?,?)";
+			}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
-			ps.setString(2, userId);
-			ps.setInt(3, productId);
-			ps.setInt(4, productCount);
-			ps.setInt(5, productTotalPrice);
-			ps.setString(6, dateUtil.getDate());
+			ps.setInt(2, productId);
+			ps.setInt(3, productCount);
+			ps.setInt(4, productTotalPrice);
+			ps.setString(5, dateUtil.getDate());
 
 			ps.executeUpdate();
 
@@ -76,9 +83,11 @@ public class CartDAO {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
 		int productCount = 0;
-
-		String sql = "select product_count from cart_info where user_id = ? and product_id = ?";
-
+		if(session.containsKey("LoginUserDTO")){
+			sql = "select product_count from cart_info where user_id = ? and product_id = ?";
+		}else{
+			sql = "select product_count from cart_info where temp_user_id = ? and product_id = ?";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);
@@ -101,17 +110,18 @@ public class CartDAO {
 	public void cartDeleteInfo(String userId, List<Integer> productId) throws SQLException {
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
-
-		String sql = "DELETE from cart_info where user_id = ? and product_id = ?";
+		if(session.containsKey("LoginUserDTO")){
+			sql = "DELETE from cart_info where user_id = ? and product_id = ?";
+		}else{
+			sql = "DELETE from cart_info where temp_user_id = ? and product_id = ?";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 
 			for(int PI : productId){
-
 				ps.setString(1, userId);
 				ps.setInt(2, PI);
 				ps.executeUpdate();
-
 			}
 
 
@@ -121,7 +131,7 @@ public class CartDAO {
 			con.close();
 		}
 	}
-	//ログイン時に変更するやつ
+	//ログイン時に変更する際、カートの中身を移行するため使用。
 	public void changeTempUserId(String userId,String tempUserId) throws SQLException{
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
@@ -143,7 +153,11 @@ public class CartDAO {
 		String duplicate = null;
 		DBConnector dbConnector = new DBConnector();
 		Connection con = dbConnector.getConnection();
-		String sql = "select user_id from cart_info where user_id = ? AND product_id = ? ";
+		if(session.containsKey("LoginUserDTO")){
+			sql = "select user_id from cart_info where user_id = ? AND product_id = ? ";
+		}else{
+			sql = "select user_id from cart_info where temp_user_id = ? AND product_id = ? ";
+		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, userId);

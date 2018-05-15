@@ -40,7 +40,7 @@ public class PurchaseHistoryDAO {
 				dto.setReleaseDate(rs.getString("release_date"));
 				dto.setId(rs.getString("id"));
 				dto.setProductId(rs.getString("product_id"));
-				dto.setCount(rs.getInt("product_count"));
+				dto.setCount(rs.getInt("phi.product_count"));
 				dto.setAddressId(rs.getInt("address_id"));
 				dto.setPostalCode(rs.getString("postal_code"));
 				dto.setUserAddress(rs.getString("user_address"));

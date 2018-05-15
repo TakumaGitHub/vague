@@ -170,6 +170,7 @@
 
 		<action name="CartInsertAction" class="com.internousdev.vague.action.CartInsertAction" method="execute">
 		<result name="success" type="redirectAction">CartAction</result>
+		<result name="error">productDetails.jsp</result>
 		</action>
 
 		<action name="CartDeleteAction" class="com.internousdev.vague.action.CartDeleteAction" method="execute">

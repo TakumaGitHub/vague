@@ -63,7 +63,7 @@ drop table if exists cart_info;
 create table cart_info(
 	id int not null primary key auto_increment,
 	user_id varchar(16) REFERENCES user_info(user_id),
-	temp_user_id varchar(128) not null unique,
+	temp_user_id varchar(128) unique,
 	product_id int not null REFERENCES product_info(product_id),
 	product_count int not null,
 	price int not null,

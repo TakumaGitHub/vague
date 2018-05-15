@@ -18,7 +18,7 @@
 	            - ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -
 	            </s:else> --%>
 
-	            <form id="MasterAction" action="<s:url action='ProductSearchAction' />" method="post" >
+	            <form id="MasterAction" action="<s:url action='MasterAction' />" method="post" >
 
 
 					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>

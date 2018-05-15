@@ -57,69 +57,6 @@ response.sendRedirect("/vague/home.jsp");
 			<div id="left">
 
 
-			<h2>MasterAction</h2>
-
-			<form id="MasterAction" action="<s:url action='MasterAction' />" method="post">
-
-
-				<p>検索キーワード<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />"/></p>
-				<s:if test="inputErrorMsg != ''">
-
-					<s:property value='inputErrorMsg' />
-
-				</s:if>
-
-
-
-				<p><s:property value="errorMsg" /></p>
-				<p>検索カテゴリー</p>
-
-				<select name="category_id">
-
-					<s:iterator value="{'全てのカテゴリー','椅子','ソファ','照明','テーブル'}" status="st">
-
-						<s:if test="#session.retrievalCategory_id == #st.index" >
-
-							<option value="<s:property value='#st.index' />" selected="selected"><s:property /></option>
-
-						</s:if>
-						<s:else>
-
-							<option value="<s:property value='#st.index' />" ><s:property /></option>
-
-						</s:else>
-
-
-
-					</s:iterator>
-
-				</select>
-
-				<select name="rule">
-
-					<s:iterator value="{'選択してください','価格の高い順','価格の安い順','在庫の多い順','在庫の少ない順'}" status="st">
-
-						<s:if test="#session.retrievalRule == #st.index" >
-
-							<option value="<s:property value='#st.index' />" selected="selected"><s:property /></option>
-
-						</s:if>
-						<s:else>
-
-							<option value="<s:property value='#st.index' />" ><s:property /></option>
-
-						</s:else>
-
-
-
-					</s:iterator>
-
-				</select>
-
-				<input type="submit" value="検索する"/>
-
-			</form>
-
 			<form action="<s:url action='MasterAddAction' />" method="post">
 				<input type="submit" value="商品を追加する" />
 			</form>

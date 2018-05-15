@@ -8,7 +8,7 @@
 
 <head>
 
-<jsp:include page="WEB-INF/head.jsp" />
+<jsp:include page="head.jsp" />
 <meta http-equiv="refresh" content="5;URL=/vague/home.jsp">
 
 <title>2重送信画面</title>

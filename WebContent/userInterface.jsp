@@ -79,7 +79,7 @@ response.sendRedirect("/vague/home.jsp");
 
 	<!-- footerの始まり -->
 
-	<jsp:include page="WEB-INF/footer.jsp" />
+	<jsp:include page="footer.jsp" />
 
 	<!-- footerの終わり -->
 

@@ -14,7 +14,7 @@ public class AddressRegiCompleteDAO {
 
 
 //	SQLのINSERT文を用意
-	String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, user_address, regist_date) values(?,?,?,?,?,?,?,?,?,?)";
+	String sql = "insert into destination_info(user_id, family_name, first_name, family_name_kana, first_name_kana, email, tel_number, postal_code, user_address, regist_date) values(?,?,?,?,?,?,?,?,?,?)";
 
 	public int registerAddress(AddressDTO addressDTO) throws SQLException {
 
@@ -35,6 +35,7 @@ public class AddressRegiCompleteDAO {
 			ps.setString(5,addressDTO.getFirstNameKana());
 			ps.setString(6,addressDTO.getEmail());
 			ps.setString(7,addressDTO.getTelNumber());
+			ps.setString(8,addressDTO.getPostalCode());
 			ps.setString(9,addressDTO.getAddr11());
 			ps.setString(10,dateUtil.getDate());
 

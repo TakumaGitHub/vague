@@ -18,7 +18,7 @@
 	            - ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -
 	            </s:else> --%>
 
-	            <form id="MasterAction" action="<s:url action='MasterAction' />" method="post" >
+	            <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
 
 
 					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>
@@ -105,7 +105,7 @@
 					</s:else>
 
 						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 
 				</ul>
 

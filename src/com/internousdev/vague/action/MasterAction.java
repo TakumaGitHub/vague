@@ -20,7 +20,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 	//フィールド
 	private Map<String, Object> session;
 
-	private String retrievalValue = " ";
+	private String retrievalValue = "";
 
 	private int category_id = 0;
 
@@ -31,6 +31,8 @@ public class MasterAction extends ActionSupport implements SessionAware {
 	private String errorMsg;
 
 	private String inputErrorMsg;
+
+	private int retrievalFlg;
 
 	private int deleteFlg = 0;//メソッドの分岐
 
@@ -100,9 +102,14 @@ public class MasterAction extends ActionSupport implements SessionAware {
 			rule = Integer.parseInt(session.get("retrievalRule").toString());
 		}
 
+		if(retrievalFlg != 0){
 
-		//検索キーワードのエラーチェック
-		inputErrorMsg = InputChecker.keywordChk(retrievalValue);
+			//検索キーワードのエラーチェック
+			inputErrorMsg = InputChecker.keywordChk(retrievalValue);
+
+		}
+
+
 
 		productSearchDTOList = productSearchDAO.search(retrievalValue, category_id, rule);
 
@@ -207,6 +214,16 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 	public int getDeleteFlg() {
 		return deleteFlg;
+	}
+
+
+	public int getRetrievalFlg() {
+		return retrievalFlg;
+	}
+
+
+	public void setRetrievalFlg(int retrievalFlg) {
+		this.retrievalFlg = retrievalFlg;
 	}
 
 

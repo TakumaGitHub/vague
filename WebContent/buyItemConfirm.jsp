@@ -54,10 +54,10 @@
 
 	<!-- 宛先情報 -->
 			<div>
-				<span>名前：<s:property value="#session.ChooseAddressDTO.familyName"/><s:property value="firstName"/></span>
+				<span>名前：<s:property value="#session.ChooseAddressDTO.familyName"/><s:property value="#session.ChooseAddressDTO.firstName"/></span>
 			</div>
 			<div>
-				<span>ふりがな：<s:property value="#session.ChooseAddressDTO.familyNameKana"/><s:property value="firstNameKana"/></span>
+				<span>ふりがな：<s:property value="#session.ChooseAddressDTO.familyNameKana"/><s:property value="#session.ChooseAddressDTO.firstNameKana"/></span>
 			</div>
 			<div>
 				<span>郵便番号：<s:property value="#session.ChooseAddressDTO.postalCode"/></span>

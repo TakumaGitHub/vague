@@ -65,7 +65,7 @@
 									<div class="kana"><s:property value="productNameKana" /></div>
 									<br>
 									<div class="info">値段：<s:property value="price" /> 円</div>
-									<div class="info">購入個数：<s:property value="count" /> 点</div>
+									<div class="info">購入個数：<s:property value="count" />点</div>
 									<div class="info">宛先</div>
 									<div class="info">・郵便番号：<s:property value="postalCode" /></div>
 									<div class="info">・住所：<s:property value="userAddress" /></div>

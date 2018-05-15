@@ -191,6 +191,7 @@
 
 		<action name="AddressRegiCompleteAction" class="com.internousdev.vague.action.AddressRegiCompleteAction" method="execute">
 		<result name="success">addressRegiComplete.jsp</result>
+		<result name="error">addressRegiConfirm.jsp</result>
 		</action>
 
 		<!-- 縄田担当 -->

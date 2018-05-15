@@ -19,7 +19,7 @@
 	<jsp:include page="head.jsp" />
 
 <title>商品購入履歴画面</title>
-<style>
+<style type="text/css">
 
 
 
@@ -33,34 +33,19 @@
     <!--  headerの終わり -->
 
 	<!-- mainの始まり -->
-	<div id="main" class="ph">
-		<div class="title">
-			<div class="titlefont">
-				<h1 class="spacing">PURCHASE HISTORY</h1>
-			</div>
+	<div id="main">
+	<h3>PURCHASE HISTORY</h3>
+
+		<div id="left">
+		<br>
+		<div class="message">
+			<s:if test="#session.PurchaseHistoryList.isEmpty()">
+				<p>購入履歴はありません</p>
+			</s:if>
+			<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
+				<p>購入情報は以下になります。</p>
+			</s:elseif>
 		</div>
-
-		<div id="contents" class="border ph">
-			<div id="left" class="border">
-			</div>
-
-			<div id="right">
-				<div id="rightcon">
-					<br>
-					<div class="message">
-						<span style="color:red;"><s:property value="message" /></span>
-
-						<s:if test="#session.PurchaseHistoryList.isEmpty()">
-							<div class="message">
-								<p>購入履歴はありません</p>
-							</div>
-						</s:if>
-						<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
-							<div class="message">
-								<p>購入情報は以下になります。</p>
-							</div>
-						</s:elseif>
-					</div>
 
 
 
@@ -127,8 +112,6 @@
 							</script>
 				</div>
 			</div>
-		</div>
-	</div>
 	<!-- mainの終わり -->
 
 	<!-- footerの始まり -->

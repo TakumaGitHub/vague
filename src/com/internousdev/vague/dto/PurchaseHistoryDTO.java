@@ -44,7 +44,6 @@ public class PurchaseHistoryDTO {
 
 	private String productId;
 
-	private String productcount;
 
 	private String insertDate;
 
@@ -163,17 +162,4 @@ public class PurchaseHistoryDTO {
 		this.insertDate = insertDate;
 	}
 
-	public String getProductCount() {
-		return 	productcount;
-		}
-	public void setProductCount(String productcount) {
-		this.productcount = productcount;
-	}
-
-	public String getProductcount() {
-		return productcount;
-	}
-	public void setProductcount(String productcount) {
-		this.productcount = productcount;
-	}
 }

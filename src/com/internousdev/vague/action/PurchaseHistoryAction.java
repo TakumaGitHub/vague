@@ -32,6 +32,14 @@ public class PurchaseHistoryAction extends ActionSupport implements SessionAware
 		if(deleteFlg == null) {
 			String userId = ((LoginUserDTO)session.get("LoginUserDTO")).getUserId();
 			purchaseHistoryList = purchaseHistoryDAO.getPurchaseHistory(userId);
+
+
+			for(PurchaseHistoryDTO PD : purchaseHistoryList){
+
+				System.out.println(PD.getCount());
+
+			}
+
 		}else if(deleteFlg.equals("1")) {
 			int ret = 0;
 

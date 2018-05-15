@@ -50,7 +50,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
 
-
 		//セッションに格納（createUserDTO)
 		loginUserDTO.setUserId(userId);
 		loginUserDTO.setPassword(password);
@@ -76,11 +75,13 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		session.put("CreateUserDTO", loginUserDTO);
 
 
+
 		return SUCCESS;
 
 
 
 	}
+
 @Override
 public void setSession(Map<String, Object> session){
 	this.session = session;

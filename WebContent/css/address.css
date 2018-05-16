@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+
+main {
+	width:100%;
+	background-color:white;
+}
+
+.container {
+	height:1000px;
+	background-color:white;
+	text-align:center;
+}
+
+.name {
+	display:flex;
+}
+
+.nameKana {
+	display:flex;
+}
+
+
+.error {
+	color:red;
+}
+
+

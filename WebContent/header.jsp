@@ -135,4 +135,5 @@
     <div id="tableLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=4&&retrievalValue=テーブル "><img src="LogoImage/tableLogo.png" /></a></div>
     <div id="lightingLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=ライト "><img src="LogoImage/lightingLogo.png" /></a></div>
 
-
+	<!-- 背景のグラデーション -->
+	<div id="background-gradation" ></div>

@@ -258,7 +258,7 @@ header {
     padding-top : 25px;
     margin-bottom : 60px;
 
-    background-color: #FFEA2A;
+    background-color: #6EB7DB;
 
     text-align : left;
 
@@ -379,6 +379,7 @@ header {
 	border-radius : 50%;
 	overflow : hidden;
 
+
   }
 
   #scroll-button img {
@@ -391,46 +392,36 @@ header {
 
 
 
+
+
   /* →スクロールボタン */
 
 
 /* ======== →headerのcss ======== */
 
 
-/* ======== head-logoのcss→ ======== */
+/* ======== background-wrapperのcss→ ======== */
 
 
-#head-logo {
-
-	width : 100%;
-	height : 400px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    position : relative;
-
-
-}
-
-#head-logo-wrapper {
-
-	width :100%;
-	height : 100%;
-	opacity : 0;
-
-	background-color : white;
+#background-wrapper {
 
 	position : absolute;
+	z-index : -5;
+
 	top : 0;
 	left : 0;
 
+	width : 100%;
+	height : 100%;
+
+
+	background-color : rgba(110,183,219,0.5);
+
+
 }
 
 
-
-
-/* ======== →head-logoのcss ======== */
+/* ======== →background-wrapperのcss ======== */
 
 
 
@@ -459,7 +450,7 @@ footer {
 	padding-bottom : 80px;
 
 	text-align : center;
-	background-color : #FFEA2A ;
+	background-color : #6EB7DB ;
 
 }
 

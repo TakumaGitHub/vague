@@ -119,4 +119,5 @@
 
     <!-- スクロールボタン -->
     <div id="scroll-button" ><img src="LogoImage/scrollTop.png" /></div>
+    <div id="background-wrapper" ></div>
 

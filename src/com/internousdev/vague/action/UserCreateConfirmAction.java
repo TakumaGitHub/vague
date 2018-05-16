@@ -36,8 +36,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String email;
 
 
-
-
 	public String execute() throws SQLException{
 
 		if(session.containsKey("LoginUserDTO")){
@@ -45,7 +43,6 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			return ERROR;
 
 		}
-
 
 
 		LoginUserDTO loginUserDTO = new LoginUserDTO();

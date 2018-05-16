@@ -47,7 +47,6 @@
 			</div>
 
 
-
 		<!-- 氏名のふりがな -->
 
 			<div class="nameKana">

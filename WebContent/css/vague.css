@@ -55,14 +55,26 @@ form {
 /* ======== 共通のCss→ ======== */
 
 body {
-    background-color: #faf9f4;
     font-family: 'Mplus 1p',sans-serif;
     font-size : 16px;
+
+    background-image : url("../BackgroundImage/homeBackground.jpg");
+    background-position : center center;
+    background-size : cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
 }
 
 h1,h2,h3,h4,h5 {
 
     font-family: "Yu Gothic Medium",Yu Gothic, sans-serif;
+
+}
+
+#main {
+
+	min-height : 400px;
 
 }
 

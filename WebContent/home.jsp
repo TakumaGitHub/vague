@@ -9,7 +9,7 @@
 <head>
 
 <jsp:include page="head.jsp" />
-
+<link rel="stylesheet" type="text/css" href="css/home.css" />
 <title>Vague</title>
 </head>
 
@@ -29,14 +29,10 @@
 
 	<!--  mainの始まり -->
 
-    <div id="main">
 
 
 	    <!-- Vagueのロゴ -->
 	    <div id="Vague-Logo" ><img src="LogoImage/VagueLogo.png" /></div>
-
-
-    </div>
 
     <!--  mainの終わり -->
 

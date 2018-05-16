@@ -19,3 +19,4 @@
 <script src="js/jquery.js" type="text/javascript"></script>
 <script src="js/throttleDebounce.js" type="text/javascript"></script>
 <script src="js/jquery.easing.js" type="text/javascript"></script>
+<script src="js/vague.js" type="text/javascript"></script>

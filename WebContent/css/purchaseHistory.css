@@ -4,11 +4,27 @@
 
 
 th, td{
-    border-bottom: 3px solid #ddd;
+    border-top: 3px solid #ddd;
 }
+
+table {
+
+	border-bottom :  3px solid #ddd;
+
+}
+
 #left{
 	float:left;
 }
 #right{
 	float:left;
+}
+p{
+	line-hight:1px;
+}
+
+.addPrice {
+
+	display : none;
+
 }

@@ -43,25 +43,52 @@
 											<th>商品No.</th>
 											<th>商品画像</th>
 											<th>購入情報</th>
+											<th>お届け先</th>
 										</tr>
 										<s:iterator value="#session.PurchaseHistoryList" status="st">
 										<tr>
+
 											<th>
 												<s:property value="id" />
 											</th>
+
 											<td>
 												<a href="<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}" /></s:url>">
 												<img src="<s:property value='imageFilePath'/>" alt="Photo" width=300px height=250px></a>
 											</td>
+
 											<td>
 												<p><s:property value="productName" /><br>（<s:property value="productNameKana" />）</p>
 												<p>・値段：<s:property value="price" /> 円<br></p>
 												<p>・購入個数：<s:property value="count" />点<br></p>
 												<p>・発売会社名：<s:property value="releaseCompany" /><br></p>
-												<p>・発売年月日：<s:property value="releaseDate" /></p>
+												<p>・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
 												<p><a href="<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>">【レビューを投稿する】</a></p>
 											</td>
-											</tr>
+
+
+											<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >
+											<td>
+													<p>郵便番号：<s:property value="postalCode" /></p>
+													<p>住所：<s:property value="userAddress" /></p>
+													<p>注文日：<s:property value="insertDate" /></p>
+													<p>合計金額（※合計されるように書き換える）：<span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /> </span>円</p>
+
+											</td>
+											</s:if>
+											<s:else>
+
+
+													<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
+
+
+											</s:else>
+
+
+
+
+
+										</tr>
 										</s:iterator>
 									</table>
 								</div>
@@ -72,8 +99,8 @@
 					<div id="right">
 
 						<!-- -------------------------商品合計情報表示--------------------------- -->
-						<div id="boxright">
-							<!-- 合計 -->
+						<!--  <div id="boxright">
+
 							<div>お届け先</div>
 							<div>・郵便番号：<s:property value="postalCode" /></div>
 							<div>・住所：<s:property value="userAddress" /></div>
@@ -83,7 +110,7 @@
 							<div>合計金額（※合計されるように書き換える）：<s:property value="price" /> 円</div>
 							<br>
 							<br>
-						</div>
+						</div> -->
 						<!-- ------------------------ここまで------------------------- -->
 					</div>
 				</s:elseif>

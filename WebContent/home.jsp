@@ -31,11 +31,10 @@
 
     <div id="main">
 
-		<div class="container">
 
+	    <!-- Vagueのロゴ -->
+	    <div id="Vague-Logo" ><img src="LogoImage/VagueLogo.png" /></div>
 
-
-		</div>
 
     </div>
 

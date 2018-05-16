@@ -144,6 +144,7 @@
 
 		<!-- 郵便番号入力(7桁) -->
 
+
 			<div class="form-text">
 				<span>郵便番号<br>〒<input type="text" placeholder="xxxxxxx" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/></span>
 			</div>

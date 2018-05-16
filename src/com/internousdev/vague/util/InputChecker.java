@@ -16,12 +16,12 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(familyName.equals("")) {
-			result = "! 【姓を入力してください】";
+			result = "【姓を入力してください】";
 		}else if(familyName.length() < 1 || familyName.length() > 16) {
-			result = "! 【姓は1文字以上16文字以下で入力してください】";
+			result = "【姓は1文字以上16文字以下で入力してください】";
 		}else if(!familyName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")) {
 			//"^[]+$"で囲われた文字以外が使われた時
-			result = "! 【姓は半角英語、漢字、ひらがなで入力してください】";
+			result = "【姓は半角英語、漢字、ひらがなで入力してください】";
 		}
 		return result;
 	}
@@ -31,11 +31,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(firstName.equals("")) {
-			result = "! 【名前を入力してください】";
+			result = "【名前を入力してください】";
 		}else if(firstName.length() < 1 || firstName.length() > 16) {
-			result = "! 【名前は1文字以上16文字以下で入力してください】";
+			result = "【名前は1文字以上16文字以下で入力してください】";
 		}else if(!firstName.matches("^[a-zA-Zぁ-ゞ一-龠々]+$")){
-			result = "! 【名前は半角英語、漢字、ひらがなで入力してください】";
+			result = "【名前は半角英語、漢字、ひらがなで入力してください】";
 		}
 		return result;
 	}
@@ -45,11 +45,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(familyNameKana.equals("")) {
-			result = "! 【姓のふりがなを入力してください】";
+			result = "【姓のふりがなを入力してください】";
 		}else if(familyNameKana.length() < 1 || familyNameKana.length() > 16) {
-			result = "! 【姓のふりがなは1文字以上16文字以下で入力してください】";
+			result = "【姓のふりがなは1文字以上16文字以下で入力してください】";
 		}else if(!familyNameKana.matches("^[ぁ-ゞ]+$")){
-			result = "! 【姓のふりがなはひらがなで入力してください】";
+			result = "【姓のふりがなはひらがなで入力してください】";
 		}
 		return result;
 	}
@@ -59,11 +59,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(firstNameKana.equals("")) {
-			result = "! 【名前のふりがなを入力してください】";
+			result = "【名前のふりがなを入力してください】";
 		}else if(firstNameKana.length() < 1 || firstNameKana.length() > 16) {
-			result = "! 【名前のふりがなは1文字以上16文字以下で入力してください】";
+			result = "【名前のふりがなは1文字以上16文字以下で入力してください】";
 		}else if(!firstNameKana.matches("^[ぁ-ゞ]+$")){
-			result = "!【名前のふりがなはひらがなで入力してください】";
+			result = "【名前のふりがなはひらがなで入力してください】";
 		}
 		return result;
 	}
@@ -243,11 +243,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(addr11.equals("")) {
-			result = "! 【住所を入力してください】";
+			result = "【住所を入力してください】";
 		}else if(addr11.length() < 15 || addr11.length() > 50) {
-			result = "! 【住所は15文字以上50文字以下で入力してください】";
+			result = "【住所は15文字以上50文字以下で入力してください】";
 		}else if(!addr11.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
-			result = "! 【住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】";
+			result = "【住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】";
 		}
 		return result;
 	}
@@ -257,11 +257,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(telNumber.equals("")) {
-			result = "! 【電話番号を入力してください】";
+			result = "【電話番号を入力してください】";
 		}else if(telNumber.length() < 11 || telNumber.length() > 13) {
-			result = "! 【電話番号は10文字以上13文字以下で入力してください】";
+			result = "【電話番号は10文字以上13文字以下で入力してください】";
 		}else if(!telNumber.matches("^[0-9]+$")) {
-			result = "! 【電話番号は半角数字で、正しいものを入力してください】";
+			result = "【電話番号は半角数字で、正しいものを入力してください】";
 		}
 		return result;
 	}
@@ -271,11 +271,11 @@ public class InputChecker {
 		String result = "TRUE";
 
 		if(email.equals("")) {
-			result = "! 【メールアドレスを入力してください】";
+			result = "【メールアドレスを入力してください】";
 		}else if(email.length() < 18 || email.length() > 32) {
-			result = "! 【メールアドレスは14文字以上32文字以下で入力してください】";
+			result = "【メールアドレスは14文字以上32文字以下で入力してください】";
 		}else if(!email.matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
-			result = "! 【メールアドレスは半角英数字記号で、正しいものを入力してください】";
+			result = "【メールアドレスは半角英数字記号で、正しいものを入力してください】";
 		}
 		return result;
 	}

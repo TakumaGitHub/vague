@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="address.css">
+<link rel="stylesheet" type="text/css" href="css/address.css">
 <jsp:include page="head.jsp" />
 <!-- 郵便番号から住所自動検索 -->
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
@@ -14,9 +14,8 @@
 
 
 	<!--  headerの始まり -->
-	<header>
+
 		<jsp:include page="header.jsp" />
-	</header>
 
     <!--  headerの終わり -->
 
@@ -33,17 +32,19 @@
 			<!-- 氏名 -->
 
 			<div class="name">
+			<div>
 				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/></span>
 			</div>
 			<div class="error">
 				<s:property value="errorFamilyNameMsg"/>
 			</div>
 
-			<div class="name">
+			<div>
 				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/></span>
 			</div>
 			<div class="error">
 				<s:property value="errorFirstNameMsg"/>
+			</div>
 			</div>
 
 
@@ -188,9 +189,9 @@
 	</div>
 
 	<!-- footerの始まり -->
-	<footer>
+
 		<jsp:include page="footer.jsp" />
-	</footer>
+
 	<!-- footerの終わり -->
 
 

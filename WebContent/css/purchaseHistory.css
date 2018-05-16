@@ -1,30 +1,44 @@
 @CHARSET "UTF-8";
 
 
+#tytle{
+	font-size:30px;
+	margin-top:40px;
+	text-align:center;
+}
 
-
-th, td{
-    border-top: 3px solid #ddd;
+.message{
+	font-size:20px;
+	text-align:center;
 }
 
 table {
-
-	border-bottom :  3px solid #ddd;
-
+	border-bottom:3px solid #ddd;
+	margin-left:10px;
 }
 
-#left{
-	float:left;
+th, td{
+	border-top: 3px solid #ddd;
 }
-#right{
-	float:left;
+
+th{
+	line-height:50px;
 }
+
+td.image{
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
 p{
-	line-hight:1px;
+	line-height:15px;
+	padding-left:10px;
 }
 
 .addPrice {
-
 	display : none;
+}
 
+.button{
+	text-align:center;
 }

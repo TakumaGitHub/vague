@@ -3,23 +3,23 @@
 
 
 h3{
-font-size:30px;
-margin-top:40px;
-text-align:center;
+	font-size:30px;
+	margin-top:40px;
+	text-align:center;
 }
 
 table{
-width:80%;
-margin:0 auto;
-text-align:left;
+	width:80%;
+	margin:0 auto;
+	text-align:left;
 }
 
 .line{
-background-color:silver;
-padding:10px;
+	background-color:silver;
+	padding:10px;
 }
 
 .button{
-text-align:center;
+	text-align:center;
 }
 

@@ -3,4 +3,11 @@
 .main{
 
 	text-align : center;
+	background-color : #EEEEEE;
+}
+h3{	background-color : #DDDDDD;
+	font-size : 40px;
+}
+h2{ font-size : 150px;
+	color : #2F4F4F;
 }

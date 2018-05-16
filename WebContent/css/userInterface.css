@@ -4,7 +4,14 @@
 	margin-left:90px;
 }
 
-.button{
-	text-align:center;
-	width : 100%;
+.left{
+	float:left;
+	width:40%;
+	height:320px;
+}
+
+.right{
+	float:right;
+	width:40%;
+	height:320px;
 }

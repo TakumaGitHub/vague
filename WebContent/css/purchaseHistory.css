@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+
+
+
+th, td{
+    border-bottom: 3px solid #ddd;
+}
+#left{
+	float:left;
+}
+#right{
+	float:left;
+}

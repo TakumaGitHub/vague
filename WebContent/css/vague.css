@@ -405,7 +405,7 @@ header {
 
 #background-wrapper {
 
-	position : absolute;
+	position : fixed;
 	z-index : -5;
 
 	top : 0;
@@ -415,7 +415,7 @@ header {
 	height : 100%;
 
 
-	background-color : rgba(110,183,219,0.5);
+	background: radial-gradient(circle farthest-side, rgba(164,169,207,0.8),transparent);
 
 
 }
@@ -444,7 +444,7 @@ header {
 
 footer {
 
-	height : 110px;
+	height : 80px;
 	margin-top : 60px;
 	padding-top : 30px;
 	padding-bottom : 80px;

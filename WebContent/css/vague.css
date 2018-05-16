@@ -257,12 +257,13 @@ header {
 
     width : 100%;
     min-height : 90px;
-    padding-top : 10px;
+    padding-top : 20px;
+    padding-bottom : 20px;
     margin-bottom : 60px;
 
     background-color: #6EB7DB;
 
-    text-align : left;
+    text-align : center;
 
     position : relative;
     z-index : 100;
@@ -270,32 +271,29 @@ header {
 }
 
 
-#header-left button {
 
-	background-color : white;
-	border : none;
-	padding : 0;
-
-}
 
 #header-left {
 
 	width : 320px;
-    height : 120px;
+    height : 160px;
 
 	display : inline-block;
 	box-sizing : border-box;
 	color : black;
 	text-align : center;
+	vertical-align : top;
+
 	font-weight : bold;
 
 }
 
 #header-center {
 
-	width : 430px;
-    height : 120px;
+	width : 400px;
+    height : 160px;
 	text-align : center;
+	vertical-align : middle;
 	display : inline-block;
 	box-sizing : border-box;
 
@@ -304,9 +302,10 @@ header {
 #header-right {
 
 	width : 320px;
-    height : 120px;
+    height : 160px;
 	color : black;
 	display : inline-block;
+	vertical-align : middle;
 	box-sizing : border-box;
 
 }
@@ -317,7 +316,35 @@ header {
 
 
 #header-left p {
-   line-height: 55px;
+
+	margin-bottom : 10px;
+}
+
+#header-left button {
+
+	background-color : white;
+	border : none;
+	padding : 5px;
+	margin : 0;
+	border-radius: 3px;
+	vertical-align : top;
+	cursor : pointer;
+
+}
+
+
+#header-left #retrieval-form input {
+
+	margin : 0;
+	height : 28px;
+
+
+}
+
+#header-left select {
+
+	width : 43%;
+
 }
 
 
@@ -325,7 +352,7 @@ header {
 
 	width : 300px;
 	height : auto;
-	margin-bottom : 4px;
+	margin-top : 30px;
 }
 
 #header-center p {
@@ -335,28 +362,31 @@ header {
 }
 
 
-#header-right i {
 
-	font-size : 12px;
+#header-right .menu-box {
+
+	margin-top : 48px;
 
 }
 
 
 #header-right ul {
 
-	text-align : left;
-	margin-top : 28px;
+	text-align : center;
+
 }
 
 #header-right li {
 
 	display : inline-block;
+	vertical-align : middle;
 	background-color : white;
 
 	height : 35px;
 	padding : 0px 8px;
 	margin-left: 5px;
-	margin-bottom : 10px;
+	margin-bottom : 20px;
+
 
 	font-size : 12px;
 	font-weight : bold;
@@ -495,17 +525,24 @@ header {
 
 	margin : 0 auto;
 	width : 400px;
+	height : 408px;
+	position : relative;
+
+	background: #B2CF3E;
+
+	border-radius : 50%;
+
 
 }
 
 #Vague-Logo img {
 
-	width : 100%;
+	width : 111%;
 	height : auto;
-	background: radial-gradient(#6EB7DB, rgba(255,255,255,0) 250px);
 
-	border-radius : 50%;
-
+	position : absolute;
+	top: -25px;
+	right : -21px;
 }
 /* ======== →mainのcss ======== */
 

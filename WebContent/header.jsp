@@ -11,22 +11,27 @@
 
             <div id="header-left">
 
-	            <%-- <s:if test="#session.LoginUserDTO == null">
-	            - ようこそゲストさん -
+	            <s:if test="#session.LoginUserDTO == null">
+	            <p>- ようこそゲストさん -</p>
 	            </s:if>
 	            <s:else>
-	            - ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -
-	            </s:else> --%>
+	            <p>- ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -</p>
+	            </s:else>
 
 	            <form id="ProductSearchAction" action="<s:url action='ProductSearchAction' />" method="post" >
 
+					<div id="retrieval-form">
 
-					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>
+						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/>
+
+						<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 
 
-						<s:property value='inputErrorMsg' />
+					</div>
 
-					<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
+
+
+					<p><s:property value='inputErrorMsg' /></p>
 
 
 					<select name="category_id">
@@ -82,7 +87,9 @@
 
             <div id="header-right">
 
-				<ul>
+				<div class="menu-box">
+
+					<ul>
 					<s:if test="#session.LoginUserDTO == null">
 
 						<li><a href="/vague/userInterface.jsp" >ログイン  <img src="LogoImage/Login.png" /></a></li>
@@ -107,7 +114,9 @@
 						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
             			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 
-				</ul>
+					</ul>
+
+				</div>
 
             </div>
 

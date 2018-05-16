@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+.addressList-box {
+
+	text-align : center;
+
+
+}
+
+.address-box {
+
+	display : inline-block;
+	width : 30%;
+	margin : 0;
+	background-color:#EEEEEE;
+	text-align : left;
+
+}
+
+.selectform-box {
+
+	margin : 0 auto;
+	text-align : center;
+
+}
+
+.selectform-box  form {
+
+	display : inline-block;
+	margin : 40px 20px 0;
+
+
+}

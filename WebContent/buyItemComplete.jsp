@@ -8,21 +8,28 @@
 <!-- ホーム画面に3秒後遷移 content="秒数" -->
 <jsp:include page="head.jsp" />
 <meta http-equiv="refresh" content="3;URL=GoHomeAction">
-
+<link rel="stylesheet" type="text/css" href="css/buyItemComplete.css"/>
 <title>決済完了画面</title>
+
 
 
 </head>
 
 <body>
+<!--  headerの始まり -->
 
-
-	<!--  headerの始まり -->
-
-	<jsp:include page="header.jsp" />
-
+        <jsp:include page="header.jsp" />
 
     <!--  headerの終わり -->
+
+        <!--  mainの始まり -->
+
+    <div id="main">
+
+                <div class="container">
+
+
+
 
 	<div class="main">
 		<div class="form">
@@ -40,11 +47,21 @@
 		</div>
 
 
-	<!-- footerの始まり -->
 
-	<jsp:include page="footer.jsp" />
+                </div>
 
-	<!-- footerの終わり -->
+    </div>
+    <!--  mainの終わり -->
+
+        <!-- footerの始まり -->
+
+        <jsp:include page="footer.jsp" />
+
+        <!-- footerの終わり -->
+
+
+
+
 
 </body>
 </html>

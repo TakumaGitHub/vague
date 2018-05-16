@@ -231,7 +231,7 @@ height: 0;
 
 .select-box-outer {
 
-	text-align : left;
+	text-align : center;
 
 
 }
@@ -241,6 +241,7 @@ height: 0;
 .select-box {
 
 	width : 30%;
+	margin : 0 1%;
 	display : inline-block;
 
 
@@ -434,6 +435,9 @@ header {
 
 	width : 100%;
 	height : auto;
+	background: radial-gradient(#6EB7DB, rgba(255,255,255,0) 250px);
+
+	border-radius : 50%;
 
 }
 /* ======== →mainのcss ======== */

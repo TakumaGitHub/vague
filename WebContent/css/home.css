@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+#Vague-Logo {
+
+	position :relative;
+	z-index : 50;
+
+
+}
+
+.categoryLogo {
+
+			position : fixed;
+			z-index : 6;
+			cursor : pointer;
+			transition : all 0.3s;
+
+		}
+
+.categoryLogo:hover {
+
+	width : 120%;
+
+}
+
+
+		#chairLogo.categoryLogo{
+
+			z-index : 10;
+		}
+
+		#sofaLogo.categoryLogo {
+
+
+		}
+
+		#tableLogo.categoryLogo{
+
+
+		}
+
+		#lightingLogo.categoryLogo {
+
+			z-index : 10;
+
+		}

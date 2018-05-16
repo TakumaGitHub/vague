@@ -29,6 +29,7 @@
 	transition:all 0.3s;
 }
 .proName {
+	font-family:sans-serif;
 	font-size : 20px;
 }
 
@@ -46,6 +47,7 @@
 
 /*========= 商品詳細のcss ==========*/
 
+
 .detail-image {
 	background-color:gray;
 	width:150px;
@@ -53,6 +55,7 @@
 	objectfit:contain;
 }
 #detailName {
+
 	font-size:28px;
 	margin-left:30px;
 	margin-top:20px;
@@ -117,6 +120,7 @@ legend {
 }
 
 h3 {
+	font-family:YuGothicM;
 	border-left:6px solid #6eb7db;
 	margin:30px 0 30px 30px;
 }

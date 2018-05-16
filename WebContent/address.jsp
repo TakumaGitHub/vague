@@ -59,7 +59,8 @@
 
 			<div class="nameKana">
 				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/></span>
-			</div>
+			</div>s
+
 			<div class="error">
 				<s:property value="errorFirstNameKanaMsg"/>
 			</div>

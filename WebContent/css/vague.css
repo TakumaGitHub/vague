@@ -116,10 +116,10 @@ input,textarea {
 
 
 
-input:valid {
+/* input:valid {
 
     background-color: transparent;
-}
+} */
 
 input:focus, textarea:focus {
 
@@ -266,6 +266,15 @@ header {
 
     position : relative;
     z-index : 100;
+
+}
+
+
+#header-left button {
+
+	background-color : white;
+	border : none;
+	padding : 0;
 
 }
 

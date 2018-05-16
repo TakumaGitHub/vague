@@ -26,7 +26,7 @@
 
 						<s:property value='inputErrorMsg' />
 
-					<button type="submit" style="float : right;"><img src="LogoImage/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
+					<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 
 
 					<select name="category_id">

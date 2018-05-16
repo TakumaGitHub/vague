@@ -120,4 +120,10 @@
     <!-- スクロールボタン -->
     <div id="scroll-button" ><img src="LogoImage/scrollTop.png" /></div>
 
+    <!-- カテゴリーロゴ -->
+    <div id="chairLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=1&&retrievalValue=チェア "><img src="LogoImage/chairLogo.png" /></a></div>
+    <div id="sofaLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=2&&retrievalValue=ソファ "><img src="LogoImage/sofaLogo.png" /></a></div>
+    <div id="tableLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=テーブル "><img src="LogoImage/tableLogo.png" /></a></div>
+    <div id="lightingLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=4&&retrievalValue=ライト "><img src="LogoImage/lightingLogo.png" /></a></div>
+
 

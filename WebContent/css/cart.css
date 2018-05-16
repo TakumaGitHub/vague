@@ -1,0 +1,102 @@
+.clear:after{
+	display:table;
+	clear:both;
+	content:"";
+}
+
+th, td{
+    border-bottom: 3px solid #ddd;
+}
+.left{
+	float:left;
+	background-color:white;
+	padding:20px;
+	border-radius:10px;
+	margin:20px;
+}
+
+.right{
+	float:left;
+	background-color:white;
+	padding:20px;
+	border-radius:10px;
+	margin:20px;
+}
+.image img{
+	size:100px;
+}
+
+
+
+<!--画面遷移状態表示css-->
+div.usccart_navi ol.ucart {
+    position: relative;
+    height: initial;
+}
+div.usccart_navi ol.ucart:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+div.usccart_navi ol.ucart:before {
+    position: absolute;
+    top: -15px;
+    content: '\f07a';
+    font-family: 'FontAwesome';
+    font-size: 20px;
+}
+div.usccart_navi li.ucart {
+    width: 25%;
+    height: initial;
+    line-height: normal;
+    padding-top: 10px;
+    background: transparent;
+    border-top: 2px solid #ccc;
+    color: #ddd;
+}
+#inside-cart li.usccart,
+#customer-info li.usccart,
+#customer-info li.usccustomer,
+#delivery-info li.usccart,
+#delivery-info li.usccustomer,
+#delivery-info li.uscdelivery,
+#info-confirm li.ucart {
+    border-top-color: orange;
+    color: orange;
+}
+#inside-cart ol.ucart:before {
+    left: 11%;
+}
+#customer-info ol.ucart:before {
+    left: 36%;
+}
+#delivery-info ol.ucart:before {
+    left: 61%;
+}
+#info-confirm ol.ucart:before {
+    left: 86%;
+}
+
+@media
+only screen and (max-width : 40.061em) {
+    div.usccart_navi li.ucart {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+    #inside-cart ol.ucart:before {
+        left: 23%;
+        top: -13%;
+    }
+    #customer-info ol.ucart:before {
+        left: 73%;
+        top: -13%;
+    }
+    #delivery-info ol.ucart:before {
+        left: 23%;
+        top: 37%;;
+    }
+    #info-confirm ol.ucart:before {
+        left: 73%;
+        top: 37%;
+    }
+}

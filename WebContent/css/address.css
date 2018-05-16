@@ -4,22 +4,36 @@
 
 #main {
 	width:100%;
-	height:1200px;
 	background-color:white;
+}
+
+.container {
+	font-size:13px;
+}
+
+
+.container h3 {
+	font-size:25px;
+	letter-spacing:3px;
 }
 
 
 .name {
-	float:left;
+	display:flex;
 }
 
 .nameKana {
-	float:left;
+	display:flex;
+	margin-top:20px;
 }
 
+.form-text {
+	margin-top:15px;
+}
 
 .error {
 	color:red;
+	display:flex;
 }
 
 

@@ -231,7 +231,7 @@ height: 0;
 
 .select-box-outer {
 
-	text-align : center;
+	text-align : left;
 
 
 }
@@ -243,6 +243,7 @@ height: 0;
 	width : 30%;
 	margin : 0 1%;
 	display : inline-block;
+	text-align : center;
 
 
 }
@@ -262,6 +263,9 @@ header {
     background-color: #6EB7DB;
 
     text-align : left;
+
+    position : relative;
+    z-index : 100;
 
 }
 
@@ -411,7 +415,7 @@ header {
 
 		#chairLogo.categoryLogo{
 
-			width : 30%;
+			width : 20%;
 			left : 10%;
 			bottom : -50px;
 			z-index : -6;

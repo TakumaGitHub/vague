@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/earlyaccess/mplus1p.css);
+
+
+/*======== 商品一覧のcss ===========*/
+.product-box-outer {
+
+	text-align : left;
+
+
+}
+
+.product-box {
+	position: relative;
+    top:0;
+    left: 0;
+	width : 30%;
+	border-sizing:border-box;
+	display : inline-block;
+	transition:all 0.3s;
+	margin: 30px 15px 50px 15px;
+	text-align:center;
+
+}
+.product-box:hover {
+	top:-10px;
+	left:-10px;
+	box-shadow:8px 8px #c0c0c0;
+	transition:all 0.3s;
+}
+.proName {
+	font-size : 20px;
+}
+
+.proName2 {
+	font-size:14px;
+}
+
+.proPrice {
+	font-size:20px;
+}
+.pageNum {
+	font-size:15px;
+	color:#1e90ff;
+}
+
+/*========= 商品詳細のcss ==========*/
+
+.detail-image {
+	background-color:gray;
+	width:150px;
+	height:150px;
+	objectfit:contain;
+}
+#detailName {
+	font-size:28px;
+	margin-left:30px;
+	margin-top:20px;
+	border-left:6px solid #6eb7db;
+}
+#detailName2 {
+	margin-left:30px;
+	margin-top:20px;
+	font-size:15px;
+}
+#description {
+	margin:0 0 0 30px;
+}
+
+legend {
+	margin-left:30px;
+	margin-top:20px;
+	text-align:center;
+}
+#reCompany {
+	margin-left:30px;
+	margin-top:20px;
+}
+#reDate {
+	margin-left:30px;
+	margin-top:20px;
+}
+#proPrice {
+	margin-left:30px;
+	margin-top:20px;
+}
+
+.suggest-box {
+	text-align : center;
+	width : 25%;
+	margin : 10px 30px 30px 30px;
+	display : inline-block;
+	border:1px solid black;
+	border-radius:0.5em;
+
+}
+#sugName {
+	font-size:20px;
+}
+
+#sugName2 {
+	font-size:12px;
+}
+#sugPrice {
+	font-size:18px;
+}
+.empReview {
+	text-align:center;
+}
+
+.reviewBox {
+	width:50%;
+	border:1px solid black;
+	margin:20px;
+	float:center;
+	padding:10px;
+}
+
+h3 {
+	border-left:6px solid #6eb7db;
+	margin:30px 0 30px 30px;
+}
+

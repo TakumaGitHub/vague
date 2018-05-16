@@ -16,8 +16,8 @@
 	$(function() {
 		$(".imageHover .image").hover(function() {
 			$(this).animate({
-				width : "240px",
-				height : "210px"
+				width : "210px",
+				height : "180px"
 			});
 		}, function() {
 			$(this).animate({
@@ -54,12 +54,12 @@
 		<td>
 
 			<span>
-				<img class="image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="max-width:400px; max-height:300px;">
+				<img class="detail-image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="width:400px; height:300px;">
 			</span>
 
 		</td>
 		<td>
-<%--
+			<%-- <div id="category">
 			<!-- カテゴリ分類 -->
 			<span id="category">
 				<s:if test="#session.DetailProductDTO.categoryId == 1">
@@ -75,13 +75,16 @@
 					<h2>製品カテゴリ：Table</h2>
 				</s:if>
 			</span>
+			</div> --%>
 
- --%>
+
 
 	<!-- 商品名/かな -->
+		<div id="detailName">
 			<span id="productName">商品名：
 				<s:property value="#session.DetailProductDTO.productName"/><br></span>
-				<div id="proNameKana">商品名ふりがな：<s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
+		</div>
+				<div id="detailName2">商品名ふりがな：<s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
 
 
 
@@ -143,7 +146,7 @@
 
 <h3 id="suggestProduct">この製品を見ている人はこんな製品も見ています</h3>
 
-<div id="suggest-outer-box" >
+<div class="suggest-outer-box" >
 
 	<s:iterator value="#session.SuggestList">
 
@@ -151,16 +154,16 @@
 
 			<div class="imageHover">
 			<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
-		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
-		</a>
+			<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+			</a>
 			</div>
-			<div class="sugName">
+			<div id="sugName">
 			<s:property value="productName"/><br>
 			</div>
-			<div class="sugName2">
+			<div id="sugName2">
 			<s:property value="productNameKana"/><br>
 			</div>
-			<div class="sugPrice">
+			<div id="sugPrice">
 			￥<s:property value="price"/><br>
 			</div>
 
@@ -173,20 +176,20 @@
 </div>
 
 
-</div>
-
-
-
-
-
 <!-- レビュー -->
 <h3>商品レビュー</h3>
-<div class="reviewBox">
+
 <s:if test="#session.ReviewList.isEmpty()">
+<div class="reviewBox">
+<div class="empReview">
 <span>この商品にはまだレビューが投稿されていません。</span>
+</div>
+</div>
 </s:if>
 <s:else>
+
 <s:iterator value="#session.ReviewList">
+<div class="reviewBox">
 	<table>
 		<tr>
 			<td><s:property value="reviewDTO.reviewTitle"/></td>
@@ -204,12 +207,15 @@
 			<td>投稿日：<s:property value="reviewDTO.insertDate.substring(0,10)" /></td>
 		</tr>
 	</table>
-
+</div>
 </s:iterator>
+
 </s:else>
 
 </div>
-		</div>
+
+</div>
+
 
 
 	<!-- footerの始まり -->

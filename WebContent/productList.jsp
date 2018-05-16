@@ -6,28 +6,11 @@
 <head>
 <jsp:include page="head.jsp" />
 
-<!-- <link rel="stylesheet" href="./css/product.css"> -->
+<link rel="stylesheet" href="./css/product.css">
 
 <title>商品一覧</title>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="./js/jquery-1.8.2.min.js"></script>
-<script>
-	$(function() {
-		$(".imageHover .image").hover(function() {
-			$(this).animate({
-				width : "240px",
-				height : "210px"
-			});
-		}, function() {
-			$(this).animate({
-				width : "200px",
-				height : "170px"
-			});
-		});
-	});
-</script>
+
 </head>
 <body>
 
@@ -40,12 +23,12 @@
 
 <!--  一覧表示ボタン押下 -->
 
+<div id="main">
+	<div class="container">
+	<div class="product-box-outer">
+		<s:iterator value="#session.ProductList">
 
-
-<div class="itemListBox select-box-outer">
-<s:iterator value="#session.ProductList">
-
-	<div class="select-box" >
+		<div class="product-box" >
 
 		<div class="imageHover">
 		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
@@ -78,7 +61,6 @@
 
 </div>
 
-
 <div class="center" style="text-align: center;">
  <s:if test="#session.ProductListLength != null && #session.ProductListLength >= 1">
 
@@ -103,17 +85,25 @@
 		<p><s:property value="errorMsg" /></p>
 		<p><s:property value="inputErrorMsg" /></p>
 
-		<div class="select-box-outer">
+		<div class="product-box-outer">
 
 			<s:iterator value="#session.SearchList">
 
 		       <s:if test="status == 1" >
-		               <div class="select-box">
+		               <div class="product-box">
+		               		<div class="imageHover">
 							   <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
 								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br></a>
-		                  	    <p><s:property value="productName" /></p>
-		                  	    <p><s:property value="productNameKana" /></p>
-		                  	    <p><s:property value="price" />円</p>
+							</div>
+							<div class="proName">
+							    <p><s:property value="productName" /></p>
+							</div>
+							<div class="proName2">
+							    <p><s:property value="productNameKana" /></p>
+							</div>
+							<div class="proPrice">
+							    <p>￥<s:property value="price" />円</p>
+						 </div>
 		               </div>
 		       </s:if>
 
@@ -128,14 +118,16 @@
 
                <span>ページ数</span>
                        <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-                               <a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="#st.index" /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" ><s:property value='#st.count' /> </a>
+                         <a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="#st.index" /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" ><s:property value='#st.count' /> </a>
 
                        </s:iterator>
+
        </s:if>
 
 
 </div>
-
+</div>
+</div>
 
 	<!-- footerの始まり -->
 

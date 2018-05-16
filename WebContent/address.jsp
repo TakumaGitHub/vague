@@ -33,15 +33,10 @@
 
 			<div class="name">
 				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/></span>
-			</div>
-			<div class="error">
-				<s:property value="errorFamilyNameMsg"/>
-			</div>
-
-			<div class="name">
 				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/></span>
 			</div>
 			<div class="error">
+				<s:property value="errorFamilyNameMsg"/>
 				<s:property value="errorFirstNameMsg"/>
 			</div>
 
@@ -52,17 +47,10 @@
 
 			<div class="nameKana">
 				<span>[せい]<br><input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/></span>
-			</div>
-
-			<div class="error">
-				<s:property value="errorFamilyNameKanaMsg"/>
-			</div>
-
-			<div class="nameKana">
 				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/></span>
 			</div>
-
 			<div class="error">
+				<s:property value="errorFamilyNameKanaMsg"/>
 				<s:property value="errorFirstNameKanaMsg"/>
 			</div>
 
@@ -122,11 +110,11 @@
 
 			<div class="name">
 				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/></span>
-
 				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/></span>
 			</div>
 			<div class="error">
-				<s:property value="errorFamilyNameMsg"/><s:property value="errorFirstNameMsg"/>
+				<s:property value="errorFamilyNameMsg"/>
+				<s:property value="errorFirstNameMsg"/>
 			</div>
 
 
@@ -134,13 +122,11 @@
 
 			<div class="nameKana">
 				<span>[せい]<br><input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="familyNameKana"/>' maxlength="16" size="16"/></span>
-			<div>
-				<s:property value="errorFamilyNameKanaMsg" color="red"/>
-			</div>
 				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/></span>
-			<div>
-				<s:property value="errorFirstNameKanaMsg" color="red"/>
 			</div>
+			<div class="error">
+				<s:property value="errorFamilyNameKanaMsg"/>
+				<s:property value="errorFirstNameKanaMsg"/>
 			</div>
 
 		<!-- 郵便番号入力(7桁) -->

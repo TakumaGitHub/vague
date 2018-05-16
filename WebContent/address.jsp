@@ -24,7 +24,7 @@
 		<div class="container">
 			<h3>宛先登録</h3>
 
-		<s:form action="AddressRegiConfirmAction">
+		<s:form id="form1" action="AddressRegiConfirmAction">
 
 
 			<s:if test="#session.AddressDTO != null" >
@@ -32,12 +32,12 @@
 			<!-- 氏名 -->
 
 			<div class="name">
-				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/></span>
-				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/></span>
-			</div>
-			<div class="error">
-				<s:property value="errorFamilyNameMsg"/>
-				<s:property value="errorFirstNameMsg"/>
+				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFamilyNameMsg"/></span>
+				</span>
+				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFirstNameMsg"/></span>
+				</span>
 			</div>
 
 
@@ -46,12 +46,14 @@
 		<!-- 氏名のふりがな -->
 
 			<div class="nameKana">
-				<span>[せい]<br><input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/></span>
-				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/></span>
-			</div>
-			<div class="error">
-				<s:property value="errorFamilyNameKanaMsg"/>
+				<div class="kana">[せい]<br></div>
+				<input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
+
+				<div class="kana"></div>[めい]<br>
+				<input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
 				<s:property value="errorFirstNameKanaMsg"/>
+
 			</div>
 
 		<!-- 郵便番号入力(7桁) -->
@@ -69,7 +71,9 @@
 
 			<div class="form-text">
 			<div>
-				<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="50"/></span>
+				<span>住所<br>
+				<input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>'  size="20"/>
+				</span>
 			</div>
 			<div class="error">
 				<s:property value="errorAddr11Msg"/>
@@ -108,25 +112,28 @@
 
 			<!-- 氏名 -->
 
-			<div class="name">
-				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/></span>
-				<span>[名]<br><input type="text" placeholder="名" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/></span>
-			</div>
-			<div class="error">
-				<s:property value="errorFamilyNameMsg"/>
-				<s:property value="errorFirstNameMsg"/>
+			<div class="fullName">
+				<span>[姓]<br>
+				<input type="text" placeholder="姓" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFamilyNameMsg"/></span>
+				</span>
+				<span style="text-align:left">[名]<br>
+				<input type="text" placeholder="名" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFirstNameMsg"/></span>
+				</span>
 			</div>
 
 
 		<!-- 氏名のふりがな -->
 
 			<div class="nameKana">
-				<span>[せい]<br><input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="familyNameKana"/>' maxlength="16" size="16"/></span>
-				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/></span>
-			</div>
-			<div class="error">
-				<s:property value="errorFamilyNameKanaMsg"/>
-				<s:property value="errorFirstNameKanaMsg"/>
+				<span>[せい]<br>
+				<input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="familyNameKana"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
+				</span>
+				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
+				</span>
 			</div>
 
 		<!-- 郵便番号入力(7桁) -->
@@ -146,7 +153,7 @@
 
 			<div class="form-text">
 			<div>
-				<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="addr11"/>' maxlength="50" size="50"/></span>
+				<span>住所<br><input type="text" placeholder="住所" name="addr11" value='<s:property value="addr11"/>' maxlength="50" size="20"/></span>
 			</div>
 			<div class="error">
 				<s:property value="errorAddr11Msg"/>
@@ -178,7 +185,7 @@
 			</s:else>
 
 			<div class="button">
-				<s:submit value="確認"/>
+				<input type="submit" value="確認"/>
 			</div>
 		</s:form>
 		</div>

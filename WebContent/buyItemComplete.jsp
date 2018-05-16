@@ -34,10 +34,10 @@
 	<div class="main">
 		<div class="form">
 			<div class="form-heading">
-				<h2>【決済完了】</h2>
+				<h3>【決済完了】</h3>
 			</div>
 
-				<h2>ご注文ありがとうございました。</h2>
+				<h2>THANK YOU !</h2>
 				ご購入履歴の確認は<a href='<s:url action="PurchaseHistoryAction"/>'>こちら</a>
 				<p>3秒後に自動的にホーム画面へ遷移します。</p>
 				<p>ジャンプしない場合は、以下のリンクをクリックしてください。</p>

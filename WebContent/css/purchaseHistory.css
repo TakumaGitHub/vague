@@ -91,3 +91,6 @@ td.image{
 	margin:40px 20px 30px;
 }
 
+.review-button:hover{
+	background-color:gray;
+}

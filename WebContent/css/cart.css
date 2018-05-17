@@ -1,35 +1,70 @@
-.clear:after{
+.float{
+	float:left;
+}
+.float:after{
 	display:table;
 	clear:both;
 	content:"";
 }
 
-th, td{
-    border-bottom: 3px solid #ddd;
+th{
+	font-size:5px;
+}
+.red{
+	color:#A52A2A;
+}
+
+table{
+	border-collapse:collapse;
+	table-layout: fixed;
+}
+.left th, .left td{
+    border-bottom: 1px solid #ddd;
+    padding:0px 10px;
 }
 .left{
-	float:left;
-	background-color:white;
-	padding:20px;
 	border-radius:10px;
-	margin:20px;
+	width:auto;
+}
+.product p{
+	line-height:0.5px;
+	vdrtical-align:bottom;
+}
+.count{
+	vertical-align:bottom;
+	text-align:right;
+}
+.totalprice{
+	vertical-align:bottom;
+	text-align:right;
 }
 
 .right{
 	float:left;
-	background-color:white;
+	width:20%;
+}
+.register{
 	padding:20px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
 	border-radius:10px;
 	margin:20px;
 }
 .image img{
-	size:100px;
+	width:150px;
+}
+
+.productlist, .delete{
+	text-align:right;
+}
+.cartprice{
+	font-size:15px
+	text-align:right;
 }
 
 
-
 <!--画面遷移状態表示css-->
-div.usccart_navi ol.ucart {
+/* div.usccart_navi ol.ucart {
     position: relative;
     height: initial;
 }
@@ -99,4 +134,4 @@ only screen and (max-width : 40.061em) {
         left: 73%;
         top: 37%;
     }
-}
+} */

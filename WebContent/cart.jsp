@@ -39,22 +39,22 @@
 				<strong><s:property /></strong>
 			</s:iterator>
 			<s:if test='#session.CartDTOList == null || #session.CartDTOList.isEmpty()'>
-				<p>カートに入れた商品はありません。</p>
+				<p>カートに商品はありません。</p>
 			</s:if>
 			<s:else>
 
 
-			<div class="left clear">
-				<table  class="clear">
+			<div class="left float">
+				<table>
 					<tr>
-						<th>☑️</th>
-						<th>商品画像</th>
-						<th>商品詳細</th>
-						<th>購入個数</th>
-						<th>購入個数合計金額</th>
+						<th width="5%">☑️</th>
+						<th width="20%">商品画像</th>
+						<th width="50%">商品詳細</th>
+						<th width="10%">購入個数</th>
+						<th width="15%">購入個数合計金額</th>
 					</tr>
 					<s:iterator value="#session.CartDTOList">
-						<tr  class="clear">
+						<tr>
 							<td class="checkbox">
 								<input form="CartDeleteForm" type="checkbox" name="productId" value="<s:property value='productId'/>" />
 							</td>
@@ -62,36 +62,50 @@
 								<img src="<s:property value='imageFilePath' />" width="200" height="auto"/>
 							</td>
 							<td class="product">
-								<div class="productname"><p>商品名：<s:property value="productName" /><p></div>
-								<div class="kana"><p>ふりがな：<s:property value="productNameKana" /><p></div>
-								<div class="date"><p>発売年月日：<s:property value="releaseDate" /></p></div>
-								<div class="company"><p>発売会社名：<s:property value="releaseCompany" /></p></div>
-								<div class="price"><p>値段：¥<s:property value="Price" /></p></div>
+								<p class="productname">商品名：<s:property value="productName" /></p>
+								<p class="kana">ふりがな：<s:property value="productNameKana" /></p>
+								<p class="date">発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
+								<p class="company">発売会社名：<s:property value="releaseCompany" /></p>
+								<p class="price">値段：<span class="red">¥<s:property value="Price" /></span></p>
 							</td>
 							<td class="count">
 								<p><s:property value="productCount" /></p>
 							</td>
 							<td class="totalprice">
-								<p>¥<s:property value="productTotalPrice" /></p>
+								<p class="red">¥<s:property value="productTotalPrice" /></p>
 							</td>
 						</tr>
 					</s:iterator>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>合計</th>
+						<th></th>
+						<th><span class="red cartprice">¥<s:property value="#session.CartTotalPrice"/></span></th>
+					</tr>
 				</table>
+				<div class="productlist float">
+					<s:form id="ProductListForm" action="ProductListAction">
+						<s:submit value="買い物を続ける"/>
+					</s:form>
+				</div>
+				<div class="delete float">
+					<s:form id="CartDeleteForm" action="CartDeleteAction">
+						<s:submit value="☑️の商品を削除"/>
+					</s:form>
+				</div>
 			</div>
 
-			<div class="right clear">
+			<div class="right float">
 				<div class="register">
 					<p>カート合計金額：<br>
-					¥<s:property value="#session.CartTotalPrice"/></p>
+						<span class="red cartprice">¥<s:property value="#session.CartTotalPrice"/></span>
+					</p>
 					<s:form action="BuyItemAction">
-						<s:submit value="決済"/>
+						<s:submit value="レジに進む"/>
 					</s:form>
 				</div>
-				<div class="delete">
-					<s:form id="CartDeleteForm" action="CartDeleteAction">
-						<s:submit value="削除"/>
-					</s:form>
-				</div>
+
 			</div>
 			</s:else>
 		</div>

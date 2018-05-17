@@ -11,7 +11,7 @@
 		<%@ include file="../css/myPage.css" %>
 	</style>
 
-	<title>マイページ</title>
+	<title>myPage.jsp</title>
 </head>
 
 <body>

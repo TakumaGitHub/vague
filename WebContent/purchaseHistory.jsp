@@ -15,7 +15,7 @@
 
 	<script type="text/javascript" src="js/purchaseHistory.js" ></script>
 
-	<title>商品購入履歴画面</title>
+	<title>purchaseHistory.jsp</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
 										<p>　・購入個数：<s:property value="count" />点<br></p>
 										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
-										<p class="review-button"><input type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する"></p>
+										<p class="review-button"><input class="review-button" type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する"></p>
 									</td>
 
 									<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >
@@ -97,13 +97,13 @@
 					<!-- 戻るボタン -->
 					<div class="button">
 						<form action="MyPageAction">
-							<input type="submit" value="戻る" />
+							<input class="back-button" type="submit" value="戻る" />
 						</form>
 
 					<!-- 履歴すべて削除ボタン -->
 						<form action="PurchaseHistoryAction">
 							<input type="hidden" name="deleteFlg" value="1">
-							<input type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
+							<input class="deleteHistory-button" type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
 						</form>
 						<script>
 							function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){

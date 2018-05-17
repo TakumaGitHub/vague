@@ -6,64 +6,46 @@
 	margin-top:40px;
 	text-align:center;
 }
-
 .message{
 	font-size:20px;
 	text-align:center;
 }
 
+/* テーブル全般 */
 table {
 	border:3px solid #ddd;
-	margin-left:50px;
+	margin-left:10px;
 }
-
 .tableTopics {
 	background-color:#FFF0F5;
 }
-
-
-
 th{
 	line-height:50px;
 	padding-right:5px;
 	padding-left:5px;
-
 }
-
 th.productId-th {
-
 	border-top: 3px solid #ddd;
 	background-color:#EEEEEE;
 }
-
-
 td{
 	border-top: 3px solid #ddd;
 }
-
-
 td:nth-child(3) {
-
 	border-right : 3px solid #ddd;
-
 }
 
-
+/* 「商品番号」欄 */
 td.addPrice-td {
-
 	border : none;
-
 }
 
+/* 「商品画像」欄 */
 td.image{
 	padding:15px;
-
 }
 
-.review-button{
-	text-align:center;
-}
-
+/* 「購入情報」欄 */
 .purchaseProductInfo{
 	line-height:10px;
 	padding-top:10px;
@@ -71,26 +53,40 @@ td.image{
 	padding-left:20px;
 }
 
+/* [レビューを投稿する]ボタン */
+.review-button{
+	text-align:center;
+}
+input.review-button{
+	background-color:#EEEEEE;
+}
+input.review-button:hover{
+	background-color:white;
+}
+
+/* 「お届け先」欄 */
 .purchaseAddress{
 	line-height:15px;
 	padding-right:30px;
 	padding-left:30px;
 }
-
 .addPrice {
 	display : none;
 }
 
+/* [戻る]ボタンと[履歴をすべて削除]ボタン */
 .button{
 	margin:0 auto;
 	text-align:center;
 }
-
 .button form{
+	color:black;
 	display:inline-block;
 	margin:40px 20px 30px;
 }
-
-.review-button:hover{
+input.back-button{
+	background-color:gray;
+}
+input.deleteHistory-button{
 	background-color:gray;
 }

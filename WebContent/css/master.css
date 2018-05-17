@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+@import url(https://fonts.googleapis.com/earlyaccess/mplus1p.css);
+
+/*==管理者画面用css==*/
+.master-list-outer {
+	text-align : center;
+}
+
+
+.master-list {
+	width:25%;
+	display : inline-block;
+	margin-bottom:10px;
+}
+
+
+.pages {
+	text-align:center;
+	width:100%;
+}
+.bottons {
+	margin:10px 0 10px 10px ;
+	width:90%;
+	text-align:right;
+}
+
+input[type="submit"] {
+	float:center;
+	margin:0 auto ;
+	width:25%;
+	color:black;
+	font-size:20px;
+}
+/*==商品情報変更画面用==*/
+
+textarea {
+
+	display : block;
+
+}
+
+.m-list {
+	width:100%;
+	height:350px;
+}
+.m-id {
+		margin:15px 0 15px 100px;
+		text-align:left;
+
+}
+
+.m-name {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+
+.m-name-kana {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+
+.m-description {
+	margin:50px 0 50px 100px;
+		text-align:left;
+}
+.m-category {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+.m-stock {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+.m-price {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+.m-file {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+.m-reDate {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+.m-reCompany {
+	margin:15px 0 15px 100px;
+		text-align:left;
+}
+
+

@@ -31,13 +31,18 @@
 
     <div id="main">
 
-			<s:form action="ReviewMyListAction" method="post" >
-				<button name="deleteFlg" value="2" >レビューを全削除</button>
-			</s:form>
+		<div class="container">
 
-			<s:form id="checkDelete" action="ReviewMyListAction" method="post" >
-				<button name="deleteFlg" value="1" >チェックしたレビューを削除</button>
-			</s:form>
+			<s:iterator value="#session.ReviewMyListDTOList" >
+
+				<p>
+					<input form="checkDelete" type="checkbox" name="review_id" value="<s:property value='reviewDTO.id' />" />
+					<s:property value="reviewDTO.reviewTitle" />
+					<s:property value="reviewDTO.reviewBody" />
+					<s:property value="productDTO.productName" />
+				</p>
+
+			</s:iterator>
 
 
 			<s:if test="#session.reviewMyListLength != null">
@@ -52,16 +57,22 @@
 
        		</s:if>
 
-			<s:iterator value="#session.ReviewMyListDTOList" >
 
-				<p>
-					<input form="checkDelete" type="checkbox" name="review_id" value="<s:property value='reviewDTO.id' />" />
-					<s:property value="reviewDTO.reviewTitle" />
-					<s:property value="reviewDTO.reviewBody" />
-					<s:property value="productDTO.productName" />
-				</p>
 
-			</s:iterator>
+			<form action="ReviewMyListAction" method="post" >
+				<input type="hidden" name="deleteFlg" value="2" />
+				<input type="submit" value="レビューを全削除"/>
+			</form>
+
+			<form id="checkDelete" action="ReviewMyListAction" method="post" >
+			<input type="hidden" name="deleteFlg" value="1" />
+				<input type="submit" value="チェックしたレビューを削除"/>
+			</form>
+
+
+		</div>
+
+
 
 
 

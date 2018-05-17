@@ -16,7 +16,7 @@
 
 					<div id="retrieval-form">
 
-						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="width : 195px;"/>
+						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/>
 
 						<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 
@@ -94,16 +94,16 @@
 					<s:if test="#session.LoginUserDTO == null">
 
 						<li><a href="/vague/userInterface.jsp" >ログイン  <img src="LogoImage/Login.png" /></a></li>
-						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mycart.png" /></a></li>
+            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/productList.png" /></a></li>
 
 					</s:if>
 
 					<s:elseif test="#session.LoginUserDTO.mFlg == 1 ">
 
 						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
-						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mycart.png" /></a></li>
+            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/productList.png" /></a></li>
 						<li><a href="<s:url action='MasterAction' />">管理画面  <img src="LogoImage/administer.png" /></a></li>
 
 					</s:elseif>
@@ -111,10 +111,10 @@
 					<s:else>
 
 						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
-						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mycart.png" /></a></li>
+            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/productList.png" /></a></li>
 						<li><a href="<s:url action='MyPageAction' />">マイページ  <img src="LogoImage/mypage.png" /></a></li>
-						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー  <img src="LogoImage/mypage.png" /></a></li>
+						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー  <img src="LogoImage/myreview.png" /></a></li>
 
 					</s:else>
 
@@ -143,8 +143,9 @@
 
 		<map name="mapping">
 
-			<area shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="map1.html" alt="リンク1">
-			<area shape="circle" coords="184,86,30" href="map2.html" alt="リンク2">
-			<area shape="poly" coords="87,78,30,110,81,139,69,113" href="map3.html" alt="リンク3">
+			<area class="background-image-area"  data-src="BackgroundImage/homeBackgroundSofa.jpg" shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="<s:url action='ProductSearchAction' ></s:url>?category_id=2&&retrievalValue=ソファ" alt="リンク1">
+			<area class="background-image-area"  data-src="BackgroundImage/homeBackgroundLighting.jpg" shape="poly" coords="377,404,284,528,382,557,382,702,393,702,393,557,513,529" href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=ライト" alt="リンク2">
+			<area class="background-image-area"  data-src="BackgroundImage/homeBackgroundChair.jpg" shape="poly" coords="407,720,425,736,429,775,480,775,482,827,505,831,566,806,569,707,499,702,472,629,404,638" href="<s:url action='ProductSearchAction' ></s:url>?category_id=1&&retrievalValue=チェア" alt="リンク3">
+			<area class="background-image-area"  data-src="BackgroundImage/homeBackgroundTable.jpg" shape="poly" coords="999,883,999,789,1083,787,1448,819,1436,934,1304,902,1295,814,1098,814,1100,905,996,895" href="<s:url action='ProductSearchAction' ></s:url>?category_id=4&&retrievalValue=テーブル " alt="リンク4">
 
 		</map>

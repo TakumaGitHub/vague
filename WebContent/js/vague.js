@@ -61,6 +61,7 @@ $(function(){
 	$('.background-image-area').hover(
 		function(){
 
+
 			$('#background-image-box').attr('src',$(this).attr('data-src'));
 
 

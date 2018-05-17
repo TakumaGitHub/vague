@@ -96,7 +96,7 @@ h1,h2,h3,h4,h5 {
     overflow : hidden;
     max-width : 1080px;
     width : 100%;
-    padding : 0 30px 30px;
+    padding : 0 30px 5px;
     margin : 0 auto;
 
 
@@ -260,10 +260,10 @@ header {
 
     width : 100%;
     min-height : 90px;
-    padding-top : 20px;
+    padding-top : 10px;
     margin-bottom : 60px;
 
-    background-color: #932674;
+    background-color: rgba(147,38,116,0.4);
 
     text-align : center;
 
@@ -508,7 +508,7 @@ footer {
 	padding-bottom : 80px;
 
 	text-align : center;
-	background-color : #932674 ;
+	background-color : rgba(147,38,116,0.4);
 
 	position : relative;
 	z-index : 100;

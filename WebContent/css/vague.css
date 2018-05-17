@@ -457,58 +457,7 @@ header {
 
 
 
-	/* →背景にかぶせる画像*/
 
-		.categoryLogo {
-
-			position : fixed;
-			z-index : -10;
-			cursor : pointer;
-
-		}
-
-		#chairLogo.categoryLogo{
-
-			width : 20%;
-			left : 10%;
-			bottom : -50px;
-			z-index : -6;
-		}
-
-		#sofaLogo.categoryLogo {
-
-			width : 25%;
-			right : 20%;
-			bottom : 50px;
-
-		}
-
-		#tableLogo.categoryLogo{
-
-			width : 30%;
-			left : 20%;
-			bottom : 30px;
-
-		}
-
-		#lightingLogo.categoryLogo {
-
-			width : 10%;
-			right : 10%;
-			bottom : -5px;
-			z-index : -6;
-
-		}
-
-		.categoryLogo img{
-
-			width : 100%;
-			height : auto;
-
-		}
-
-
-	/* 背景にかぶせる画像→*/
 
 /* ======== →headerのcss ======== */
 

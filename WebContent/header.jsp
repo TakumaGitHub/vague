@@ -139,7 +139,7 @@
 
 	<!-- 背景の画像 -->
 
-		<img  id="background-image-box" src="BackgroundImage/homeBackground.jpg" usemap="#mapping" />
+		<img  id="background-image-box" src="BackgroundImage/homeBackground2.jpg" usemap="#mapping" />
 
 		<map name="mapping">
 

@@ -39,11 +39,11 @@
 .product-box:hover {
 	top:-10px;
 	left:-10px;
-	box-shadow:8px 8px #c0c0c0;
+	box-shadow:6px 8px #222222;
 	transition:all 0.3s;
 }
 .proName {
-	font-family:sans-serif;
+
 	font-size : 20px;
 }
 
@@ -139,7 +139,7 @@ legend {
 }
 
 h3 {
-	font-family:YuGothicM;
+
 	border-left:6px solid  rgba(147,38,116,0.4);
 	margin:30px 0 30px 30px;
 }

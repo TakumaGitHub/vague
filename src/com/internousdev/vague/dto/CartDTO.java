@@ -11,6 +11,7 @@ public class CartDTO {
 	private int productTotalPrice ;
 	private int productCount ;
 	private int productStock ;
+	private int totalCount;
 
 	public int getProductId(){
 	return productId;
@@ -72,4 +73,11 @@ public class CartDTO {
 	public void setProductStock(int productStock){
 	this.productStock = productStock;
 	}
+	public int getTotalCount() {
+	return totalCount;
+	}
+	public void setTotalCount(int totalCount){
+	this.totalCount = totalCount;
+	}
+
 }

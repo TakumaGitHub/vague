@@ -16,6 +16,7 @@ public class CartAction extends ActionSupport implements SessionAware {
 	private String ERROR;
 	private int totalPrice;
 	private String userId;
+	private int totalProductCount;
 
 	public String execute(){
 		String result = ERROR;
@@ -41,6 +42,10 @@ public class CartAction extends ActionSupport implements SessionAware {
 
 			session.put("CartTotalPrice", totalPrice);
 
+			totalProductCount = totalProductCount(cartDTOList);
+
+			session.put("TotalProductCount", totalProductCount);
+
 			result = SUCCESS;
 		}
 		catch(Exception e){
@@ -55,6 +60,13 @@ public class CartAction extends ActionSupport implements SessionAware {
 			totalPrice += cartDTO.getProductTotalPrice();
 		}
 		return totalPrice;
+	}
+	public int totalProductCount(ArrayList<CartDTO> cartList){
+		int totalProductCount = 0;
+		for(CartDTO cartDTO : cartList){
+			totalProductCount += cartDTO.getProductCount();
+		}
+		return totalProductCount;
 	}
 	public String getUserId(){
 	return userId;

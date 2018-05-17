@@ -1,47 +1,85 @@
-.float{
+.floatleft{
 	float:left;
 }
-.float:after{
+.floatright{
+	float:right
+}
+.floatleft:after, .floatright:after{
 	display:table;
 	clear:both;
 	content:"";
 }
 
-th{
-	font-size:5px;
-}
 .red{
 	color:#A52A2A;
 }
+.lowerleft{
+	text-align:right;
+	vertical-align:bottom;
+}
 
-table{
-	border-collapse:collapse;
-	table-layout: fixed;
-}
-.left th, .left td{
-    border-bottom: 1px solid #ddd;
-    padding:0px 10px;
-}
 .left{
 	border-radius:10px;
 	width:auto;
 }
+table{
+	border-collapse:collapse;
+}
+th{
+	font-size:15px;
+	background-color:lightgrey;
+}
+.left th.tag{
+	border-right:1px solid grey;
+	padding:10px 10px;
+}
+.left td.list {
+    border-bottom: 2px solid #ddd;
+    padding:10px 0px;
+}
+td.checkbox, td.image{
+	text-align:center;
+}
+.image img{
+	width:100px;
+}
+
 .product p{
 	line-height:0.5px;
-	vdrtical-align:bottom;
+	vartical-align:bottom;
 }
-.count{
+.productname{
+	font-size:25px;
+	text-align:center;
+	line-height:2px;
+	vertical-align:top;
+}
+.kana, .date, .company{
 	vertical-align:bottom;
+	color:grey;
+	font-size:15px;
+	margin-left:20px;
+}
+.price, .count, .totalprice{
+	font-size:20px;
+}
+/*left_買い物,削除ボタン*/
+.productlist, .delete{
 	text-align:right;
 }
-.totalprice{
-	vertical-align:bottom;
-	text-align:right;
+.delete{
+	padding-right:10px;
 }
+
+/*right*/
 
 .right{
 	float:left;
-	width:20%;
+	width:25%;
+}
+.cartprice{
+	font-size:30px;
+	text-align:right;
 }
 .register{
 	padding:20px;
@@ -50,16 +88,8 @@ table{
 	border-radius:10px;
 	margin:20px;
 }
-.image img{
-	width:150px;
-}
-
-.productlist, .delete{
-	text-align:right;
-}
-.cartprice{
-	font-size:15px
-	text-align:right;
+.register form{
+	width:100%;
 }
 
 

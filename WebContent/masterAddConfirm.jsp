@@ -39,9 +39,10 @@ response.sendRedirect("/vague/home.jsp");
 	<!--  mainの始まり -->
 
     <div id="main">
+    	<div class="container">
 
     	<h2>追加内容</h2>
-
+		<div class="m-confirm-box">
     	<table>
 
     		<tbody>
@@ -137,8 +138,8 @@ response.sendRedirect("/vague/home.jsp");
     	<form action="/vague/masterAdd.jsp" >
 			<input type="submit" value="戻って修正する">
 		</form>
-
-
+			</div>
+		</div>
     </div>
 
     <!--  mainの終わり -->

@@ -67,7 +67,7 @@ response.sendRedirect("/vague/home.jsp");
 				<div class="m-description">
 				<span>商品の説明:
 				<s:property value="errorMsg.productDescription" />
-				<textarea name="productDescription"  rows="2" cols="50"><s:property value="productDescription"/></textarea>
+				<textarea name="productDescription"  rows="4" cols="50"><s:property value="productDescription"/></textarea>
 				</span><br>
 				</div>
 				<div class="m-category">

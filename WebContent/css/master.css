@@ -25,19 +25,23 @@
 }
 
 input[type="submit"] {
-	float:center;
-	margin:0 auto ;
+	text-align:center;
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:30px;
 	width:25%;
 	color:black;
 	font-size:20px;
 }
-/*==商品情報変更画面用==*/
+/*==商品情報変更画面・新規追加用==*/
 
 textarea {
 
 	display : block;
 
 }
+
+input[type="text"] { width: 20em; }
 
 .m-list {
 	width:100%;
@@ -88,4 +92,29 @@ textarea {
 		text-align:left;
 }
 
+m-confirm-box {
+	display:block;
+}
+h2 {
+	text-align:center;
+}
+table {
+	table-layout:fixed;
+	width:90%;
+}
 
+th {
+	text-align:right;
+
+}
+td {
+	padding-left:30px;
+}
+.back-link {
+	text-align:center;
+}
+
+
+.add-box {
+	margin-left:100px;
+}

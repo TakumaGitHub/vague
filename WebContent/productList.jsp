@@ -31,9 +31,11 @@
 
 		<div class="product-box" >
 
+			<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>
+
 
 		<!-- 商品画像 -->
-		<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+
 		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
 
 
@@ -55,7 +57,7 @@
 			</div>
 
 
-		</a>
+
 	</div>
 
 </s:iterator>

@@ -9,6 +9,7 @@
 <head>
 
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" href="./css/master.css">
 <title>商品追加画面</title>
 </head>
 
@@ -38,16 +39,17 @@ response.sendRedirect("/vague/home.jsp");
 	<!--  mainの始まり -->
 
     <div id="main">
-
+    	<div class="container">
+    	<h2>商品新規追加</h2>
+			<div class="add-box">
 		<s:form action="MasterAddConfirmAction" method="post" enctype="multipart/form-data">
 
 			<!-- セッションにMasterAddCompleteDTOがあれば -->
 	    	<s:if test="#session.MasterAddCompleteDTO != null" >
 
 				<p>商品ID</p>
-				<p>現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。</p>
 				<s:property value="errorMsg.productId" />
-				<input type="text" name="productId" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.productId' />" required="required"/>
+				<input type="text" name="productId" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.productId' />" required="required"/>※現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。
 
 				<p>商品名</p>
 				<s:property value="errorMsg.productName" />
@@ -59,7 +61,7 @@ response.sendRedirect("/vague/home.jsp");
 
 				<p>商品の説明</p>
 				<s:property value="errorMsg.productDescription" />
-				<textarea name="productDescription" ><s:property value="#session.MasterAddCompleteDTO.productDTO.productDescription"/></textarea>
+				<textarea name="productDescription" rows="4" cols="50" ><s:property value="#session.MasterAddCompleteDTO.productDTO.productDescription"/></textarea>
 
 				<p>カテゴリーID</p>
 				<s:property value="errorMsg.categoryId" />
@@ -131,9 +133,9 @@ response.sendRedirect("/vague/home.jsp");
 			<s:else>
 
 	    		<p>商品ID</p>
-				<p>現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。</p>
+
 				<s:property value="errorMsg.productId" />
-				<input type="text" name="productId" value="<s:property value='productId' />" required="required"/>
+				<input type="text" name="productId" value="<s:property value='productId' />" required="required"/>※現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。
 
 				<p>商品名</p>
 				<s:property value="errorMsg.productName" />
@@ -145,7 +147,7 @@ response.sendRedirect("/vague/home.jsp");
 
 				<p>商品の説明</p>
 				<s:property value="errorMsg.productDescription" />
-				<textarea name="productDescription" ><s:property value="productDescription"/></textarea>
+				<textarea name="productDescription" rows="4" cols="50" ><s:property value="productDescription"/></textarea>
 
 				<p>カテゴリーID</p>
 				<s:property value="errorMsg.categoryId" />
@@ -221,9 +223,8 @@ response.sendRedirect("/vague/home.jsp");
 			<input type="submit" value="確認画面に行く" />
 
 		</s:form>
-
-
-
+			</div>
+		</div>
     </div>
 
     <!--  mainの終わり -->

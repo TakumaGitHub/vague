@@ -13,30 +13,68 @@
 }
 
 table {
-	border-bottom:3px solid #ddd;
-	margin-left:30px;
+	border:3px solid #ddd;
+	margin-left:50px;
 }
 
-th, td{
-	border-top: 3px solid #ddd;
+.tableTopics {
+	background-color:#FFF0F5;
 }
+
+
 
 th{
 	line-height:50px;
+	padding-right:5px;
+	padding-left:5px;
+
+}
+
+th.productId-th {
+
+	border-top: 3px solid #ddd;
+	background-color:#EEEEEE;
+}
+
+
+td{
+	border-top: 3px solid #ddd;
+}
+
+
+td:nth-child(3) {
+
+	border-right : 3px solid #ddd;
+
+}
+
+
+td.addPrice-td {
+
+	border : none;
+
 }
 
 td.image{
-	padding-top:15px;
-	padding-bottom:15px;
+	padding:15px;
+
 }
 
 .review-button{
 	text-align:center;
 }
 
-p{
+.purchaseProductInfo{
+	line-height:10px;
+	padding-top:10px;
+	padding-right:40px;
+	padding-left:20px;
+}
+
+.purchaseAddress{
 	line-height:15px;
-	padding-left:10px;
+	padding-right:30px;
+	padding-left:30px;
 }
 
 .addPrice {

@@ -13,6 +13,8 @@
 		<%@ include file="../css/purchaseHistory.css" %>
 	</style>
 
+	<script type="text/javascript" src="js/purchaseHistory.js" ></script>
+
 	<title>商品購入履歴画面</title>
 </head>
 
@@ -44,11 +46,10 @@
 				<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
 					<p class="message">購入情報は以下になります</p>
 						<div id="table">
-						<s:form action="PurchaseHistoryAction">
 						<input type="hidden" name="deleteFlg" value="2" />
 
 								<table>
-								<tr>
+								<tr class="tableTopics">
 									<th>商品番号</th>
 									<th>商品画像</th>
 									<th>購入情報</th>
@@ -57,30 +58,33 @@
 
 								<s:iterator value="#session.PurchaseHistoryList" status="st">
 								<tr>
-									<th><s:property value="productId" /></th>
+									<th class="productId-th"><s:property value="productId" /></th>
 									<td class="image"><a href="<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}" /></s:url>">
-										<img src="<s:property value='imageFilePath'/>" alt="Photo" width=300px height=250px></a></td>
-									<td>
+										<img src="<s:property value='imageFilePath'/>" alt="Photo" width=270px height=220px></a></td>
+									<td class="purchaseProductInfo">
 										<p>商品名：<s:property value="productName" /></p>
 										<p>ふりがな：<s:property value="productNameKana" /></p>
-										<p>・値段：<s:property value="price" /> 円<br></p>
-										<p>・購入個数：<s:property value="count" />点<br></p>
-										<p>・発売会社名：<s:property value="releaseCompany" /><br></p>
-										<p>・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
+										<p>　・値段：<s:property value="price" /> 円<br></p>
+										<p>　・購入個数：<s:property value="count" />点<br></p>
+										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
+										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
 										<p class="review-button"><input type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する"></p>
 									</td>
 
 									<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >
-									<td>
+									<td class="purchaseAddress">
 										<p>郵便番号：<s:property value="postalCode" /></p>
 										<p>住所：<s:property value="userAddress" /></p>
 										<p>注文日：<s:property value="insertDate" /></p>
-										<p>合計金額（※合計されるように書き換える）：<span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /> </span>円</p>
+										<p>合計金額：<span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>円</p>
 									</td>
 									</s:if>
 
 									<s:else>
-										<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
+										<td class="addPrice-td">
+											<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
+										</td>
+
 									</s:else>
 
 								</tr>
@@ -88,7 +92,6 @@
 							</table>
 
 						<div class="clear"></div>
-						</s:form>
 						</div>
 
 					<!-- 戻るボタン -->

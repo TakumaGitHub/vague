@@ -30,6 +30,11 @@ response.sendRedirect("/vague/home.jsp");
 
     <!--  headerの終わり -->
 
+    	<!--  mainの始まり -->
+
+    <div id="main">
+    	<div class="container">
+
 		<h2>パスワード再設定確認画面</h2>
 
 		<table>
@@ -66,12 +71,7 @@ response.sendRedirect("/vague/home.jsp");
 			<input type="submit" value="戻って修正する" />
 		</form>
 
-
-	<!--  mainの始まり -->
-
-    <div id="main">
-
-
+		</div>
     </div>
 
     <!--  mainの終わり -->

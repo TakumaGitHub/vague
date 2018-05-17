@@ -32,6 +32,11 @@ response.sendRedirect("/vague/home.jsp");
 
     <!--  headerの終わり -->
 
+    	<!--  mainの始まり -->
+
+    <div id="main">
+    	<div class="container">
+
 		<h2>パスワードの再設定が完了いたしました</h2>
 
     	<p>5秒後にログイン画面に移動します</p>
@@ -39,11 +44,9 @@ response.sendRedirect("/vague/home.jsp");
 		<p><a href="/vague/userInterface.jsp" >移動しない場合はこちら</a></p>
 
 
-	<!--  mainの始まり -->
-
-    <div id="main">
 
 
+		</div>
     </div>
 
     <!--  mainの終わり -->

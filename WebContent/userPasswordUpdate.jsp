@@ -29,13 +29,17 @@ response.sendRedirect("/vague/home.jsp");
 
     <!--  headerの終わり -->
 
+    <div id="main">
+
+		<div class="container">
+
 		<h2>パスワードの再設定</h2>
 
 		<form action="UserPasswordUpdateAction" method="post">
 
-			<strong><s:property value="errorMsg"/></strong>
+			<p class="error-msg"><strong><s:property value="errorMsg"/></strong></p>
 
-			<p><s:property value="userIdErrorMsg"/></p>
+			<p class="error-msg"><s:property value="userIdErrorMsg"/></p>
 			<p>半角英数字1～8文字で入力してください。</p>
 			<p>ログインID</p>
 
@@ -63,18 +67,8 @@ response.sendRedirect("/vague/home.jsp");
 
 		</form>
 
-
-
-
-	<!--  mainの始まり -->
-
-    <div id="main">
-
-
+		</div>
     </div>
-
-    <!--  mainの終わり -->
-
 
 
 

@@ -35,12 +35,12 @@ response.sendRedirect("/vague/home.jsp");
 
 			<div id="input" class="left">
 				<br><h3>ログインIDとパスワードを入力してください。</h3>
-				<p><s:property value="errorMsg" /></p>
+				<p class="error-msg"><s:property value="errorMsg" /></p>
 				<s:form action="LoginAction">
-						<p><s:property value="userIdErrorMsg" /></p>
+						<p class="error-msg"><s:property value="userIdErrorMsg" /></p>
 						ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 						<br>
-						<p><s:property value="passwordErrorMsg" /></p>
+						<p class="error-msg"><s:property value="passwordErrorMsg" /></p>
 						パスワード：<input type="password" name="password">
 						<p>ログインID保存
 							<s:if test="#session.savaId != 0" >

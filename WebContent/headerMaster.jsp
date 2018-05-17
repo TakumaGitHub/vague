@@ -11,22 +11,27 @@
 
             <div id="header-left">
 
-	            <%-- <s:if test="#session.LoginUserDTO == null">
-	            - ようこそゲストさん -
+	            <s:if test="#session.LoginUserDTO == null">
+	            <p>- ようこそゲストさん -</p>
 	            </s:if>
 	            <s:else>
-	            - ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -
-	            </s:else> --%>
+	            <p>- ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -</p>
+	            </s:else>
 
 	            <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
 
+					<div id="retrieval-form">
 
-					<p><input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="float : left;"/></p>
+						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/>
+
+						<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 
 
-						<s:property value='inputErrorMsg' />
+					</div>
 
-					<button type="submit" style="float : right;"><img src="LogoImage/retrievalLogo.png" style="width : 30px; height : auto;"/></button>
+
+
+					<p><s:property value='inputErrorMsg' /></p>
 
 
 					<select name="category_id">
@@ -82,7 +87,9 @@
 
             <div id="header-right">
 
-				<ul>
+				<div class="menu-box">
+
+					<ul>
 					<s:if test="#session.LoginUserDTO == null">
 
 						<li><a href="/vague/userInterface.jsp" >ログイン  <img src="LogoImage/Login.png" /></a></li>
@@ -107,7 +114,9 @@
 						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
             			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 
-				</ul>
+					</ul>
+
+				</div>
 
             </div>
 
@@ -120,3 +129,11 @@
     <!-- スクロールボタン -->
     <div id="scroll-button" ><img src="LogoImage/scrollTop.png" /></div>
 
+    <!-- カテゴリーロゴ -->
+    <div id="chairLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=1&&retrievalValue=チェア "><img src="LogoImage/chairLogo.png" /></a></div>
+    <div id="sofaLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=2&&retrievalValue=ソファ "><img src="LogoImage/sofaLogo.png" /></a></div>
+    <div id="tableLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=4&&retrievalValue=テーブル "><img src="LogoImage/tableLogo.png" /></a></div>
+    <div id="lightingLogo" class="categoryLogo" ><a href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=ライト "><img src="LogoImage/lightingLogo.png" /></a></div>
+
+	<!-- 背景のグラデーション -->
+	<div id="background-gradation" ></div>

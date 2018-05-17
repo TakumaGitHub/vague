@@ -22,7 +22,7 @@
 	<!--  mainの始まり -->
 	<div id="main">
 		<div class="container">
-			<h3>MyPage</h3>
+			<h3 id="tytle">My Page</h3>
 
 				<table>
 					<tr><td colspan="2"><hr></td></tr>

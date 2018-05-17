@@ -28,12 +28,12 @@
 		<div class="container">
 
 			<!-- タイトル -->
-			<h3 id="tytle">PURCHASE HISTORY</h3>
+			<h3 id="tytle">Purchase History</h3>
 
 			<!-- 購入履歴（なし） -->
 			<div id="message">
 				<s:if test="#session.PurchaseHistoryList.isEmpty()">
-					<p class="message">購入履歴はありません</p>
+					<p class="message">………　購入履歴はありません　………</p>
 								<!-- 戻るボタン -->
 					<div class="button">
 						<form action="MyPageAction">
@@ -44,7 +44,7 @@
 
 			<!-- 購入履歴（あり） -->
 				<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
-					<p class="message">購入情報は以下になります</p>
+					<p class="message">………　購入情報は以下になります　………</p>
 						<div id="table">
 						<input type="hidden" name="deleteFlg" value="2" />
 

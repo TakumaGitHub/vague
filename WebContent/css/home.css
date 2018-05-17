@@ -8,39 +8,14 @@
 
 }
 
-.categoryLogo {
+#background-image-box {
 
-			position : fixed;
-			z-index : 6;
-			cursor : pointer;
-			transition : all 0.3s;
-
-		}
-
-.categoryLogo:hover {
-
-	width : 120%;
+	z-index : 0;
 
 }
 
+area {
 
-		#chairLogo.categoryLogo{
+	background-color : white;
 
-			z-index : 10;
-		}
-
-		#sofaLogo.categoryLogo {
-
-
-		}
-
-		#tableLogo.categoryLogo{
-
-
-		}
-
-		#lightingLogo.categoryLogo {
-
-			z-index : 10;
-
-		}
+}

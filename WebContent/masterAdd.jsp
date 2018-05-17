@@ -153,7 +153,7 @@ response.sendRedirect("/vague/home.jsp");
 				<s:property value="errorMsg.categoryId" />
 				<select name="categoryId" required="required">
 
-					<s:iterator value="#session.CategorytSearchDTOList">
+					<s:iterator value="#session.CategorySearchDTOList">
 						<s:if test="#session.masterChangeCategoryId == 	categoryId" >
 							<option value="<s:property value='categoryId' />" selected="selected"><s:property value='categoryId' />:<s:property value='categoryName' /></option>
 						</s:if>

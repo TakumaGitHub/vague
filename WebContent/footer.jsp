@@ -6,10 +6,10 @@
 <!--  footerの始まり -->
     <footer>
 
-        <div class="container">
+        <div class="inner-container">
 			<jsp:useBean id="date" class="java.util.Date"/>
 
-			<div id="footer-logo-wrraper">
+			<div id="footer-logo-wrapper">
 
 				<s:iterator value="#session.CategoryList">
 

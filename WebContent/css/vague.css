@@ -59,11 +59,23 @@ body {
     font-family: 'Mplus 1p',sans-serif;
     font-size : 16px;
 
-    background-image : url("../BackgroundImage/homeBackground.jpg");
     background-position : center center;
     background-size : cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+}
+
+#background-image-box {
+
+	position : fixed;
+	top : -100px;
+	left : 0;
+
+	z-index : -50;
+
+	width : 100%;
+	min-width : 1000px;
 
 }
 
@@ -78,7 +90,6 @@ h1,h2,h3,h4,h5 {
 #main {
 
 	min-height : 400px;
-
 }
 
 .container {
@@ -91,7 +102,7 @@ h1,h2,h3,h4,h5 {
 
 }
 
-.header-container {
+.inner-container {
 
     overflow : hidden;
     max-width : 1080px;
@@ -538,7 +549,7 @@ footer a:hover {
 
 }
 
-footer #footer-logo-wrraper {
+footer #footer-logo-wrapper {
 
 	text-align : center;
 

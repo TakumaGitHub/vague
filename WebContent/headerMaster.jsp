@@ -7,16 +7,16 @@
 <!--  headerの始まり -->
     <header>
 
-        <div class="header-container">
+        <div class="inner-container">
 
             <div id="header-left">
 
 
-	           <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
+	            <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
 
 					<div id="retrieval-form">
 
-						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/>
+						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required" style="width : 195px;"/>
 
 						<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 
@@ -137,5 +137,14 @@
 
 
 
-	<!-- 背景のグラデーション -->
-	<div id="background-gradation" ></div>
+	<!-- 背景の画像 -->
+
+		<img  id="background-image-box" src="BackgroundImage/homeBackground.jpg" usemap="#mapping" />
+
+		<map name="mapping">
+
+			<area shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="map1.html" alt="リンク1">
+			<area shape="circle" coords="184,86,30" href="map2.html" alt="リンク2">
+			<area shape="poly" coords="87,78,30,110,81,139,69,113" href="map3.html" alt="リンク3">
+
+		</map>

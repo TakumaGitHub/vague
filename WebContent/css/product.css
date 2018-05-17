@@ -73,7 +73,7 @@
 	font-size:28px;
 	margin-left:30px;
 	margin-top:20px;
-	border-left:6px solid #A4A9CF;
+	border-left:6px solid  rgba(147,38,116,0.4);
 }
 #detailName2 {
 	margin-left:30px;
@@ -110,8 +110,9 @@ legend {
 	height:auto;
 	margin : 10px 30px 30px 30px;
 	display : inline-block;
-	border:1px solid black;
+	border:1px solid none;
 	border-radius:0.5em;
+	box-shadow: 0 0 8px 5px rgba(147,38,116,0.4);
 
 }
 #sugName {
@@ -130,15 +131,16 @@ legend {
 
 .reviewBox {
 	width:50%;
-	border:1px solid black;
+	border-left:8px solid  rgba(147,38,116,0.4);
 	margin:20px;
 	float:center;
 	padding:10px;
+	background-color:#fffacd;
 }
 
 h3 {
 	font-family:YuGothicM;
-	border-left:6px solid #A4A9CF;
+	border-left:6px solid  rgba(147,38,116,0.4);
 	margin:30px 0 30px 30px;
 }
 

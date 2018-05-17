@@ -26,21 +26,28 @@
 		<div class="container">
 
 			<!-- タイトル -->
-				<h3 id="tytle">PURCHASE HISTORY</h3>
+			<h3 id="tytle">PURCHASE HISTORY</h3>
 
-			<!-- 購入履歴 -->
-				<div id="message">
+			<!-- 購入履歴（なし） -->
+			<div id="message">
 				<s:if test="#session.PurchaseHistoryList.isEmpty()">
 					<p class="message">購入履歴はありません</p>
+								<!-- 戻るボタン -->
+					<div class="button">
+						<form action="MyPageAction">
+						<input type="submit" value="戻る" />
+						</form>
+					</div>
 				</s:if>
+
+			<!-- 購入履歴（あり） -->
 				<s:elseif test="#session.PurchaseHistoryList != null && #session.PurchaseHistoryList.size() != 0">
 					<p class="message">購入情報は以下になります</p>
-
 						<div id="table">
 						<s:form action="PurchaseHistoryAction">
 						<input type="hidden" name="deleteFlg" value="2" />
 
-							<table>
+								<table>
 								<tr>
 									<th>商品番号</th>
 									<th>商品画像</th>
@@ -73,7 +80,7 @@
 									</s:if>
 
 									<s:else>
-											<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
+										<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
 									</s:else>
 
 								</tr>
@@ -83,30 +90,29 @@
 						<div class="clear"></div>
 						</s:form>
 						</div>
+
+					<!-- 戻るボタン -->
+					<div class="button">
+						<form action="MyPageAction">
+							<input type="submit" value="戻る" />
+						</form>
+
+					<!-- 履歴すべて削除ボタン -->
+						<form action="PurchaseHistoryAction">
+							<input type="hidden" name="deleteFlg" value="1">
+							<input type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
+						</form>
+						<script>
+							function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){
+								return true
+							}else{
+								return false;
+							}
+							}
+						</script>
+					</div>
 				</s:elseif>
-				</div>
-
-			<!-- 戻るボタン -->
-			<div class="button">
-				<form action="MyPageAction">
-					<input type="submit" value="戻る" />
-				</form>
-
-			<!-- 履歴すべて削除ボタン -->
-				<form action="PurchaseHistoryAction">
-					<input type="hidden" name="deleteFlg" value="1">
-					<input type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
-				</form>
-				<script>
-					function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){
-						return true
-					}else{
-						return false;
-					}
-					}
-				</script>
 			</div>
-
 		</div>
 	</div>
 	<!-- mainの終わり -->

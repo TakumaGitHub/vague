@@ -16,7 +16,7 @@
         		<div class="footer-logo">
 
         			<p><a href="<s:url action='ProductSearchAction' ><s:param name='retrievalValue' value='categoryDescription' /><s:param name='category_id' value='categoryId' /></s:url>" ><img src="LogoImage/footer<s:property value='categoryName' />.png" />
-        			<s:property value="categoryName" /></a></p>
+        			<span><s:property value="categoryName" /></span></a></p>
 
         		</div>
 

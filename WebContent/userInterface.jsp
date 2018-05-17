@@ -38,11 +38,6 @@ response.sendRedirect("/vague/home.jsp");
 				<p><s:property value="errorMsg" /></p>
 				<s:form action="LoginAction">
 						<p><s:property value="userIdErrorMsg" /></p>
-
-
-
-
-
 						ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 						<br>
 						<p><s:property value="passwordErrorMsg" /></p>
@@ -55,28 +50,23 @@ response.sendRedirect("/vague/home.jsp");
 								<input type="checkbox" name="saveId" value="1">
 							</s:else>
 						</p>
-						<s:submit value="ログイン"/>
+
+						<p><s:submit value="ログイン"/></p>
+						<p><a href="userPasswordUpdate.jsp" class="button">パスワードの再設定</a></p>
+
 
 
 				</s:form>
 			</div>
 
-		<div class="right">
-			<br><h3>新規登録・パスワードの再設定はこちら。</h3><br>
-			<a href="userCreate.jsp">新規登録はこちら！</a><br>
-			<a href="userPasswordUpdate.jsp">パスワードの再設定はこちら！</a>
-			<br><br><br><a href="home.jsp" >ホーム画面に戻る</a>
+			<div class="right">
+				<br><h3>新規のお客様のご登録はこちら。</h3><br>
+				<a href="userCreate.jsp" class="button2" id="sinki">新規登録</a><br>
+
+				<br><br><br><br><br><br><a href="home.jsp" >ホーム画面に戻る</a>
+			</div>
 		</div>
-
-
-
-
-		</div>
-
-
 	</div>
-
-
 
 
 

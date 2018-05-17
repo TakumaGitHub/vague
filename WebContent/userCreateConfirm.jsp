@@ -5,6 +5,7 @@
 <html>
 <head>
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" href="./css/userInterface.css">
 <title>入力情報確認</title>
 </head>
 <body>
@@ -15,16 +16,24 @@
 
     <!--  headerの終わり -->
 
+
+<div id="main">
+	<div class="container">
+
+	<h3>以下の情報で間違いがなければ登録ボタンをクリックしてください。</h3><br>
+
 	<s:form action="UserCreateCompleteAction" method="post">
-		姓：<s:property value="familyName"/> <br>
-		名：<s:property value="firstName"/> <br>
-		姓かな：<s:property value="familyNameKana"/> <br>
-		名かな：<s:property value="firstNameKana"/> <br>
-		性別：<s:if test="sex == 0" > 男 </s:if>
-		<s:if test="sex == 1" > 女 </s:if> <br>
-		メールアドレス：<s:property value="email"/> <br>
-		ログインID：<s:property value="userId"/> <br>
-		パスワード：<s:property value="password"/> <br>
+		<p  class="userinform">
+		＜姓＞：<s:property value="familyName"/> <br><br>
+		＜名＞：<s:property value="firstName"/> <br><br>
+		＜姓かな＞：<s:property value="familyNameKana"/> <br><br>
+		＜名かな＞：<s:property value="firstNameKana"/> <br><br>
+		＜性別＞：<s:if test="sex == 0" > 男 </s:if>
+		<s:if test="sex == 1" > 女 </s:if> <br><br>
+		＜メールアドレス＞：<s:property value="email"/> <br><br>
+		＜ログインID＞：<s:property value="userId"/> <br><br>
+		＜パスワード＞：<s:property value="password"/> <br><br>
+		</p>
 
 		<s:submit  value="この情報で登録"/>
 
@@ -32,8 +41,10 @@
 
 	</s:form>
 
-	<a href="userCreate.jsp">戻って修正する</a>
+	<a href="userCreate.jsp" class="button3">戻って修正する</a>
 
+	</div>
+</div>
 
 	<!-- footerの始まり -->
 

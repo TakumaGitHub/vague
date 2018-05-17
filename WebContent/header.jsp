@@ -145,6 +145,7 @@
 
 			<area shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="<s:url action='ProductSearchAction' ></s:url>?category_id=2&&retrievalValue=ソファ" alt="リンク1">
 			<area shape="poly" coords="377,404,284,528,382,557,382,702,393,702,393,557,513,529" href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=ライト" alt="リンク2">
-			<area shape="poly" coords="87,78,30,110,81,139,69,113" href="map3.html" alt="リンク3">
+			<area shape="poly" coords="407,720,425,736,429,775,480,775,482,827,505,831,566,806,569,707,499,702,472,629,404,638" href="<s:url action='ProductSearchAction' ></s:url>?category_id=1&&retrievalValue=チェア" alt="リンク3">
+			<area shape="poly" coords="999,883,999,789,1083,787,1448,819,1436,934,1304,902,1295,814,1098,814,1100,905,996,895" href="<s:url action='ProductSearchAction' ></s:url>?category_id=4&&retrievalValue=テーブル " alt="リンク4">
 
 		</map>

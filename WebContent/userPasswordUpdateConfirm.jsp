@@ -35,7 +35,7 @@ response.sendRedirect("/vague/home.jsp");
     <div id="main">
     	<div class="container">
 
-		<h2>パスワード再設定確認画面</h2>
+		<h2>パスワードを変更してよろしいですか？</h2>
 
 		<table>
 
@@ -43,14 +43,14 @@ response.sendRedirect("/vague/home.jsp");
 
 				<tr>
 
-					<th>ログインID</th>
+					<th>ログインID：</th>
 					<td><s:property value='#session.UserPasswordUpdateDTO.userId' /></td>
 
 				</tr>
 
 				<tr>
 
-					<th>新しいパスワード</th>
+					<th>新しいパスワード：</th>
 					<td><s:property value='#session.hidePassword' /></td>
 
 				</tr>

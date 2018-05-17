@@ -6,8 +6,9 @@
 #main {
 }
 
+
 .container {
-	font-size:15px;
+	font-size:17px;
 }
 
 
@@ -17,9 +18,15 @@
 	text-align:center;
 }
 
+
 .container p {
 	font-size:20px;
 	text-align:center;
+}
+
+
+.return p {
+	font-size:15px;
 }
 
 
@@ -35,21 +42,26 @@
 	display:flex;
 }
 
+
 .fullName1 {
 	display:flex;
 }
+
 
 .text {
 	padding-left:120px;
 }
 
+
 .text span {
 	padding-left:120px;
 }
 
+
 .firstName {
 	padding-left:90px;
 }
+
 
 .firstNameKana {
 	padding-left:75px;
@@ -67,10 +79,10 @@
 }
 
 
-
 .form-text {
 	margin-top:15px;
 }
+
 
 .error {
 	color:red;

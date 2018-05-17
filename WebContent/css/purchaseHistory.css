@@ -30,6 +30,10 @@ td.image{
 	padding-bottom:15px;
 }
 
+.review-button{
+	text-align:center;
+}
+
 p{
 	line-height:15px;
 	padding-left:10px;
@@ -40,5 +44,12 @@ p{
 }
 
 .button{
+	margin:0 auto;
 	text-align:center;
 }
+
+.button form{
+	display:inline-block;
+	margin:40px 20px 30px;
+}
+

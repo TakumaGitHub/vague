@@ -50,8 +50,12 @@
 				</table>
 
 			<div class="button">
-				<input type="button" onclick="location.href='<s:url action="GoHomeAction" />'" value="ホームに戻る">　　　　
-				<input type="button" onclick="location.href='<s:url action="PurchaseHistoryAction" />'" value="商品購入履歴に行く">
+				<form action="GoHomeAction">
+					<input type="submit" value="ホームに戻る" />
+				</form>
+				<form action="PurchaseHistoryAction">
+					<input type="submit" value="商品購入履歴に行く" />
+				</form>
 			</div>
 
 			<br>

@@ -60,7 +60,7 @@
 										<p>・購入個数：<s:property value="count" />点<br></p>
 										<p>・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
-										<p><a href="<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>">【レビューを投稿する】</a></p>
+										<p class="review-button"><input type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する"></p>
 									</td>
 
 									<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >
@@ -85,35 +85,28 @@
 						</div>
 				</s:elseif>
 				</div>
-<!-- 以下引用 -->
-			<div class="button">
-				<input type="button" onclick="location.href='<s:url action="MyPageAction" />'" value="戻る">　　　　
-				<input type="button" onclick="location.href='<s:url action="PurchaseHistoryAction" />'" value="商品購入履歴に行く">
-			</div>
-<!--  -->
+
 			<!-- 戻るボタン -->
 			<div class="button">
-				<s:form action="MyPageAction">
-					<s:submit class="" value="戻る" />
-				</s:form>
-			</div>
+				<form action="MyPageAction">
+					<input type="submit" value="戻る" />
+				</form>
 
 			<!-- 履歴すべて削除ボタン -->
-			<div class="button">
-				<s:form action="PurchaseHistoryAction">
+				<form action="PurchaseHistoryAction">
 					<input type="hidden" name="deleteFlg" value="1">
-					<s:submit class="" value="履歴をすべて削除" onclick="return deleteCheck();"/>
-				</s:form>
+					<input type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
+				</form>
+				<script>
+					function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){
+						return true
+					}else{
+						return false;
+					}
+					}
+				</script>
 			</div>
 
-			<script>
-				function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){
-					return true
-				}else{
-					return false;
-				}
-				}
-			</script>
 		</div>
 	</div>
 	<!-- mainの終わり -->

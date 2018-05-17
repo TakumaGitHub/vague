@@ -8,7 +8,6 @@
 
         <div class="container">
 			<jsp:useBean id="date" class="java.util.Date"/>
-        	<h2><a href="/vague/home.jsp">Vague</a></h2>
 
 			<div id="footer-logo-wrraper">
 

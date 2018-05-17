@@ -11,14 +11,8 @@
 
             <div id="header-left">
 
-	            <s:if test="#session.LoginUserDTO == null">
-	            <p>- ようこそゲストさん -</p>
-	            </s:if>
-	            <s:else>
-	            <p>- ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -</p>
-	            </s:else>
 
-	            <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
+	           <form id="MasterAction" action="<s:url action='MasterAction' ><s:param name="retrievalFlg" value="1" /></s:url>" method="post" >
 
 					<div id="retrieval-form">
 
@@ -83,6 +77,13 @@
 
             	<a href="/vague/home.jsp"><img src="LogoImage/headerLogo.png" /></a>
 
+            	<s:if test="#session.LoginUserDTO == null">
+	            <p>- ようこそゲストさん -</p>
+	            </s:if>
+	            <s:else>
+	            <p>- ようこそ<s:property value="#session.LoginUserDTO.familyName" />さん -</p>
+	            </s:else>
+
             </div>
 
             <div id="header-right">
@@ -93,12 +94,16 @@
 					<s:if test="#session.LoginUserDTO == null">
 
 						<li><a href="/vague/userInterface.jsp" >ログイン  <img src="LogoImage/Login.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
+            			<li><a href="<s:url action='ProductListAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 
 					</s:if>
 
 					<s:elseif test="#session.LoginUserDTO.mFlg == 1 ">
 
 						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
+            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 						<li><a href="<s:url action='MasterAction' />">管理画面  <img src="LogoImage/administer.png" /></a></li>
 
 					</s:elseif>
@@ -106,13 +111,14 @@
 					<s:else>
 
 						<li><a href="<s:url action='LogoutAction' />">ログアウト  <img src="LogoImage/LogOut.png" /></a></li>
+						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
+            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
 						<li><a href="<s:url action='MyPageAction' />">マイページ  <img src="LogoImage/mypage.png" /></a></li>
 						<li><a href="<s:url action='ReviewMyListAction' />">マイレビュー  <img src="LogoImage/mypage.png" /></a></li>
 
 					</s:else>
 
-						<li><a href="<s:url action='CartAction' />">カート  <img src="LogoImage/mypage.png" /></a></li>
-            			<li><a href="<s:url action='MasterAction' />">商品一覧  <img src="LogoImage/administer.png" /></a></li>
+
 
 					</ul>
 

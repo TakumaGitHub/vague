@@ -143,8 +143,8 @@
 
 		<map name="mapping">
 
-			<area shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="map1.html" alt="リンク1">
-			<area shape="circle" coords="184,86,30" href="map2.html" alt="リンク2">
+			<area shape="poly" coords="0,806,304,716,300,702,382,702,391,718,425,736,429,775,480,775,483,837,623,844,618,946,570,1025,0,1017" href="<s:url action='ProductSearchAction' ></s:url>?category_id=2&&retrievalValue=ソファ" alt="リンク1">
+			<area shape="poly" coords="377,404,284,528,382,557,382,702,393,702,393,557,513,529" href="<s:url action='ProductSearchAction' ></s:url>?category_id=3&&retrievalValue=ライト" alt="リンク2">
 			<area shape="poly" coords="87,78,30,110,81,139,69,113" href="map3.html" alt="リンク3">
 
 		</map>

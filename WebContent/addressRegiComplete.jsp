@@ -6,6 +6,8 @@
 <head>
 <jsp:include page="head.jsp" />
 <script src="js/blowserBackPrevent.js" type="text/javascript"></script>
+<meta http-equiv="refresh"content="3; url=BuyItemAction">
+<link rel="stylesheet" type="text/css" href="css/address.css">
 <title>宛先登録完了画面</title>
 </head>
 <body>
@@ -16,11 +18,19 @@
 
     <!--  headerの終わり -->
 
-	<div>
+	<div id="main">
+	<div class="container">
+
 		<h3>宛先が登録されました。</h3>
-	</div>
+
 	<div>
-		<p>決済画面に<a href='<s:url action="BuyItemAction"/>'>戻る</a></p>
+		<p>3秒後に決済画面に戻ります。</p>
+		<s:form action="BuyItemAction">
+			<p>※決済画面に戻らない場合、こちらのボタンを押してください↓<input type="submit" value="戻る" ></p>
+		</s:form>
+	</div>
+
+	</div>
 	</div>
 
 

@@ -17,6 +17,11 @@
 	text-align:center;
 }
 
+.container p {
+	font-size:20px;
+	text-align:center;
+}
+
 
 #form1 {
 	width: 400px;

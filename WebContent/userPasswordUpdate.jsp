@@ -44,18 +44,16 @@ response.sendRedirect("/vague/home.jsp");
 			<p>ログインID</p>
 
 			<s:if test="#session.UserPasswordUpdateDTO.userId != null">
-
 				<p><input type="text" name="userId" value="<s:property value='#session.UserPasswordUpdateDTO.userId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
-
 			</s:if>
+
+
 			<s:else>
-
 				<p><input type="text" name="userId" value="<s:property value='#session.saveId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
-
 			</s:else>
 
 
-			<p><s:property value="passwordErrorMsg"/></p>
+			<p class="error-msg"><s:property value="passwordErrorMsg"/></p>
 			<p>半角英数字1～16文字で入力してください。</p>
 			<p>新しいパスワード</p>
 			<p><input type="password" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" /></p>

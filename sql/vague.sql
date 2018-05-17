@@ -146,10 +146,10 @@ create table review (
  */
 
 INSERT INTO m_category (category_id, category_name, category_description, insert_date)
-			values     (1, "Chair", "椅子のカテゴリー", now()),
-					   (2, "Sofa", "ソファのカテゴリー", now()),
-					   (3, "Lighting", "照明のカテゴリー", now()),
-					   (4, "Table", "テーブルのカテゴリー", now());
+			values     (1, "Chair", "チェア", now()),
+					   (2, "Sofa", "ソファ", now()),
+					   (3, "Lighting", "ライト", now()),
+					   (4, "Table", "テーブル", now());
 
 
 

@@ -9,6 +9,25 @@
         <div class="container">
 			<jsp:useBean id="date" class="java.util.Date"/>
         	<h2><a href="/vague/home.jsp">Vague</a></h2>
+
+			<div id="footer-logo-wrraper">
+
+				<s:iterator value="#session.CategoryList">
+
+        		<div class="footer-logo">
+
+        			<p><img src="LogoImage/footer<s:property value='categoryName' />.png" />
+        			<s:property value="categoryName" /></p>
+
+        		</div>
+
+        		</s:iterator>
+
+			</div>
+
+
+
+
         	<p>Copyright © 2010-<fmt:formatDate value="${date}" pattern="yyyy" /> Vague All Rights Reserved.</p>
 
         </div>

@@ -86,7 +86,7 @@ response.sendRedirect("/vague/home.jsp");
 
 				<p>ファイルアップロード</p>
 				<s:property value="errorMsg.imageFilePath" />
-				<s:file name="userImage" label="画像" required="required"/>
+				<input type="file" name="userImage" required="required"/>
 
 				<p>発売日</p>
 				<s:property value="errorMsg.releaseDate" />
@@ -172,7 +172,7 @@ response.sendRedirect("/vague/home.jsp");
 
 				<p>ファイルアップロード</p>
 				<s:property value="errorMsg.imageFilePath"/>
-				<s:file name="userImage" label="画像" required="required"/>
+				<input type="file" name="userImage" required="required"/>
 
 				<p>発売日</p>
 				<s:property value="errorMsg.releaseDate" />

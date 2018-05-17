@@ -94,10 +94,11 @@
 
 		       <s:if test="status == 1" >
 		               <div class="product-box">
-		               		<div class="imageHover">
-							   <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
-								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br></a>
-							</div>
+		                 <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>
+
+
+								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+
 							<div class="proName">
 							    <p><s:property value="productName" /></p>
 							</div>

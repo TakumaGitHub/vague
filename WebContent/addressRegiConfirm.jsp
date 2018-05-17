@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" type="text/css" href="css/address.css">
 <title>宛先入力情報確認画面</title>
 </head>
 <body>
@@ -15,43 +17,65 @@
 
 
     <!--  headerの終わり -->
+	<div id="main">
 
-	<div>
+	<div class="container">
+
 		<h3>登録する宛先情報は以下でよろしいですか？</h3>
-		<s:form action="AddressRegiCompleteAction">
-			<div>
-				<span>[姓]<s:property value="#session.AddressDTO.familyName" escape="false"/></span>
+
+		<s:form id="form1" action="AddressRegiCompleteAction">
+
+			<div class="fullName1" >
+				<span class="text">[姓]<br>
+					<s:property value="#session.AddressDTO.familyName" escape="false"/></span>
+				<span class="firstName">[名]<br>
+				<s:property value="#session.AddressDTO.firstName" escape="false"/></span>
 			</div>
-			<div>
-				<span>[名]<s:property value="#session.AddressDTO.firstName" escape="false"/></span>
+
+			<div class="nameKana">
+				<span class="text">[せい]<br>
+					<s:property value="#session.AddressDTO.familyNameKana" escape="false"/></span>
+				<span class="firstNameKana">[めい]<br>
+				<s:property value="#session.AddressDTO.firstNameKana" escape="false"/></span>
 			</div>
-			<div>
-				<span>[せい]<s:property value="#session.AddressDTO.familyNameKana" escape="false"/></span>
+
+			<div class="form-text">
+				<span class="text">[郵便番号]<br>
+					<span><s:property value="#session.AddressDTO.postalCode" escape="false"/></span>
+					</span>
 			</div>
-			<div>
-				<span>[めい]<s:property value="#session.AddressDTO.firstNameKana" escape="false"/></span>
+
+			<div class="form-text">
+				<span class="text">[住所]<br>
+					<span><s:property value="#session.AddressDTO.addr11" escape="false"/></span>
+					</span>
 			</div>
-			<div>
-				<span>[郵便番号]<s:property value="#session.AddressDTO.postalCode" escape="false"/></span>
+
+			<div class="form-text">
+				<span class="text">[電話番号]<br>
+					<span><s:property value="#session.AddressDTO.telNumber" escape="false"/></span>
+					</span>
 			</div>
-			<div>
-				<span>[住所]<s:property value="#session.AddressDTO.addr11" escape="false"/></span>
+
+			<div class="form-text">
+				<span class="text">[メールアドレス]<br>
+					<span><s:property value="#session.AddressDTO.email" escape="false"/></span>
+					</span>
 			</div>
+
 			<div>
-				<span>[電話番号]<s:property value="#session.AddressDTO.telNumber" escape="false"/></span>
+				<span><input type="submit" value="登録"></span>
 			</div>
-			<div>
-				<span>[メールアドレス]<s:property value="#session.AddressDTO.email" escape="false"/></span>
-			</div>
-			<div>
-				<span><s:submit value="登録"/></span>
-			</div>
+
 		</s:form>
 		<div>
-		<s:form action="AddressAction">
-			<span><s:submit value="戻る"/></span>
+
+		<s:form id="form1" action="AddressAction">
+			<span><input type="submit" value="戻る"></span>
 		</s:form>
+
 		</div>
+	</div>
 	</div>
 
 

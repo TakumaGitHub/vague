@@ -32,7 +32,7 @@
 
 			<!-- 氏名 -->
 
-			<div class="name">
+			<div class="fullName">
 				<span>[姓]<br><input type="text" placeholder="姓" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/><br>
 				<span class="error"><s:property value="errorFamilyNameMsg"/></span>
 				</span>
@@ -47,14 +47,13 @@
 		<!-- 氏名のふりがな -->
 
 			<div class="nameKana">
-				<div class="kana">[せい]<br></div>
+				<span>[せい]<br>
 				<input type="text" placeholder="せい" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/><br>
 				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
-
-				<div class="kana"></div>[めい]<br>
-				<input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
-				<s:property value="errorFirstNameKanaMsg"/>
-
+				</span>
+				<span>[めい]<br><input type="text" placeholder="めい" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
+				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
+				</span>
 			</div>
 
 		<!-- 郵便番号入力(7桁) -->
@@ -73,7 +72,7 @@
 			<div class="form-text">
 			<div>
 				<span>住所<br>
-				<input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>'  size="20"/>
+				<input type="text" placeholder="住所" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="20"/>
 				</span>
 			</div>
 			<div class="error">

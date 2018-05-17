@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="./css/product.css">
 
+
 <title>商品一覧</title>
 
 
@@ -30,13 +31,13 @@
 
 		<div class="product-box" >
 
-		<div class="imageHover">
-		<!-- 商品画像（オンクリックで詳細にジャンプ） -->
+
+		<!-- 商品画像 -->
 		<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
 		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
-		</a>
-		</div>
-		<div class="productInfo">
+
+
+
 			<!-- 商品名 -->
 			<div class="proName">
 			<s:property value="productName" />
@@ -52,9 +53,9 @@
 			￥<s:property value="price"/>
 			<br>
 			</div>
-		</div>
 
 
+		</a>
 	</div>
 
 </s:iterator>
@@ -64,7 +65,7 @@
 <div class="center" style="text-align: center;">
  <s:if test="#session.ProductListLength != null && #session.ProductListLength >= 1">
 
-             <span>ページ数</span>
+             <span>ページ</span>
 
                      <s:iterator begin="1" end="#session.ProductListLength" step="1" status="st">
 
@@ -116,7 +117,7 @@
 
        <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 
-               <span>ページ数</span>
+               <span>ページ</span>
                        <s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
                          <a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="#st.index" /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" ><s:property value='#st.count' /> </a>
 

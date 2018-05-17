@@ -9,6 +9,7 @@
 <head>
 
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" href="./css/master.css">
 <meta http-equiv="refresh" content="5;URL=<s:url action='MasterAction' />">
 <script src="js/blowserBackPrevent.js" type="text/javascript"></script>
 <title>商品情報変更完了画面</title>

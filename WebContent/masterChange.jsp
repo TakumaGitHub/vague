@@ -9,7 +9,7 @@
 <head>
 
 <jsp:include page="head.jsp" />
-
+<link rel="stylesheet" href="./css/master.css">
 <title>商品情報変更画面</title>
 </head>
 
@@ -34,33 +34,44 @@ response.sendRedirect("/vague/home.jsp");
 
 
 	<!--  mainの始まり -->
+<div id="main">
+	<div class="container">
 
-    <div id="main">
+
 
 
 		<s:form action="MasterChangeConfirmAction" method="post" enctype="multipart/form-data">
 
 
 			<s:if test="productId != null">
-
-	    		<p>商品ID</p>
-				<p>現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。</p>
+				<div class="m-id">
+	    		<span>商品ID:
 				<s:property value="errorMsg.productId" />
 				<input type="text" name="productId" value="<s:property value='productId' />" required="required"/>
 
-				<p>商品名</p>
+				※現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。<br>
+				</span><br>
+				</div>
+				<div class="m-name">
+				<span>商品名:
 				<s:property value="errorMsg.productName" />
 				<input type="text" name="productName" value="<s:property value='productName' />"  required="required"/>
-
-				<p>商品名かな</p>
+				</span><br>
+				</div>
+				<div class="m-name-kana">
+				<span>商品名かな:
 				<s:property value="errorMsg.productNameKana" />
 				<input type="text" name="productNameKana" value="<s:property value='productNameKana' />" required="required" />
-
-				<p>商品の説明</p>
+				</span><br>
+				</div>
+				<div class="m-description">
+				<span>商品の説明:
 				<s:property value="errorMsg.productDescription" />
-				<textarea name="productDescription" ><s:property value="productDescription"/></textarea>
-
-				<p>カテゴリーID</p>
+				<textarea name="productDescription"  rows="2" cols="50"><s:property value="productDescription"/></textarea>
+				</span><br>
+				</div>
+				<div class="m-category">
+				<span>カテゴリーID:
 				<s:property value="errorMsg.categoryId" />
 				<select name="categoryId" required="required">
 
@@ -74,23 +85,31 @@ response.sendRedirect("/vague/home.jsp");
 					</s:iterator>
 
 				</select>
-
-				<p>在庫</p>
+				</span><br>
+				</div>
+				<div class="m-stock">
+				<span>在庫:
 				<s:property value="errorMsg.productStock" />
 				<input type="text" name="productStock" value="<s:property value='productStock' />" required="required" />
-
-				<p>価格</p>
+				</span><br>
+				</div>
+				<div class="m-price">
+				<span>価格:
 				<s:property value="errorMsg.price" />
 				<input type="text" name="price" value="<s:property value='price' />" required="required" />
-
-				<p>ファイルアップロード</p>
+				</span><br>
+				</div>
+				<div class="m-file">
+				<span>ファイルアップロード
 				<s:property value="errorMsg.imageFilePath" />
 				<input type="file" name="userImage" />
-
-				<p>発売日</p>
+				</span><br>
+				</div>
+				<div class="m-reDate">
+				<span>発売日
 				<s:property value="errorMsg.releaseDate" />
 
-				<p><input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='year' />"/>年
+				<input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='year' />"/>年
 
 					<select name="month">
 
@@ -118,39 +137,49 @@ response.sendRedirect("/vague/home.jsp");
 
 					</select>日
 
-				</p>
 
-
-				<p>販売会社</p>
+				</span><br>
+				</div>
+				<div class="m-reCompany">
+				<span>販売会社:
 				<s:property value="errorMsg.releaseCompany" />
-				<input type="text" name="releaseCompany" value="<s:property value='releaseCompany' />"  required="required"/>
+				<input type="text" name="releaseCompany" value="<s:property value='releaseCompany' />"  required="required"/><br>
+				</span>
+				</div>
+		</s:if>
 
 
-
-
-	    	</s:if>
 
 			<!-- セッションにMasterChangeCompleteDTOがあれば -->
 	    	<s:elseif test="#session.MasterChangeCompleteDTO != null" >
-
-				<p>商品ID</p>
-				<p>現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。</p>
+				<div class="m-id">
+				<span>商品ID
 				<s:property value="errorMsg.productId" />
 				<input type="text" name="productId" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productId' />" required="required"/>
 
-				<p>商品名</p>
+				現在最も大きい商品IDは<s:property value="#session.maxProductId" />です。<br>
+				</span><br>
+				</div>
+				<div class="m-name">
+				<span>商品名:
 				<s:property value="errorMsg.productName" />
 				<input type="text" name="productName" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productName' />"  required="required"/>
-
-				<p>商品名かな</p>
+				</span>
+				</div>
+				<div class="m-name-kana">
+				<span>商品名かな:
 				<s:property value="errorMsg.productNameKana" />
 				<input type="text" name="productNameKana" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productNameKana' />" required="required" />
-
-				<p>商品の説明</p>
+				</span>
+				</div>
+				<div class="m-description">
+				<p>商品の説明:</p>
 				<s:property value="errorMsg.productDescription" />
-				<textarea name="productDescription" ><s:property value="#session.MasterChangeCompleteDTO.productDTO.productDescription"/></textarea>
+				<textarea name="productDescription" rows="2" cols="50" ><s:property value="#session.MasterChangeCompleteDTO.productDTO.productDescription"/></textarea>
 
-				<p>カテゴリーID</p>
+				</div>
+				<div class="m-category">
+				<span>カテゴリーID:
 				<s:property value="errorMsg.categoryId" />
 				<select name="categoryId" required="required">
 
@@ -164,23 +193,31 @@ response.sendRedirect("/vague/home.jsp");
 					</s:iterator>
 
 				</select>
-
-				<p>在庫</p>
+				</span>
+				</div>
+				<div class="m-stock">
+				<span>在庫:
 				<s:property value="errorMsg.productStock" />
 				<input type="text" name="productStock" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productStock' />" required="required" />
-
-				<p>価格</p>
+				</span>
+				</div>
+				<div class="m-price">
+				<span>価格:
 				<s:property value="errorMsg.price" />
 				<input type="text" name="price" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.price' />" required="required" />
-
-				<p>ファイルアップロード</p>
+				</span>
+				</div>
+				<div class="m-file">
+				<span>ファイルアップロード:
 				<s:property value="errorMsg.imageFilePath" />
 				<input type="file" name="userImage" />
-
-				<p>発売日</p>
+				</span>
+				</div>
+				<div class="m-reDate">
+				<span>発売日:
 				<s:property value="errorMsg.releaseDate" />
 
-				<p><input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(0,4)' />"/>年
+				<input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(0,4)' />"/>年
 
 					<select name="month">
 
@@ -208,13 +245,15 @@ response.sendRedirect("/vague/home.jsp");
 
 					</select>日
 
-				</p>
 
-
-				<p>販売会社</p>
+				</span>
+				</div>
+				<div class="m-reCompany">
+				<span>販売会社:
 				<s:property value="errorMsg.releaseCompany" />
 				<input type="text" name="releaseCompany" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseCompany' />"  required="required"/>
-
+				</span>
+				</div>
 	    	</s:elseif>
 
 
@@ -224,7 +263,7 @@ response.sendRedirect("/vague/home.jsp");
 
 
     </div>
-
+</div>
     <!--  mainの終わり -->
 
 

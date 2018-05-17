@@ -9,7 +9,7 @@
 <head>
 
 <jsp:include page="head.jsp" />
-
+<link rel="stylesheet" href="./css/master.css">
 <title>商品情報変更確認画面</title>
 </head>
 

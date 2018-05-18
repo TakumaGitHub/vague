@@ -36,6 +36,8 @@
 
 			<div class="review-container">
 
+				<h2 class="introduce-msg">MY REVIEW</h2>
+
 				<s:iterator value="#session.ReviewMyListDTOList" >
 
 					<div class="my-review-box" >
@@ -56,7 +58,14 @@
 								<p>商品名：<s:property value="productDTO.productName" /></p>
 								<p>タイトル：<s:property value="reviewDTO.reviewTitle" /></p>
 								<p>内容：</p>
-								<textarea readonly><s:property value="reviewDTO.reviewBody" /></textarea>
+								<textarea rows="4" readonly><s:property value="reviewDTO.reviewBody" /></textarea>
+								<p>評価：
+
+									<s:iterator begin="1" end="reviewDTO.reviewScore" step="2" >
+										<img class="review-socre-star" src="LogoImage/reviewScore.png" />
+									</s:iterator>
+
+								</p>
 
 							</div>
 
@@ -74,11 +83,10 @@
 
 				<s:if test="#session.reviewMyListLength != null">
 
-	               <span>ページ数</span>
 
 	                       <s:iterator begin="1" end="#session.reviewMyListLength" step="1" status="st">
 
-	                               <a href="<s:url action='ReviewMyListAction' />?ListNumber=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
+	                               <a class="pageNation" href="<s:url action='ReviewMyListAction' />?ListNumber=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
 
 	                       </s:iterator>
 

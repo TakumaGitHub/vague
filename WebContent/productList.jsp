@@ -26,8 +26,25 @@
 
 <div id="main">
 	<div class="container">
+		<div class="tittle">
+
+				<s:if test="#session.ProductListLength  >= 1">
+					<span>商品一覧</span><br>
+					<div class="pages">
+					<span><s:property value="#session.ProductListLength" />ページ中  <s:property value="%{pageNum +1}" />ページ目</span>
+					</div>
+				</s:if>
+				<s:if test="#session.SearchListLength >= 1">
+					<span>商品の検索結果</span><br>
+					<div class="pages">
+					<span><s:property value="#session.SearchListLength" />ページ中 <s:property value="%{ListNumber +1}" />ページ目</span>
+					</div>
+				</s:if>
+			</div>
+
+
 	<div class="product-box-outer">
-		<div class="tittle"><p>商品一覧</p></div>
+
 		<s:iterator value="#session.ProductList">
 
 		<div class="product-box" >
@@ -65,17 +82,36 @@
 
 </div>
 
+<!-- ページネーション -->
 <div class="center" style="text-align: center;">
  <s:if test="#session.ProductListLength != null && #session.ProductListLength >= 1">
 
-             <span>ページ</span>
+             <span>ページ</span><br>
 
+
+
+					<div class="page-number">
                      <s:iterator begin="1" end="#session.ProductListLength" step="1" status="st">
 
-						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="#st.index" /></s:url>" ><s:property value='#st.count' /> </a>
+						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="#st.index" /></s:url>" ><s:property value='#st.count' /></a>
 
                      </s:iterator>
+					 <br>
+					<s:if test="pageNum != 0">
 
+                     	<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="%{pageNum-1}" /></s:url>" >
+                     	<span>&laquo;<s:text name="戻る"/></span></a>
+
+                     </s:if>
+             		 <s:if test="pageNum != #session.ProductListLength -1">
+
+						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="%{pageNum+1}" /></s:url>" >
+	                     <span><s:text name="進む"/>&raquo;</span></a>
+
+					</s:if>
+
+
+					</div>
  </s:if>
 
 </div>
@@ -117,7 +153,7 @@
 
 		</div>
 
-
+<!-- ページネーション（検索時） -->
 <div class="center" style="text-align: center;">
        <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 
@@ -127,10 +163,30 @@
 
                        </s:iterator>
 
+
+                       <div class="page-number">
+					 	<br>
+					<s:if test="ListNumber != 0">
+
+                     	<a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="ListNumber - 1 " /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" >
+                     	<span>&laquo;<s:text name="戻る"/></span></a>
+
+                     </s:if>
+             		 <s:if test="ListNumber != #session.SearchListLength -1">
+
+						<a href="<s:url action='ProductSearchAction' ><s:param name="ListNumber" value="ListNumber + 1" /><s:param name="retrievalValue" value="#session.retrievalValue" /><s:param name="category_id" value="#session.retrievalCategory_id" /><s:param name="rule" value="#session.retrievalRule" /></s:url>" >
+	                     <span><s:text name="進む"/>&raquo;</span></a>
+
+					</s:if>
+
+
+					</div>
+
        </s:if>
 
 
 </div>
+
 </div>
 </div>
 

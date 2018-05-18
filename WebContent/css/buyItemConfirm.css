@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+
+#main {
+	background-color:white;
+}
+
+.container {
+}
+
+
+.container h3 {
+    font-size:25px;
+    font-spacing:3px;
+    text-align:center;
+}
+
+
+.container p {
+    font-size:15px;
+    text-align:center;
+}
+
+.left {
+    float:left;
+    padding-left:50px;
+}
+
+.right {
+    float:right;
+    padding-right:50px;
+}
+
+.productName {
+	font-size:20px
+}
+
+.box1 {
+	border: solid 2px #e3e3e3;
+	border-radius:10px;
+	padding:10px 40px;
+}
+
+.detail {
+    display:flex;
+
+}
+
+.box2 {
+	padding-top:90px;
+}
+
+
+.price {
+    float:right;
+}
+
+#form1 {
+	border: solid 2px #e3e3e3;
+	border-radius:10px;
+}
+
+.price {
+	padding-top:20px;
+	font-size:20px;
+}
+
+.address {
+    padding-left:60px;
+}
+
+
+.buttom {
+    display:flex;
+}
+
+
+

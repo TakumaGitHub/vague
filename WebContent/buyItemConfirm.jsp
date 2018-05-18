@@ -6,7 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" type="text/css" href="css/buyItemConfirm.css">
 	<title>決済確認</title>
 </head>
 <body>
@@ -19,65 +21,80 @@
     <!--  headerの終わり -->
 
 
-	<div>
+	<div id="main">
+	<div class="container">
 		<h3>決済確認</h3>
 		<p>以下の内容でよろしいですか？</p>
-	</div>
 	<!-- カートの情報 -->
+		<div class="left">
 		<s:iterator value="cartList">
-			<div>
-				<span>商品名：<s:property value="productName"/></span>
+		<div class="box1">
+			<div class="product">
+				<span class="productName">商品名：<s:property value="productName"/></span>
 			</div>
-
+			<div class="detail">
 			<div>
-				<img src="<s:property value='imageFilePath' />" width="100" height="auto" />.
+			<img src="<s:property value='imageFilePath' />" width="300px" height="200px" />
 			</div>
-
-			<div>
-				<span>金額：<s:property value="price"/></span>
+			<div class="box2">
+			<div class="detail1">
+				<p>金額：<s:property value="price"/>円</p>
 			</div>
-			<div>
-				<span>購入個数：<s:property value="productCount"/></span>
+			<div class="detail2">
+				<p>購入個数：<s:property value="productCount"/>個</p>
 			</div>
-			<div>
-				<span>小計：<s:property value="totalPrice"/></span>
+			<div class="detail3">
+				<p>小計：<s:property value="totalPrice"/>円</p>
+			</div>
+			</div>
+			</div>
 			</div>
 		</s:iterator>
-		<div>
-			<span>請求金額：<s:property value="finallyPrice"/></span>
 		</div>
-		<br>
-		<br>
 
 
-	<s:form action="BuyItemCompleteAction">
+		<div class="right">
+	<s:form id="form1" name="form1" action="BuyItemCompleteAction">
+
 
 	<!-- 宛先情報 -->
-			<div>
-				<span>名前：<s:property value="#session.ChooseAddressDTO.familyName"/><s:property value="#session.ChooseAddressDTO.firstName"/></span>
-			</div>
-			<div>
-				<span>ふりがな：<s:property value="#session.ChooseAddressDTO.familyNameKana"/><s:property value="#session.ChooseAddressDTO.firstNameKana"/></span>
-			</div>
-			<div>
-				<span>郵便番号：<s:property value="#session.ChooseAddressDTO.postalCode"/></span>
-			</div>
-			<div>
-				<span>住所：<s:property value="#session.ChooseAddressDTO.addr11"/></span>
-			</div>
-			<div>
-				<span>電話番号：<s:property value="#session.ChooseAddressDTO.telNumber"/></span>
-			</div>
-			<div>
+		<div class="address">
+				<span>名前：<s:property value="#session.ChooseAddressDTO.familyName"/><s:property value="#session.ChooseAddressDTO.firstName"/></span><br>
+				<span>ふりがな：<s:property value="#session.ChooseAddressDTO.familyNameKana"/><s:property value="#session.ChooseAddressDTO.firstNameKana"/></span><br>
+				<span>郵便番号：<s:property value="#session.ChooseAddressDTO.postalCode"/></span><br>
+				<span>住所：<s:property value="#session.ChooseAddressDTO.addr11"/></span><br>
+				<span>電話番号：<s:property value="#session.ChooseAddressDTO.telNumber"/></span><br>
 				<span>メールアドレス：<s:property value="#session.ChooseAddressDTO.email"/></span>
-			</div>
-		<div>
-			<s:submit value="完了"/>
+		</div>
+
+		<div class="price">
+			<span>請求金額：<s:property value="finallyPrice"/>円</span>
+
+		<div class="buttom">
+			<input id="buttom2" type="submit" value="戻る">
+			<input id="buttom1" type="submit" value="完了">
+		</div>
 		</div>
 	</s:form>
 
-	<!-- 戻って編集する場合 -->
-	<s:form action="BuyItemAction"><s:submit value="戻る"/></s:form>
+
+
+	<script>
+		$(function(){
+			$('#buttom1').click(function() {
+				$('#form1').attr('action','BuyItemCompleteAction');
+				$('#form1').submit();
+			});
+			$('#buttom2').click(function(){
+				$('#form1').attr('action','BuyItemAction');
+				$('#form1').submit();
+			});
+		});
+	</script>
+	</div>
+
+	</div>
+	</div>
 
 
 	<!-- footerの始まり -->

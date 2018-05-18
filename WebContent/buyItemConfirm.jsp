@@ -44,7 +44,7 @@
 				<p>購入個数：<s:property value="productCount"/>個</p>
 			</div>
 			<div class="detail3">
-				<p>小計：<s:property value="totalPrice"/>円</p>
+				<p>小計：<s:property value="productTotalPrice"/>円</p>
 			</div>
 			</div>
 			</div>

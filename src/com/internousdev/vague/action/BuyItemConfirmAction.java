@@ -30,7 +30,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	private int addressId;
-	private int totalPrice;//小計金額
 	private int finallyPrice;//請求金額
 	private int productCount;
 //	エラーメッセージ
@@ -74,11 +73,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 			return result;
 		}
 
-//		 小計金額計算
-		for(CartDTO cartDTO:cartList) {
-			totalPrice += cartDTO.getPrice();
-		}
-
 //		請求金額計算
 		for(int i = 0; i < cartList.size(); i++) {
 			finallyPrice += cartList.get(i).getProductTotalPrice();
@@ -120,14 +114,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 
 	public void setAddressId(int addressId) {
 		this.addressId = addressId;
-	}
-
-	public int getTotalPrice() {
-		return totalPrice;
-	}
-
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
 	}
 
 	public int getFinallyPrice() {

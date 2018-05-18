@@ -21,11 +21,9 @@
     <!--  headerの終わり -->
 
 	<div id="main">
-	<div class="container">
-
-		<h3>宛先が登録されました。</h3>
-		<p>3秒後に決済画面に戻ります。</p>
-
+		<div class="container">
+			<h3>宛先が登録されました。</h3>
+			<p>3秒後に決済画面に戻ります。</p>
 		<s:form action="BuyItemAction">
 			<div class="return">
 				<p>※決済画面に戻らない場合、こちらのボタンを押してください↓<input type="submit" value="戻る" ></p>

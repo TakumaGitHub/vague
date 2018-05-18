@@ -28,22 +28,19 @@
 			※住所は、半角及び全角スペース抜きで詰めて入力して下さい。</p>
 
 		<s:form id="form1" action="AddressRegiConfirmAction">
-
-
 			<s:if test="#session.AddressDTO != null" >
+
 
 			<!-- 氏名 -->
 
 			<div class="fullName">
 				<span>[姓]<br><input type="text" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFamilyNameMsg"/></span>
+					<span class="error"><s:property value="errorFamilyNameMsg"/></span>
 				</span>
 				<span>[名]<br><input type="text" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFirstNameMsg"/></span>
+					<span class="error"><s:property value="errorFirstNameMsg"/></span>
 				</span>
 			</div>
-
-
 
 
 		<!-- 氏名のふりがな -->
@@ -51,12 +48,13 @@
 			<div class="nameKana">
 				<span>[せい]<br>
 				<input type="text" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
+					<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
 				</span>
 				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
+					<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 				</span>
 			</div>
+
 
 		<!-- 郵便番号入力(7桁) -->
 
@@ -69,18 +67,20 @@
 			</div>
 			</div>
 
+
 		<!-- 住所 -->
 
 			<div class="form-text">
 			<div>
 				<span>住所<br>
-				<input type="text" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="50"/>
+					<input type="text" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="50"/>
 				</span>
 			</div>
 			<div class="error">
 				<s:property value="errorAddr11Msg"/>
 			</div>
 			</div>
+
 
 		<!-- 電話番号 -->
 
@@ -93,6 +93,7 @@
 			</div>
 			</div>
 
+
 		<!-- メールアドレス -->
 
 			<div class="form-text">
@@ -103,25 +104,22 @@
 				<s:property value="errorEmailMsg"/>
 			</div>
 			</div>
-
-
 			</s:if>
 
 
-
-
 			<s:else>
+
 
 			<!-- 氏名 -->
 
 			<div class="fullName">
 				<span>[姓]<br>
 				<input type="text" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFamilyNameMsg"/></span>
+					<span class="error"><s:property value="errorFamilyNameMsg"/></span>
 				</span>
 				<span style="text-align:left">[名]<br>
 				<input type="text" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFirstNameMsg"/></span>
+					<span class="error"><s:property value="errorFirstNameMsg"/></span>
 				</span>
 			</div>
 
@@ -131,25 +129,27 @@
 			<div class="nameKana">
 				<span>[せい]<br>
 				<input type="text" name="familyNameKana" value='<s:property value="familyNameKana"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
+					<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span>
 				</span>
 				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
+					<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 				</span>
 			</div>
+
 
 		<!-- 郵便番号入力(7桁) -->
 
 			<div class="form-text">
 			<div>
 				<span>郵便番号<br>
-				〒<input type="text" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/>
+					〒<input type="text" name="postalCode" value='<s:property value="postalCode"/>' pattern="^[0-9]{7}$" size="8" oninput="AjaxZip3.zip2addr(this,'','addr11','addr11');"/>
 				</span>
 			</div>
 			<div class="error">
 				<s:property value="errorPostalCodeMsg"/>
 			</div>
 			</div>
+
 
 		<!-- 住所 -->
 
@@ -162,6 +162,7 @@
 			</div>
 			</div>
 
+
 		<!-- 電話番号 -->
 
 			<div class="form-text">
@@ -172,6 +173,7 @@
 				<s:property value="errorTelNumberMsg"/>
 			</div>
 			</div>
+
 
 		<!-- メールアドレス -->
 

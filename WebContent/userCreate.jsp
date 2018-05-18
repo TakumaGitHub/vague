@@ -31,14 +31,14 @@
 			<p>氏名を入力してください。<p>
 			<p class="error-msg"><s:property value='errorMsg.familyName' /></p>
 			<p class="error-msg"><s:property value='errorMsg.firstName' /></p>
-			<p><span>名字：<input type="text" name="familyName" value="<s:property value='#session.CreateUserDTO.familyName' />"></span>
-			<span>名前：<input type="text" name="firstName" value="<s:property value='#session.CreateUserDTO.firstName' />"></span></p>
+			<p><span>姓：<input type="text" name="familyName" value="<s:property value='#session.CreateUserDTO.familyName' />"></span>
+			<span>名：<input type="text" name="firstName" value="<s:property value='#session.CreateUserDTO.firstName' />"></span></p>
 
 			<p>氏名をひらがなで入力して下さい。</p>
 			<p class="error-msg"><s:property value='errorMsg.familyNameKana' /></p>
 			<p class="error-msg"><s:property value='errorMsg.firstNameKana' /></p>
-			<p><span>みょうじ：<input type="text" name="familyNameKana" value="<s:property value='#session.CreateUserDTO.familyNameKana' />"></span>
-			<span>なまえ：<input type="text" name="firstNameKana" value="<s:property value='#session.CreateUserDTO.firstNameKana' />"></span></p>
+			<p><span>姓かな：<input type="text" name="familyNameKana" value="<s:property value='#session.CreateUserDTO.familyNameKana' />"></span>
+			<span>名かな：<input type="text" name="firstNameKana" value="<s:property value='#session.CreateUserDTO.firstNameKana' />"></span></p>
 
 			<p>性別を選択して下さい。</p>
 
@@ -74,12 +74,12 @@
 		<s:else>
 
 			<p>氏名を漢字で入力してください。<p>
-			<p><span>名字：<input type="text" name="familyName"></span>
-			   <span>名前：<input type="text" name="firstName"></span></p>
+			<p><span>姓：<input type="text" name="familyName"></span>
+			   <span>名：<input type="text" name="firstName"></span></p>
 
 			<p>氏名をひらがなで入力して下さい。</p>
-			<p><span>みょうじ：<input type="text" name="familyNameKana" ></span>
-			   <span>なまえ：<input type="text" name="firstNameKana" ></span></p>
+			<p><span>姓かな：<input type="text" name="familyNameKana" ></span>
+			   <span>名かな：<input type="text" name="firstNameKana" ></span></p>
 
 			<p>性別を選択して下さい。</p>
 			<p>

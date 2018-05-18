@@ -4,7 +4,7 @@
 .main-container {
 
 	width : 60%;
-	margin : 0 auto;
+	margin : 0 auto 60px;
 
 }
 
@@ -15,10 +15,31 @@
 
 }
 
-.main-container img {
+.main-container input[type=submit] {
+
+	margin-top: 40px;
+
+}
+
+.review-product-box {
+
+	text-align : center;
+	margin : 0 auto;
+
+}
+
+.review-product-box img {
 
 	width : 50%;
 	height : auto;
 
+
+}
+
+.review-score-star  {
+
+	width : 48px;
+	height : auto;
+	cursor : pointer;
 
 }

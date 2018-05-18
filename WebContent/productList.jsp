@@ -27,6 +27,7 @@
 <div id="main">
 	<div class="container">
 	<div class="product-box-outer">
+		<div class="tittle"><p>商品一覧</p></div>
 		<s:iterator value="#session.ProductList">
 
 		<div class="product-box" >
@@ -83,7 +84,7 @@
 <!-- 検索結果 -->
 
 
-<div class="center" style="text-align: center;">
+
 
 		<p><s:property value="errorMsg" /></p>
 		<p><s:property value="inputErrorMsg" /></p>
@@ -106,7 +107,7 @@
 							    <p><s:property value="productNameKana" /></p>
 							</div>
 							<div class="proPrice">
-							    <p>￥<s:property value="price" />円</p>
+							    <p>￥<s:property value="price" /></p>
 						 </div>
 		               </div>
 		       </s:if>
@@ -117,7 +118,7 @@
 		</div>
 
 
-
+<div class="center" style="text-align: center;">
        <s:if test="#session.SearchListLength != null && #session.SearchListLength >= 1">
 
                <span>ページ</span>

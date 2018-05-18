@@ -36,9 +36,15 @@
 
 			<div class="review-container">
 
-				<h2 class="introduce-msg">MY REVIEW</h2>
+				<h2 class="title">MY REVIEW</h2>
 
-				<s:iterator value="#session.ReviewMyListDTOList" >
+				<s:if test="#session.ReviewMyListDTOList == null || #session.ReviewMyListDTOList.isEmpty()">
+					<p>レビューがありません</p>
+				</s:if>
+
+				<s:else>
+
+					<s:iterator value="#session.ReviewMyListDTOList" >
 
 					<div class="my-review-box" >
 
@@ -78,31 +84,50 @@
 
 
 
-				</s:iterator>
+					</s:iterator>
 
 
-				<s:if test="#session.reviewMyListLength != null">
+					<s:if test="#session.reviewMyListLength != null">
 
 
-	                       <s:iterator begin="1" end="#session.reviewMyListLength" step="1" status="st">
+		                       <s:iterator begin="1" end="#session.reviewMyListLength" step="1" status="st">
 
-	                               <a class="pageNation" href="<s:url action='ReviewMyListAction' />?ListNumber=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
+		                               <a class="pageNation" href="<s:url action='ReviewMyListAction' />?ListNumber=<s:property value='#st.index' />" ><s:property value='#st.count' /> </a>
 
-	                       </s:iterator>
+		                       </s:iterator>
 
-	       		</s:if>
+		       		</s:if>
+
+					<div class="form-box-wrapper">
+
+						<div class="form-box">
+
+						<form action="ReviewMyListAction" method="post" >
+						<input type="hidden" name="deleteFlg" value="2" />
+						<input type="submit" value="レビューを全削除" class="normal-button"/>
+						</form>
+
+						</div>
+
+						<div class="form-box">
+
+							<form id="checkDelete" action="ReviewMyListAction" method="post" >
+							<input type="hidden" name="deleteFlg" value="1" />
+								<input type="submit" value="チェックしたレビューを削除" class="normal-button"/>
+							</form>
+
+						</div>
+
+
+					</div>
+
+
+				</s:else>
 
 
 
-				<form action="ReviewMyListAction" method="post" >
-					<input type="hidden" name="deleteFlg" value="2" />
-					<input type="submit" value="レビューを全削除"/>
-				</form>
 
-				<form id="checkDelete" action="ReviewMyListAction" method="post" >
-				<input type="hidden" name="deleteFlg" value="1" />
-					<input type="submit" value="チェックしたレビューを削除"/>
-				</form>
+
 
 
 			</div>

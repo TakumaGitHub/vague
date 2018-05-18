@@ -25,6 +25,8 @@
 				<div id="main">
 				<div class="container">
 
+				<div class="title">新規ユーザー登録完了</div>
+
 					<h2>ユーザー登録完了</h2>
 
 					<a href='<s:url action="GoHomeAction" />'>ホーム画面へ</a>

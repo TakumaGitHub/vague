@@ -37,6 +37,9 @@ response.sendRedirect("/vague/home.jsp");
     <div id="main">
     	<div class="container">
 
+    	<div class="title">パスワード更新完了画面</div>
+
+
 		<h2>パスワードの再設定が完了いたしました</h2>
 
     	<p>5秒後にログイン画面に移動します</p>

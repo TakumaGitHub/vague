@@ -20,6 +20,8 @@
 <div id="main">
 	<div class="container">
 
+	<div class="title">入力情報確認ページ</div>
+
 	<h3>以下の情報で間違いがなければ登録ボタンをクリックしてください。</h3><br>
 
 	<s:form action="UserCreateCompleteAction" method="post">

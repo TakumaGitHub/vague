@@ -32,6 +32,8 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="container">
 
+		<div class="title">ログイン・新規登録ページ</div>
+
 
 			<div id="input" class="left">
 				<br><h3>ログインIDとパスワードを入力してください。</h3>
@@ -66,9 +68,9 @@ response.sendRedirect("/vague/home.jsp");
 				<s:form action="userCreate.jsp">
 						<input type="submit" value="新規登録">
 						</s:form><br>
-
-				<br><br><br><br><br><br><a href="home.jsp" >ホーム画面に戻る</a>
 			</div>
+
+			<div><a href="home.jsp" >ホーム画面に戻る</a></div>
 		</div>
 	</div>
 

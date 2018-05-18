@@ -21,6 +21,8 @@
 
 		<p><s:property value="userIdErrorMsg" /></p>
 
+		<div class="title">新規ユーザー登録ページ</div>
+
 
 
 		<form action="UserCreateConfirmAction">

@@ -35,6 +35,8 @@ response.sendRedirect("/vague/home.jsp");
     <div id="main">
     	<div class="container">
 
+    	<div class="title">パスワード更新確認画面</div>
+
 		<h2>パスワードを変更してよろしいですか？</h2>
 
 		<table>

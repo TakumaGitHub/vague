@@ -33,6 +33,8 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="container">
 
+		<div class="title">パスワード更新画面</div>
+
 		<h2>パスワードの再設定</h2>
 
 		<form action="UserPasswordUpdateAction" method="post">

@@ -7,13 +7,13 @@
 .left{
 	float:left;
 	width:40%;
-	height:420px;
+	height:480px;
 }
 
 .right{
 	float:right;
 	width:40%;
-	height:420px;
+	height:480px;
 }
 
 input[type="submit"] {

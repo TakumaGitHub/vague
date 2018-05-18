@@ -52,7 +52,9 @@ response.sendRedirect("/vague/home.jsp");
 						</p>
 
 						<p><s:submit value="ログイン"/></p>
-						<p><a href="userPasswordUpdate.jsp" class="button">パスワードの再設定</a></p>
+						<p class="normal-button"><s:form action="userPasswordUpdate.jsp">
+						<input type="submit" value="パスワードの再設定">
+						</s:form></p>
 
 
 
@@ -61,7 +63,9 @@ response.sendRedirect("/vague/home.jsp");
 
 			<div class="right">
 				<br><h3>新規のお客様のご登録はこちら。</h3><br>
-				<a href="userCreate.jsp" class="button2" id="sinki">新規登録</a><br>
+				<s:form action="userCreate.jsp">
+						<input type="submit" value="新規登録">
+						</s:form><br>
 
 				<br><br><br><br><br><br><a href="home.jsp" >ホーム画面に戻る</a>
 			</div>

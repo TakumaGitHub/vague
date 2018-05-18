@@ -66,19 +66,36 @@ response.sendRedirect("/vague/home.jsp");
 
 					<tr>
 						<th>評価</th>
-						<td><s:property value="#session.CreateReviewCompleteDTO.reviewScore"/></td>
+						<td>
+							<s:iterator begin="1" end="#session.CreateReviewCompleteDTO.reviewScore" step="1" >
+								<img src="LogoImage/reviewScore.png" />
+							</s:iterator>
+						</td>
 					</tr>
 
 				</table>
 
 
+				<div class="form-box-wrapper">
 
-				<form action="CreateReviewCompleteAction" method="post">
-					<input type="submit" value="投稿する" />
-				</form>
-				<form action="createReview.jsp" method="post">
-					<input type="submit" value="戻って修正する" />
-				</form>
+					<div class="form-box">
+
+						<form action="CreateReviewCompleteAction" method="post">
+						<input type="submit" value="投稿する" />
+						</form>
+
+					</div>
+
+					<div class="form-box">
+
+						<form action="createReview.jsp" method="post">
+						<input type="submit" value="戻って修正する" />
+						</form>
+
+					</div>
+
+
+				</div>
 
     		</div>
 

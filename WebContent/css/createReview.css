@@ -24,13 +24,13 @@
 .review-product-box {
 
 	text-align : center;
-	margin : 0 auto;
+	margin : 0 auto 40px;
 
 }
 
 .review-product-box img {
 
-	width : 50%;
+	width : 40%;
 	height : auto;
 
 
@@ -46,7 +46,7 @@
 
 .main-container table {
 
-	width : 80%;
+	width : 100%;
 	margin : 40px auto 0;
 	border : 3px solid #A4A9CF;
 	border-radius : 5px;
@@ -60,7 +60,10 @@
 	width : 35%;
 	padding: 20px 20px 20px 0;
 	background-color: #A4A9CF;
+
 	border : none;
+
+	color : white;
 	vertical-align : middle;
 
 
@@ -69,7 +72,30 @@
 .main-container table td {
 
 	width : 55%;
-	padding: 20px 0 20px 20px;
+	padding: 20px ;
 	border-bottom : 2px solid #A4A9CF;
+
+}
+
+.main-container table td img {
+
+	height : 100%;
+	width : auto;
+
+}
+
+
+.form-box-wrapper {
+
+	margin-top : 30px;
+	text-align : center;
+
+}
+
+.form-box {
+
+	display : inline-block;
+	margin : 0 10px;
+
 
 }

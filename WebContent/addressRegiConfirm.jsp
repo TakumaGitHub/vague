@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/address.css">
 <title>宛先入力情報確認画面</title>
@@ -20,11 +20,13 @@
 	<div id="main">
 
 	<div class="container">
-
-		<h3>登録する宛先情報は以下でよろしいですか？</h3>
-
-		<s:form id="form1" action="AddressRegiCompleteAction">
-
+	<div class="box">
+	<div>
+		<h3>宛先登録確認</h3>
+		<p>以下の情報でよろしければ登録を押して下さい。<br>
+		※修正する場合は戻るを押して下さい。</p>
+	</div>
+		<s:form id="form2" action="AddressRegiCompleteAction">
 			<div class="fullName1" >
 				<span class="text">[姓]<br>
 					<s:property value="#session.AddressDTO.familyName" escape="false"/></span>
@@ -63,20 +65,30 @@
 					</span>
 			</div>
 
-			<div>
-				<span><input type="submit" value="登録"></span>
+			<div class="buttom">
+				<input id="buttom2" type="submit" value="戻る">
+				<input id="buttom1" type="submit" value="登録">
 			</div>
-
 		</s:form>
 		<div>
-
-		<s:form id="form1" action="AddressAction">
-			<span><input type="submit" value="戻る"></span>
-		</s:form>
 
 		</div>
 	</div>
 	</div>
+	</div>
+
+	<script>
+		$(function(){
+			$('#buttom1').click(function() {
+				$('#form2').attr('action','AddressRegiCompleteAction');
+				$('#form2').submit();
+			});
+			$('#buttom2').click(function(){
+				$('#form2').attr('action','AddressAction');
+				$('#form2').submit();
+			});
+		});
+	</script>
 
 
 	<!-- footerの始まり -->

@@ -3,21 +3,30 @@
 
 
 
+
 .container {
-	font-size:17px;
+	font-size:15px;
 }
 
+.box {
+	background-color:white;
+}
 
 .container h3 {
 	font-size:25px;
 	letter-spacing:3px;
-	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	width:400px;
 }
 
 
 .container p {
-	font-size:20px;
-	text-align:center;
+	font-size:15px;
+	margin-left: auto;
+	margin-right: auto;
+	width:450px;
+	padding-left:50px;
 }
 
 
@@ -30,7 +39,13 @@
 	width: 400px;
     margin-left: auto;
     margin-right: auto;
+}
 
+#form2 {
+	width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right:240px;
 }
 
 
@@ -83,6 +98,11 @@
 .error {
 	color:red;
 	display:flex;
+}
+
+.buttom {
+	display:flex;
+	padding-left:200px;
 }
 
 

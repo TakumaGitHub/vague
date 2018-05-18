@@ -1,12 +1,12 @@
 @CHARSET "UTF-8";
 
-
-
-#tytle{
+/*
+.title{
 	font-size:35px;
 	margin-top:40px;
 	text-align:center;
 }
+*/
 
 table{
 	width:80%;
@@ -29,3 +29,20 @@ table{
 	margin:20px 20px 0px;
 }
 
+/* パスワード「変更」ボタン
+.pw-change-button{
+	margin-left: 50px;
+}
+button.pw-change-button{
+	font-size:17px;
+	background-color:#EEEEEE;
+	border-radius:5px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:10px;
+	padding-left:10px;
+}
+button.pw-change-button:hover{
+	background-color:white;
+}
+*/

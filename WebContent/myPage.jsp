@@ -22,11 +22,12 @@
 	<!--  mainの始まり -->
 	<div id="main">
 		<div class="container">
-			<h3 id="tytle">My Page</h3>
+			<h2 class="title">My Page</h2>
 
 				<table>
 					<tr><td colspan="2"><hr></td></tr>
 						<s:iterator value="myPageList">
+
 							<tr>
 								<th class="line">　氏名</th>
 								<td class="line">　<s:property value="familyName" escape="false" />　<s:property value="firstName" escape="false" /></td>
@@ -45,16 +46,34 @@
 								<th class="line">　メールアドレス</th>
 								<td class="line">　<s:property value="email" escape="false" /></td>
 							</tr>
+							<tr><td colspan="2"><hr></td></tr>
+							<tr>
+								<th class="line">　ログインID</th>
+								<td class="line">　<s:property value="#session.LoginUserDTO.userId" escape="false" /></td>
+							</tr>
+							<tr>
+								<th class="line">　パスワード</th>
+								<td class="line">　<s:property value="#session.LoginUserDTO.password" escape="false" />
+									<!-- <button class="pw-change-button" type="submit" onclick="location.href='<s:url action="UserPasswordUpdateAction"></s:url>'" >変更</button> -->
+								</td>
+							</tr>
+
 						</s:iterator>
 					<tr><td colspan="2"><hr></td></tr>
 				</table>
 
 			<div class="button">
 				<form action="GoHomeAction">
-					<input type="submit" value="ホームに戻る" />
+					<input class="normal-button" type="submit" value="ホームに戻る" />
+				</form>
+				<form action="UserPasswordUpdateAction">
+					<input class="normal-button" type="submit" value="パスワードを変更" />
+				</form>
+				<form action="AddressAction" >
+					<input class="normal-button" type="submit" value="宛先を登録する" />
 				</form>
 				<form action="PurchaseHistoryAction">
-					<input type="submit" value="商品購入履歴に行く" />
+					<input class="normal-button" type="submit" value="商品購入履歴へ" />
 				</form>
 			</div>
 

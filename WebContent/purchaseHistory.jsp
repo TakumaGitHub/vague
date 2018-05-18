@@ -28,14 +28,14 @@
 		<div class="container">
 
 			<!-- タイトル -->
-			<h3 id="tytle">Purchase History</h3>
+			<h2 class="title">Purchase History</h2>
 
 			<!-- 購入履歴（なし） -->
 			<div id="message">
 				<s:if test="#session.PurchaseHistoryList.isEmpty()">
 					<p class="message">………　購入履歴はありません　………</p>
 								<!-- 戻るボタン -->
-					<div class="button">
+					<div class="normal-button">
 						<form action="MyPageAction">
 						<input type="submit" value="戻る" />
 						</form>
@@ -64,11 +64,12 @@
 									<td class="purchaseProductInfo">
 										<p>商品名：<s:property value="productName" /></p>
 										<p>ふりがな：<s:property value="productNameKana" /></p>
-										<p>　・値段：<s:property value="price" /> 円<br></p>
 										<p>　・購入個数：<s:property value="count" />点<br></p>
+										<p>　・値段：¥ <s:property value="price" /> <br></p>
 										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
-										<p class="review-button"><input class="review-button" type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する">👍🏻</p>
+										<p class="review-button"><button class="normal-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビュー投稿：<img src="LogoImage/good_icon1.png"></button></p>
+										<!-- <p class="review-button"><button class="review-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビューを投稿する：<img src="LogoImage/good_icon1.png"></button></p> -->
 									</td>
 
 									<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >
@@ -76,7 +77,7 @@
 										<p>郵便番号：<s:property value="postalCode" /></p>
 										<p>住所：<s:property value="userAddress" /></p>
 										<p>注文日：<s:property value="insertDate" /></p>
-										<p>合計金額：<span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>円</p>
+										<p>合計金額：¥ <span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span></p>
 									</td>
 									</s:if>
 
@@ -97,13 +98,12 @@
 					<!-- 戻るボタン -->
 					<div class="button">
 						<form action="MyPageAction">
-							<input class="back-button" type="submit" value="戻る" />
+							<input class="normal-button" type="submit" value="マイページに戻る" />
 						</form>
-
 					<!-- 履歴すべて削除ボタン -->
 						<form action="PurchaseHistoryAction">
 							<input type="hidden" name="deleteFlg" value="1">
-							<input class="deleteHistory-button" type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
+							<input class="normal-button" type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
 						</form>
 						<script>
 							function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){

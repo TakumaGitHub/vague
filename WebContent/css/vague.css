@@ -258,6 +258,45 @@ textarea {
 		}
 
 
+		#main button.normal-button{
+
+	        border: none;
+	        cursor: pointer;
+	        outline: none;
+	        appearance: none;
+
+	        display : block;
+			cursor : pointer;
+		    padding : 10px 20px;
+		    margin : 10px auto;
+		    position : relative;
+
+			border : none;
+		    border-radius: 10px;
+		    border-bottom : 3px solid grey;
+
+		    background-color : darkgrey;
+
+		    font-size : 1rem;
+		    font-weight : bold;
+		    color: #fff;
+
+		    transition : all 0.3s;
+
+		}
+
+		#main button.normal-button:hover {
+
+			border : none;
+			border-bottom : 3px solid transparent;
+			top : 3px;
+		    opacity : 0.7;
+
+		}
+
+
+
+
 
 		/* ======== ボタンのCss→ ======== */
 

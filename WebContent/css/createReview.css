@@ -43,3 +43,33 @@
 	cursor : pointer;
 
 }
+
+.main-container table {
+
+	width : 80%;
+	margin : 40px auto 0;
+	border : 3px solid #A4A9CF;
+	border-radius : 5px;
+	border-collapse: collapse;
+
+
+}
+
+.main-container table th {
+
+	width : 35%;
+	padding: 20px 20px 20px 0;
+	background-color: #A4A9CF;
+	border : none;
+	vertical-align : middle;
+
+
+}
+
+.main-container table td {
+
+	width : 55%;
+	padding: 20px 0 20px 20px;
+	border-bottom : 2px solid #A4A9CF;
+
+}

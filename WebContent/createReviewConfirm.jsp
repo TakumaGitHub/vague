@@ -52,18 +52,30 @@ response.sendRedirect("/vague/home.jsp");
 
 				</div>
 
+				<table id="review-confirm-table">
 
-    			<p>タイトル</p>
-				<s:property value="#session.CreateReviewCompleteDTO.reviewTitle"/>
-				<p>内容</p>
-				<s:property value="#session.CreateReviewCompleteDTO.reviewBody"/>
-				<p>評価</p>
-				<s:property value="#session.CreateReviewCompleteDTO.reviewScore"/>
+					<tr>
+						<th>タイトル</th>
+						<td><s:property value="#session.CreateReviewCompleteDTO.reviewTitle"/></td>
+					</tr>
+
+					<tr>
+						<th>内容</th>
+						<td><s:property value="#session.CreateReviewCompleteDTO.reviewBody"/></td>
+					</tr>
+
+					<tr>
+						<th>評価</th>
+						<td><s:property value="#session.CreateReviewCompleteDTO.reviewScore"/></td>
+					</tr>
+
+				</table>
 
 
-				<s:form action="CreateReviewCompleteAction" method="post">
+
+				<form action="CreateReviewCompleteAction" method="post">
 					<input type="submit" value="投稿する" />
-				</s:form>
+				</form>
 				<form action="createReview.jsp" method="post">
 					<input type="submit" value="戻って修正する" />
 				</form>

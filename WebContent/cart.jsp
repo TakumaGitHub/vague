@@ -11,8 +11,10 @@
 <meta name="description" content="" />
 <meta name="keywords" content=""/>
 <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
- <!-- <link rel="stylesheet" href="text.html">-->
- <link rel="stylesheet" type="text/css" href="css/cart.css">
+<!-- <link rel="stylesheet" href="text.html">-->
+<link rel="stylesheet" type="text/css" href="css/cart.css">
+<link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+
 
 <jsp:include page="head.jsp" />
 <title>cart.jsp</title>
@@ -39,20 +41,24 @@
 				<strong><s:property /></strong>
 			</s:iterator>
 			<s:if test='#session.CartDTOList == null || #session.CartDTOList.isEmpty()'>
-				<p>カートに商品はありません。</p>
+				<p class="noproduct"><i class="fab fa-500px"></i>カートに商品はありません。</p>
+				<form id="ProductListForm" action="ProductListAction">
+					<button type="submit" class="noproduct">
+						<i class="fas fa-store"></i>買い物に戻る
+					</button>
+				</form>
 			</s:if>
 			<s:else>
 
-
 			<div class="left floatleft">
 				<table>
-					<tr>
+					<tr class="column1">
 						<th class="tag" width="5%">☑️</th>
-						<th class="tag" width="20%">商品画像</th>
-						<th class="tag" width="30%">商品名</th>
-						<th class="tag" width="15%">値段</th>
+						<th class="tag" width="15%">商品画像</th>
+						<th class="tag" width="35%">商品名</th>
+						<th class="tag" width="10%">値段</th>
 						<th class="tag" width="10%">購入個数</th>
-						<th width="20%">購入個数合計金額</th>
+						<th width="18%">購入個数合計金額</th>
 					</tr>
 					<s:iterator value="#session.CartDTOList">
 						<tr>
@@ -83,19 +89,23 @@
 						<th></th>
 						<th></th>
 						<th></th>
-						<th><p class="price lowerleft">合計(<s:property value="#session.TotalProductCount"/>点)</p></th>
-						<td></td>
+						<th><p class="price lowerleft">合計</p></th>
+						<th><p class="price lowerleft">(<s:property value="#session.TotalProductCount"/>点)</p></th>
 						<td><p class="red price lowerleft">¥<s:property value="#session.CartTotalPrice"/></p></td>
 					</tr>
 				</table>
 				<div class="productlist floatright">
 					<s:form id="ProductListForm" action="ProductListAction">
-						<s:submit value="買い物を続ける"/>
+						<button type="submit" class="normal-button">
+							<i class="fas fa-store"></i>買い物を続ける
+						</button>
 					</s:form>
 				</div>
 				<div class="delete floatright">
 					<s:form id="CartDeleteForm" action="CartDeleteAction">
-						<s:submit value="☑️の商品を削除"/>
+						<button type="submit" class="normal-button">
+							☑️の商品を削除
+						</button>
 					</s:form>
 				</div>
 			</div>
@@ -105,10 +115,11 @@
 					<p>カート合計金額(<s:property value="#session.TotalProductCount"/>点):</p>
 					<p class="red cartprice">¥<s:property value="#session.CartTotalPrice"/></p>
 					<s:form action="BuyItemAction">
-						<s:submit value="レジに進む"/>
+						<button type="submit">
+							<i class="fas fa-shopping-cart"></i>レジに進む
+						</button>
 					</s:form>
 				</div>
-
 			</div>
 			</s:else>
 		</div>

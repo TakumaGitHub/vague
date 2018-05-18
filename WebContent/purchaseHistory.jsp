@@ -68,7 +68,7 @@
 										<p>　・購入個数：<s:property value="count" />点<br></p>
 										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
-										<p class="review-button"><input class="review-button" type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する"></p>
+										<p class="review-button"><input class="review-button" type="button" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" value="レビューを投稿する">👍🏻</p>
 									</td>
 
 									<s:if test="#st.index == 0 || insertDate != #session.PurchaseHistoryList.get(#st.index - 1).insertDate" >

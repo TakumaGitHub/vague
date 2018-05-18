@@ -64,11 +64,11 @@ response.sendRedirect("/vague/home.jsp");
 					<s:if test="#session.CreateReviewCompleteDTO != null && #session.CreateReviewProductDTO.productId != #session.CreateReviewCompleteDTO.productId || #session.CreateReviewCompleteDTO == null">
 
 						<p><s:property value="errorMsg.reviewTitle" /></p>
-						<p>タイトル：<input type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required"/>　<span class="caution-msg">※１～１００文字以内</span></p>
+						<p>タイトル：<input class="reviewTitle-form" type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
 						<p><s:property value="errorMsg.reviewBody" /></p>
-						<p>内容：　<span class="caution-msg">※１～２５５文字以内</span></p>
-						<textarea rows="5" name="reviewBody"  required="required"/><s:property value='reviewBody' /></textarea>
+						<p>内容：　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
+						<textarea class="reviewBody-form" rows="5" name="reviewBody"  required="required" pattern="^.{1,255}$"/><s:property value='reviewBody' /></textarea>
 
 						<p><s:property value="errorMsg.reviewScore" /></p>
 						<p>評価：
@@ -104,11 +104,11 @@ response.sendRedirect("/vague/home.jsp");
 					<s:elseif test="#session.CreateReviewCompleteDTO != null">
 
 						<p><s:property value="errorMsg.reviewTitle" /></p>
-						<p>タイトル<input type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required"/>　<span class="caution-msg">※１～１００文字以内</span></p>
+						<p>タイトル<input class="reviewTitle-form"  type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
 						<p><s:property value="errorMsg.reviewBody" /></p>
-						<p>内容　<span class="caution-msg">※１～２５５文字以内</span></p>
-						<textarea rows="5" name="reviewBody"  required="required"/><s:property value='#session.CreateReviewCompleteDTO.reviewBody' /></textarea>
+						<p>内容　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
+						<textarea class="reviewBody-form"  rows="5" name="reviewBody"  required="required"  pattern="^.{1,255}$"/><s:property value='#session.CreateReviewCompleteDTO.reviewBody'/></textarea>
 
 						<p><s:property value="errorMsg.reviewScore" /></p>
 						<p>評価

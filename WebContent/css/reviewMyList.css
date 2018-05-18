@@ -6,7 +6,7 @@
 	margin : 0 auto;
 
 	text-align : center;
-	font-size : 18px;
+	font-size : 14px;
 
 
 
@@ -57,8 +57,10 @@
 
 	padding : 20px 30px;
 	margin-bottom : 30px;
-	background-color : #E1A5CB;
+	background-color : #eee;
 	border-radius : 15px;
+
+	border-bottom : #fff;
 
 	text-align : left;
 
@@ -123,9 +125,11 @@
 
 }
 
-.my-review-box .review-socre-star img {
+.my-review-body-box img.review-score-star {
 
-	vertical-align : text-top;
+	vertical-align : top;
+	width : 25px;
+	height : auto;
 
 }
 

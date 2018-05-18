@@ -4,6 +4,9 @@
 
 $(function(){
 
+	maxReviewTitle();
+	maxReviewBody();
+
 	var $star =  $('.review-score-star');
 
 	$star.hover(
@@ -58,9 +61,50 @@ $(function(){
 	});
 
 
+
+
 	function ChangeReviewScore(reviewScore){
 
 		$('#reviewScore').val(reviewScore);
+
+	}
+
+
+	$('.reviewTitle-form').on('input',function(){
+
+		maxReviewTitle();
+
+	});
+
+	function maxReviewTitle(){
+
+		var reviewTitleLength = 100 - $('.reviewTitle-form').val().length;
+
+		if(reviewTitleLength < 0){
+
+			reviewTitleLength = 0;
+		}
+
+		$('.max-reviewTitle').text(reviewTitleLength);
+
+	}
+
+	$('.reviewBody-form').on('input',function(){
+
+		maxReviewBody();
+
+	});
+
+	function maxReviewBody(){
+
+		var reviewBodyLength = 255 - $('.reviewBody-form').val().length;
+
+		if(reviewBodyLength < 0){
+
+			reviewBodyLength = 0;
+		}
+
+		$('.max-reviewBody').text(reviewBodyLength);
 
 	}
 

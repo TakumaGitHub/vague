@@ -61,14 +61,14 @@
 
 							<div class="my-review-body-box">
 
-								<p>商品名：<s:property value="productDTO.productName" /></p>
-								<p>タイトル：<s:property value="reviewDTO.reviewTitle" /></p>
+								<p>商品名： <s:property value="productDTO.productName" /></p>
+								<p>タイトル： <s:property value="reviewDTO.reviewTitle" /></p>
 								<p>内容：</p>
 								<textarea rows="4" readonly><s:property value="reviewDTO.reviewBody" /></textarea>
 								<p>評価：
 
 									<s:iterator begin="1" end="reviewDTO.reviewScore" step="1" >
-										<img class="review-socre-star" src="LogoImage/reviewScore.png" />
+										<img class="review-score-star" src="LogoImage/reviewScore.png" />
 									</s:iterator>
 
 								</p>

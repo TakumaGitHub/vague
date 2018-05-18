@@ -9,6 +9,8 @@
 	font-size : 18px;
 
 
+
+
 }
 
 .review-container h2 {
@@ -45,7 +47,7 @@
 
 .review-container textarea:focus {
 
-	background : transparent;
+	background : white;
 
 }
 
@@ -60,7 +62,8 @@
 
 	text-align : left;
 
-
+	color : black;
+	font-weight : bold;
 
 
 
@@ -130,5 +133,6 @@ a.pageNation {
 
 	text-decoration : underline;
 	font-size : 18px;
+	margin : 0px 5px;
 
 }

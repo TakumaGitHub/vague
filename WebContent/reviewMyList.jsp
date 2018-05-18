@@ -61,7 +61,7 @@
 								<textarea rows="4" readonly><s:property value="reviewDTO.reviewBody" /></textarea>
 								<p>評価：
 
-									<s:iterator begin="1" end="reviewDTO.reviewScore" step="2" >
+									<s:iterator begin="1" end="reviewDTO.reviewScore" step="1" >
 										<img class="review-socre-star" src="LogoImage/reviewScore.png" />
 									</s:iterator>
 

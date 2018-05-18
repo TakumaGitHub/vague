@@ -31,6 +31,7 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 
 	private Map<String, String> errorMsg;
 
+	private String accessKey = "true";
 
 
 	public String execute(){
@@ -123,6 +124,16 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 
 	public void setErrorMsg(Map<String, String> errorMsg) {
 		this.errorMsg = errorMsg;
+	}
+
+
+	public String getAccessKey() {
+		return accessKey;
+	}
+
+
+	public void setAccessKey(String accessKey) {
+		this.accessKey = accessKey;
 	}
 
 

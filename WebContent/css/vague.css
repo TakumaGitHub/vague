@@ -221,7 +221,7 @@ textarea {
 
 		}
 
-		button{
+		#main button{
 
 	        border: none;
 	        cursor: pointer;
@@ -248,7 +248,7 @@ textarea {
 
 		}
 
-		button:hover {
+		#main button:hover {
 
 			border : none;
 			border-bottom : 3px solid transparent;

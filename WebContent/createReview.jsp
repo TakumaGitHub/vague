@@ -114,7 +114,7 @@ response.sendRedirect("/vague/home.jsp");
 						<p>評価
 
 
-						<input type="hidden" id="reviewScore" name="reviewScore" value="#session.CreateReviewCompleteDTO.reviewScore">
+						<input type="hidden" id="reviewScore" name="reviewScore" value="<s:property value='#session.CreateReviewCompleteDTO.reviewScore' />">
 
 							<s:iterator begin="1" end="5" step="1" status="st">
 

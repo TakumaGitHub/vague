@@ -30,13 +30,13 @@
 		<div class="tittle">
 
 				<s:if test="#session.ProductListLength  >= 1">
-					<span>商品一覧</span><br>
+					<h2 class="title">商品一覧</h2>
 					<div class="pages">
 					<span><s:property value="#session.ProductListLength" />ページ中  <s:property value="%{pageNum +1}" />ページ目</span>
 					</div>
 				</s:if>
 				<s:if test="#session.SearchListLength >= 1">
-					<span>商品の検索結果</span><br>
+					<h2 class="title">商品の検索結果</h2>
 					<div class="pages">
 					<span><s:property value="#session.SearchListLength" />ページ中 <s:property value="%{ListNumber +1}" />ページ目</span>
 					</div>

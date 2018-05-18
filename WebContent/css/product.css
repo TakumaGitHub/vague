@@ -78,15 +78,9 @@
 
 /*========= 商品詳細のcss ==========*/
 
-.description-box-outer {
-	text-align:left;
-}
+
 .description-box {
-	position: relative;
-    top:0;
-    left: 0;
-	display : inline-block;
-	text-align:left;
+
 }
 
 .detail-image {
@@ -105,30 +99,11 @@
 	font-size:20px;
 }
 
-input[type="submit"] {
-
-	text-align:right;
-	margin:0 auto;
-	margin-top:20px;
-	margin-bottom:30px;
-
-}
-
-#description {
-
-	text-align:left;
-}
 
 #detailPrice {
 	font-size:30px;
 }
-fieldset {
-	width:auto;
-}
-legend {
-	text-align:center;
 
-}
 
 .suggest-box {
 	text-align : center;

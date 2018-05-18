@@ -41,43 +41,25 @@
 	<div id="main" >
 
 		<div class="container">
+		<div class="tittle">
+			商品詳細画面
+		</div>
+
 
 		<s:form action="CartInsertAction">
-
-
-		<table class="description-box">
-
-
+		<table>
 		<tr>
-
-		<!-- 画像の表示 -->
 		<td>
+		<!-- 画像の表示 -->
+
 
 			<span>
 				<img class="detail-image" src="<s:property value='#session.DetailProductDTO.imageFilePath' />" alt="Photo" style="width:400px; height:300px;">
 			</span>
-
 		</td>
+
+
 		<td>
-			<%-- <div id="category">
-			<!-- カテゴリ分類 -->
-			<span id="category">
-				<s:if test="#session.DetailProductDTO.categoryId == 1">
-					<h2>製品カテゴリ：Chair</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId == 2">
-					<h2>製品カテゴリ：Sofa</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId == 3">
-					<h2>製品カテゴリ：Lighting</h2>
-				</s:if>
-				<s:if test="#session.DetailProductDTO.categoryId == 4">
-					<h2>製品カテゴリ：Table</h2>
-				</s:if>
-			</span>
-			</div> --%>
-
-
 
 	<!-- 商品名/かな -->
 		<div id="detailName">
@@ -86,32 +68,14 @@
 		</div>
 				<div id="detailName2">商品名ふりがな：<s:property value="#session.DetailProductDTO.productNameKana"/></div><br>
 
-
-
-	<!-- 商品詳細情報 -->
-			<div id="description">
-			<fieldset>
-				<legend>商品詳細情報</legend>
-				<s:property value="#session.DetailProductDTO.productDescription"/><br>
-			</fieldset>
-			</div>
-	<!-- 発売会社名・発売年月日  -->
-
-		<div id="reCompany">
-			発売会社名：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
-			</div>
-		<div id="reDate">
-			発売年月日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/><br>
-			</div>
-
 	<!-- 金額  -->
-		<div id="proPrice">
+		<div id="detailPrice">
 			値段：￥<s:property value="#session.DetailProductDTO.price"/><br>
 		</div>
 
 	<!-- 在庫  -->
 
-		<div id="proPrice">
+
 			<span>購入個数：
 				<select name="productCount">
 
@@ -134,12 +98,42 @@
 
 				</select>
 			</span><br>
-			</div>
+
+
+		<s:submit value="カートに入れる"/>
 		</td>
 		</tr>
+
+
+
+		<tr>
+		<td>
+		<div class="description-box">
+	<!-- 商品詳細情報 -->
+			<fieldset>
+			<legend>
+				商品詳細情報
+
+				<s:property value="#session.DetailProductDTO.productDescription"/><br>
+				<!-- 発売会社名・発売年月日  -->
+
+
+				発売会社名：<s:property value="#session.DetailProductDTO.releaseCompany"/><br>
+
+
+				発売年月日：<s:property value="#session.DetailProductDTO.releaseDate.substring(0,10)"/><br>
+
+
+				</legend>
+			</fieldset>
+		</div>
+		</td>
+		</tr>
+
 		</table>
-		<s:submit value="カートに入れる"/>
-    </s:form>
+		</s:form>
+
+
 
 <!-- オススメリスト -->
 
@@ -201,7 +195,13 @@
 			<td><s:property value="reviewDTO.reviewBody"/></td>
 		</tr>
 		<tr>
-			<td>評価：<s:property value="reviewDTO.reviewScore"/></td>
+
+			<td>評価：
+			<s:iterator begin="1" end="reviewDTO.reviewScore" step="1">
+				<img src="LogoImage/reviewScore.png" />
+			</s:iterator>
+			</td>
+
 		</tr>
 		<tr>
 			<td>投稿日：<s:property value="reviewDTO.insertDate.substring(0,10)" /></td>

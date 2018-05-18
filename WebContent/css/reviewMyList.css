@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+.review-container input[type=checkbox] {
+
+	display : block;
+	margin : 10px 5px ;
+	width : 20px;
+	height : auto;
+}
+
+.review-container input[type="checkbox"]{
+
+   -webkit-transform: scale(1.6);
+   transform: scale(1.6);
+   margin-right: 0.5em;
+
+}
+
+.review-container textarea {
+
+	width : 100%;
+
+
+}
+
+.review-container textarea:focus {
+
+	background : transparent;
+
+}
+
+
+.review-container {
+
+	width : 70%;
+
+	margin : 0 auto;
+
+}
+
+.my-review-box {
+
+	padding : 20px 30px;
+	text-align : left;
+
+
+}
+
+.my-review-inner-box {
+
+
+
+}
+
+.review-image-box, .my-review-body-box {
+
+	display : inline-block;
+	vertical-align : top;
+
+}
+
+.review-image-box {
+
+	position : relative;
+
+	width : 200px;
+	height : 200px;
+	margin-right : 30px;
+	overflow  : hidden;
+
+}
+
+.review-image-box img {
+
+	position : absolute;
+	top : 0;
+	left : 0;
+
+	width : 200px;
+	height : auto ;
+
+}
+
+.my-review-body-box {
+
+
+
+
+}

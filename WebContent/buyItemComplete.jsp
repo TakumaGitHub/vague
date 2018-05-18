@@ -9,6 +9,7 @@
 <jsp:include page="head.jsp" />
 <meta http-equiv="refresh" content="3;URL=GoHomeAction">
 <link rel="stylesheet" type="text/css" href="css/buyItemComplete.css"/>
+<script src="js/blowserBackPrevent.js" type="text/javascript"></script>
 <title>決済完了画面</title>
 
 

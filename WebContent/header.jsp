@@ -75,7 +75,7 @@
 
             <div id="header-center">
 
-            	<a href="/vague/home.jsp"><img src="LogoImage/headerLogo.png" /></a>
+				<a href="<s:url action='GoHomeAction' />"><img src="LogoImage/headerLogo.png" /></a>
 
             	<s:if test="#session.LoginUserDTO == null">
 	            <p>- ようこそゲストさん -</p>

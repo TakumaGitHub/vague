@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
 	<jsp:include page="head.jsp" />
 	<style type="text/css">

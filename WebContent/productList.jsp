@@ -27,6 +27,9 @@
 
 <div id="main">
 	<div class="container">
+
+
+
 		<div class="tittle">
 
 				<s:if test="#session.ProductListLength  >= 1">
@@ -123,8 +126,8 @@
 
 
 		<div class="error-msg">
-		<p><s:property value="errorMsg" /></p>
-		<p><s:property value="inputErrorMsg" /></p>
+		<p> <s:property value="errorMsg" /></p>
+		<p> <s:property value="inputErrorMsg" /> </p>
 		</div>
 
 		<div class="product-box-outer">

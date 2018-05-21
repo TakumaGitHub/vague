@@ -70,6 +70,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		}
 
 		session.put("CreateUserDTO", loginUserDTO);
+		session.put("sex", this.sex);
 
 
 

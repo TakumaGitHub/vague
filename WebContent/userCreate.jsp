@@ -45,17 +45,16 @@
 			<p>性別を選択して下さい。</p>
 
 			<p><span>
-			<s:if test="sex == '0'">
+			<s:if test="#session.sex == 0">
 			<input type="radio" name="sex" value='0' checked/>男性
 			<input type="radio" name="sex" value='1'/>女性
 			</s:if></span>
 
-			<span>
-			<s:else>
+			<p><span>
+			<s:if test="#session.sex == 1">
 			<input type="radio" name="sex" value='0'/>男性
 			<input type="radio" name="sex" value='1' checked/>女性
-			</s:else></span>
-			</p>
+			</s:if></span>
 
 			<p class="error-msg"><s:property value='errorMsg.email' /></p>
 			<p>メールアドレスを入力してください。（14～32文字）</p>

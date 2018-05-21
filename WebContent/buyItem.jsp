@@ -11,6 +11,7 @@
 h3	{	font-size:23px;
 		background-color:#EEEEEE;
 		font-family:"ＭＳ ＵＩゴシック","ＭＳ ゴシック",sans-serif;
+		text-indent : 40px;
 	}
 .name	{font-size:23px;
 		}

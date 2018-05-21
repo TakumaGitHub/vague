@@ -2,7 +2,7 @@
 
 .addressList-box {
 
-	text-align : center;
+	text-align : left;
 
 
 }
@@ -11,9 +11,18 @@
 
 	display : inline-block;
 	width : 30%;
-	margin : 0;
+	margin-left : 20px;
+	margin-top : 15px;
 	background-color:#EEEEEE;
-	text-align : left;
+
+
+}
+
+.address-box table {
+
+	margin-left : 20px ;
+	margin-right : 20px ;
+	margin-bottom : 20px ;
 
 }
 

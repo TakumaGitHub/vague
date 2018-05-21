@@ -370,6 +370,9 @@ public class InputChecker {
 		//カテゴリーID
 		if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-9]$"))){
 			result.put("categoryId", "【カテゴリーIDは一桁の半角数字で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-4]$"))){
+
+			result.put("categoryId", "【カテゴリーIDは一桁の1以上4以下で入力してください】");
 		}
 		//在庫
 		if(!(Integer.valueOf(productDTO.getProductStock()).toString().matches("^[0-9]+$"))){

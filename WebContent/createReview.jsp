@@ -68,7 +68,7 @@ response.sendRedirect("/vague/home.jsp");
 
 						<p><s:property value="errorMsg.reviewBody" /></p>
 						<p>内容：　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
-						<textarea class="reviewBody-form" rows="5" name="reviewBody"  required="required" pattern="^.{1,255}$"/><s:property value='reviewBody' /></textarea>
+						<textarea class="reviewBody-form" rows="5" name="reviewBody"  required="required"><s:property value='reviewBody' /></textarea>
 
 						<p><s:property value="errorMsg.reviewScore" /></p>
 						<p>評価：
@@ -108,7 +108,7 @@ response.sendRedirect("/vague/home.jsp");
 
 						<p><s:property value="errorMsg.reviewBody" /></p>
 						<p>内容　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
-						<textarea class="reviewBody-form"  rows="5" name="reviewBody"  required="required"  pattern="^.{1,255}$"/><s:property value='#session.CreateReviewCompleteDTO.reviewBody'/></textarea>
+						<textarea class="reviewBody-form"  rows="5" name="reviewBody"  required="required"><s:property value='#session.CreateReviewCompleteDTO.reviewBody'/></textarea>
 
 						<p><s:property value="errorMsg.reviewScore" /></p>
 						<p>評価

@@ -34,9 +34,10 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="title">ログイン・新規登録ページ</div>
 
+		<div class="input-wrapper" >
 
 			<div id="input" class="left">
-				<br><h3>ログインIDとパスワードを入力してください。</h3>
+				<h3>ログインIDとパスワードを入力してください。</h3>
 				<p class="error-msg"><s:property value="errorMsg" /></p>
 				<s:form action="LoginAction">
 						<p class="error-msg"><s:property value="userIdErrorMsg" /></p>
@@ -54,7 +55,10 @@ response.sendRedirect("/vague/home.jsp");
 						</p>
 
 						<p><s:submit value="ログイン"/></p>
-						<p class="normal-button"><s:form action="userPasswordUpdate.jsp">
+
+
+						<p class="normal-button">
+						<s:form action="userPasswordUpdate.jsp">
 						<input type="submit" value="パスワードの再設定">
 						</s:form></p>
 
@@ -64,13 +68,21 @@ response.sendRedirect("/vague/home.jsp");
 			</div>
 
 			<div class="right">
-				<br><h3>新規のお客様のご登録はこちら。</h3><br>
+				<h3>新規のお客様のご登録はこちら。</h3><br>
 				<s:form action="userCreate.jsp">
 						<input type="submit" value="新規登録">
 						</s:form><br>
 			</div>
 
-			<div><a href="home.jsp" >ホーム画面に戻る</a></div>
+		</div>
+
+			<div class="input-wrapper" >
+
+				<p><a href="home.jsp" >ホーム画面に戻る</a></p>
+
+			</div>
+
+
 		</div>
 	</div>
 

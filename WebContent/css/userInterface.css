@@ -1,18 +1,31 @@
 @CHARSET "UTF-8";
 
 #input{
-	margin-left:90px;
+
+}
+
+.input-wrapper {
+
+	width : 80%;
+	text-align : center;
+	margin : 0 auto 30px;
+
 }
 
 .left{
-	float:left;
-	width:40%;
+	display : inline-block;
+	text-align : left;
+	vertical-align : top;
+	width:47%;
 	height:480px;
+	margin-right : 40px;
 }
 
 .right{
-	float:right;
-	width:40%;
+	display : inline-block;
+	text-align : left;
+	vertical-align : top;
+	width:47%;
 	height:480px;
 }
 

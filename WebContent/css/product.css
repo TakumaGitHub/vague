@@ -45,7 +45,7 @@
 .product-box:hover {
 	top:-10px;
 	left:-10px;
-	box-shadow:6px 8px #222222;
+	box-shadow:6px 8px #364e96;
 	transition:all 0.3s;
 }
 .proName {
@@ -74,6 +74,11 @@
 	color:blue;
 }
 
+.error-msg {
+	text-align:center;
+	color:red;
+	width:100%;
+}
 
 
 /*========= 商品詳細のcss ==========*/
@@ -88,7 +93,7 @@
 
 	display : inline-block;
 	vertical-align : top;
-
+	margin-left:5px;
 }
 
 .detail-box-left img {
@@ -98,11 +103,13 @@
 }
 
 .detail-box {
+	margin-left:5px;
 	position: relative;
 	width:50%;
     top:0;
     left: 0;
 	display:inline-block;
+
 
 }
 
@@ -136,15 +143,20 @@
 
 input[type="submit"] {
     position: relative;
-    text-align: right;
+    text-align:right;
+    border-bottom:#364e96;
     margin: 0 auto;
+    margin-left:360px;
     margin-top: 20px;
     margin-bottom: 30px;
-	float:right;
-    color: black;
+	background-color:#00008b;
     font-size: 20px;
 }
 
+input[type="submit"]:hover {
+	border-bottom:#364e96;
+
+	}
 
 #description-box {
 	border:2px solid black;
@@ -188,8 +200,7 @@ input[type="submit"] {
 	margin:20px;
 	float:center;
 	padding:10px;
-	background-color:#ffb6c1
-;
+	background-color:#ffb6c1;
 }
 
 .stars img {

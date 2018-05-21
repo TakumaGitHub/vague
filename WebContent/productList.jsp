@@ -122,9 +122,10 @@
 
 
 
-
+		<div class="error-msg">
 		<p><s:property value="errorMsg" /></p>
 		<p><s:property value="inputErrorMsg" /></p>
+		</div>
 
 		<div class="product-box-outer">
 

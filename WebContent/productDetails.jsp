@@ -63,6 +63,7 @@
 
 	<!-- 商品名/かな -->
 	<div class="detail-box">
+	<s:form action="CartInsertAction">
 		<div id="detailName">
 			<span id="productName">商品名：
 				<s:property value="#session.DetailProductDTO.productName"/><br></span>
@@ -76,7 +77,7 @@
 
 	<!-- 在庫  -->
 
-		<s:form action="CartInsertAction">
+
 		<div class="cart">
 			<span>購入個数：
 				<select name="productCount">

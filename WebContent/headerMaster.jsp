@@ -24,10 +24,6 @@
 					</div>
 
 
-
-					<p><s:property value='inputErrorMsg' /></p>
-
-
 					<select name="category_id">
 
 						<option value="0" selected="selected">すべて</option>
@@ -70,6 +66,10 @@
 
 
 					</form>
+
+
+					<%-- 検索のエラーメッセージ --%>
+					<p class="error-msg"><s:property value='inputErrorMsg' /></p>
 
             </div>
 

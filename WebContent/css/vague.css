@@ -416,7 +416,7 @@ header {
 #header-left {
 
 	width : 320px;
-    height : 160px;
+    min-height : 160px;
 
 	display : inline-block;
 	box-sizing : border-box;
@@ -433,7 +433,7 @@ header {
 #header-center {
 
 	width : 400px;
-    height : 160px;
+    min-height : 160px;
 	text-align : center;
 	vertical-align : middle;
 	display : inline-block;
@@ -444,7 +444,7 @@ header {
 #header-right {
 
 	width : 320px;
-    height : 160px;
+    min-height : 160px;
 	color : black;
 	display : inline-block;
 	vertical-align : middle;
@@ -487,6 +487,7 @@ header {
 #header-left select {
 
 	width : 43%;
+	margin-top : 20px;
 
 }
 

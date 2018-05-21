@@ -73,7 +73,7 @@
 			<div class="form-text">
 			<div>
 				<span>住所<br>
-					<input type="text" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="50"/>
+					<input type="text" name="addr11" value='<s:property value="#session.AddressDTO.addr11"/>' maxlength="50" size="40"/>
 				</span>
 			</div>
 			<div class="error">
@@ -156,7 +156,7 @@
 
 			<div class="form-text">
 			<div>
-				<span>住所<br><input type="text" name="addr11" value='<s:property value="addr11"/>' maxlength="50" size="50"/></span>
+				<span>住所<br><input type="text" name="addr11" value='<s:property value="addr11"/>' maxlength="50" size="40"/></span>
 			</div>
 			<div class="error">
 				<s:property value="errorAddr11Msg"/>

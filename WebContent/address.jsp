@@ -56,6 +56,14 @@
 			</div>
 
 
+			<!-- 性別 -->
+
+			<div class="sex">
+				<input type="radio" name="性別" value="男" checked="checked">男
+				<input type="radio" name="性別" value="女">女
+			</div>
+
+
 		<!-- 郵便番号入力(7桁) -->
 
 			<div class="form-text">
@@ -134,6 +142,14 @@
 				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/><br>
 					<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 				</span>
+			</div>
+
+
+			<!-- 性別 -->
+
+			<div class="sex">
+				<input type="radio" name="性別" value="男" checked="checked">男
+				<input type="radio" name="性別" value="女">女
 			</div>
 
 

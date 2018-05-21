@@ -56,15 +56,13 @@ response.sendRedirect("/vague/home.jsp");
 
 						<p><s:submit value="ログイン"/></p>
 
-
-						<p class="normal-button">
-						<s:form action="userPasswordUpdate.jsp">
-						<input type="submit" value="パスワードの再設定">
-						</s:form></p>
-
-
-
 				</s:form>
+
+				<p class="normal-button">
+				<s:form action="userPasswordUpdate.jsp">
+				<input type="submit" value="パスワードの再設定">
+				</s:form></p>
+
 			</div>
 
 			<div class="right">

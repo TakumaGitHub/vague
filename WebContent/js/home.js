@@ -15,6 +15,7 @@ $(function(){
 			      //処理途中の値を使ってちょっとずつ回転させる
 			      $(this).css({
 			        transform: 'rotate(' + (num * 720) + 'deg)'
+
 			      });
 			      //デバッグ用にnumを出力
 			      $('#box2').html(num);

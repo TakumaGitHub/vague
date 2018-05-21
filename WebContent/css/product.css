@@ -24,7 +24,7 @@
     top:0;
     left: 0;
 	width : 30%;
-	border-sizing:border-box;
+
 	display : inline-block;
 	transition:all 0.3s;
 	margin: 30px 15px 30px 15px;
@@ -46,6 +46,7 @@
 
 
 .product-box:hover {
+
 	top:-10px;
 	left:-10px;
 	box-shadow:6px 8px #364e96;
@@ -106,7 +107,7 @@
 }
 
 .detail-box {
-	margin-left:5px;
+	margin-left:15px;
 	position: relative;
 	width:50%;
     top:0;
@@ -126,7 +127,7 @@
 #detailName {
 	text-align : left;
 	font-size:30px;
-	border-left:6px solid  rgba(147,38,116,0.4);
+	border-left:6px solid #00008b;
 }
 #detailName2 {
 	text-align : left;
@@ -178,9 +179,7 @@ input[type="submit"]:hover {
 	height:auto;
 	margin : 10px 30px 30px 30px;
 	display : inline-block;
-	border:1px solid none;
-	border-radius:0.5em;
-	box-shadow: 0 0 8px 5px rgba(147,38,116,0.4);
+
 
 }
 #sugName {
@@ -199,11 +198,11 @@ input[type="submit"]:hover {
 
 .reviewBox {
 	width:50%;
-	border-left:8px solid  rgba(147,38,116,0.4);
+	border-left:8px solid  #00008b;
 	margin:20px;
 	float:center;
 	padding:10px;
-	background-color:#ffb6c1;
+	background-color:#87ceeb;
 }
 
 .stars img {
@@ -213,7 +212,7 @@ input[type="submit"]:hover {
 
 h3 {
 
-	border-left:6px solid  rgba(147,38,116,0.4);
+	border-left:6px solid #00008b;
 	margin:30px 0 30px 30px;
 }
 

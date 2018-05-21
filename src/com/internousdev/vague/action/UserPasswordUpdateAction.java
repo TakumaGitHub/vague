@@ -78,29 +78,13 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 		loginUserDTO.setPassword(newPassword);
 
 		//パスワードの一部を隠す
+		//（字数を周囲に知られないためにパスワードの長さに関わらずパスワードの始めの1文字＋15文字分のアスタリスクを表示する）
 
-		if(newPassword.length() == 1){
+		StringBuffer sb = new StringBuffer(newPassword.substring(0, 1));
 
-			hidePassword = "*";
+		sb.append("***************");
 
-		}else if(newPassword.length() == 2){
-
-			hidePassword = "**";
-
-		}else{
-
-			StringBuffer sb = new StringBuffer(newPassword.substring(0, 2));
-
-			for(int i = 2; i < newPassword.length() ; i++){
-
-				sb.append("*");
-
-			}
-
-			hidePassword = sb.toString();
-
-
-		}
+		hidePassword = sb.toString();
 
 		session.put("UserPasswordUpdateDTO", loginUserDTO);
 		session.put("hidePassword", hidePassword);

@@ -57,6 +57,12 @@ response.sendRedirect("/vague/home.jsp");
 
 				</tr>
 
+				<tr>
+					<th></th>
+					<td>(※セキュリティのため字数に関わらず16文字分出力しています。)</td>
+
+				</tr>
+
 
 
 			</tbody>
@@ -64,6 +70,7 @@ response.sendRedirect("/vague/home.jsp");
 
 
 		</table>
+		<br>
 
 
 		<form action="UserPasswordUpdateCompleteAction" method="post" >

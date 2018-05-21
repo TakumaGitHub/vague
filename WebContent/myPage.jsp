@@ -64,7 +64,7 @@
 				<form action="GoHomeAction">
 					<input class="normal-button" type="submit" value="ホームに戻る" />
 				</form>
-				<form action="UserPasswordUpdate.jsp">
+				<form action="userPasswordUpdate.jsp">
 					<input class="normal-button" type="submit" value="パスワードを変更" />
 				</form>
 				<form action="AddressAction" >

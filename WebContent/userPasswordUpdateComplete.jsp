@@ -16,13 +16,7 @@
 </head>
 
 <body>
-<s:if test="#session.LoginUserDTO != null">
-<%
 
-response.sendRedirect("/vague/home.jsp");
-
-%>
-</s:if>
 
 
 

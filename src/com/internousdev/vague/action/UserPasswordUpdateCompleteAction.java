@@ -23,7 +23,7 @@ public class UserPasswordUpdateCompleteAction extends ActionSupport implements S
 		int ret = 0;
 
 		//不正なアクセスはhome.jspへ送り返す
-		if(session.containsKey("LoginUserDTO") || !session.containsKey("UserPasswordUpdateDTO")){
+		if(!session.containsKey("UserPasswordUpdateDTO")){
 
 			return "home";
 

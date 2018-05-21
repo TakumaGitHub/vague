@@ -32,7 +32,11 @@
 
 
 	    <!-- Vagueのロゴ -->
-	    <div id="Vague-Logo" ><img src="LogoImage/VagueLogo.png" /></div>
+	    <div class="Vague-Logo" >
+	    <img class="Vague-Logo-Outer" src="LogoImage/VagueLogoOuter.png"  />
+	    <img class="Vague-Logo-Inner" src="LogoImage/VagueLogoInner.png"   />
+	    </div>
+
 
     <!--  mainの終わり -->
 

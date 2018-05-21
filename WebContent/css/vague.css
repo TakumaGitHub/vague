@@ -626,7 +626,7 @@ header {
 
 }
 
-#Vague-Logo {
+.Vague-Logo {
 
 	margin : 0 auto;
 	width : 350px;
@@ -639,15 +639,26 @@ header {
 
 }
 
-#Vague-Logo img {
+.Vague-Logo img {
 
 	width : 111%;
 	height : auto;
 
 	position : absolute;
 	top: -25px;
-	right : -21px;
+	right : -12px;
 }
+
+.Vague-Logo img.Vague-Logo-Inner {
+
+	width : 100%;
+	top: -5px;
+	right : 6px;
+
+
+}
+
+
 /* ======== →mainのcss ======== */
 
 

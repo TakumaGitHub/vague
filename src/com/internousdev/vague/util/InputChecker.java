@@ -368,20 +368,34 @@ public class InputChecker {
 			result.put("productDescription", "【商品の説明文は1文字以上255文字以下で入力してください】");
 		}
 		//カテゴリーID
-		if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-9]$"))){
+		if(Integer.valueOf(productDTO.getCategoryId()).equals("")) {
+			result.put("productDescription", "【カテゴリーIDを入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-9]$"))){
 			result.put("categoryId", "【カテゴリーIDは一桁の半角数字で入力してください】");
 		}else if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-4]$"))){
 
 			result.put("categoryId", "【カテゴリーIDは一桁の1以上4以下で入力してください】");
 		}
 		//在庫
-		if(!(Integer.valueOf(productDTO.getProductStock()).toString().matches("^[0-9]+$"))){
+
+		if(Integer.valueOf(productDTO.getProductStock()).equals("")) {
+			result.put("productDescription", "【商品の在庫数を入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getProductStock()).toString().matches("^[0-9]+$"))){
 			result.put("productStock", "【商品の在庫数は半角数字で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getProductStock()).toString().matches("^[0-9]{1,9}$"))){
+			result.put("productStock", "【商品の在庫数は9桁以下で入力してください】");
+
 		}
+
+
 		//価格
 		if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[0-9]+$"))){
 			result.put("price", "【商品の価格は半角数字で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[0-9]{1,9}$"))){
+			result.put("price", "【商品の価格は9桁以下で入力してください】");
 		}
+
+
 		//商品画像
 		if(productDTO.getImageFilePath().equals("")) {
 			result.put("imageFilePath", "【商品画像を選択してください】");

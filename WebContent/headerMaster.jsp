@@ -30,7 +30,7 @@
 
 					<select name="category_id">
 
-						<option value="0" selected="selected">全てのカテゴリー</option>
+						<option value="0" selected="selected">すべて</option>
 
 						<s:iterator value="#session.CategoryList">
 

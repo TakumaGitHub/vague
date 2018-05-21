@@ -78,30 +78,81 @@
 
 /*========= 商品詳細のcss ==========*/
 
+.detail-box-wrapper {
 
-.description-box {
+	text-align : center;
+
+}
+
+.detail-box-left {
+
+	display : inline-block;
+	vertical-align : top;
+
+}
+
+.detail-box-left img {
+
+	vertical-align : middle;
+
+}
+
+.detail-box {
+	position: relative;
+	width:50%;
+    top:0;
+    left: 0;
+	display:inline-block;
 
 }
 
 .detail-image {
+
 	background-color:gray;
-	width:150px;
+	width:auto;
 	height:150px;
 	objectfit:contain;
 }
 #detailName {
-
+	text-align : left;
 	font-size:30px;
 	border-left:6px solid  rgba(147,38,116,0.4);
 }
 #detailName2 {
-
+	text-align : left;
 	font-size:20px;
 }
 
 
 #detailPrice {
+	text-align : right;
 	font-size:30px;
+}
+
+.cart {
+	text-align : right;
+
+}
+
+input[type="submit"] {
+    position: relative;
+    text-align: right;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+	float:right;
+    color: black;
+    font-size: 20px;
+}
+
+
+#description-box {
+	border:2px solid black;
+	padding:5px;
+}
+
+.detail-info {
+	text-align:left;
 }
 
 
@@ -137,7 +188,13 @@
 	margin:20px;
 	float:center;
 	padding:10px;
-	background-color:#fffacd;
+	background-color:#ffb6c1
+;
+}
+
+.stars img {
+	width:20px;
+	height:20px;
 }
 
 h3 {

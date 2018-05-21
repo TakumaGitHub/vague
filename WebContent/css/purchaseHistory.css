@@ -22,6 +22,7 @@ table {
 .tableTopics {
 	background-color:#FFF0F5;
 }
+
 th{
 	line-height:50px;
 	padding-right:5px;
@@ -39,6 +40,9 @@ td:nth-child(3) {
 }
 
 /* 「商品番号」欄 */
+th.number{
+	width:70px;
+}
 td.addPrice-td {
 	border : none;
 }

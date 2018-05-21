@@ -50,10 +50,10 @@
 
 								<table>
 								<tr class="tableTopics">
-									<th>商品番号</th>
-									<th>商品画像</th>
-									<th>購入情報</th>
-									<th>お届け先</th>
+									<th class="number">商品番号</th>
+									<th class="product-pic">商品画像</th>
+									<th class="purchase-info">購入情報</th>
+									<th class="purchase-address">お届け先</th>
 								</tr>
 
 								<s:iterator value="#session.PurchaseHistoryList" status="st">

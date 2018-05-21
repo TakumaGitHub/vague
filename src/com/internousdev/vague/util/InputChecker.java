@@ -339,9 +339,9 @@ public class InputChecker {
 
 		//商品ID
 		if(Integer.valueOf(productDTO.getProductId()).toString().equals("")) {
-			result.put("productName", "【商品IDを入力してください】");
+			result.put("productId", "【商品IDを入力してください】");
 		}else if(Integer.valueOf(productDTO.getProductId()).toString().length() < 1 || Integer.valueOf(productDTO.getProductId()).toString().length() > 10) {
-			result.put("productName", "【商品IDは1文字以上10文字以下で入力してください】");
+			result.put("productId", "【商品IDは1文字以上10文字以下で入力してください】");
 		}else if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
 			result.put("productId", "【商品IDは半角数字で入力してください】");
 		}

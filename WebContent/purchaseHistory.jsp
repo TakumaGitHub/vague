@@ -34,7 +34,7 @@
 			<!-- 購入履歴（なし） -->
 			<div id="message">
 				<s:if test="#session.PurchaseHistoryList.isEmpty()">
-					<p class="message">………　購入履歴はありません　………</p>
+					<p class="message">………　購入履歴はありません　………</p><br>
 								<!-- 戻るボタン -->
 					<div class="normal-button">
 						<form action="MyPageAction">

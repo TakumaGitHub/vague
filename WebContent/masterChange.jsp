@@ -42,7 +42,7 @@ response.sendRedirect("/vague/home.jsp");
 
 		<s:form action="MasterChangeConfirmAction" method="post" enctype="multipart/form-data">
 
-
+			<p class="error-msg" style="margin-left : 100px;"><s:property value="errorMsg.NumberFormatException" /></p>
 			<s:if test="productId != null">
 				<div class="m-id">
 	    		商品ID:

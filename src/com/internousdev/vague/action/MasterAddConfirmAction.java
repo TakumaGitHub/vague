@@ -3,6 +3,7 @@ package com.internousdev.vague.action;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	//フィールド
 	private Map<String, Object> session;
 
-	private Map<String, String> errorMsg;
+	private Map<String, String> errorMsg = new  HashMap<String, String>();
 
 	//ユーザーがアップロードするファイル
 	private File userImage;
@@ -140,6 +141,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		}catch(NumberFormatException e){
 
+			errorMsg.put("NumberFormatException", "商品ID、在庫、価格は9桁以下で入力してください");
 			return ERROR;
 
 		}

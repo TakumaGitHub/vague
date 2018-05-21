@@ -44,6 +44,7 @@ response.sendRedirect("/vague/home.jsp");
 			<div class="add-box">
 		<s:form action="MasterAddConfirmAction" method="post" enctype="multipart/form-data">
 
+			<p class="error-msg"><s:property value="errorMsg.NumberFormatException" /></p>
 			<!-- セッションにMasterAddCompleteDTOがあれば -->
 	    	<s:if test="#session.MasterAddCompleteDTO != null" >
 

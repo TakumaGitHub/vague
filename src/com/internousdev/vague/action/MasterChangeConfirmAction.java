@@ -36,7 +36,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 	private String userImageContentType;
 
 	//ProductDTOのフィールド
-	private int productId;
+	private String productId;
 
 	private String productName;
 
@@ -44,11 +44,11 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private String productDescription;
 
-	private int categoryId;
+	private String categoryId;
 
-	private int productStock;
+	private String productStock;
 
-	private int price;
+	private String price;
 
 	private String imageFilePath;
 
@@ -123,7 +123,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 			for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-				if(categoryId == CD.getCategoryId()){
+				if(categoryId.equals( CD.getCategoryId())){
 
 					imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 					toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
@@ -141,16 +141,24 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 			//入力内容をMasterDTOに格納する
 
+		try{
 
-			productDTO.setProductId(productId);
+			productDTO.setProductId(Integer.parseInt(productId));
 			productDTO.setProductName(productName);
 			productDTO.setProductNameKana(productNameKana);
 			productDTO.setProductDescription(productDescription);
-			productDTO.setCategoryId(categoryId);
-			productDTO.setProductStock(productStock);
-			productDTO.setPrice(price);
+			productDTO.setCategoryId(Integer.parseInt(categoryId));
+			productDTO.setProductStock(Integer.parseInt(productStock));
+			productDTO.setPrice(Integer.parseInt(price));
 			productDTO.setImageFilePath(imageFilePath);
 			productDTO.setImageFileName(imageFileName);
+
+		}catch(NumberFormatException e){
+
+			errorMsg.put("NumberFormatException", "商品ID、在庫、価格は9桁以下で入力してください");
+			return ERROR;
+
+		}
 
 				//発売日を整形
 				String Syear = String.format("%4d", year);
@@ -230,11 +238,11 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.userImageFileName = userImageFileName;
 	}
 
-	public int getProductId() {
+	public String getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(String productId) {
 		this.productId = productId;
 	}
 
@@ -262,27 +270,27 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.productDescription = productDescription;
 	}
 
-	public int getCategoryId() {
+	public String getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
 
-	public int getProductStock() {
+	public String getProductStock() {
 		return productStock;
 	}
 
-	public void setProductStock(int productStock) {
+	public void setProductStock(String productStock) {
 		this.productStock = productStock;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 

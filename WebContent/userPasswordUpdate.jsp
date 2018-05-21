@@ -14,13 +14,6 @@
 </head>
 
 <body>
-<s:if test="#session.LoginUserDTO != null">
-<%
-
-response.sendRedirect("/vague/home.jsp");
-
-%>
-</s:if>
 
 
 	<!--  headerの始まり -->
@@ -49,6 +42,9 @@ response.sendRedirect("/vague/home.jsp");
 				<p><input type="text" name="userId" value="<s:property value='#session.UserPasswordUpdateDTO.userId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
 			</s:if>
 
+			<s:elseif test="#session.LoginUserDTO != null">
+				<p><input type="text" name="userId" value="<s:property value='#session.LoginUserDTO.userId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+			</s:elseif>
 
 			<s:else>
 				<p><input type="text" name="userId" value="<s:property value='#session.saveId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>

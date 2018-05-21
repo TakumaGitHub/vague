@@ -4,9 +4,10 @@
 
 $(function(){
 	$('#Vague-Logo-Outer').animate(
-			  {'z-index': 1},//z-indexを0から1に変更する
+			  {'z-index': 1,
+				'opacity' : 1},//z-indexを0から1に変更する
 			  {
-			    duration: 3000,
+			    duration: 4000,
 			    easing : 'easeOutBack',//アニメーションの時間
 			    //ステップ中の処理
 			    //引数num：処理途中の変化している値
@@ -25,6 +26,13 @@ $(function(){
 			    }
 			  }
 			);
+
+
+	$('#Vague-Logo-Inner').animate({
+
+		'opacity': 1
+
+	},4000);
 
 
 

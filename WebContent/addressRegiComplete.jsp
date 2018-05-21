@@ -34,6 +34,7 @@
 	</div>
 
 
+
 	<!-- footerの始まり -->
 
 	<jsp:include page="footer.jsp" />

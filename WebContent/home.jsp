@@ -10,6 +10,7 @@
 
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/home.css" />
+<script src="js/home.js" type="text/javascript"></script>
 <title>Vague</title>
 </head>
 
@@ -33,8 +34,8 @@
 
 	    <!-- Vagueのロゴ -->
 	    <div class="Vague-Logo" >
-	    <img class="Vague-Logo-Outer" src="LogoImage/VagueLogoOuter.png"  />
-	    <img class="Vague-Logo-Inner" src="LogoImage/VagueLogoInner.png"   />
+	    <img id="Vague-Logo-Outer" src="LogoImage/VagueLogoOuter.png"  />
+	    <img id="Vague-Logo-Inner" src="LogoImage/VagueLogoInner.png"   />
 	    </div>
 
 

@@ -649,7 +649,7 @@ header {
 	right : -12px;
 }
 
-.Vague-Logo img.Vague-Logo-Inner {
+.Vague-Logo img#Vague-Logo-Inner {
 
 	width : 100%;
 	top: -5px;

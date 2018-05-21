@@ -53,9 +53,7 @@
 							</tr>
 							<tr>
 								<th class="line">　パスワード</th>
-								<td class="line">　<s:property value="#session.LoginUserDTO.password" escape="false" />
-									<!-- <button class="pw-change-button" type="submit" onclick="location.href='<s:url action="UserPasswordUpdateAction"></s:url>'" >変更</button> -->
-								</td>
+								<td class="line">　<s:property value="#session.invisiblePassword" escape="false" /></td>
 							</tr>
 
 						</s:iterator>

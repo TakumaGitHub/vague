@@ -56,14 +56,6 @@
 			</div>
 
 
-			<!-- 性別 -->
-
-			<div class="sex">
-				<input type="radio" name="性別" value="男" checked="checked">男
-				<input type="radio" name="性別" value="女">女
-			</div>
-
-
 		<!-- 郵便番号入力(7桁) -->
 
 			<div class="form-text">
@@ -145,14 +137,6 @@
 			</div>
 
 
-			<!-- 性別 -->
-
-			<div class="sex">
-				<input type="radio" name="性別" value="男" checked="checked">男
-				<input type="radio" name="性別" value="女">女
-			</div>
-
-
 		<!-- 郵便番号入力(7桁) -->
 
 			<div class="form-text">
@@ -165,6 +149,7 @@
 				<s:property value="errorPostalCodeMsg"/>
 			</div>
 			</div>
+
 
 
 		<!-- 住所 -->

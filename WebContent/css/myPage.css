@@ -1,29 +1,23 @@
 @CHARSET "UTF-8";
 
-/*
-.title{
-	font-size:35px;
-	margin-top:40px;
-	text-align:center;
-}
-*/
-
+/* テーブル */
 table{
 	width:80%;
 	margin:0 auto;
 	text-align:left;
 }
 
+/* 項目 */
 .line{
 	background-color:#FFF0F5;
 	padding:10px;
 }
 
+/* ボタン */
 .button{
 	margin:0 auto;
 	text-align:center;
 }
-
 .button form{
 	display:inline-block;
 	margin:20px 20px 0px;

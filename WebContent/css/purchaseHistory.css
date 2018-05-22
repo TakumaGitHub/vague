@@ -51,6 +51,9 @@ th.productId-th {
 td.image{
 	padding:15px;
 }
+.pic-click{
+	text-align:center;
+}
 
 /* 「購入情報」欄 */
 .purchaseProductInfo{

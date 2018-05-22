@@ -12,7 +12,6 @@
 	<style type="text/css">
 		<%@ include file="../css/purchaseHistory.css" %>
 	</style>
-
 	<script type="text/javascript" src="js/purchaseHistory.js" ></script>
 
 	<title>purchaseHistory.jsp</title>
@@ -60,8 +59,11 @@
 								<tr>
 									<th class="productId-th"><s:property value="productId" /></th>
 									<td class="image">
-									<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
-									<img src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"></a></td>
+										<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+										<img src="<s:property value='imageFilePath'/>" alt="Photo" width="235" height="190"></a>
+										<br>
+										<div class="pic-click">【画像をクリック】</div>
+									</td>
 									<td class="purchaseProductInfo">
 										<p>商品名：<s:property value="productName" /></p>
 										<p>ふりがな：<s:property value="productNameKana" /></p>

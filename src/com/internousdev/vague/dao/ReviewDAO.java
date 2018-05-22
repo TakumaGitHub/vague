@@ -108,7 +108,7 @@ public class ReviewDAO {
 
 		List<ReviewMyListDTO> reviewMyListDTOList = new ArrayList<ReviewMyListDTO>();
 
-		String sql = " SELECT * FROM review r LEFT JOIN product_info pi ON r.product_id =  pi.product_id WHERE r.user_id= ? ";
+		String sql = " SELECT * FROM review r LEFT JOIN product_info pi ON r.product_id =  pi.product_id WHERE r.user_id= ? ORDER BY r.id DESC";
 
 
 		try{

@@ -66,12 +66,14 @@ response.sendRedirect("/vague/home.jsp");
 						<p><s:property value="errorMsg.reviewTitle" /></p>
 						<p>タイトル：<input class="reviewTitle-form" type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
-						<p><s:property value="errorMsg.reviewBody" /></p>
+
 						<p>内容：　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
+						<p class="error-msg"><s:property value="errorMsg.reviewBody" /></p>
 						<textarea class="reviewBody-form" rows="5" name="reviewBody"  required="required"><s:property value='reviewBody' /></textarea>
 
-						<p><s:property value="errorMsg.reviewScore" /></p>
+
 						<p>評価：
+						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
 
 						<s:if test="reviewScore != null">
 							<input type="hidden" id="reviewScore" name="reviewScore" value="<s:property value="reviewScore" />">
@@ -106,12 +108,14 @@ response.sendRedirect("/vague/home.jsp");
 						<p><s:property value="errorMsg.reviewTitle" /></p>
 						<p>タイトル<input class="reviewTitle-form"  type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
-						<p><s:property value="errorMsg.reviewBody" /></p>
+
 						<p>内容　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
+						<p class="error-msg"><s:property value="errorMsg.reviewBody" /></p>
 						<textarea class="reviewBody-form"  rows="5" name="reviewBody"  required="required"><s:property value='#session.CreateReviewCompleteDTO.reviewBody'/></textarea>
 
-						<p><s:property value="errorMsg.reviewScore" /></p>
+
 						<p>評価
+						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
 
 
 						<input type="hidden" id="reviewScore" name="reviewScore" value="<s:property value='#session.CreateReviewCompleteDTO.reviewScore' />">

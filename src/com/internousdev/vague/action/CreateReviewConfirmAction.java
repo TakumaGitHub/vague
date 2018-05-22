@@ -1,5 +1,6 @@
 package com.internousdev.vague.action;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -27,9 +28,9 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 
 	private String reviewBody = "";//255文字以内
 
-	private int reviewScore;//5以下
+	private String reviewScore;//5以下
 
-	private Map<String, String> errorMsg;
+	private Map<String, String> errorMsg = new HashMap<String, String>();
 
 	private String accessKey = "true";
 
@@ -52,7 +53,17 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 		productId = ((ProductDTO)session.get("CreateReviewProductDTO")).getProductId();
 
 		//入力内容の審査
-		errorMsg = InputChecker.reviewChk(reviewTitle, reviewBody, reviewScore);
+
+		try{
+
+			errorMsg = InputChecker.reviewChk(reviewTitle, reviewBody, Integer.parseInt(reviewScore));
+
+		}catch(NumberFormatException e){
+
+			errorMsg.put("reviewScore", "【評価は5桁以下の整数で入力してください】");
+			return ERROR;
+
+		}
 
 
 		if(!(errorMsg.isEmpty())){
@@ -68,7 +79,19 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 			createReviewCompleteDTO.setProductId(productId);
 			createReviewCompleteDTO.setReviewTitle(reviewTitle);
 			createReviewCompleteDTO.setReviewBody(reviewBody);
-			createReviewCompleteDTO.setReviewScore(reviewScore);
+
+			try{
+
+				createReviewCompleteDTO.setReviewScore(Integer.parseInt(reviewScore));
+
+			}catch(NumberFormatException e){
+
+				errorMsg.put("reviewScore", "【評価は5桁以下の整数で入力してください】");
+				return ERROR;
+
+			}
+
+
 
 			//入力内容をセッションに格納
 			session.put("CreateReviewCompleteDTO",createReviewCompleteDTO);
@@ -108,11 +131,11 @@ public class CreateReviewConfirmAction extends ActionSupport implements SessionA
 		this.reviewBody = reviewBody;
 	}
 
-	public int getReviewScore() {
+	public String getReviewScore() {
 		return reviewScore;
 	}
 
-	public void setReviewScore(int reviewScore) {
+	public void setReviewScore(String reviewScore) {
 		this.reviewScore = reviewScore;
 	}
 

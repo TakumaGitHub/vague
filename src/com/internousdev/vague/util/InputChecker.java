@@ -323,7 +323,7 @@ public class InputChecker {
 		}
 
 		if(reviewScore > 5){
-			result.put("reviewScore", "【評価は５以下で入力してください】");
+			result.put("reviewScore", "【評価は5桁以下の整数で入力してください】");
 		}
 
 		return result;

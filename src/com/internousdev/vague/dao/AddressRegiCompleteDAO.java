@@ -89,6 +89,48 @@ public class AddressRegiCompleteDAO {
 		return addressList;
 	}
 
+//	入力された宛先情報が既に登録されていた場合、登録を無効にし、確認画面でエラー文を表示させる。
+	public String doubleCheck(AddressDTO addressDTO) throws SQLException {
+
+		DBConnector db = new DBConnector();
+		Connection con = db.getConnection();
+
+		String sql = "select count(id) as count from destination_info where user_id=? and family_name=? and first_name=? and family_name_kana=? and first_name_kana=? and email=? and tel_number=? and postal_code=? and user_address=?";
+
+		String errorMsg = null;
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+
+			ps.setString(1,addressDTO.getUserId());
+			ps.setString(2,addressDTO.getFamilyName());
+			ps.setString(3,addressDTO.getFirstName());
+			ps.setString(4,addressDTO.getFamilyNameKana());
+			ps.setString(5,addressDTO.getFirstNameKana());
+			ps.setString(6,addressDTO.getEmail());
+			ps.setString(7,addressDTO.getTelNumber());
+			ps.setString(8,addressDTO.getPostalCode());
+			ps.setString(9,addressDTO.getAddr11());
+
+			ResultSet rs = ps.executeQuery();
+
+
+			if(rs.next()) {
+				if(rs.getInt("count") > 0) {
+					errorMsg = "こちらの宛先は既に登録されています";
+				}
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			con.close();
+		}
+
+		return errorMsg;
+
+	}
+
 
 
 }

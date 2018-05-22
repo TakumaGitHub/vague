@@ -13,22 +13,26 @@ public class AddressRegiCompleteAction extends ActionSupport implements SessionA
 
 	public Map<String,Object> session;
 
+	private String errorMsg;
+
 	public String execute() throws SQLException{
 
 		String result = ERROR;
 
 		AddressDTO addressDTO = new AddressDTO();
 
-//		ConfirmActionでsessionに格納した値を、AddressDTOをインスタンス化した変数名[adderssDTO]に入れる。
 		addressDTO = (AddressDTO)session.get("AddressDTO");
 
 		AddressRegiCompleteDAO addressRegiCompleteDAO = new AddressRegiCompleteDAO();
 
-//		CompleteDAOのregisterAddressメソッドにaddressDTOを入れDBに格納されたかどうかを確認。
-//		⇨[DBに格納したら => trueを返す]
+////		全く同じ内容のものが既にDBに格納されていないか判定。
+		errorMsg = addressRegiCompleteDAO.doubleCheck(addressDTO);
+		if(errorMsg != null) {
+			return result;
+		}
 
 		int count = addressRegiCompleteDAO.registerAddress(addressDTO);
-
+//		countで登録されたかの判定。
 		if(count > 0) {
 			session.remove("AddressDTO");
 			result = SUCCESS;
@@ -44,5 +48,16 @@ public class AddressRegiCompleteAction extends ActionSupport implements SessionA
 	public void setSession(Map<String,Object> session) {
 		this.session = session;
 	}
+
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
+	}
+
 
 }

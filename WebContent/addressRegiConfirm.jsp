@@ -21,6 +21,11 @@
 	<div id="main">
 
 	<div class="container">
+
+	<div class="error2">
+		<s:property value="errorMsg"/>
+	</div>
+
 		<div class="box">
 			<div>
 				<h3>宛先登録確認</h3>

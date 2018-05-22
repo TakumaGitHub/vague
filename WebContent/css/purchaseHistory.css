@@ -20,18 +20,16 @@ table {
 	border:3px solid #ddd;
 }
 .tableTopics {
+	font-size:15px;
 	background-color:#FFF0F5;
 }
 
 th{
-	line-height:50px;
+	line-height:40px;
 	padding-right:5px;
 	padding-left:5px;
 }
-th.productId-th {
-	border-top: 3px solid #ddd;
-	background-color:#EEEEEE;
-}
+
 td{
 	border-top: 3px solid #ddd;
 }
@@ -41,10 +39,12 @@ td:nth-child(3) {
 
 /* 「商品番号」欄 */
 th.number{
-	width:70px;
+	width:60px;
 }
-td.addPrice-td {
-	border : none;
+th.productId-th {
+	font-size:13px;
+	border-top: 3px solid #ddd;
+	background-color:#EEEEEE;
 }
 
 /* 「商品画像」欄 */
@@ -54,6 +54,7 @@ td.image{
 
 /* 「購入情報」欄 */
 .purchaseProductInfo{
+	font-size:14px;
 	line-height:10px;
 	padding-top:10px;
 	padding-right:20px;
@@ -85,14 +86,17 @@ td.image{
 
 /* 「お届け先」欄 */
 .purchaseAddress{
+	font-size:14px;
 	line-height:15px;
-	padding-right:30px;
-	padding-left:30px;
+	padding-right:20px;
+	padding-left:20px;
 }
 .addPrice {
 	display : none;
 }
-
+td.addPrice-td {
+	border :none;
+}
 /* [戻る]ボタン、[履歴をすべて削除]ボタン、[レビューを投稿する]ボタン */
 .button{
 	margin:0 auto;

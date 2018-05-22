@@ -47,6 +47,8 @@ public class PurchaseHistoryDTO {
 
 	private String insertDate;
 
+	private int categoryId;
+
 	// 商品名
 	public String getProductName() {
 		return productName;
@@ -160,6 +162,12 @@ public class PurchaseHistoryDTO {
 		}
 	public void setInsertDate(String insertDate) {
 		this.insertDate = insertDate;
+	}
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
 
 }

@@ -59,8 +59,9 @@
 								<s:iterator value="#session.PurchaseHistoryList" status="st">
 								<tr>
 									<th class="productId-th"><s:property value="productId" /></th>
-									<td class="image"><a href="<s:url action="ProductDetailsAction"><s:param name="productId" value="%{productId}" /></s:url>">
-										<img src="<s:property value='imageFilePath'/>" alt="Photo" width=235px height=190px></a></td>
+									<td class="image">
+									<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>">
+									<img src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"></a></td>
 									<td class="purchaseProductInfo">
 										<p>商品名：<s:property value="productName" /></p>
 										<p>ふりがな：<s:property value="productNameKana" /></p>

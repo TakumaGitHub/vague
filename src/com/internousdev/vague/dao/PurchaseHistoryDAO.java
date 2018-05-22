@@ -19,7 +19,7 @@ public class PurchaseHistoryDAO {
 		DBConnector db = new DBConnector();
 		Connection con = db.getConnection();
 
-		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, phi.address_id, di.postal_code, di.user_address, pi.release_company, pi.release_date, phi.regist_date  FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id LEFT JOIN destination_info as di ON phi.address_id = di.id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
+		String sql = "SELECT phi.id as id, pi.product_id as product_id, pi.product_name as product_name, pi.product_name_kana as product_name_kana , pi.product_description as product_description,pi.image_file_name as image_file_name, pi.image_file_path as image_file_path, phi.price, phi.product_count, phi.address_id, di.postal_code, di.user_address, pi.release_company, pi.release_date, phi.regist_date, pi.category_id as category_id  FROM purchase_history_info as phi LEFT JOIN product_info as pi ON phi.product_id = pi.product_id LEFT JOIN destination_info as di ON phi.address_id = di.id  WHERE phi.user_id = ? ORDER BY regist_date DESC";
 
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -45,6 +45,7 @@ public class PurchaseHistoryDAO {
 				dto.setPostalCode(rs.getString("postal_code"));
 				dto.setUserAddress(rs.getString("user_address"));
 				dto.setInsertDate(rs.getString("regist_date").replaceAll("\\.0$", ""));
+				dto.setCategoryId(rs.getInt("category_id"));
 
 				purchaseHistoryDTOList.add(dto);
 			}

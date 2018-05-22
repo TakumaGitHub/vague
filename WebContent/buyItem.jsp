@@ -9,9 +9,7 @@
 <title>宛先の選択</title>
 <style type="text/css">
 h3	{	font-size:23px;
-		background-color:#EEEEEE;
-		font-family:"ＭＳ ＵＩゴシック","ＭＳ ゴシック",sans-serif;
-		text-indent : 40px;
+
 	}
 .name	{font-size:23px;
 		}
@@ -35,7 +33,7 @@ h3	{	font-size:23px;
 
                 <div class="container">
 
-					<h3>お届け先を選択して下さい</h3>
+					<h3 class="title">お届け先を選択して下さい</h3>
 
 					<div class="addressList-box" >
 

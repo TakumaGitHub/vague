@@ -105,6 +105,12 @@
 				$('#form2').submit();
 			});
 		});
+
+		(function() {
+			  $("form2").on("submit", function onsubmit (event) {
+			    $(this).off("submit", onsubmit).on("submit", false);
+			  });
+			})();
 	</script>
 
 

@@ -45,7 +45,7 @@ response.sendRedirect("/vague/home.jsp");
 			<p class="error-msg" style="margin-left : 100px;"><s:property value="errorMsg.NumberFormatException" /></p>
 			<s:if test="productId != null">
 				<div class="m-id">
-	    		商品ID:
+	    		商品ID　<span class="caution-msg">※9桁以下の半角数字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productId" /></p>
 				<input type="text" name="productId" value="<s:property value='productId' />" required="required"/>
 
@@ -53,19 +53,19 @@ response.sendRedirect("/vague/home.jsp");
 				<br>
 				</div>
 				<div class="m-name">
-				商品名:
+				商品名　<span class="caution-msg">※1～100文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productName" /></p>
 				<input type="text" name="productName" value="<s:property value='productName' />"  required="required"/>
 				<br>
 				</div>
 				<div class="m-name-kana">
-				商品名かな:
+				商品名かな　<span class="caution-msg">※1～100文字のひらがなで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productNameKana" /></p>
 				<input type="text" name="productNameKana" value="<s:property value='productNameKana' />" required="required" />
 				<br>
 				</div>
 				<div class="m-description">
-				商品の説明:
+				商品の説明　<span class="caution-msg">※1～255文字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productDescription" /></p>
 				<textarea name="productDescription"  rows="4" cols="50"><s:property value="productDescription"/></textarea>
 				<br>
@@ -88,13 +88,13 @@ response.sendRedirect("/vague/home.jsp");
 				<br>
 				</div>
 				<div class="m-stock">
-				在庫:
+				在庫　<span class="caution-msg">※9桁以下の半角数字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productStock" /></p>
 				<input type="text" name="productStock" value="<s:property value='productStock' />" required="required" />
 				<br>
 				</div>
 				<div class="m-price">
-				価格:
+				<p>価格　<span class="caution-msg">※9桁以下の半角数字で入力してください</span></p>
 				<s:property value="errorMsg.price" />
 				<input type="text" name="price" value="<s:property value='price' />" required="required" />
 				<br>
@@ -141,7 +141,7 @@ response.sendRedirect("/vague/home.jsp");
 				<br>
 				</div>
 				<div class="m-reCompany">
-				販売会社:
+				販売会社　<span class="caution-msg">※1～50文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.releaseCompany" /></p>
 				<input type="text" name="releaseCompany" value="<s:property value='releaseCompany' />"  required="required"/><br>
 
@@ -153,7 +153,7 @@ response.sendRedirect("/vague/home.jsp");
 			<!-- セッションにMasterChangeCompleteDTOがあれば -->
 	    	<s:elseif test="#session.MasterChangeCompleteDTO != null" >
 				<div class="m-id">
-				商品ID
+				商品ID　<span class="caution-msg">※9桁以下の半角数字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productId" /></p>
 				<input type="text" name="productId" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productId' />" required="required"/>
 
@@ -161,19 +161,19 @@ response.sendRedirect("/vague/home.jsp");
 				<br>
 				</div>
 				<div class="m-name">
-				商品名:
+				商品名　<span class="caution-msg">※1～100文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productName" /></p>
 				<input type="text" name="productName" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productName' />"  required="required"/>
 
 				</div>
 				<div class="m-name-kana">
-				商品名かな:
+				商品名かな　<span class="caution-msg">※1～100文字のひらがなで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productNameKana" /></p>
 				<input type="text" name="productNameKana" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productNameKana' />" required="required" />
 
 				</div>
 				<div class="m-description">
-				<p>商品の説明:</p>
+				<p>商品の説明　<span class="caution-msg">※1～255文字で入力してください</span></p>
 				<p class="error-msg"><s:property value="errorMsg.productDescription" /></p>
 				<textarea name="productDescription" rows="2" cols="50" ><s:property value="#session.MasterChangeCompleteDTO.productDTO.productDescription"/></textarea>
 
@@ -196,13 +196,13 @@ response.sendRedirect("/vague/home.jsp");
 
 				</div>
 				<div class="m-stock">
-				在庫:
+				在庫　<span class="caution-msg">※9桁以下の半角数字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.productStock" /></p>
 				<input type="text" name="productStock" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.productStock' />" required="required" />
 
 				</div>
 				<div class="m-price">
-				価格:
+				価格　<span class="caution-msg">※9桁以下の半角数字で入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.price" /></p>
 				<input type="text" name="price" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.price' />" required="required" />
 
@@ -249,7 +249,7 @@ response.sendRedirect("/vague/home.jsp");
 
 				</div>
 				<div class="m-reCompany">
-				販売会社:
+				販売会社　<span class="caution-msg">※1～50文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span>
 				<p class="error-msg"><s:property value="errorMsg.releaseCompany" /></p>
 				<input type="text" name="releaseCompany" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseCompany' />"  required="required"/>
 

@@ -414,7 +414,7 @@ public class InputChecker {
 		}else if(productDTO.getReleaseCompany().length() < 1 || productDTO.getReleaseCompany().length() > 50) {
 			result.put("releaseCompany", "【商品の販売会社名は1文字以上50文字以下で入力してください】");
 		}else if(!productDTO.getReleaseCompany().matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
-			result.put("releaseCompany", "【商品の販売会社名は形式にそって入力してください】");
+			result.put("releaseCompany", "【商品の販売会社名は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】");
 		}
 
 		return result;

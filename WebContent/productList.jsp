@@ -7,7 +7,7 @@
 <jsp:include page="head.jsp" />
 
 <link rel="stylesheet" href="./css/product.css">
-
+<script src="js/productList.js" type="text/javascript" ></script>
 
 <title>商品一覧</title>
 
@@ -58,7 +58,7 @@
 
 		<!-- 商品画像 -->
 
-		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+		<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="250" height="220"><br>
 
 
 
@@ -78,7 +78,10 @@
 			<br>
 			</div>
 
-
+	<div class="product-box-top" ></div>
+	<div class="product-box-left" ></div>
+	<div class="product-box-right" ></div>
+	<div class="product-box-bottom" ></div>
 
 	</div>
 

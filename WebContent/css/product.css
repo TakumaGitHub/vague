@@ -6,7 +6,6 @@
 
 
 
-
 .pages {
 	text-align:right;
 	font-size:20px;
@@ -26,11 +25,65 @@
 	width : 30%;
 
 	display : inline-block;
-	transition:all 0.3s;
-	margin: 30px 15px 30px 15px;
+	transition:all 0.5s;
+	margin: 30px 5px 30px 5px;
+	padding : 10px;
 	text-align:center;
 
 }
+
+.product-box-top {
+
+	width : 0%;
+	height : 0px;
+
+	position : absolute;
+	top : 0px;
+	left : 0px;
+
+	border-top : 2px solid #364e96;
+
+}
+
+.product-box-left {
+
+	width : 0px;
+	height : 0%;
+
+	position : absolute;
+	bottom : 0px;
+	left : 0px;
+
+	border-left : 2px solid #364e96;
+
+}
+
+.product-box-right {
+
+	width : 0px;
+	height : 0%;
+
+	position : absolute;
+	top : 0px;
+	right : 0px;
+
+	border-right : 2px solid #364e96;
+
+}
+
+.product-box-bottom {
+
+	width : 0%;
+	height : 0px;
+
+	position : absolute;
+	bottom : 0px;
+	right : 0px;
+
+	border-bottom : 2px solid #364e96;
+
+}
+
 
 .product-box a {
 
@@ -42,16 +95,15 @@
 	width: 100%;
 
 }
-
-
-
 .product-box:hover {
 
-	top:-10px;
-	left:-10px;
-	box-shadow:6px 8px #364e96;
-	transition:all 0.3s;
+	box-shadow:6px 8px #dcdcdc;
+	top:-10px;left:-10px;
+
+	transition:all 0.5s;
 }
+
+
 .proName {
 
 	font-size : 20px;

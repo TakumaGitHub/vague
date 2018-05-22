@@ -77,6 +77,11 @@
 
 	<!-- 在庫  -->
 
+	<s:if test="#session.DetailProductDTO.productStock == 0">
+		<p class="caution-msg">在庫切れです(T_T)</p>
+	</s:if>
+
+	<s:else>
 
 		<div class="cart">
 			<span>購入個数：
@@ -106,6 +111,10 @@
 		<s:submit value="カートに入れる"/>
 
 		</div>
+
+	</s:else>
+
+
 		</s:form>
 
 

@@ -52,7 +52,7 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 		if(!newPassword.equals(newPasswordConfirm)){
 
-			passwordErrorMsg = "入力されたパスワードが異なります。";
+			passwordErrorMsg = "【新しいパスワードと確認用パスワードの値が一致していません】";
 			return ERROR;
 
 		}

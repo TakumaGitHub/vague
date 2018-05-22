@@ -65,13 +65,13 @@
 					<input class="normal-button" type="submit" value="ホームに戻る" />
 				</form>
 				<form action="userPasswordUpdate.jsp">
-					<input class="normal-button" type="submit" value="パスワードを変更" />
+					<input class="button" type="submit" value="パスワードを変更" />
 				</form>
 				<form action="AddressAction" >
-					<input class="normal-button" type="submit" value="宛先を登録する" />
+					<input class="button" type="submit" value="宛先を登録する" />
 				</form>
 				<form action="PurchaseHistoryAction">
-					<input class="normal-button" type="submit" value="商品購入履歴へ" />
+					<input class="button" type="submit" value="商品購入履歴へ" />
 				</form>
 			</div>
 

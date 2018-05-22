@@ -23,13 +23,11 @@ table {
 	font-size:15px;
 	background-color:#FFF0F5;
 }
-
 th{
 	line-height:40px;
 	padding-right:5px;
 	padding-left:5px;
 }
-
 td{
 	border-top: 3px solid #ddd;
 }
@@ -49,7 +47,10 @@ th.productId-th {
 
 /* 「商品画像」欄 */
 td.image{
-	padding:15px;
+	padding-top:15px;
+	padding-right:15px;
+	padding-left:15px;
+	padding-bottom:10px;
 }
 .pic-click{
 	text-align:center;
@@ -60,32 +61,59 @@ td.image{
 	font-size:14px;
 	line-height:10px;
 	padding-top:10px;
-	padding-right:20px;
+	padding-right:5px;
 	padding-left:15px;
 }
 
+/* 「レビューを投稿する」ボタン */
 /*
-[レビューを投稿する]ボタン
-.review-button{
-	text-align:center;
+#main button.review-button {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
 }
+#main button.review-button,
+#main button.review-button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+#main button.review-button,
+#main button.review-button::before,
+#main button.review-button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+*/
 #main button.review-button{
 	font-size:17px;
-	background-color:#EEEEEE;
-	border-radius:5px;
-	padding-top:3px;
-	padding-bottom:3px;
-	padding-right:10px;
-	padding-left:10px;
+	color:white;
+	border: 2px solid #888888;
+	background-color:#888888;
+	border-radius:0px;
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-right:13px;
+	padding-left:18px;
+	border-bottom:none;
 }
 #main button.review-button:hover{
+	color:black;
+	border: 2px solid black;
 	background-color:white;
 }
 #main button img {
 	height : 25px;
 	width : 25px;
 }
-*/
 
 /* 「お届け先」欄 */
 .purchaseAddress{
@@ -108,8 +136,4 @@ td.addPrice-td {
 .button form{
 	display:inline-block;
 	margin:40px 20px 30px;
-}
-button img {
-	height : 25px;
-	width : 25px;
 }

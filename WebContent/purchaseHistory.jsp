@@ -71,7 +71,7 @@
 										<p>　・値段：¥ <s:property value="price" /> <br></p>
 										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
-										<p class="review-button"><button class="normal-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビュー投稿：<img src="LogoImage/good_icon1.png"></button></p>
+										<p><button class="review-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビュー投稿：<img src="LogoImage/good_icon1.png"></button></p>
 										<!-- <p class="review-button"><button class="review-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビューを投稿する：<img src="LogoImage/good_icon1.png"></button></p> -->
 									</td>
 
@@ -106,7 +106,7 @@
 					<!-- 履歴すべて削除ボタン -->
 						<form action="PurchaseHistoryAction">
 							<input type="hidden" name="deleteFlg" value="1">
-							<input class="normal-button" type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
+							<input class="button" type="submit" value="履歴をすべて削除" onclick="return deleteCheck();"/>
 						</form>
 						<script>
 							function deleteCheck(){if(window.confirm('購入履歴を削除します。よろしいですか？')){

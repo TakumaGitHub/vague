@@ -80,14 +80,20 @@ td.checkbox, td.image{
 	text-align:right;
 }
 .delete{
+
 	padding-right:10px;
 }
+button.normal-button{
+	background-color:#102d5b;
+}
+
 
 /*right*/
 
 .right{
 	float:left;
 	width:25%;
+	padding:0 0 0 3%;
 }
 .cartprice{
 	font-size:30px;
@@ -99,9 +105,11 @@ td.checkbox, td.image{
 	border-right: 1px solid #ddd;
 	border-radius:10px;
 	margin:20px;
+	background-color:#fffff0;
+	font-color:black;
 }
-.register button{
-	width:100%;
+.register form button[type="submit"].notma-lbutton{
+	background-color:rgb(15, 41, 96);
 }
 
 

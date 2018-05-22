@@ -14,7 +14,11 @@
 <!-- <link rel="stylesheet" href="text.html">-->
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-
+<script type="text/javascript">
+	$('#all').on('change', function() {
+	    $('input[name=check]').prop('checked', this.checked);
+	});
+</script>
 
 <jsp:include page="head.jsp" />
 <title>cart.jsp</title>
@@ -34,26 +38,26 @@
 	<div id="main">
 
 		<div class="container">
-
+			<div class="title">ショッピングカート</div>
 
 			<%-- 在庫数を購入個数が上回っているときのエラーメッセージ --%>
 			<s:iterator value="errorMsg">
 				<strong><s:property /></strong>
 			</s:iterator>
 			<s:if test='#session.CartDTOList == null || #session.CartDTOList.isEmpty()'>
-				<p class="noproduct"><i class="fab fa-500px"></i>カートに商品はありません。</p>
+				<p class="noproduct">カートに商品はありません。</p>
 				<form id="ProductListForm" action="ProductListAction">
 					<button type="submit" class="noproduct">
-						<i class="fas fa-store"></i>買い物に戻る
+						<i class="fas fa-store"></i> 買い物に戻る
 					</button>
 				</form>
 			</s:if>
-			<s:else>
 
+			<s:else>
 			<div class="left floatleft">
 				<table>
 					<tr class="column1">
-						<th class="tag" width="5%">☑️</th>
+						<th class="tag" width="5%"><input type="checkbox" name="all" onClick="AllChecked();" />️</th>
 						<th class="tag" width="15%">商品画像</th>
 						<th class="tag" width="35%">商品名</th>
 						<th class="tag" width="10%">値段</th>
@@ -63,7 +67,7 @@
 					<s:iterator value="#session.CartDTOList">
 						<tr>
 							<td class="checkbox list">
-								<input form="CartDeleteForm" type="checkbox" name="productId" value="<s:property value='productId'/>" />
+								<input form="CartDeleteForm" type="checkbox" name="productId" value="<s:property value='productId'/>" onClick="DisChecked();"/>
 							</td>
 							<td class="image list">
 								<img src="<s:property value='imageFilePath' />" width="200" height="auto"/>
@@ -97,7 +101,7 @@
 				<div class="productlist floatright">
 					<s:form id="ProductListForm" action="ProductListAction">
 						<button type="submit" class="normal-button">
-							<i class="fas fa-store"></i>買い物を続ける
+							買い物を続ける
 						</button>
 					</s:form>
 				</div>
@@ -110,7 +114,7 @@
 				</div>
 			</div>
 
-			<div class="right floatleft">
+			<div class="right floatright">
 				<div class="register">
 					<p>カート合計金額(<s:property value="#session.TotalProductCount"/>点):</p>
 					<p class="red cartprice">¥<s:property value="#session.CartTotalPrice"/></p>

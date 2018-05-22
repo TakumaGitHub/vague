@@ -128,8 +128,6 @@ public class CartDAO {
 				ps.setInt(2, PI);
 				i += ps.executeUpdate();
 			}
-
-
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
@@ -162,7 +160,7 @@ public class CartDAO {
 		if(sqlBranch == 0){
 			sql = "select user_id from cart_info where user_id = ? AND product_id = ? ";
 		}else{
-			sql = "select user_id from cart_info where temp_user_id = ? AND product_id = ? ";
+			sql = "select temp_user_id from cart_info where temp_user_id = ? AND product_id = ? ";
 		}
 		try{
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -171,12 +169,15 @@ public class CartDAO {
 			ResultSet rs = ps.executeQuery();
 
 			while(rs.next()){
-				duplicate = rs.getString("user_id");
+				if(sqlBranch == 0){
+					duplicate = rs.getString("user_id");
+				}else{
+					duplicate = rs.getString("temp_user_id");
+				}
 			}
 			if(duplicate != null){
 				result = true;
 			}
-
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {

@@ -68,16 +68,16 @@ public class InputChecker {
 		return result;
 	}
 
-	//ユーザーIDエラーメッセージ管理
+	//ログインIDエラーメッセージ管理
 	public static String userIdChk(String userId) {
 		String result = null;
 
 		if(userId.equals("")) {
-			result = "【ユーザーIDを入力してください】";
+			result = "【ログインIDを入力してください】";
 		}else if(userId.length() < 1 || userId.length() > 8) {
-			result = "【ユーザーIDは1文字以上8文字以下で入力してください】";
+			result = "【ログインIDは1文字以上8文字以下で入力してください】";
 		}else if(!userId.matches("^[a-zA-Z0-9]+$")) {
-			result = "【ユーザーIDは半角英数字で入力してください】";
+			result = "【ログインIDは半角英数字で入力してください】";
 		}
 		return result;
 	}
@@ -140,14 +140,14 @@ public class InputChecker {
 		}
 
 
-		//ユーザーIDエラーメッセージ管理
+		//ログインIDエラーメッセージ管理
 
 		if(loginUserDTO.getUserId().equals("")) {
-			result.put("userId", "【ユーザーIDを入力してください】");
+			result.put("userId", "【ログインIDを入力してください】");
 		}else if(loginUserDTO.getUserId().length() < 1 || loginUserDTO.getUserId().length() > 8) {
-			result.put("userId", "【ユーザーIDは1文字以上8文字以下で入力してください】");
+			result.put("userId", "【ログインIDは1文字以上8文字以下で入力してください】");
 		}else if(!loginUserDTO.getUserId().matches("^[a-zA-Z0-9]+$")) {
-			result.put("userId", "【ユーザーIDは半角英数字で入力してください】");
+			result.put("userId", "【ログインIDは半角英数字で入力してください】");
 		}
 
 		//パスワードエラーメッセージ管理

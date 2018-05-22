@@ -37,7 +37,7 @@ public class UserPasswordUpdateDAO {
 				//IDに対応するユーザーがいなかったら
 				if(!rs.next()){
 
-					result = "IDが間違っています";
+					result = "ログインIDが間違っています";
 
 				}else if(password.equals(rs.getString("password"))){
 

@@ -22,7 +22,6 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 
 	private String hidePassword;
 
-
 	private String userIdErrorMsg;
 
 	private String passwordErrorMsg;
@@ -39,6 +38,12 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 		String result = SUCCESS;
 
 
+		//ログインしているのにパスワード変更しようとしているときは、homeへ
+		if(session.containsKey("LoginUserDTO")){
+
+			return "home";
+
+		}
 
 		//エラーメッセージチェック
 		userIdErrorMsg = InputChecker.userIdChk(userId);

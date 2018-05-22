@@ -5,10 +5,14 @@
 	text-align : center;
 	background-color : #EEEEEE;
 }
-h3{	background-color : #DDDDDD;
+
+h3{
 	font-size : 40px;
+	background-color : white;
 }
-h2{ font-size : 100px;
+
+h2{
+	font-size : 100px;
 	color : #2F4F4F;
-	width : auto ;
+
 }

@@ -35,7 +35,7 @@
 	<div class="main">
 		<div class="form">
 			<div class="form-heading">
-				<h3>【決済完了】</h3>
+				<h3 class="title">決済完了</h3>
 			</div>
 
 				<h2>THANK YOU !</h2>

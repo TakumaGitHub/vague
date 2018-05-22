@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 
@@ -56,11 +57,11 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private String releaseDate;
 
-		private int year;
+		private String year;
 
-		private int month;
+		private String month;
 
-		private int day;
+		private String day;
 
 	private String releaseCompany;
 
@@ -155,16 +156,32 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 		}catch(NumberFormatException e){
 
-			errorMsg.put("NumberFormatException", "商品ID、在庫、価格は9桁以下で入力してください");
+			errorMsg.put("NumberFormatException", "商品ID、在庫、価格は9桁以下の半角数字で入力してください");
 			return ERROR;
 
 		}
 
-				//発売日を整形
-				String Syear = String.format("%4d", year);
-				String Smonth = String.format("%02d",month);
-				String Sday = String.format("%02d",day);
-				releaseDate = Syear + Smonth + Sday;
+		try{
+
+			//発売日を整形
+			String Syear = String.format("%4d", Integer.parseInt(year));
+			String Smonth = String.format("%02d", Integer.parseInt(month));
+			String Sday = String.format("%02d", Integer.parseInt(day));
+			releaseDate = Syear + Smonth + Sday;
+
+		}catch(NumberFormatException e){
+
+			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
+			return ERROR;
+
+		}catch(IllegalFormatException e){
+
+			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
+			return ERROR;
+
+		}
+
+
 
 			productDTO.setReleaseDate(releaseDate);
 			productDTO.setReleaseCompany(releaseCompany);
@@ -330,27 +347,27 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.releaseDate = releaseDate;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(int month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 
-	public int getDay() {
+	public String getDay() {
 		return day;
 	}
 
-	public void setDay(int day) {
+	public void setDay(String day) {
 		this.day = day;
 	}
 

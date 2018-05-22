@@ -18,7 +18,7 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 
 	private int deleteFlg = 0;
 
-	private List<Integer> review_id;
+	private List<Integer> review_id = new ArrayList<Integer>();
 
 	private int  ListNumber = 0;
 

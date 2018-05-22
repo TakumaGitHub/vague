@@ -39,24 +39,24 @@
 			<p>ログインID</p>
 
 			<s:if test="#session.UserPasswordUpdateDTO.userId != null">
-				<p><input type="text" name="userId" value="<s:property value='#session.UserPasswordUpdateDTO.userId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+				<p><input type="text" name="userId" value="<s:property value='#session.UserPasswordUpdateDTO.userId' />" pattern="^[a-zA-Z0-9]{1,8}$" maxlength="8"/></p>
 			</s:if>
 
 			<s:elseif test="#session.LoginUserDTO != null">
-				<p><input type="text" name="userId" value="<s:property value='#session.LoginUserDTO.userId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+				<p><input type="text" name="userId" value="<s:property value='#session.LoginUserDTO.userId' />" pattern="^[a-zA-Z0-9]{1,8}$" maxlength="8" /></p>
 			</s:elseif>
 
 			<s:else>
-				<p><input type="text" name="userId" value="<s:property value='#session.saveId' />" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+				<p><input type="text" name="userId" value="<s:property value='#session.saveId' />" pattern="^[a-zA-Z0-9]{1,16}$" maxlength="8" /></p>
 			</s:else>
 
 
 			<p class="error-msg"><s:property value="passwordErrorMsg"/></p>
 			<p>半角英数字1～16文字で入力してください。</p>
 			<p>新しいパスワード</p>
-			<p><input type="password" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+			<p><input type="password" name="newPassword" pattern="^[a-zA-Z0-9]{1,16}$" maxlength="16" /></p>
 			<p>新しいパスワード(確認)</p>
-			<p><input type="password" name="newPasswordConfirm" pattern="^[a-zA-Z0-9]{1,16}$" /></p>
+			<p><input type="password" name="newPasswordConfirm" pattern="^[a-zA-Z0-9]{1,16}$" maxlength="16"  /></p>
 
 
 			<input type="submit" value="確認画面に行く" />

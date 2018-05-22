@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
 
@@ -23,7 +24,7 @@
 
 	<!--  mainの始まり -->
 	<div id="main">
-		<div class="container">
+		<div class="container" style="text-align :center;">
 			<h2 class="title">エラーページ</h2>
 
 				<p>エラーが発生しました。3秒後にホームページに戻ります。</p>

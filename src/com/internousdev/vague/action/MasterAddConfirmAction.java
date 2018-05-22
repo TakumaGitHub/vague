@@ -115,7 +115,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-			if(categoryId.equals( CD.getCategoryId())){
+			if(Integer.parseInt(categoryId) == CD.getCategoryId()){
 
 				imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 				toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
@@ -150,9 +150,9 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		try{
 
 			//発売日を整形
-			String Syear = String.format("%4d", year);
-			String Smonth = String.format("%02d",month);
-			String Sday = String.format("%02d",day);
+			String Syear = String.format("%4d", Integer.parseInt(year));
+			String Smonth = String.format("%02d",Integer.parseInt(month));
+			String Sday = String.format("%02d",  Integer.parseInt(day));
 			releaseDate = Syear + Smonth + Sday;
 
 

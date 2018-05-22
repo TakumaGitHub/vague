@@ -124,7 +124,9 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 			for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-				if(categoryId.equals( CD.getCategoryId())){
+				System.out.println("おはよう");
+
+				if(Integer.parseInt(categoryId)  == CD.getCategoryId()){
 
 					imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 					toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
@@ -139,6 +141,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 			imageFilePath = productDTO.getImageFilePath();
 
 		}
+
+
 
 			//入力内容をMasterDTOに格納する
 

@@ -135,9 +135,11 @@ public class ProductSearchDAO {
 
 			if(category_id != 0){
 
-				sql += " AND category_id = " + category_id + " AND status = 1 ";
+				sql += " AND category_id = " + category_id;
 
 			}
+
+			sql += " AND status = 1 ";
 
 			if(rule != 0){
 

@@ -72,9 +72,11 @@ response.sendRedirect("/vague/home.jsp");
 
 			<div class="master-list-outer">
 			<s:iterator value="#session.SearchList" status="row">
+
+			<s:if test="status == 1" >
 			<div class="master-list">
 				<!-- statusが１（有効）であれば -->
-				<s:if test="status == 1" >
+
 
 
 
@@ -91,10 +93,12 @@ response.sendRedirect("/vague/home.jsp");
 
 
 
-				</s:if>
+
 
 
 			</div>
+
+			</s:if>
 			</s:iterator>
 			</div>
 		<div class="pages">

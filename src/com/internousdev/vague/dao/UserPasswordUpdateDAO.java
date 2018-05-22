@@ -41,7 +41,7 @@ public class UserPasswordUpdateDAO {
 
 				}else if(password.equals(rs.getString("password"))){
 
-					result = "以前のパスワードと同じです";
+					result = "以前と同じパスワードは使用できません";
 
 				}
 

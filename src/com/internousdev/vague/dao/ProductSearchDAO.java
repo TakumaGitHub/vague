@@ -248,7 +248,7 @@ public class ProductSearchDAO {
 
 		Connection con = (Connection)dbConnector.getConnection();
 
-		String sql = "SELECT * FROM  product_info ";
+		String sql = "SELECT * FROM  product_info WHERE status = 1";
 
 		List<ProductDTO> productSearchDTOList = new ArrayList<ProductDTO>();
 

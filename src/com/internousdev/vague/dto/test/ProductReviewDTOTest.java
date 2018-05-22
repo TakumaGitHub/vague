@@ -5,8 +5,46 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.internousdev.vague.dto.ProductReviewDTO;
+import com.internousdev.vague.dto.ReviewDTO;
 
 public class ProductReviewDTOTest {
+
+	//GetReviewDTO
+
+		@Test
+		public void testGetReviewDTO1(){
+
+			ProductReviewDTO dto = new ProductReviewDTO();
+			ReviewDTO reviewDTO = new ReviewDTO();
+
+			String expected = "0";
+			reviewDTO.setUserId(expected);
+			dto.setReviewDTO(reviewDTO);
+
+			String actual = dto.getReviewDTO().getUserId();
+			assertEquals(expected, actual);
+
+
+		}
+
+	//SetReviewDTO
+
+		@Test
+		public void testSetReviewDTO1(){
+
+			ProductReviewDTO dto = new ProductReviewDTO();
+			ReviewDTO reviewDTO = new ReviewDTO();
+
+			String expected = "0";
+			reviewDTO.setUserId(expected);
+			dto.setReviewDTO(reviewDTO);
+
+			String actual = dto.getReviewDTO().getUserId();
+			assertEquals(expected, actual);
+
+
+		}
+
 
 	//GetFamilyName
 		@Test

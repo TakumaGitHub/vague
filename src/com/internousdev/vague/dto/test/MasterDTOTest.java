@@ -2,11 +2,50 @@ package com.internousdev.vague.dto.test;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
+
 import org.junit.Test;
 
 import com.internousdev.vague.dto.MasterDTO;
+import com.internousdev.vague.dto.ProductDTO;
 
 public class MasterDTOTest {
+
+	//GetProductDTO
+
+		@Test
+		public void testGetProductDTO1(){
+
+			MasterDTO dto = new MasterDTO();
+			ProductDTO productDTO = new ProductDTO();
+
+			String expected = "0";
+			productDTO.setProductName(expected);
+			dto.setProductDTO(productDTO);
+
+			String actual = dto.getProductDTO().getProductName();
+			assertEquals(expected, actual);
+
+
+		}
+
+	//SetProductDTO
+		@Test
+		public void testSetProductDTO1() {
+
+			MasterDTO dto = new MasterDTO();
+			ProductDTO productDTO = new ProductDTO();
+
+			String expected = "0";
+			productDTO.setProductName(expected);
+			dto.setProductDTO(productDTO);
+
+			String actual = dto.getProductDTO().getProductName();
+			assertEquals(expected, actual);
+
+		}
+
+
 	//GetToImageFilePath
 		@Test
 		public void testGetToImageFilePath1() {
@@ -16,6 +55,7 @@ public class MasterDTOTest {
 			dto.setToImageFilePath(expected);
 			String actual = dto.getToImageFilePath();
 			assertEquals(expected, actual);
+
 		}
 		@Test
 		public void testGetToImageFilePath2() {
@@ -232,8 +272,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "0";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -241,8 +281,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "2147483647";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -250,8 +290,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "-2147483647";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -259,8 +299,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "null";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -268,8 +308,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -277,8 +317,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = " ";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -286,8 +326,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "　";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -295,8 +335,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "abc123";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -304,8 +344,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "あいう１２３";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -313,8 +353,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "abc123あいう１２３";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -322,8 +362,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "abc123あいう１２３漢字";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -331,8 +371,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected = "ａｂｃあいう１２３漢字";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 
@@ -342,8 +382,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="0";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -351,8 +391,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="2147483647";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -360,8 +400,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="-2147483647";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -369,8 +409,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="null";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -378,8 +418,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -387,8 +427,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected=" ";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -396,8 +436,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="　";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -405,8 +445,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="abc123";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -414,8 +454,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="あいう１２３";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -423,8 +463,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="abc123あいう１２３";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -432,8 +472,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="abcあいう１２３漢字";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 		@Test
@@ -441,8 +481,8 @@ public class MasterDTOTest {
 			MasterDTO dto = new MasterDTO();
 			String expected="ａｂｃあいう１２３漢字";
 
-			dto.setFromImageFilePath(expected);
-			String actual = dto.getFromImageFilePath();
+			dto.setFromImageFilePath(new File(expected));
+			String actual = dto.getFromImageFilePath().getPath();
 			assertEquals(expected, actual);
 		}
 }

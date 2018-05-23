@@ -10,25 +10,7 @@
 
 
 <title>商品詳細ページ</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="./js/jquery-1.8.2.min.js"></script>
-<script>
-	$(function() {
-		$(".imageHover .image").hover(function() {
-			$(this).animate({
-				width : "210px",
-				height : "180px"
-			});
-		}, function() {
-			$(this).animate({
-				width : "200px",
-				height : "170px"
-			});
-		});
-	});
 
-</script>
 </head>
 <body>
 
@@ -80,7 +62,7 @@
 	<!-- 在庫  -->
 
 	<s:if test="#session.DetailProductDTO.productStock == 0">
-		<p class="caution-msg">在庫切れです(T_T)</p>
+		<p class="caution-msg">在庫切れです(T_T)<br>次回入荷までお待ちください。</p>
 	</s:if>
 
 	<s:else>

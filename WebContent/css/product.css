@@ -210,7 +210,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-	border-bottom:#364e96;
+	border-bottom:#dcdcdc;
 
 	}
 
@@ -226,14 +226,16 @@ input[type="submit"]:hover {
 
 .suggest-box {
 	text-align : center;
-	padding:5px;
+	padding:5px 0 5px 0;
 	width : 25%;
 	height:auto;
-	margin : 10px 30px 30px 30px;
+	margin : 10px 25px 10px 25px;
 	display : inline-block;
-
-
+	border:2px solid #00008b;
+	border-radius:1em;
+	box-shadow:6px 8px #dcdcdc;
 }
+
 #sugName {
 	font-size:18px;
 }

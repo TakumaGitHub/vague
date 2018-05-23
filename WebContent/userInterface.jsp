@@ -46,8 +46,8 @@ response.sendRedirect("/vague/home.jsp");
 						<p class="error-msg"><s:property value="passwordErrorMsg" /></p>
 						パスワード：<input type="password" name="password">
 						<p>ログインID保存
-							<s:if test="#session.saveId != null && #session.saveId != 0" >
-								<input type="checkbox" name="saveId" value="1" checked>
+							<s:if test="#session.saveId != null" >
+								<input type="checkbox" name="saveId" value="1" checked="checked">
 							</s:if>
 							<s:else>
 								<input type="checkbox" name="saveId" value="1">

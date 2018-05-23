@@ -231,17 +231,18 @@ INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana
  */
 
 
-INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date)
+/*INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date)
 			values                ("miyazaki",1,30,30000,1,now()),
 								  ("miyazaki",2,30,30000,1,now()),
 								  ("miyazaki",3,30,30000,1,now()),
 								  ("miyazaki",4,30,30000,1,now()),
 								  ("miyazaki",5,30,30000,2,now());
-
+*/
 /*
  * カートテーブルに情報挿入
  */
 
+ /*
 INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, regist_date)
 			values     ("miyazaki","miyazaki",1,5,15000,now());
-
+*/

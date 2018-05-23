@@ -75,7 +75,7 @@
 			</div>
 			<!-- 価格 -->
 			<div class="proPrice">
-			￥<s:property value="price"/>
+			￥<span class="comma-price"><s:property value="price"/></span>
 			<br>
 			</div>
 
@@ -152,7 +152,7 @@
 							    <p><s:property value="productNameKana" /></p>
 							</div>
 							<div class="proPrice">
-							    <p>￥<s:property value="price" /></p>
+							    <p>￥<span class="comma-price"><s:property value="price" /></span></p>
 						 </div>
 	 <div class="product-box-top" ></div>
 	<div class="product-box-left" ></div>

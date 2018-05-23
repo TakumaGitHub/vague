@@ -6,7 +6,7 @@
 <head>
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" href="./css/product.css">
-
+<script src="js/productList.js" type="text/javascript" ></script>
 
 
 <title>商品詳細ページ</title>
@@ -56,7 +56,7 @@
 
 	<!-- 金額  -->
 		<div id="detailPrice">
-			<span>値段：￥<s:property value="#session.DetailProductDTO.price"/></span><br>
+			<span class="comma-price">値段：￥<s:property value="#session.DetailProductDTO.price"/></span><br>
 		</div>
 
 	<!-- 在庫  -->
@@ -150,7 +150,7 @@
 			<s:property value="productNameKana"/><br>
 			</div>
 			<div id="sugPrice">
-			￥<s:property value="price"/><br>
+			<span class="comma-price">￥<s:property value="price"/></span><br>
 			</div>
 
 		</div>

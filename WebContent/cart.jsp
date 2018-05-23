@@ -10,15 +10,8 @@
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content=""/>
-<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
-<!-- <link rel="stylesheet" href="text.html">-->
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-<script type="text/javascript">
-	$('#all').on('change', function() {
-	    $('input[name=check]').prop('checked', this.checked);
-	});
-</script>
 
 <jsp:include page="head.jsp" />
 <title>cart.jsp</title>
@@ -48,7 +41,7 @@
 				<p class="noproduct">カートに商品はありません。</p>
 				<form id="ProductListForm" action="ProductListAction">
 					<button type="submit" class="noproduct">
-						<i class="fas fa-store"></i> 買い物に戻る
+						<i class="fas fa-store"></i> 買い物を続ける
 					</button>
 				</form>
 			</s:if>
@@ -57,7 +50,7 @@
 			<div class="left floatleft">
 				<table>
 					<tr class="column1">
-						<th class="tag" width="5%"><input type="checkbox" name="all" onClick="AllChecked();" />️</th>
+						<th class="tag" width="5%">☑︎️</th>
 						<th class="tag" width="15%">商品画像</th>
 						<th class="tag" width="35%">商品名</th>
 						<th class="tag" width="10%">値段</th>

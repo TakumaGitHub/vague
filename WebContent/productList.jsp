@@ -153,6 +153,11 @@
 							<div class="proPrice">
 							    <p>￥<s:property value="price" /></p>
 						 </div>
+	 <div class="product-box-top" ></div>
+	<div class="product-box-left" ></div>
+	<div class="product-box-right" ></div>
+	<div class="product-box-bottom" ></div>
+
 		               </div>
 		       </s:if>
 

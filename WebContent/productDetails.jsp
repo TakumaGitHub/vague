@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="./css/product.css">
 
 
+
 <title>商品詳細ページ</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,6 +27,7 @@
 			});
 		});
 	});
+
 </script>
 </head>
 <body>
@@ -72,7 +74,7 @@
 
 	<!-- 金額  -->
 		<div id="detailPrice">
-			値段：￥<s:property value="#session.DetailProductDTO.price"/><br>
+			<span>値段：￥<s:property value="#session.DetailProductDTO.price"/></span><br>
 		</div>
 
 	<!-- 在庫  -->

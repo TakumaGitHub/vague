@@ -56,15 +56,6 @@ table img:hover {
 	transform: scale(0.97);
 	transition : all 0.3s;
 }
-table
-
-
-
-
-
-
-
-
 .pic-click{
 	text-align:center;
 }
@@ -79,6 +70,32 @@ table
 }
 
 /* 「レビューを投稿する」ボタン */
+#main button.review-button{
+	display:;
+	font-size:17px;
+	color:white;
+	background-color:#AAAAAA;
+	border: 1px solid #AAAAAA;
+	border-radius:0px;
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-right:13px;
+	padding-left:18px;
+	box-shadow: none;
+	transition : all 0.5s;
+
+}
+#main button.review-button:hover{
+	color:black;
+	background-color:white;
+	border: 1px solid black;
+	border-radius:20px;
+	top : 0px;
+}
+#main button img {
+	height : 25px;
+	width : 25px;
+}
 /*
 #main button.review-button {
   display: inline-block;
@@ -106,32 +123,7 @@ table
   transition: all .3s;
 }
 */
-#main button.review-button{
-	display:;
-	font-size:17px;
-	color:white;
-	background-color:#AAAAAA;
-	border: 1px solid #AAAAAA;
-	border-radius:0px;
-	padding-top:6px;
-	padding-bottom:6px;
-	padding-right:13px;
-	padding-left:18px;
-	box-shadow: none;
-	transition : all 0.5s;
 
-}
-#main button.review-button:hover{
-	color:black;
-	background-color:white;
-	border: 1px solid black;
-	border-radius:20px;
-	top : 0px;
-}
-#main button img {
-	height : 25px;
-	width : 25px;
-}
 
 /* 「お届け先」欄 */
 .purchaseAddress{
@@ -146,7 +138,7 @@ table
 td.addPrice-td {
 	border :none;
 }
-/* [戻る]ボタン、[履歴をすべて削除]ボタン、[レビューを投稿する]ボタン */
+/* [戻る]ボタン、[履歴をすべて削除]ボタン */
 .button{
 	margin:0 auto;
 	text-align:center;

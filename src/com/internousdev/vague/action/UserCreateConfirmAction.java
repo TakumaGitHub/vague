@@ -65,6 +65,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 		if(!errorMsg.isEmpty() || userIdErrorMsg != null){
 
+			session.remove("CreateUserDTO");
 			return ERROR;
 
 		}

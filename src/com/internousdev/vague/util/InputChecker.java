@@ -161,7 +161,7 @@ public class InputChecker {
 
 		if(loginUserDTO.getEmail().equals("")) {
 			result.put("email", "【メールアドレスを入力してください】");
-		}else if(loginUserDTO.getEmail().length() < 18 || loginUserDTO.getEmail().length() > 32) {
+		}else if(loginUserDTO.getEmail().length() < 14 || loginUserDTO.getEmail().length() > 32) {
 			result.put("email",  "【メールアドレスは14文字以上32文字以下で入力してください】");
 		}else if(!loginUserDTO.getEmail().matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
 			result.put("email",  "【メールアドレスは半角英数字記号で、正しいものを入力してください】");
@@ -272,7 +272,7 @@ public class InputChecker {
 
 		if(email.equals("")) {
 			result = "【メールアドレスを入力してください】";
-		}else if(email.length() < 18 || email.length() > 32) {
+		}else if(email.length() < 14 || email.length() > 32) {
 			result = "【メールアドレスは14文字以上32文字以下で入力してください】";
 		}else if(!email.matches("^[a-zA-Z0-9@.,;:!#$%&'*+-/=?^_`{|}~]+@+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)+.+[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
 			result = "【メールアドレスは半角英数字記号で、正しいものを入力してください】";
@@ -286,7 +286,7 @@ public class InputChecker {
 
 		if(newEmail.equals("")) {
 			result = "【新しいメールアドレスを入力してください】";
-		}else if(newEmail.length() < 18 || newEmail.length() > 32){
+		}else if(newEmail.length() < 14 || newEmail.length() > 32){
 			result = "【新しいメールアドレスは14文字以上32文字以下で入力してください】";
 		}else if((!newEmail.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"))){
 			result = "【新しいメールアドレスは半角英数字で、正しいものを入力してください】";

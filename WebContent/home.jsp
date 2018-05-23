@@ -20,7 +20,13 @@
 
 	<!--  headerの始まり -->
 
-	<jsp:include page="header.jsp" />
+	<s:if test="#session.LoginUserDTO != null && #session.LoginUserDTO.mFlg == 1" >
+		<jsp:include page="headerMaster.jsp" />
+	</s:if>
+	<s:else>
+		<jsp:include page="header.jsp" />
+	</s:else>
+
 
     <!--  headerの終わり -->
 

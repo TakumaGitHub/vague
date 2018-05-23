@@ -43,6 +43,7 @@
 
 
 		<action name="UserPasswordUpdateAction" class="com.internousdev.vague.action.UserPasswordUpdateAction" method="execute">
+			<exception-mapping exception="java.lang.Exception" result="error" />
 			<result name="success">userPasswordUpdateConfirm.jsp</result>
 			<result name="error" >userPasswordUpdate.jsp</result>
 			<result name="home" type="redirect">home.jsp</result>
@@ -74,6 +75,7 @@
 		</action>
 
 		<action name="CreateReviewConfirmAction" class="com.internousdev.vague.action.CreateReviewConfirmAction" method="execute">
+			<exception-mapping exception="java.lang.Exception" result="error" />
 			<result name="success">createReviewConfirm.jsp</result>
 			<result name="error">createReview.jsp</result>
 			<result name="home" type="redirect">home.jsp</result>
@@ -106,6 +108,7 @@
 		</action>
 
 		<action name="MasterChangeConfirmAction" class="com.internousdev.vague.action.MasterChangeConfirmAction" method="execute">
+				<exception-mapping exception="java.lang.Exception" result="error" />
 		 	<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
@@ -134,6 +137,7 @@
 		</action>
 
 		<action name="MasterAddConfirmAction" class="com.internousdev.vague.action.MasterAddConfirmAction" method="execute">
+			<exception-mapping exception="java.lang.Exception" result="error" />
 		 	<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
@@ -185,6 +189,7 @@
 		</action>
 
 		<action name="AddressRegiConfirmAction" class="com.internousdev.vague.action.AddressRegiConfirmAction" method="execute">
+		<exception-mapping exception="java.lang.Exception" result="error" />
 		<result name="success">addressRegiConfirm.jsp</result>
 		<result name="error">address.jsp</result>
 		<result name="login">login.jsp</result>
@@ -215,6 +220,7 @@
 
 		<!-- 入山担当 -->
 		<action name="BuyItemConfirmAction" class="com.internousdev.vague.action.BuyItemConfirmAction" method="execute">
+		<exception-mapping exception="java.lang.Exception" result="error" />
 		<result name="success">buyItemConfirm.jsp</result>
 		<result name="error">login.jsp</result>
 		<result name="other">cart.jsp</result>

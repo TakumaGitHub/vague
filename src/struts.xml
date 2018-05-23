@@ -24,6 +24,7 @@
 		</action>
 
 		<action name="UserCreateConfirmAction" class="com.internousdev.vague.action.UserCreateConfirmAction" method="execute">
+		<exception-mapping exception="java.lang.Exception" result="error" />
 		<result name="success">userCreateConfirm.jsp</result>
 		<result name="error">userCreate.jsp</result>
 		</action>

@@ -56,7 +56,7 @@
 
 	<!-- 金額  -->
 		<div id="detailPrice">
-			<span class="comma-price">値段：￥<s:property value="#session.DetailProductDTO.price"/></span><br>
+			値段：￥<span class="comma-price"><s:property value="#session.DetailProductDTO.price"/></span><br>
 		</div>
 
 	<!-- 在庫  -->

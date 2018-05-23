@@ -6,7 +6,7 @@
 <head>
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" href="./css/userInterface.css">
-<title>入力情報確認</title>
+<title>新規ユーザー登録入力情報確認</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 <div id="main">
 	<div class="container">
 
-	<div class="title">入力情報確認ページ</div>
+	<div class="title">新規ユーザー登録入力情報確認ページ</div>
 
 	<h3>以下の情報で間違いがなければ登録ボタンをクリックしてください。</h3><br>
 

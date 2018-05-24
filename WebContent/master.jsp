@@ -10,6 +10,7 @@
 
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" href="./css/master.css">
+<script src="js/confirm.js" type="text/javascript"></script>
 <title>管理者画面</title>
 </head>
 
@@ -70,7 +71,7 @@ response.sendRedirect("/vague/home.jsp");
 				<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
 
 					<s:form action="MasterAction" method="post" >
-					<button name="deleteFlg" value="2" >商品を全削除</button>
+					<button name="deleteFlg" value="2" onclick="return deleteConfirm()" >商品を全削除</button>
 					</s:form>
 
 				</s:if>
@@ -130,7 +131,7 @@ response.sendRedirect("/vague/home.jsp");
 				<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
 
 					<s:form id="checkDelete" action="MasterAction" method="post" >
-						<button name="deleteFlg" value="1" >チェックした商品を削除</button>
+						<button name="deleteFlg" value="1" onclick="return deleteConfirm()" >チェックした商品を削除</button>
 					</s:form>
 
 

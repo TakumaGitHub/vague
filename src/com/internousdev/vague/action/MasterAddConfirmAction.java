@@ -101,7 +101,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		}
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("images");
+		String filePath = ServletActionContext.getServletContext().getRealPath("/WebContent/images");
 
 		//全ての商品情報を引き出す
 		productSearchDTOList = productSearchDAO.searchAll();

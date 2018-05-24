@@ -38,13 +38,6 @@ public class UserPasswordUpdateAction extends ActionSupport implements SessionAw
 		String result = SUCCESS;
 
 
-		//ログインしているのにパスワード変更しようとしているときは、homeへ
-		if(session.containsKey("LoginUserDTO")){
-
-			return "home";
-
-		}
-
 		//エラーメッセージチェック
 		userIdErrorMsg = InputChecker.userIdChk(userId);
 		passwordErrorMsg = InputChecker.passwordChk(newPassword);

@@ -37,7 +37,7 @@
 
 	<div id="main">
 		<div class="container" style="text-align :center;">
-			<h2 class="title">エラーページ</h2>
+			<h2 class="title">セッションアウト</h2>
 
 				<p>セッションがタイムアウトしました。3秒後にホームページに戻ります。</p>
 				<p>ジャンプしない場合は、以下のリンクをクリックしてください。</p>

@@ -55,75 +55,92 @@ response.sendRedirect("/vague/home.jsp");
 
 		<!-- ======= 商品の検索結果を表示する ======= -->
 
+		<s:if test="#session.SearchList == null || #session.SearchList.isEmpty()">
 
-		<div class="bottons">
-			<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
-
-				<s:form action="MasterAction" method="post" >
-				<button name="deleteFlg" value="2" >商品を全削除</button>
-				</s:form>
-
-			</s:if>
-		</div>
 
 			<div class="pages">
-			<h3>商品の検索結果</h3>
+			<h3>商品の検索結果がありません</h3>
 			</div>
 
-			<div class="master-list-outer">
-			<s:iterator value="#session.SearchList" status="row">
-
-			<s:if test="status == 1" >
-			<div class="master-list">
-				<!-- statusが１（有効）であれば -->
-
-
-
-
-						<input type="checkbox" form="checkDelete" name="product_id" value="<s:property value='productId' />" />
-
-
-						<img src="<s:property value="imageFilePath"/>" width="200" height="170" />
-
-						<p><s:property value="productName" /></p>
-
-						<form action="MasterChangeAction" method="post" >
-							<button name="productId" value="<s:property value='productId' />">商品情報を変更する</button>
-						</form>
-
-
-
-
-
-
-			</div>
-
-			</s:if>
-			</s:iterator>
-			</div>
-		<div class="pages">
-		<s:if test="#session.SearchListLength != null">
-
-				<span>ページ数</span>
-
-					<s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
-
-
-						<a href="<s:url action='MasterAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
-
-					</s:iterator>
 		</s:if>
-		</div>
-		<div class="bottons">
-			<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
 
-				<s:form id="checkDelete" action="MasterAction" method="post" >
-					<button name="deleteFlg" value="1" >チェックした商品を削除</button>
-				</s:form>
+		<s:else>
+
+				<div class="bottons">
+				<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
+
+					<s:form action="MasterAction" method="post" >
+					<button name="deleteFlg" value="2" >商品を全削除</button>
+					</s:form>
+
+				</s:if>
+			</div>
+
+				<div class="pages">
+				<h3>商品の検索結果</h3>
+				</div>
+
+				<div class="master-list-outer">
+				<s:iterator value="#session.SearchList" status="row">
+
+				<s:if test="status == 1" >
+				<div class="master-list">
+					<!-- statusが１（有効）であれば -->
 
 
+
+
+							<input type="checkbox" form="checkDelete" name="product_id" value="<s:property value='productId' />" />
+
+
+							<img src="<s:property value="imageFilePath"/>" width="200" height="170" />
+
+							<p><s:property value="productName" /></p>
+
+							<form action="MasterChangeAction" method="post" >
+								<button name="productId" value="<s:property value='productId' />">商品情報を変更する</button>
+							</form>
+
+
+
+
+
+
+				</div>
+
+				</s:if>
+				</s:iterator>
+				</div>
+			<div class="pages">
+			<s:if test="#session.SearchListLength != null">
+
+					<span>ページ数</span>
+
+						<s:iterator begin="1" end="#session.SearchListLength" step="1" status="st">
+
+
+							<a href="<s:url action='MasterAction' />?ListNumber=<s:property value='#st.index' />&retrievalValue=<s:property value='#session.retrievalValue' />&category_id=<s:property value='#session.retrievalCategory_id' />&rule=<s:property value='#session.retrievalRule' />" ><s:property value='#st.count' /> </a>
+
+						</s:iterator>
 			</s:if>
-		</div>
+			</div>
+			<div class="bottons">
+				<s:if test="#session.SearchList != null && !#session.SearchList.isEmpty()">
+
+					<s:form id="checkDelete" action="MasterAction" method="post" >
+						<button name="deleteFlg" value="1" >チェックした商品を削除</button>
+					</s:form>
+
+
+				</s:if>
+			</div>
+
+
+
+		</s:else>
+
+
+
 
     </div>
 </div>

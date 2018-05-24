@@ -103,7 +103,7 @@
 
 						<li><a href="<s:url action='LogoutAction' />"></a>ログアウト  <img src="LogoImage/LogOut.png" /></li>
 						<li><a href="<s:url action='CartAction' />"></a>カート  <img src="LogoImage/mycart.png" /></li>
-            			<li><a href="<s:url action='MasterAction' />"></a>商品一覧  <img src="LogoImage/productList.png" /></li>
+            			<li><a href="<s:url action='ProductListAction' />"></a>商品一覧  <img src="LogoImage/productList.png" /></li>
 						<li><a href="<s:url action='MasterAction' />"></a>管理画面  <img src="LogoImage/administer.png" /></li>
 
 					</s:elseif>
@@ -112,7 +112,7 @@
 
 						<li><a href="<s:url action='LogoutAction' />"></a>ログアウト  <img src="LogoImage/LogOut.png" /></li>
 						<li><a href="<s:url action='CartAction' />"></a>カート  <img src="LogoImage/mycart.png" /></li>
-            			<li><a href="<s:url action='MasterAction' />"></a>商品一覧  <img src="LogoImage/productList.png" /></li>
+            			<li><a href="<s:url action='ProductListAction' />"></a>商品一覧  <img src="LogoImage/productList.png" /></li>
 						<li><a href="<s:url action='MyPageAction' />"></a>マイページ  <img src="LogoImage/mypage.png" /></li>
 						<li><a href="<s:url action='ReviewMyListAction' />"></a>マイレビュー  <img src="LogoImage/myreview.png" /></li>
 

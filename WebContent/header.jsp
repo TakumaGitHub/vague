@@ -68,8 +68,6 @@
 
 					</form>
 
-					<%-- 検索のエラーメッセージ --%>
-					<p class="error-msg"><s:property value='inputErrorMsg' /></p>
 
             </div>
 

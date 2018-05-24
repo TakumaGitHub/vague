@@ -75,7 +75,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 			 if(ret <= 0){
 
-				 return ERROR;
+				 return SUCCESS;
 
 			 }
 
@@ -92,7 +92,7 @@ public class MasterAction extends ActionSupport implements SessionAware {
 
 			if(ret <= 0){
 
-				 return ERROR;
+				 return SUCCESS;
 
 			 }
 

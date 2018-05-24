@@ -96,6 +96,8 @@ response.sendRedirect("/vague/home.jsp");
 							<img src="<s:property value="imageFilePath"/>" width="200" height="170" />
 
 							<p><s:property value="productName" /></p>
+							<p><s:property value="productNameKana" /></p>
+							<p>￥<span class="comma-price"><s:property value="price" /></span></p>
 
 							<form action="MasterChangeAction" method="post" >
 								<button name="productId" value="<s:property value='productId' />">商品情報を変更する</button>

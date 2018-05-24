@@ -13,6 +13,7 @@
 		<action name="LoginAction" class="com.internousdev.vague.action.LoginAction" method="execute">
 			<result name="success">home.jsp</result>
 			<result name="error" >userInterface.jsp</result>
+			<result name="session" >sessionOut.jsp</result>
 		</action>
 
 
@@ -32,6 +33,7 @@
 		<action name="UserCreateCompleteAction" class="com.internousdev.vague.action.UserCreateCompleteAction" method="execute">
 		<result name="success">userCreateComplete.jsp</result>
 		<result name="error">home.jsp</result>
+		<result name="session" >sessionOut.jsp</result>
 		</action>
 
 		<!-- 宮崎担当 -->
@@ -171,6 +173,7 @@
 		<!--カートのアクション -->
 		<action name="CartAction" class="com.internousdev.vague.action.CartAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="session" >sessionOut.jsp</result>
 		</action>
 
 		<action name="CartInsertAction" class="com.internousdev.vague.action.CartInsertAction" method="execute">

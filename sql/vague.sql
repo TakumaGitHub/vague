@@ -160,6 +160,14 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
 INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana,
 	first_name_kana, sex, email, status, m_flg, regist_date)
 	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest2","guest2","一般","太郎2","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest3","guest3","一般","太郎3","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest4","guest4","一般","太郎4","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest5","guest5","一般","太郎5","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest6","guest6","一般","太郎6","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest7","guest7","一般","太郎7","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest8","guest8","一般","太郎8","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest9","guest9","一般","太郎9","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
 		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,now()),
 		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,0,now());
 

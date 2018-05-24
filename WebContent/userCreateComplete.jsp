@@ -7,6 +7,7 @@
 <head>
 <!-- ホーム画面に5秒後遷移 content="秒数" -->
 <meta http-equiv="refresh" content="5;URL=GoHomeAction">
+<script src="js/blowserBackPrevent.js" type="text/javascript"></script>
 
 <title>新規ユーザー登録完了画面</title>
 <jsp:include page="head.jsp" />

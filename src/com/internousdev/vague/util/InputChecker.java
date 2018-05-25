@@ -259,7 +259,7 @@ public class InputChecker {
 		if(telNumber.equals("")) {
 			result = "【電話番号を入力してください】";
 		}else if(telNumber.length() < 11 || telNumber.length() > 13) {
-			result = "【電話番号は11文字以上13文字以下で入力してください】";
+			result = "【電話番号は11文字以上13文字以下で入力し てください】";
 		}else if(!telNumber.matches("^[0-9]+$")) {
 			result = "【電話番号は半角数字で、正しいものを入力してください】";
 		}

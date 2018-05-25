@@ -103,7 +103,7 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		}
 
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/WebContent/images");
+		String filePath = ServletActionContext.getServletContext().getRealPath("/images");
 		//選択された商品IDをセッションから取得
 		productDTO = productSearchDAO.search(Integer.parseInt(session.get("masterChangeProductId").toString()));
 

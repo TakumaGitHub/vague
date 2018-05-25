@@ -68,7 +68,10 @@
 	<s:else>
 
 		<div class="cart">
+
+			<p class="error-msg"><s:property value="errorMsg" /></p>
 			<span>購入個数：
+
 				<select name="productCount">
 
 					<s:if test="#session.DetailProductDTO.productStock < 5">

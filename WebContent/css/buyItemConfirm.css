@@ -19,13 +19,15 @@
 }
 
 .left {
+	width:550px;
     float:left;
-    padding-left:50px;
+    padding-left:40px;
 }
 
 .right {
+	width:430px;
     float:right;
-    padding-right:50px;
+    padding-right:40px;
 }
 
 .productName {
@@ -36,6 +38,7 @@
 	border: solid 2px #e3e3e3;
 	border-radius:10px;
 	padding:10px 40px;
+	margin-bottom:10px;
 }
 
 .detail {

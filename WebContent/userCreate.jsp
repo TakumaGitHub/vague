@@ -41,6 +41,7 @@
 			<span>名かな：<input type="text" name="firstNameKana" value="<s:property value='#session.CreateUserDTO.firstNameKana' />"></span></p>
 
 			<p>性別を選択して下さい。</p>
+			<p class="error-msg"><s:property value='errorMsg.sex' /></p>
 
 			<p><span>
 			<s:if test="#session.sex == 0">
@@ -87,6 +88,7 @@
 			   <span>名かな：<input type="text" name="firstNameKana" value="<s:property value='firstNameKana' />" ></span></p>
 
 			<p>性別を選択して下さい。</p>
+			<p class="error-msg"><s:property value='errorMsg.sex' /></p>
 			<p><span>
 
 			<input type="radio" name="sex" value='0' checked/>男性

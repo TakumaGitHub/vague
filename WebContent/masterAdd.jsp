@@ -102,35 +102,7 @@ response.sendRedirect("/vague/home.jsp");
 				<p>発売日</p>
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<p><input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.releaseDate.substring(0,4)' />"/>年
-
-					<select name="month">
-
-						<s:iterator begin="1" end="12" step="1" status="st">
-							<s:if test='#session.MasterAddCompleteDTO.productDTO.releaseDate.substring(4,6).replace("0", "") == #st.count || #session.MasterAddCompleteDTO.productDTO.releaseDate.substring(4,6) == 10 && #st.count == 10 '>
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>月
-
-					<select name="day">
-
-						<s:iterator begin="1" end="31" step="1" status="st">
-							<s:if test='(#session.MasterAddCompleteDTO.productDTO.releaseDate.substring(6,8).replace("0", "") == #st.count && #st.count < 10) || (#session.MasterAddCompleteDTO.productDTO.releaseDate.substring(6,8) == #st.count && #st.count >= 10) '>
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>日
-
-				</p>
+				<p><input name="releaseDate" type="date" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.releaseDate.replaceAll("/","-")' />" /></p>
 
 
 				<p>販売会社　<span class="caution-msg">※1～50文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span></p>
@@ -188,35 +160,7 @@ response.sendRedirect("/vague/home.jsp");
 				<p>発売日</p>
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<p><input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='year' />"/>年
-
-					<select name="month">
-
-						<s:iterator begin="1" end="12" step="1" status="st">
-							<s:if test="month == #st.count">
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>月
-
-					<select name="day">
-
-						<s:iterator begin="1" end="31" step="1" status="st">
-							<s:if test="day == #st.count">
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>日
-
-				</p>
+				<p><input name="releaseDate" type="date" value="<s:property value='releaseDateValueStack' />" /></p>
 
 
 				<p>販売会社　<span class="caution-msg">※1～50文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span></p>

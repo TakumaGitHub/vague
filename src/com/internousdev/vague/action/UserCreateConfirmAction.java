@@ -31,7 +31,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 
 	private String firstNameKana;
 
-	private int sex;
+	private String sex;
 
 	private String email;
 
@@ -54,7 +54,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		loginUserDTO.setFirstName(firstName);
 		loginUserDTO.setFamilyNameKana(familyNameKana);
 		loginUserDTO.setFirstNameKana(firstNameKana);
-		loginUserDTO.setSex(sex);
+		loginUserDTO.setSex(Integer.parseInt(sex));
 		loginUserDTO.setEmail(email);
 
 
@@ -136,10 +136,10 @@ public String getFirstNameKana() {
 public void setFirstNameKana(String firstNameKana) {
 	this.firstNameKana = firstNameKana;
 }
-public int getSex() {
+public String getSex() {
 	return sex;
 }
-public void setSex(int sex) {
+public void setSex(String sex) {
 	this.sex = sex;
 }
 public String getEmail() {

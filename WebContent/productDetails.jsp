@@ -135,7 +135,7 @@
 
 <h3 id="suggestProduct">この製品を見ている人はこんな製品も見ています</h3>
 
-<div class="suggest-outer-box" >
+<div class="suggest-box-outer" >
 
 	<s:iterator value="#session.SuggestList">
 

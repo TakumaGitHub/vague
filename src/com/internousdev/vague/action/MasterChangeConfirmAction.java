@@ -3,8 +3,9 @@ package com.internousdev.vague.action;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 
@@ -55,13 +56,11 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private String imageFileName;
 
-	private String releaseDate;
+	private Date releaseDate;
 
-		private String year;
+	private String releaseDateValueStack;
 
-		private String month;
-
-		private String day;
+	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	private String releaseCompany;
 
@@ -91,6 +90,10 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 		String result = ERROR;
 
+		String filePath = "";
+
+		releaseDateValueStack =  new SimpleDateFormat("yyyy-MM-dd").format(releaseDate);
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -103,7 +106,6 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		}
 
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/images");
 		//選択された商品IDをセッションから取得
 		productDTO = productSearchDAO.search(Integer.parseInt(session.get("masterChangeProductId").toString()));
 
@@ -124,16 +126,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 			for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-				System.out.println("おはよう");
-
 				if(Integer.parseInt(categoryId)  == CD.getCategoryId()){
 
 					imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
-					toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+					filePath = "./images/" + CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 
 				}
 
 			}
+
+			toImageFilePath = ServletActionContext.getServletContext().getRealPath(filePath);
+
+
 
 		}else{
 
@@ -165,29 +169,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 		}
 
-		try{
 
-			//発売日を整形
-			String Syear = String.format("%4d", Integer.parseInt(year));
-			String Smonth = String.format("%02d", Integer.parseInt(month));
-			String Sday = String.format("%02d", Integer.parseInt(day));
-			releaseDate = Syear + Smonth + Sday;
-
-		}catch(NumberFormatException e){
-
-			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
-			return ERROR;
-
-		}catch(IllegalFormatException e){
-
-			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
-			return ERROR;
-
-		}
-
-
-
-			productDTO.setReleaseDate(releaseDate);
+			productDTO.setReleaseDate(simpleDateFormat.format(releaseDate));
 			productDTO.setReleaseCompany(releaseCompany);
 			productDTO.setStatus(status);
 
@@ -299,6 +282,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		this.categoryId = categoryId;
 	}
 
+	public String getReleaseDateValueStack() {
+		return releaseDateValueStack;
+	}
+
+
+
+	public void setReleaseDateValueStack(String releaseDateValueStack) {
+		this.releaseDateValueStack = releaseDateValueStack;
+	}
+
+
+
 	public String getProductStock() {
 		return productStock;
 	}
@@ -343,37 +338,14 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 
 
-	public String getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(String releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-	public String getMonth() {
-		return month;
-	}
-
-	public void setMonth(String month) {
-		this.month = month;
-	}
-
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
-	}
 
 	public String getReleaseCompany() {
 		return releaseCompany;

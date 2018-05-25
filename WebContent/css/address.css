@@ -59,7 +59,8 @@
 
 
 .fullName1 {
-	display:flex;
+	 display:flex;
+	width:auto;
 }
 
 

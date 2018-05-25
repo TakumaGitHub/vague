@@ -223,13 +223,18 @@ input[type="submit"]:hover {
 	text-align:left;
 }
 
+.suggest-box-outer {
+	width:100%;
+	text-align:left;
+}
+
 
 .suggest-box {
 	text-align : center;
 	padding:5px 0 5px 0;
 	width : 25%;
 	height:auto;
-	margin : 20px 25px 20px 25px;
+	margin : 20px 35px 20px 45px;
 	display : inline-block;
 	border:2px solid #00008b;
 	border-radius:1em;

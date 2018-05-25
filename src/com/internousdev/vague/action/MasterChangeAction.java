@@ -38,12 +38,6 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 	private String releaseDate;
 
-		private String year;
-
-		private String month;
-
-		private String day;
-
 	private String releaseCompany;
 
 
@@ -120,21 +114,7 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 
 			imageFileName = productDTO.getImageFileName();
 
-			String[] date = (productDTO.getReleaseDate().split("\\s"))[0].split("-");//1995-08-09 00:00:00
-
-			year = date[0];
-
-			if(!(date[1].equals(10))){
-				month = date[1].replace("0", "");//先頭の0を消す 例：08→8
-			}else{
-
-				month = date[1];//10月の場合
-			}
-
-
-			day = date[2].replace("0", "");//先頭の0を消す 例：08→8
-
-			releaseDate = productDTO.getReleaseDate();
+			releaseDate = (productDTO.getReleaseDate().split("\\s"))[0];//1995-08-09 00:00:00
 
 			releaseCompany = productDTO.getReleaseCompany();
 
@@ -261,35 +241,6 @@ public class MasterChangeAction extends ActionSupport implements SessionAware  {
 		this.releaseDate = releaseDate;
 	}
 
-
-	public String getYear() {
-		return year;
-	}
-
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-
-	public String getMonth() {
-		return month;
-	}
-
-
-	public void setMonth(String month) {
-		this.month = month;
-	}
-
-
-	public String getDay() {
-		return day;
-	}
-
-
-	public void setDay(String day) {
-		this.day = day;
-	}
 
 
 	public String getReleaseCompany() {

@@ -23,7 +23,7 @@
 
 	<div id="main">
 		<div class="container">
-			<h3>決済確認</h3>
+			<h3 class="title">決済確認</h3>
 			<p>以下の内容でよろしいですか？</p>
 	<!-- カートの情報 -->
 		<div class="left">

@@ -16,7 +16,7 @@
 
 					<div id="retrieval-form">
 
-						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />" required="required"/>
+						<input type="text" name="retrievalValue" value="<s:property value='#session.retrievalValue' />"/>
 
 						<button><img src="LogoImage/retrievalLogo.jpeg"/></button>
 

@@ -102,7 +102,7 @@ response.sendRedirect("/vague/home.jsp");
 				<p>発売日</p>
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<p><input name="releaseDate" type="date" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.releaseDate' />" /></p>
+				<p><input name="releaseDate" type="date" value="<s:property value='#session.MasterAddCompleteDTO.productDTO.releaseDate.replaceAll("/","-")' />" /></p>
 
 
 				<p>販売会社　<span class="caution-msg">※1～50文字の半角英数字、漢字、ひらがな、カタカナで入力してください</span></p>

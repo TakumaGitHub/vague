@@ -139,6 +139,13 @@ public class InputChecker {
 			result.put("firstNameKana", "【名前のふりがなはひらがなで入力してください】");
 		}
 
+		//性別エラーメッセージ管理
+		if(loginUserDTO.getSex() != 0 && loginUserDTO.getSex() != 1){
+
+			result.put("sex", "【性別は男性、女性どちらかで選んでください】");
+
+		}
+
 
 		//ログインIDエラーメッセージ管理
 

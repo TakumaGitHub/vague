@@ -21,6 +21,7 @@
     <!--  headerの終わり -->
 
 
+
 	<div id="main">
 		<div class="container">
 			<h3 class="title">決済確認</h3>

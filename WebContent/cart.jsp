@@ -14,7 +14,7 @@
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
 
 <jsp:include page="head.jsp" />
-<title>cart.jsp</title>
+<title>ショッピングカート</title>
 </head>
 <body>
 

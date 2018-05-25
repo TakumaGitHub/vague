@@ -20,6 +20,7 @@
 
     <!--  headerの終わり -->
 
+
 	<div id="main">
 		<div class="container">
 			<h3>宛先が登録されました。</h3>

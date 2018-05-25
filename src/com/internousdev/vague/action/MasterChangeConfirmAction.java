@@ -91,6 +91,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 		String result = ERROR;
 
+		String filePath = "";
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -103,7 +105,6 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		}
 
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/images");
 		//選択された商品IDをセッションから取得
 		productDTO = productSearchDAO.search(Integer.parseInt(session.get("masterChangeProductId").toString()));
 
@@ -124,16 +125,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 			for(CategoryDTO CD : categorySearchDAO.searchAll()){
 
-				System.out.println("おはよう");
-
 				if(Integer.parseInt(categoryId)  == CD.getCategoryId()){
 
 					imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
-					toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+					filePath = "./images/" + CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 
 				}
 
 			}
+
+			toImageFilePath = ServletActionContext.getServletContext().getRealPath(filePath);
+
+
 
 		}else{
 

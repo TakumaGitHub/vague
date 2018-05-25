@@ -90,6 +90,8 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		String result = ERROR;
 
+		String filePath = "";
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -101,7 +103,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		}
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/images");
+
 
 		//全ての商品情報を引き出す
 		productSearchDTOList = productSearchDAO.searchAll();
@@ -118,12 +120,13 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			if(Integer.parseInt(categoryId) == CD.getCategoryId()){
 
 				imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
-				toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+				filePath = "./images/" + CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 
 			}
 
 		}
 
+		toImageFilePath = ServletActionContext.getServletContext().getRealPath(filePath);
 
 
 			//入力内容をMasterDTOに格納する

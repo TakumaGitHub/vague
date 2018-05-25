@@ -110,8 +110,8 @@
 		</action>
 
 		<action name="MasterChangeConfirmAction" class="com.internousdev.vague.action.MasterChangeConfirmAction" method="execute">
-				<exception-mapping exception="java.lang.Exception" result="error" />
-		 	<interceptor-ref name="fileUpload">
+			<exception-mapping exception="java.lang.Exception" result="error" />
+			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
                     image/png,image/gif,image/jpeg,image/pjpeg
@@ -140,7 +140,7 @@
 
 		<action name="MasterAddConfirmAction" class="com.internousdev.vague.action.MasterAddConfirmAction" method="execute">
 			<exception-mapping exception="java.lang.Exception" result="error" />
-		 	<interceptor-ref name="fileUpload">
+			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
                     image/png,image/gif,image/jpeg,image/pjpeg

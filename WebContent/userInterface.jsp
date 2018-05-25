@@ -32,7 +32,7 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="container">
 
-		<div class="title">ログイン・新規登録ページ</div>
+		<h3 class="title">ログイン・新規登録ページ</h3>
 
 		<div class="input-wrapper" >
 

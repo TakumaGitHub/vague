@@ -233,24 +233,3 @@ INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana
 			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関1-1-1", now()),
 							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関2-2-2", now());
 
-
-/*
- * 購入履歴情報テーブルに情報挿入
- */
-
-
-/*INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date)
-			values                ("miyazaki",1,30,30000,1,now()),
-								  ("miyazaki",2,30,30000,1,now()),
-								  ("miyazaki",3,30,30000,1,now()),
-								  ("miyazaki",4,30,30000,1,now()),
-								  ("miyazaki",5,30,30000,2,now());
-*/
-/*
- * カートテーブルに情報挿入
- */
-
- /*
-INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, regist_date)
-			values     ("miyazaki","miyazaki",1,5,15000,now());
-*/

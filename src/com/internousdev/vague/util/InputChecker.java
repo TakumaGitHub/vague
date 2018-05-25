@@ -410,9 +410,7 @@ public class InputChecker {
 		//発売日
 		if(productDTO.getReleaseDate().equals("")) {
 			result.put("releaseDate", "【商品の発売日を入力してください】");
-		}else if(productDTO.getReleaseDate().length() != 8) {
-			result.put("releaseDate", "【商品の発売日は8桁で入力してください】");
-		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]$")) {
+		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}/[01][0-9]/[0-3][0-9]$")) {
 			result.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
 		}
 		//発売会社

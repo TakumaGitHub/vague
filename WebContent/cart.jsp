@@ -31,7 +31,7 @@
 	<div id="main">
 
 		<div class="container">
-			<div class="title">ショッピングカート</div>
+			<h3 class="title">ショッピングカート</h3>
 
 			<%-- 在庫数を購入個数が上回っているときのエラーメッセージ --%>
 			<s:iterator value="errorMsg">

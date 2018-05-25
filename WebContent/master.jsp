@@ -60,7 +60,7 @@ response.sendRedirect("/vague/home.jsp");
 
 
 			<div class="pages">
-			<h3>商品の検索結果がありません</h3>
+			<h3>【 商品の検索結果がありません 】</h3>
 			</div>
 
 		</s:if>

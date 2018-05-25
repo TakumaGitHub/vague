@@ -58,6 +58,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 
 	private Date releaseDate;
 
+	private String releaseDateValueStack;
+
 	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	private String releaseCompany;
@@ -89,6 +91,8 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 		String result = ERROR;
 
 		String filePath = "";
+
+		releaseDateValueStack =  new SimpleDateFormat("yyyy-MM-dd").format(releaseDate);
 
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
@@ -277,6 +281,18 @@ public class MasterChangeConfirmAction extends ActionSupport implements SessionA
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
+
+	public String getReleaseDateValueStack() {
+		return releaseDateValueStack;
+	}
+
+
+
+	public void setReleaseDateValueStack(String releaseDateValueStack) {
+		this.releaseDateValueStack = releaseDateValueStack;
+	}
+
+
 
 	public String getProductStock() {
 		return productStock;

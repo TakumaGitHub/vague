@@ -56,6 +56,8 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	private Date releaseDate;
 
+	private String releaseDateValueStack;
+
 	private String releaseCompany;
 
 	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -88,6 +90,9 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 		String result = ERROR;
 
 		String filePath = "";
+
+		releaseDateValueStack =  new SimpleDateFormat("yyyy-MM-dd").format(releaseDate);
+
 
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
@@ -271,6 +276,16 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
+	}
+
+
+	public String getReleaseDateValueStack() {
+		return releaseDateValueStack;
+	}
+
+
+	public void setReleaseDateValueStack(String releaseDateValueStack) {
+		this.releaseDateValueStack = releaseDateValueStack;
 	}
 
 

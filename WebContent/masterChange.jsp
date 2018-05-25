@@ -109,7 +109,14 @@ response.sendRedirect("/vague/home.jsp");
 				発売日
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<p><input name="releaseDate" type="date" value="<s:property value='releaseDate' />" /></p>
+				<s:if test="releaseDateValueStack != null">
+					<p><input name="releaseDate" type="date" value="<s:property value='releaseDateValueStack' />" /></p>
+				</s:if>
+				<s:else>
+					<p><input name="releaseDate" type="date" value="<s:property value='releaseDate' />" /></p>
+				</s:else>
+
+
 
 
 				<br>

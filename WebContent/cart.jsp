@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
 
+
+
 <jsp:include page="head.jsp" />
 <title>cart.jsp</title>
 </head>
@@ -72,13 +74,13 @@
 								<p class="company">発売会社名：<s:property value="releaseCompany" /></p>
 							</td>
 							<td class="price lowerleft list">
-								<p class="red">¥<s:property value="Price" /></p>
+								<p class="red">¥<span class="comma-price"><s:property value="Price" /></span></p>
 							</td>
 							<td class="count lowerleft list">
 								<p><s:property value="productCount" /></p>
 							</td>
 							<td class="totalprice lowerleft list">
-								<p class="red">¥<s:property value="productTotalPrice" /></p>
+								<p class="red">¥<span class="comma-price"><s:property value="productTotalPrice" /></span></p>
 							</td>
 						</tr>
 					</s:iterator>
@@ -88,7 +90,7 @@
 						<th></th>
 						<th><p class="price lowerleft">合計</p></th>
 						<th><p class="price lowerleft">(<s:property value="#session.TotalProductCount"/>点)</p></th>
-						<td><p class="red price lowerleft">¥<s:property value="#session.CartTotalPrice"/></p></td>
+						<td><p class="red price lowerleft">¥<span class="comma-price"><s:property value="#session.CartTotalPrice"/></span></p></td>
 					</tr>
 				</table>
 				<div class="productlist floatright">
@@ -110,7 +112,7 @@
 			<div class="right floatright">
 				<div class="register">
 					<p>カート合計金額(<s:property value="#session.TotalProductCount"/>点):</p>
-					<p class="red cartprice">¥<s:property value="#session.CartTotalPrice"/></p>
+					<p class="red cartprice">¥<span class="comma-price"><s:property value="#session.CartTotalPrice"/></span></p>
 					<s:form action="BuyItemAction">
 						<button type="submit">
 							<i class="fas fa-shopping-cart"></i>レジに進む

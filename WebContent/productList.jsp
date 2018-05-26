@@ -53,7 +53,11 @@
 		<s:iterator value="#session.ProductList">
 
 		<div class="product-box" >
+		<s:if test="#session.ProductList.isEmpty()">
+				<div class="center" style="text-align : center;"><p>商品が登録されていません。</p></div>
+		</s:if>
 
+		<s:else>
 			<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>
 
 
@@ -83,7 +87,7 @@
 	<div class="product-box-left" ></div>
 	<div class="product-box-right" ></div>
 	<div class="product-box-bottom" ></div>
-
+	</s:else>
 	</div>
 
 </s:iterator>
@@ -137,7 +141,9 @@
 		<div class="product-box-outer">
 
 			<s:iterator value="#session.SearchList">
-
+				<s:if test="#session.SearchList.isEmpty()">
+					<div class="center" style="text-align : center;"><p>商品が登録されていません。</p></div>
+				</s:if>
 		       <s:if test="status == 1" >
 		               <div class="product-box">
 		                 <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>

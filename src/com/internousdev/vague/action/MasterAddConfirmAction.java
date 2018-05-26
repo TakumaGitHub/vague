@@ -3,8 +3,9 @@ package com.internousdev.vague.action;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.IllegalFormatException;
 import java.util.List;
 import java.util.Map;
 
@@ -53,15 +54,13 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 	private String imageFileName;
 
-	private String releaseDate;
+	private Date releaseDate;
 
-		private String year;
-
-		private String month;
-
-		private String day;
+	private String releaseDateValueStack;
 
 	private String releaseCompany;
+
+	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	private int status = 1;
 
@@ -90,6 +89,11 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		String result = ERROR;
 
+		String filePath = "";
+
+		releaseDateValueStack =  new SimpleDateFormat("yyyy-MM-dd").format(releaseDate);
+
+
 		//ログインしていないとき
 		if(!(session.containsKey("LoginUserDTO"))){
 
@@ -101,7 +105,7 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		}
 
-		String filePath = ServletActionContext.getServletContext().getRealPath("/").concat("images");
+
 
 		//全ての商品情報を引き出す
 		productSearchDTOList = productSearchDAO.searchAll();
@@ -118,12 +122,13 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 			if(Integer.parseInt(categoryId) == CD.getCategoryId()){
 
 				imageFilePath = "images" + "/" +  CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
-				toImageFilePath = filePath + "\\" + CD.getCategoryId() + CD.getCategoryName() + "\\" + userImageFileName;
+				filePath = "./images/" + CD.getCategoryId() + CD.getCategoryName() + "/" + userImageFileName;
 
 			}
 
 		}
 
+		toImageFilePath = ServletActionContext.getServletContext().getRealPath(filePath);
 
 
 			//入力内容をMasterDTOに格納する
@@ -147,29 +152,8 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 
 		}
 
-		try{
 
-			//発売日を整形
-			String Syear = String.format("%4d", Integer.parseInt(year));
-			String Smonth = String.format("%02d",Integer.parseInt(month));
-			String Sday = String.format("%02d",  Integer.parseInt(day));
-			releaseDate = Syear + Smonth + Sday;
-
-
-		}catch(NumberFormatException e){
-
-			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
-			return ERROR;
-
-		}catch(IllegalFormatException e){
-
-			errorMsg.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
-			return ERROR;
-
-		}
-
-
-			productDTO.setReleaseDate(releaseDate);
+			productDTO.setReleaseDate(simpleDateFormat.format(releaseDate));
 			productDTO.setReleaseCompany(releaseCompany);
 			productDTO.setStatus(status);
 
@@ -295,6 +279,16 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 
+	public String getReleaseDateValueStack() {
+		return releaseDateValueStack;
+	}
+
+
+	public void setReleaseDateValueStack(String releaseDateValueStack) {
+		this.releaseDateValueStack = releaseDateValueStack;
+	}
+
+
 	public String getProductStock() {
 		return productStock;
 	}
@@ -345,44 +339,15 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	}
 
 
-	public String getReleaseDate() {
+	public Date getReleaseDate() {
 		return releaseDate;
 	}
 
 
-	public void setReleaseDate(String releaseDate) {
+	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
-
-	public String getYear() {
-		return year;
-	}
-
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-
-	public String getMonth() {
-		return month;
-	}
-
-
-	public void setMonth(String month) {
-		this.month = month;
-	}
-
-
-	public String getDay() {
-		return day;
-	}
-
-
-	public void setDay(String day) {
-		this.day = day;
-	}
 
 
 	public String getReleaseCompany() {

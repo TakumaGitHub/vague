@@ -109,33 +109,14 @@ response.sendRedirect("/vague/home.jsp");
 				発売日
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='year' />"/>年
+				<s:if test="releaseDateValueStack != null">
+					<p><input name="releaseDate" type="date" value="<s:property value='releaseDateValueStack' />" /></p>
+				</s:if>
+				<s:else>
+					<p><input name="releaseDate" type="date" value="<s:property value='releaseDate' />" /></p>
+				</s:else>
 
-					<select name="month">
 
-						<s:iterator begin="1" end="12" step="1" status="st">
-							<s:if test="month == #st.count">
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>月
-
-					<select name="day">
-
-						<s:iterator begin="1" end="31" step="1" status="st">
-							<s:if test="day == #st.count">
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>日
 
 
 				<br>
@@ -217,35 +198,7 @@ response.sendRedirect("/vague/home.jsp");
 				発売日:
 				<p class="error-msg"><s:property value="errorMsg.releaseDate" /></p>
 
-				<input type="text" name="year" pattern="^[1-2][0-9]{3}$" maxlength="4" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(0,4)' />"/>年
-
-					<select name="month">
-
-						<s:iterator begin="1" end="12" step="1" status="st">
-							<s:if test='#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(4,6).replace("0", "") == #st.count || #session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(4,6) == 10 && #st.count == 10 '>
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>月
-
-					<select name="day">
-
-						<s:iterator begin="1" end="31" step="1" status="st">
-							<s:if test='(#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(6,8).replace("0", "") == #st.count && #st.count < 10) || (#session.MasterChangeCompleteDTO.productDTO.releaseDate.substring(6,8) == #st.count && #st.count >= 10) '>
-								<option value="<s:property value='#st.count' />" selected="selected"><s:property value='#st.count' /></option>
-							</s:if>
-							<s:else>
-								<option value="<s:property value='#st.count' />"><s:property value='#st.count' /></option>
-							</s:else>
-						</s:iterator>
-
-					</select>日
-
-
+				<p><input name="releaseDate" type="date" value="<s:property value='#session.MasterChangeCompleteDTO.productDTO.releaseDate.replaceAll("/","-")' />" /></p>
 
 				</div>
 				<div class="m-reCompany">

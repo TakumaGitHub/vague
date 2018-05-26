@@ -28,7 +28,7 @@
 		<%-- セッションにCreateUserDTOがあるとき --%>
 		<s:if test="#session.CreateUserDTO != null" >
 
-			<p>氏名を入力してください。<p>
+			<p>氏名を漢字で入力してください。(氏名に漢字以外が含まれている場合は、ひらがな・半角英語も使用できます。)<p>
 			<p class="error-msg"><s:property value='errorMsg.familyName' /></p>
 			<p class="error-msg"><s:property value='errorMsg.firstName' /></p>
 			<p><span>姓：<input type="text" name="familyName" value="<s:property value='#session.CreateUserDTO.familyName' />"></span>
@@ -41,6 +41,7 @@
 			<span>名かな：<input type="text" name="firstNameKana" value="<s:property value='#session.CreateUserDTO.firstNameKana' />"></span></p>
 
 			<p>性別を選択して下さい。</p>
+			<p class="error-msg"><s:property value='errorMsg.sex' /></p>
 
 			<p><span>
 			<s:if test="#session.sex == 0">
@@ -74,7 +75,7 @@
 	<%-- セッションにCreateUserDTOがないとき（初回） --%>
 		<s:else>
 
-			<p>氏名を漢字で入力してください。<p>
+			<p>氏名を漢字で入力してください。(氏名に漢字以外が含まれている場合は、ひらがな・半角英語も使用できます。)<p>
 			<p class="error-msg"><s:property value='errorMsg.familyName' /></p>
 			<p class="error-msg"><s:property value='errorMsg.firstName'/></p>
 			<p><span>姓：<input type="text" name="familyName" value="<s:property value='familyName' />"></span>
@@ -87,6 +88,7 @@
 			   <span>名かな：<input type="text" name="firstNameKana" value="<s:property value='firstNameKana' />" ></span></p>
 
 			<p>性別を選択して下さい。</p>
+			<p class="error-msg"><s:property value='errorMsg.sex' /></p>
 			<p><span>
 
 			<input type="radio" name="sex" value='0' checked/>男性

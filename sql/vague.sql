@@ -1,10 +1,10 @@
 set names utf8;
 set foreign_key_checks = 0;
-drop database if exists Vague;
+drop database if exists vague;
 
-create database if not exists Vague DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+create database if not exists vague DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-use Vague;
+use vague;
 
 
 /*
@@ -160,6 +160,14 @@ INSERT INTO m_category (category_id, category_name, category_description, insert
 INSERT INTO user_info(user_id, password, family_name, first_name, family_name_kana,
 	first_name_kana, sex, email, status, m_flg, regist_date)
 	values("guest","guest","一般","太郎","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest2","guest2","一般","太郎2","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest3","guest3","一般","太郎3","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest4","guest4","一般","太郎4","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest5","guest5","一般","太郎5","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest6","guest6","一般","太郎6","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest7","guest7","一般","太郎7","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest8","guest8","一般","太郎8","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
+		  ("guest9","guest9","一般","太郎9","いっぱん","たろう",0,"ippan@yahoo.co.jp",1,0,now()),
 		  ("admin","admin","管理者","太郎","かんりしゃ","たろう",0,"kannrisya@yahoo.co.jp",1,1,now()),
 		  ("miyazaki","miyazaki","宮崎","瞬","みやざき","しゅん",0,"miyazaki@yahoo.co.jp",1,0,now());
 
@@ -182,12 +190,12 @@ INSERT INTO product_info (product_id, product_name, product_name_kana, product_d
 	(10,"オットマン付きソファーセット","おっとまんつきそふぁーせっと","オットマンがあれば、足を伸ばして快適に過ごせます。",2,20,35000,"images/2Sofa/ottomanSet.jpg","ottomanSet.jpg",20110728,"NITYORI",1,now()),
 	(11,"システムソファ","しすてむそふぁ","L字にしたり、くっつけてみたり･･･組み合わせは自由自在！",2,20,50000,"images/2Sofa/systemSofa.jpg","systemSofa.jpg",20080801,"NITYORI",1,now()),
 	(12,"フロアソファ","ふろあそふぁ","まるで床に座っているような気持ちよさ。もしコタツと組み合わせたら･･･？",2,30,55000,"images/2Sofa/floorSofa.jpg","floorSofa.jpg",20150101,"NITYORI",1,now()),
- 	(13,"フロアランプ","ふろあらんぷ","間接照明として、リビングや寝室に灯りを補いたい時におすすめ。",3,30,2000,"images/3Lighting/floorLighting.jpg","floorLighting.jpg",19950809,"NITYORI",1,now()),
- 	(14,"テーブルランプ","てーぶるらんぷ","柔らかな光がユニークなシェードからこぼれて、美しく落ち着いた雰囲気を演出します",3,40,1500,"images/3Lighting/tableLighting.jpg","tableLighting.jpg",19950809,"NITYORI",1,now()),
+ 	(13,"フロアランプ","ふろあらんぷ","間接照明として、リビングや寝室に灯りを補いたい時におすすめなライトです。",3,30,2000,"images/3Lighting/floorLighting.jpg","floorLighting.jpg",19950809,"NITYORI",1,now()),
+ 	(14,"テーブルランプ","てーぶるらんぷ","柔らかな光がユニークなシェードからこぼれて、美しく落ち着いた雰囲気を演出してくれるライト。",3,40,1500,"images/3Lighting/tableLighting.jpg","tableLighting.jpg",19950809,"NITYORI",1,now()),
 	(15,"ペンダントライト","ぺんだんとらいと","ダイニングでも、書斎でも、あるだけで空間が引き締まります。",3,80,11000,"images/3Lighting/pendantLight.jpg","pendantLight.jpg",20040606,"NITYORI",1,now()),
-	(16,"コンプトンランプ","こんぷとんらんぷ","工業系のデザインがお部屋にインパクトを与えてくれます",3,60,22000,"images/3Lighting/comptonLump.jpg","comptonLump.jpg",20090911,"NITYORI",1,now()),
+	(16,"コンプトンランプ","こんぷとんらんぷ","工業系のデザインライトがお部屋にインパクトを与えてくれます",3,60,22000,"images/3Lighting/comptonLump.jpg","comptonLump.jpg",20090911,"NITYORI",1,now()),
 	(17,"シーリングライト","しーりんぐらいと","おしゃれで、尚且つ取り替えも簡単なんですヨ",3,50,24000,"images/3Lighting/sheelingLight.jpg","sheelingLight.jpg",20100226,"NITYORI",1,now()),
-	(18,"シャンデリア","しゃんでりあ","ラグジュアリー、それでいてレトロ。お部屋が一気に華やぎます。",3,40,80000,"images/3Lighting/chandelier.jpg","chandelier.jpg",20000320,"NITYORI",1,now()),
+	(18,"シャンデリア","しゃんでりあ","ラグジュアリー、それでいてレトロなライト。お部屋が一気に華やぎます。",3,40,80000,"images/3Lighting/chandelier.jpg","chandelier.jpg",20000320,"NITYORI",1,now()),
 	(19,"センターテーブル","せんたーてーぶる","天然石が作り上げるこの世にふたつとない独特の模様と風合いを生かした素材感溢れるガラス・テーブルです。",4,60,8000,"images/4Table/centerTable.jpg","centerTable.jpg",19950809,"NITYORI",1,now()),
 	(20,"サイドテーブル","さいどてーぶる","シックな水色と縦長のスマートなフォルムがおしゃれな一品です。",4,60,4000,"images/4Table/sideTable.jpg","sideTable.jpg",19950809,"NITYORI",1,now()),
 	(21,"ウォールナットテーブル","うぉーるなっとてーぶる","無垢材を使用した逸品。本物の木の温もりを感じてください。",4,10,60000,"images/4Table/wallnutTable.jpg","wallnutTable.jpg",20130505,"NITYORI",1,now()),
@@ -225,24 +233,3 @@ INSERT INTO destination_info (user_id, family_name, first_name, family_name_kana
 			values           ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関1-1-1", now()),
 							 ("miyazaki", "宮崎", "瞬", "みやざき", "しゅん", "miyazaki@yahoo.co.jp", "1001100","1000013", "東京都千代田区霞が関2-2-2", now());
 
-
-/*
- * 購入履歴情報テーブルに情報挿入
- */
-
-
-/*INSERT INTO purchase_history_info (user_id, product_id, product_count, price, address_id, regist_date)
-			values                ("miyazaki",1,30,30000,1,now()),
-								  ("miyazaki",2,30,30000,1,now()),
-								  ("miyazaki",3,30,30000,1,now()),
-								  ("miyazaki",4,30,30000,1,now()),
-								  ("miyazaki",5,30,30000,2,now());
-*/
-/*
- * カートテーブルに情報挿入
- */
-
- /*
-INSERT INTO cart_info (user_id, temp_user_id, product_id, product_count, price, regist_date)
-			values     ("miyazaki","miyazaki",1,5,15000,now());
-*/

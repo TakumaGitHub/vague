@@ -22,8 +22,6 @@ input[type=submit].font-awesome {
 	vertical-align:center;
 }
 
-
-/*商品無し*/
 .noproduct{
 	text-align:center;
 }
@@ -57,13 +55,11 @@ td.checkbox, td.image{
 }
 
 .product p{
-	line-height:0.5px;
 	vartical-align:bottom;
 }
 .productname{
 	font-size:25px;
 	text-align:center;
-	line-height:2px;
 	vertical-align:top;
 }
 .kana, .date, .company{
@@ -75,7 +71,6 @@ td.checkbox, td.image{
 .price, .count, .totalprice{
 	font-size:20px;
 }
-/*left_買い物,削除ボタン*/
 .productlist, .delete{
 	text-align:right;
 }
@@ -113,7 +108,6 @@ button.normal-button{
 }
 
 
-<!--画面遷移状態表示css-->
 /* div.usccart_navi ol.ucart {
     position: relative;
     height: initial;

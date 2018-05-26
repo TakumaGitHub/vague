@@ -32,14 +32,17 @@ response.sendRedirect("/vague/home.jsp");
 
 		<div class="container">
 
-		<div class="title">ログイン・新規登録ページ</div>
+		<h3 class="title">ログイン・新規登録ページ</h3>
 
 		<div class="input-wrapper" >
 
 			<div id="input" class="left">
 				<h3>ログインIDとパスワードを入力してください。</h3>
 				<p class="error-msg"><s:property value="errorMsg" /></p>
-				<s:form action="LoginAction">
+
+				<div>
+
+					<form action="LoginAction">
 						<p class="error-msg"><s:property value="userIdErrorMsg" /></p>
 						ログインID：<input type="text" name="userId" value="<s:property value='#session.saveId' />" >
 						<br>
@@ -54,14 +57,18 @@ response.sendRedirect("/vague/home.jsp");
 							</s:else>
 						</p>
 
-						<p><s:submit value="ログイン"/></p>
+						<s:submit value="ログイン"/>
 
-				</s:form>
+					</form>
 
-				<p class="normal-button">
-				<s:form action="userPasswordUpdate.jsp">
-				<input type="submit" value="パスワードの再設定">
-				</s:form></p>
+				</div>
+
+
+				<div>
+					<form action="userPasswordUpdate.jsp">
+					<input  type="submit" value="パスワードの再設定">
+					</form>
+				</div>
 
 			</div>
 

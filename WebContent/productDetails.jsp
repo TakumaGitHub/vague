@@ -68,7 +68,10 @@
 	<s:else>
 
 		<div class="cart">
+
+			<p class="error-msg"><s:property value="errorMsg" /></p>
 			<span>購入個数：
+
 				<select name="productCount">
 
 					<s:if test="#session.DetailProductDTO.productStock < 5">
@@ -132,7 +135,7 @@
 
 <h3 id="suggestProduct">この製品を見ている人はこんな製品も見ています</h3>
 
-<div class="suggest-outer-box" >
+<div class="suggest-box-outer" >
 
 	<s:iterator value="#session.SuggestList">
 

@@ -22,9 +22,17 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	private int productTotalPrice;
 	private int i = 0;
 	private int sqlBranch;
+	private String errorMsg;
 
 	public String execute() throws SQLException{
 		String result = ERROR;
+
+		if(productCount < 0 || productCount > 5){
+
+			errorMsg = "購入個数は１以上５以下で選択してください";
+			return ERROR;
+
+		}
 
 		CartDAO cartDAO = new CartDAO();
 		LoginUserDTO loginUserDTO = new LoginUserDTO();
@@ -104,6 +112,14 @@ public class CartInsertAction extends ActionSupport implements SessionAware {
 	@Override
 	public void setSession(Map<String, Object>session){
 		this.session =session;
+	}
+
+	public String getErrorMsg() {
+		return errorMsg;
+	}
+
+	public void setErrorMsg(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 }

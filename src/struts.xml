@@ -3,9 +3,9 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<!-- <constant name="struts.ui.theme" value="simple" />  -->
+	<constant name="struts.ui.theme" value="simple" />
 	<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
-	<constant name="struts.devMode" value="true" />
+	<!-- <constant name="struts.devMode" value="true" />  -->
 	<package name="com.internousdev.vague.action" extends="struts-default">
 
 		<!-- 田中担当 -->
@@ -13,6 +13,7 @@
 		<action name="LoginAction" class="com.internousdev.vague.action.LoginAction" method="execute">
 			<result name="success">home.jsp</result>
 			<result name="error" >userInterface.jsp</result>
+			<result name="session" >sessionOut.jsp</result>
 		</action>
 
 
@@ -32,6 +33,7 @@
 		<action name="UserCreateCompleteAction" class="com.internousdev.vague.action.UserCreateCompleteAction" method="execute">
 		<result name="success">userCreateComplete.jsp</result>
 		<result name="error">home.jsp</result>
+		<result name="session" >sessionOut.jsp</result>
 		</action>
 
 		<!-- 宮崎担当 -->
@@ -108,8 +110,8 @@
 		</action>
 
 		<action name="MasterChangeConfirmAction" class="com.internousdev.vague.action.MasterChangeConfirmAction" method="execute">
-				<exception-mapping exception="java.lang.Exception" result="error" />
-		 	<interceptor-ref name="fileUpload">
+			<exception-mapping exception="java.lang.Exception" result="error" />
+			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
                     image/png,image/gif,image/jpeg,image/pjpeg
@@ -138,7 +140,7 @@
 
 		<action name="MasterAddConfirmAction" class="com.internousdev.vague.action.MasterAddConfirmAction" method="execute">
 			<exception-mapping exception="java.lang.Exception" result="error" />
-		 	<interceptor-ref name="fileUpload">
+			<interceptor-ref name="fileUpload">
                 <param name="maximumSize">2097152</param>
                 <param name="allowedTypes">
                     image/png,image/gif,image/jpeg,image/pjpeg
@@ -171,6 +173,7 @@
 		<!--カートのアクション -->
 		<action name="CartAction" class="com.internousdev.vague.action.CartAction" method="execute">
 		<result name="success">cart.jsp</result>
+		<result name="session" >sessionOut.jsp</result>
 		</action>
 
 		<action name="CartInsertAction" class="com.internousdev.vague.action.CartInsertAction" method="execute">

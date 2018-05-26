@@ -139,6 +139,13 @@ public class InputChecker {
 			result.put("firstNameKana", "【名前のふりがなはひらがなで入力してください】");
 		}
 
+		//性別エラーメッセージ管理
+		if(loginUserDTO.getSex() != 0 && loginUserDTO.getSex() != 1){
+
+			result.put("sex", "【性別は男性、女性どちらかで選んでください】");
+
+		}
+
 
 		//ログインIDエラーメッセージ管理
 
@@ -259,7 +266,7 @@ public class InputChecker {
 		if(telNumber.equals("")) {
 			result = "【電話番号を入力してください】";
 		}else if(telNumber.length() < 11 || telNumber.length() > 13) {
-			result = "【電話番号は10文字以上13文字以下で入力してください】";
+			result = "【電話番号は11文字以上13文字以下で入力し てください】";
 		}else if(!telNumber.matches("^[0-9]+$")) {
 			result = "【電話番号は半角数字で、正しいものを入力してください】";
 		}
@@ -299,9 +306,7 @@ public class InputChecker {
 	public static String keywordChk(String keywords) {
 		String result = "";
 
-		if(keywords.equals("")) {
-			result = "【検索キーワードを入力してください】";
-		}else if(keywords.length() > 16) {
+		if(keywords.length() > 16) {
 			result = "【検索キーワードは、1文字以上16文字以下で入力してください】";
 		}else if(!keywords.matches("^[a-zA-Z0-9ぁ-ゞ一-龠々ァ-ヾ　\\s]*$") && keywords != "") {
 			result = "【検索キーワードは半角英数字、漢字、ひらがな、カタカナで入力してください】";
@@ -403,9 +408,7 @@ public class InputChecker {
 		//発売日
 		if(productDTO.getReleaseDate().equals("")) {
 			result.put("releaseDate", "【商品の発売日を入力してください】");
-		}else if(productDTO.getReleaseDate().length() != 8) {
-			result.put("releaseDate", "【商品の発売日は8桁で入力してください】");
-		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}[01][0-9][0-3][0-9]$")) {
+		}else if(!productDTO.getReleaseDate().matches("^[0-2][0-9]{3}/[01][0-9]/[0-3][0-9]$")) {
 			result.put("releaseDate", "【商品の発売日は形式にそって入力してください】");
 		}
 		//発売会社

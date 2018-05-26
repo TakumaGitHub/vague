@@ -62,11 +62,12 @@ table img:hover {
 
 /* 「購入情報」欄 */
 .purchaseProductInfo{
+	width:270px;
 	font-size:14px;
 	line-height:10px;
 	padding-top:10px;
 	padding-right:5px;
-	padding-left:15px;
+	padding-left:20px;
 }
 
 /* 「レビューを投稿する」ボタン */

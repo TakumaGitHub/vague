@@ -36,6 +36,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException {
 
+		if(!session.containsKey("tempUserId")){
+
+			return "session";
+
+		}
+
 		if(saveId != 0){
 
 			session.put("saveId",userId);

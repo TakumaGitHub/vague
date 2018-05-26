@@ -24,7 +24,11 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 
 		int ret = 0;
 
-		if(!session.containsKey("CreateUserDTO")){
+		if(!session.containsKey("tempUserId")){
+
+			return "session";
+
+		}else if(!session.containsKey("CreateUserDTO")){
 
 			return ERROR;
 
@@ -41,7 +45,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		}
 
 
-		//新規登録したユーザーでログインするs
+		//新規登録したユーザーでログインする
 		session.put("LoginUserDTO",loginUserDTO);
 		String tempUserId = session.get("tempUserId").toString();
 		cartDAO.changeTempUserId(loginUserDTO.getUserId(),tempUserId);

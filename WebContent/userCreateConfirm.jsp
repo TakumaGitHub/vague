@@ -9,7 +9,7 @@
 <title>新規ユーザー登録入力情報確認</title>
 </head>
 <body>
-<s:if test="#session.CreateUserDTO != null " >
+<s:if test="#session.CreateUserDTO == null " >
 <%
 
 response.sendRedirect("/vague/home.jsp");

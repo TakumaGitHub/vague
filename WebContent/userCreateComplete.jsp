@@ -24,7 +24,7 @@
     <!--  headerの終わり -->
 
 				<div id="main">
-				<div class="container">
+				<div class="container" style="text-align : center;">
 
 				<div class="title">新規ユーザー登録完了</div>
 

@@ -53,7 +53,7 @@ response.sendRedirect("/vague/home.jsp");
 					</span>
 				</div>
 
-					<div class="nameKana">
+					<div class="nameKana1">
 						<span class="text">[せい]<br>
 							<s:property value="#session.AddressDTO.familyNameKana" escape="false"/>
 						</span>
@@ -94,7 +94,7 @@ response.sendRedirect("/vague/home.jsp");
 						</span>
 					</div>
 
-					<div class="buttom">
+					<div class="button">
 						<input id="buttom2" type="submit" value="戻る">
 						<input id="buttom1" type="submit" value="登録">
 					</div>

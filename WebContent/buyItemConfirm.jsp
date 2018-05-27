@@ -12,6 +12,13 @@
 	<title>決済確認</title>
 </head>
 <body>
+<s:if test="#session.ChooseAddressDTO == null " >
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 
 	<!--  headerの始まり -->
 

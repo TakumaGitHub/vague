@@ -31,7 +31,7 @@
     <div id="main">
     	<div class="container">
 
-    	<div class="title">パスワード更新完了画面</div>
+    	<h3 class="title">パスワード更新完了画面</h3>
 
 
 		<h2>パスワードの再設定が完了いたしました</h2>

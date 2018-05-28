@@ -26,7 +26,7 @@
 
 		<div class="container">
 
-		<div class="title">パスワード更新画面</div>
+		<h3 class="title">パスワード更新画面</h3>
 
 		<h2>パスワードの再設定</h2>
 

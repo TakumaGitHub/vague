@@ -223,6 +223,7 @@
 				<s:property value="errorTelNumberMsg"/>
 			</div>
 			</div>
+			
 
 
 		<!-- メールアドレス -->

@@ -26,7 +26,7 @@
 				<div id="main">
 				<div class="container" style="text-align : center;">
 
-				<div class="title">新規ユーザー登録完了</div>
+				<h3 class="title">新規ユーザー登録完了</h3>
 
 					<h2>ユーザー登録完了</h2>
 

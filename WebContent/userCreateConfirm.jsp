@@ -27,7 +27,7 @@ response.sendRedirect("/vague/home.jsp");
 <div id="main">
 	<div class="container">
 
-	<div class="title">新規ユーザー登録入力情報確認ページ</div>
+	<h3 class="title">新規ユーザー登録入力情報確認ページ</h3>
 
 	<h3>以下の情報で間違いがなければ登録ボタンをクリックしてください。</h3><br>
 

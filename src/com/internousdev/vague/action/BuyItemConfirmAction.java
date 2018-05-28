@@ -68,7 +68,7 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 		AddressDTO addressDTO = addressDAO.getAddressInfo(addressId);
 
 //		宛先判定
-		if(addressDTO == null) {
+		if(addressDTO.getAddressId() == 0) {
 			result = "noaddress";
 			return result;
 		}

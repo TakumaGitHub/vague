@@ -180,6 +180,7 @@
 	text-align : left;
 	font-size:30px;
 	border-left:6px solid #00008b;
+	padding-left : 10px;
 }
 #detailName2 {
 	text-align : left;
@@ -239,6 +240,12 @@ input[type="submit"]:hover {
 	border:2px solid #00008b;
 	border-radius:1em;
 	box-shadow:6px 8px #dcdcdc;
+}
+
+#suggestProduct {
+
+	padding-left : 10px;
+
 }
 
 #sugName {

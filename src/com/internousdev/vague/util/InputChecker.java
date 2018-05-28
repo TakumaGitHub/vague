@@ -255,7 +255,11 @@ public class InputChecker {
 			result = "【住所は15文字以上50文字以下で入力してください】";
 		}else if(!addr11.matches("^[a-zA-Z0-9ぁ-ゞァ-ヾ一-龠々!-~]+$")) {
 			result = "【住所は半角英数字、漢字、ひらがな、カタカナおよび半角記号で入力してください】";
+		}else if(!addr11.matches("^.+[都道府県].+[市区町村].+$")){
+			result = "【住所は正しい形式で入力してください(例：○○県○○市○○)】";
 		}
+
+
 		return result;
 	}
 

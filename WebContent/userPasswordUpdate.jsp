@@ -24,7 +24,7 @@
 
     <div id="main">
 
-		<div class="container">
+		<div class="container" style="text-align :center;">
 
 		<h3 class="title">パスワード更新画面</h3>
 

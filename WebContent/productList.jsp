@@ -149,16 +149,16 @@
 		                 <a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>
 
 
-								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="200" height="170"><br>
+								<img class="image" src="<s:property value='imageFilePath'/>"  alt="Photo" width="250" height="220"><br>
 
 							<div class="proName">
-							    <p><s:property value="productName" /></p>
+							    <s:property value="productName" />
 							</div>
 							<div class="proName2">
-							    <p><s:property value="productNameKana" /></p>
+							    <s:property value="productNameKana" />
 							</div>
 							<div class="proPrice">
-							    <p>￥<span class="comma-price"><s:property value="price" /></span></p>
+							    ￥<span class="comma-price"><s:property value="price" /></span>
 						 </div>
 	 <div class="product-box-top" ></div>
 	<div class="product-box-left" ></div>

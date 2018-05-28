@@ -71,8 +71,17 @@ p {
 }
 
 
+.firstName {
 
+	padding-left : 5px;
 
+}
+
+.firstNameKana {
+
+	padding-left : 5px;
+
+}
 
 .name {
 	text-align:center;

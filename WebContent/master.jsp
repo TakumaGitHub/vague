@@ -10,6 +10,7 @@
 
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" href="./css/master.css">
+<script src="js/productList.js" type="text/javascript"></script>
 <script src="js/confirm.js" type="text/javascript"></script>
 <title>管理者画面</title>
 </head>

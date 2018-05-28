@@ -4,19 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
-<meta http-equiv="imagetoolbar" content="no" />
-<meta name="description" content="" />
-<meta name="keywords" content=""/>
+<jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/cart.css">
 <script src="js/cart.js" type="text/javascript" ></script>
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
 
-
-
-<jsp:include page="head.jsp" />
 <title>ショッピングカート</title>
 </head>
 <body>

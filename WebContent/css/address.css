@@ -40,15 +40,24 @@ p {
     padding-right:240px;
 }
 
+.name-box {
+
+
+
+}
 
 .fullName {
-	display:flex;
+
+	display : inline-block;
+
+
 }
 
 
 .fullName1 {
-	 display:flex;
-	width:auto;
+
+	display: flex;
+
 }
 
 
@@ -73,7 +82,14 @@ p {
 .nameKana {
 
 	margin-top:20px;
-	display:flex;
+	display : inline-block;
+
+}
+
+.nameKana1 {
+
+	display: flex;
+
 }
 
 
@@ -85,7 +101,6 @@ p {
 .error {
 	margin-top:5px;
 	color:red;
-	display:flex;
 }
 
 
@@ -98,6 +113,13 @@ p {
 
 .buttom {
 	width:100%;
+
+}
+
+.button input[type="submit"] {
+
+	margin : 30px  0px  30px 200px ;
+
 }
 
 input[type="submit"] {

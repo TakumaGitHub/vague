@@ -8,6 +8,13 @@
 <title>新規ユーザー情報登録ページ</title>
 </head>
 <body>
+<s:if test="#session.LoginUserDTO != null " >
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 
 	<!--  headerの始まり -->
 

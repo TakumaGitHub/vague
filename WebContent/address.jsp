@@ -4,8 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/address.css">
+
 <jsp:include page="head.jsp" />
+<link rel="stylesheet" type="text/css" href="css/address.css">
 <!-- 郵便番号から住所自動検索 -->
 <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <title>宛先情報登録画面</title>
@@ -31,39 +32,55 @@
 			<div class="box">
 
 		<s:form id="form1" action="AddressRegiConfirmAction">
+
+			<%--セッションにAddressDTOがある場合 --%>
 			<s:if test="#session.AddressDTO != null" >
 
+			<div class="name-box">
 
-			<!-- 氏名 -->
+				<!-- 氏名 -->
 
-			<div class="fullName">
-				<span>[姓]<br><input type="text" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/>
+				<div class="fullName">
+					<span>[姓]<br><input type="text" name="familyName" value='<s:property value="#session.AddressDTO.familyName"/>' maxlength="16" size="16"/>
+					</span>
+				</div>
+
+				<div class="fullName">
+
+					<span>[名]<br><input type="text" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/>
+
+					</span>
+
+				</div>
 				<span class="error"><s:property value="errorFamilyNameMsg"/></span><br>
-					<span class="error"><s:property value="errorFirstNameMsg"/></span>
-				</span><br>
-
-
-				<span>[名]<br><input type="text" name="firstName" value='<s:property value="#session.AddressDTO.firstName"/>' maxlength="16" size="16"/><br>
-
-				</span><br>
+				<span class="error"><s:property value="errorFirstNameMsg"/></span>
 
 
 			</div>
 
+				<!-- 氏名のふりがな -->
 
-		<!-- 氏名のふりがな -->
+				<div class="name-box">
 
-			<div class="nameKana">
-				<span>[せい]<br>
-				<input type="text" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/><br>
+					<div class="nameKana">
+						<span>[せい]<br>
+						<input type="text" name="familyNameKana" value='<s:property value="#session.AddressDTO.familyNameKana"/>' maxlength="16" size="16"/><br>
+						</span>
+					</div>
 
-				</span>
-				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
+					<div class="nameKana">
 
-				</span><br>
-				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span><br>
-				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
-			</div>
+						<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="#session.AddressDTO.firstNameKana"/>' maxlength="16" size="16"/><br>
+						</span>
+
+					</div>
+
+
+				</div>
+
+
+
+
 
 
 		<!-- 郵便番号入力(7桁) -->
@@ -119,41 +136,53 @@
 
 			<s:else>
 
-
+			<%--セッションにAddressDTOがない場合 --%>
 			<!-- 氏名 -->
 
-			<div class="fullName">
-				<span style="text-align:left">[姓]<br>
-				<input type="text" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/>
-					<span class="error"><s:property value="errorFamilyNameMsg"/></span><br>
-				<span class="error"><s:property value="errorFirstNameMsg"/></span>
-				</span>
+			<div class="name-box">
 
-				<span style="text-align:left">[名]<br>
-				<input type="text" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/><br>
+				<!-- 氏名 -->
 
-				</span><br>
+				<div class="fullName">
+					<span>[姓]<br><input type="text" name="familyName" value='<s:property value="familyName"/>' maxlength="16" size="16"/>
+					</span>
+				</div>
 
+				<div class="fullName">
 
+					<span>[名]<br><input type="text" name="firstName" value='<s:property value="firstName"/>' maxlength="16" size="16"/>
 
+					</span>
+
+				</div>
 
 			</div>
+			<span class="error"><s:property value="errorFamilyNameMsg"/></span><br>
+			<span class="error"><s:property value="errorFirstNameMsg"/></span>
 
 
 		<!-- 氏名のふりがな -->
 
+		<div class="name-box">
+
 			<div class="nameKana">
 				<span>[せい]<br>
 				<input type="text" name="familyNameKana" value='<s:property value="familyNameKana"/>' maxlength="16" size="16"/><br>
-				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span><br>
-					<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 				</span>
-				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/><br>
+			</div>
 
+			<div class="nameKana">
+
+				<span>[めい]<br><input type="text" name="firstNameKana" value='<s:property value="firstNameKana"/>' maxlength="16" size="16"/><br>
 				</span>
 
 			</div>
 
+
+		</div>
+
+		<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span><br>
+		<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 
 		<!-- 郵便番号入力(7桁) -->
 

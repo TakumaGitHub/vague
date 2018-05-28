@@ -4,9 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/address.css">
+<script src="js/lineBreak.js" type="text/javascript" ></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <title>宛先入力情報確認画面</title>
 </head>
 <body>
@@ -71,11 +73,11 @@ response.sendRedirect("/vague/home.jsp");
 					</div>
 
 					<div class="form-text">
-						<span class="text">[住所]<br>
-							<span>
+						<p class="text" id="address-span">[住所]<br>
+							<span class="line-break">
 								<s:property value="#session.AddressDTO.addr11" escape="false"/>
 							</span>
-						</span>
+						</p>
 					</div>
 
 					<div class="form-text">

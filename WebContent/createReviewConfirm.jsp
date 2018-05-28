@@ -11,6 +11,7 @@
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/createReview.css" />
 
+<script src="js/lineBreak.js" type="text/javascript" ></script>
 <title>レビュー投稿確認画面</title>
 </head>
 
@@ -56,12 +57,12 @@ response.sendRedirect("/vague/home.jsp");
 
 					<tr>
 						<th>タイトル</th>
-						<td><s:property value="#session.CreateReviewCompleteDTO.reviewTitle"/></td>
+						<td class="line-break"><s:property value="#session.CreateReviewCompleteDTO.reviewTitle"/></td>
 					</tr>
 
 					<tr>
 						<th>内容</th>
-						<td><s:property value="#session.CreateReviewCompleteDTO.reviewBody"/></td>
+						<td class="line-break"><s:property value="#session.CreateReviewCompleteDTO.reviewBody"/></td>
 					</tr>
 
 					<tr>

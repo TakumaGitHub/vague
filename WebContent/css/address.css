@@ -40,6 +40,18 @@ p {
     padding-right:240px;
 }
 
+#address-span {
+
+	text-align: left;
+
+}
+
+#address-span span {
+
+	padding : 0px;
+
+}
+
 .name-box {
 
 

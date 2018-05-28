@@ -77,6 +77,8 @@
 
 
 				</div>
+				<span class="error"><s:property value="errorFamilyNameKanaMsg"/></span><br>
+				<span class="error"><s:property value="errorFirstNameKanaMsg"/></span>
 
 
 

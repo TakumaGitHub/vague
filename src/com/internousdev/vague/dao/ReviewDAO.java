@@ -34,7 +34,7 @@ public class ReviewDAO {
 		List<ProductReviewDTO> productReviewDTOList = new ArrayList<ProductReviewDTO>();
 
 
-		String sql = " SELECT * FROM review r LEFT JOIN user_info uf ON r.user_id = uf.user_id WHERE r.product_id = ?";
+		String sql = " SELECT * FROM review r LEFT JOIN user_info uf ON r.user_id = uf.user_id WHERE r.product_id = ? ORDER BY r.regist_date DESC";
 
 
 		try{

@@ -73,7 +73,7 @@
 								<p><s:property value="productCount" /></p>
 							</td>
 							<td class="totalprice lowerleft list">
-								<p class="red comma-price">¥<s:property value="productTotalPrice" /></p>
+								<p class="red">¥<span class="comma-price"><s:property value="productTotalPrice" /></span></p>
 							</td>
 						</tr>
 					</s:iterator>
@@ -83,7 +83,7 @@
 						<th></th>
 						<th><p class="price lowerleft">合計</p></th>
 						<th><p class="price lowerleft">(<s:property value="#session.TotalProductCount"/>点)</p></th>
-						<td><p class="red price lowerleft comma-price">¥<s:property value="#session.CartTotalPrice"/></p></td>
+						<td><p class="red price lowerleft">¥<span class="comma-price"><s:property value="#session.CartTotalPrice"/></span></p></td>
 					</tr>
 				</table>
 				<div class="productlist floatright">
@@ -105,7 +105,7 @@
 			<div class="right floatright">
 				<div class="register">
 					<p>カート合計金額(<s:property value="#session.TotalProductCount"/>点):</p>
-					<p class="red cartprice comma-price">¥<s:property value="#session.CartTotalPrice"/></p>
+					<p class="red cartprice">¥<span class="comma-price"><s:property value="#session.CartTotalPrice"/></span></p>
 					<s:form action="BuyItemAction">
 						<button type="submit">
 							<i class="fas fa-shopping-cart"></i>レジに進む

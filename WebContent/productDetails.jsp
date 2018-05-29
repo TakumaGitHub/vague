@@ -153,7 +153,7 @@
 			<s:property value="productNameKana"/><br>
 			</div>
 			<div id="sugPrice">
-			<span class="comma-price">￥<s:property value="price"/></span><br>
+			￥<span class="comma-price"><s:property value="price"/></span><br>
 			</div>
 
 		</div>

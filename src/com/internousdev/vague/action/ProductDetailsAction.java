@@ -24,10 +24,10 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 	private String id;
 	private String productId;
 	private String categoryName;
-	private String stock;
+	//private String stock;
 	private String error;
 	private int insertFlg;
-	private int price;
+	//private int price;
 	private int categoryId;
 
 	//購入個数リスト
@@ -48,16 +48,13 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 
 	public String execute() throws SQLException {
 		//商品詳細取得
-		try {
+
 			detail = productDetailsDAO.getProductDetailsInfo(productId);
 			if(detail != null && detail.getId() != 0){
 				session.put("DetailProductDTO", detail);
 			}else{
 				return ERROR;
 			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 
 
 
@@ -87,10 +84,6 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 			e.printStackTrace();
 		}
 
-		//在庫の選択表示用リスト
-		for(int i = 1; i <= detail.getProductStock(); i++) {
-			stockList.add(i);
-		}
 		if (session.get("category_id") != null) {
 			return ERROR;
 		}
@@ -127,22 +120,22 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
     			this.categoryId = categoryId;
     		}
 
-			public String getStock() {
-				return stock;
-			}
+//			public String getStock() {
+//				return stock;
+//			}
+//
+//			public void setStock(String stock) {
+//				this.stock = stock;
+//			}
+//
 
-			public void setStock(String stock) {
-				this.stock = stock;
-			}
-
-
-			public int getPrice() {
-				return price;
-			}
-
-			public void setPrice(int price) {
-				this.price = price;
-			}
+//			public int getPrice() {
+//				return price;
+//			}
+//
+//			public void setPrice(int price) {
+//				this.price = price;
+//			}
 
 			public int getInsertFlg() {
 				return insertFlg;

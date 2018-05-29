@@ -42,8 +42,8 @@ public class ProductDetailsDAO {
 				dto = null;
 			}
 
-		}catch(Exception e) {
-			throw new RuntimeException(e);
+		}catch(SQLException e) {
+			e.printStackTrace();
 		}finally{
 			con.close();
 		}

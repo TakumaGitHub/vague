@@ -400,8 +400,8 @@ public class InputChecker {
 		//価格
 		if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[0-9]+$"))){
 			result.put("price", "【商品の価格は半角数字で入力してください】");
-		}else if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[0-9]{1,9}$"))){
-			result.put("price", "【商品の価格は9桁以下で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getPrice()).toString().matches("^[1-9][0-9]{1,8}$"))){
+			result.put("price", "【商品の価格は0以上9桁以下で入力してください】");
 		}
 
 

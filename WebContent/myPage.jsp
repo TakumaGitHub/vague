@@ -15,6 +15,13 @@
 </head>
 
 <body>
+<s:if test="#session.LoginUserDTO == null" >
+<%
+
+response.sendRedirect("/vague/home.jsp");
+
+%>
+</s:if>
 	<!--  headerの始まり -->
 	<jsp:include page="header.jsp" />
 	<!--  headerの終わり -->

@@ -40,7 +40,7 @@ public class CreateReviewAction extends ActionSupport implements SessionAware{
 		}
 
 
-		if(createReviewProductDTO != null){
+		if(createReviewProductDTO != null && createReviewProductDTO.getId() != 0){
 
 			session.put("CreateReviewProductDTO", createReviewProductDTO);
 

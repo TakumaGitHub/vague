@@ -50,7 +50,7 @@ public class ProductDetailsAction extends ActionSupport implements SessionAware 
 		//商品詳細取得
 		try {
 			detail = productDetailsDAO.getProductDetailsInfo(productId);
-			if(detail != null){
+			if(detail != null && detail.getId() != 0){
 				session.put("DetailProductDTO", detail);
 			}else{
 				return ERROR;

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<s:if test="#session.LoginUserDTO == null" >
+<s:if test="#session.LoginUserDTO == null || myPageList == null" >
 <%
 
 response.sendRedirect("/vague/home.jsp");

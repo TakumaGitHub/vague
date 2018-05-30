@@ -350,9 +350,9 @@ public class InputChecker {
 		if(Integer.valueOf(productDTO.getProductId()).toString().equals("")) {
 			result.put("productId", "【商品IDを入力してください】");
 		}else if(Integer.valueOf(productDTO.getProductId()).toString().length() < 1 || Integer.valueOf(productDTO.getProductId()).toString().length() > 10) {
-			result.put("productId", "【商品IDは1文字以上10文字以下で入力してください】");
-		}else if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[0-9]+$"))){
-			result.put("productId", "【商品IDは半角数字で入力してください】");
+			result.put("productId", "【商品IDは1桁以上10桁以下で入力してください】");
+		}else if(!(Integer.valueOf(productDTO.getProductId()).toString().matches("^[1-9]+[0-9]*$"))){
+			result.put("productId", "【商品IDは1以上の半角数字で入力してください】");
 		}
 		//商品名
 		if(productDTO.getProductName().equals("")) {
@@ -383,7 +383,7 @@ public class InputChecker {
 			result.put("categoryId", "【カテゴリーIDは一桁の半角数字で入力してください】");
 		}else if(!(Integer.valueOf(productDTO.getCategoryId()).toString().matches("^[1-4]$"))){
 
-			result.put("categoryId", "【カテゴリーIDは一桁の1以上4以下で入力してください】");
+			result.put("categoryId", "【カテゴリーIDは以上4以下で入力してください】");
 		}
 		//在庫
 

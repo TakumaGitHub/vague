@@ -126,8 +126,10 @@
 	font-size:20px;
 }
 
-.page-number {
-	color:blue;
+.page-number a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .error-msg {

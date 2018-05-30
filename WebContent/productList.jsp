@@ -30,7 +30,7 @@
 
 
 
-		<div class="tittle">
+		<div>
 
 				<s:if test="#session.ProductListLength  >= 1">
 					<h2 class="title">商品一覧</h2>
@@ -50,14 +50,17 @@
 
 	<div class="product-box-outer">
 
-		<s:iterator value="#session.ProductList">
-
-		<div class="product-box" >
 		<s:if test="#session.ProductList.isEmpty()">
-				<div class="center" style="text-align : center;"><p>商品が登録されていません。</p></div>
+				<div class="center" style="text-align : center;"><p class="error-msg">商品が登録されていません。</p></div>
 		</s:if>
 
 		<s:else>
+		<s:iterator value="#session.ProductList">
+
+		<div class="product-box" >
+
+
+
 			<a href="<s:url action='ProductDetailsAction'><s:param name="productId" value="productId" /><s:param name="categoryId" value="categoryId" /></s:url>"></a>
 
 
@@ -87,10 +90,11 @@
 	<div class="product-box-left" ></div>
 	<div class="product-box-right" ></div>
 	<div class="product-box-bottom" ></div>
-	</s:else>
+
 	</div>
 
-</s:iterator>
+	</s:iterator>
+</s:else>
 
 </div>
 

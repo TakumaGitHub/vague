@@ -2,7 +2,6 @@ package com.internousdev.vague.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -23,16 +22,16 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 	//商品情報取得
 	private ProductListDAO productListDAO = new ProductListDAO();
 	//商品情報格納
-	public ArrayList<ProductDTO> productList = new ArrayList<>();
+	public ArrayList<ProductDTO> productList = new ArrayList<ProductDTO>();
 	//3*3で格納したリスト
-	private List<List<ProductDTO>> productListBy9Items = new ArrayList<>();
+	private List<List<ProductDTO>> productListBy9Items = new ArrayList<List<ProductDTO>>();
 
 	private DivideDTOList<ProductDTO> divideDTOList = new DivideDTOList<ProductDTO>();
 
 	private int pageSelect;
 	private int pageCount;
 	private int listFlg;
-	private List<Integer> pageList = new ArrayList<>();
+	private List<Integer> pageList = new ArrayList<Integer>();
 
 	//検索数
 	public int number;
@@ -43,21 +42,20 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 
 	//商品情報取得メソッド
 	public String execute() throws SQLException {
-		String result = ERROR;
+		String result = SUCCESS;
 		productList = productListDAO.getProductInfo();
 
 		number = productList.size();
 
-		Iterator<ProductDTO> iterator = productList.iterator();
-		if(!iterator.hasNext()) {
-			this.productList = null;
-		}
 
 		if(number > 0) {
 
 			productListBy9Items = divideDTOList.divide(productList, 9);
+			session.put("ProductList", productListBy9Items.get(pageNum));
 
-			result = SUCCESS;
+		}else {
+
+			session.put("ProductList", productListBy9Items);
 
 		}
 
@@ -65,7 +63,7 @@ public class ProductListAction extends ActionSupport implements SessionAware {
 		session.remove("SearchListLength");
 
 		session.put("ProductListLength",productListBy9Items.size());
-		session.put("ProductList", productListBy9Items.get(pageNum));
+
 
 
 

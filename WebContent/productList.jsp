@@ -105,22 +105,26 @@
 					<div class="page-number">
                      <s:iterator begin="1" end="#session.ProductListLength" step="1" status="st">
 
-						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="#st.index" /></s:url>" ><s:property value='#st.count' /></a>
+						<div class="pageNum"><a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="#st.index" /></s:url>" ><s:property value='#st.count' /></a></div>
 
                      </s:iterator>
 					 <br>
+						<div class="pageNum">
 					<s:if test="pageNum != 0">
 
                      	<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="%{pageNum-1}" /></s:url>" >
-                     	<span>&laquo;<s:text name="戻る"/></span></a>
+                     <span>&laquo;<s:text name="戻る"/></span></a>
 
                      </s:if>
+                     </div>
+                     <div class="pageNum">
              		 <s:if test="pageNum != #session.ProductListLength -1">
 
 						<a href="<s:url action='ProductListAction' ><s:param name="pageNum" value="%{pageNum+1}" /></s:url>" >
 	                     <span><s:text name="進む"/>&raquo;</span></a>
 
 					</s:if>
+						</div>
 
 
 					</div>

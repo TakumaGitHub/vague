@@ -42,7 +42,7 @@ response.sendRedirect("/vague/home.jsp");
 
     	<h2>商品情報の変更が完了いたしました</h2>
 		<div class="back-link">
-    	<p>5秒後にトップページに戻ります</p>
+    	<p>5秒後に管理画面に戻ります</p>
 
     	<p><a href="/vague/home.jsp" >戻らない場合はこちら</a></p>
 		</div>

@@ -117,7 +117,7 @@
                 </param>
             </interceptor-ref>
             <interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">masterChangeConfirm.jsp</result>
+			<result name="success" type="redirect">masterChangeConfirm.jsp</result>
 			<result name="error">masterChange.jsp</result>
 			<result name="home" type="redirect">home.jsp</result>
 			<result name="login">userInterface.jsp</result>
@@ -145,7 +145,7 @@
                 </param>
             </interceptor-ref>
             <interceptor-ref name="defaultStack"></interceptor-ref>
-			<result name="success">masterAddConfirm.jsp</result>
+			<result name="success" type="redirect">masterAddConfirm.jsp</result>
 			<result name="error">masterAdd.jsp</result>
 			<result name="home" type="redirect">home.jsp</result>
 			<result name="login">userInterface.jsp</result>

@@ -323,16 +323,16 @@ public class InputChecker {
 
 		Map<String, String> result = new HashMap<String, String>();
 
-		if(reviewTitle.length() > 100){
+		if(reviewTitle.length() > 100 || reviewTitle.length() < 1){
 			result.put("reviewTitle", "【タイトルは、1文字以上100文字以下で入力してください】");
 		}
 
-		if(reviewBody.length() > 255){
+		if(reviewBody.length() > 255 || reviewBody.length() < 1){
 			result.put("reviewBody", "【本文は、1文字以上255文字以下で入力してください】");
 		}
 
-		if(reviewScore > 5){
-			result.put("reviewScore", "【評価は5桁以下の整数で入力してください】");
+		if(reviewScore > 5 || reviewScore < 1){
+			result.put("reviewScore", "【評価は1以上5以下の整数で入力してください】");
 		}
 
 		return result;

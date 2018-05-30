@@ -63,9 +63,9 @@ response.sendRedirect("/vague/home.jsp");
 					<%-- セッションにCreateReviewCompleteDTOがないとき --%>
 					<s:if test="#session.CreateReviewCompleteDTO != null && #session.CreateReviewProductDTO.productId != #session.CreateReviewCompleteDTO.productId || #session.CreateReviewCompleteDTO == null">
 
-						<p><s:property value="errorMsg.reviewTitle" /></p>
-						<p>タイトル：<input class="reviewTitle-form" type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
+						<p>タイトル：<input class="reviewTitle-form" type="text" name="reviewTitle" value="<s:property value='reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
+						<p class="error-msg"><s:property value="errorMsg.reviewTitle" /></p>
 
 						<p>内容：　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
 						<p class="error-msg"><s:property value="errorMsg.reviewBody" /></p>
@@ -73,7 +73,7 @@ response.sendRedirect("/vague/home.jsp");
 
 
 						<p>評価：
-						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
+
 
 						<s:if test="reviewScore != null">
 							<input type="hidden" id="reviewScore" name="reviewScore" value="<s:property value="reviewScore" />">
@@ -96,6 +96,7 @@ response.sendRedirect("/vague/home.jsp");
 							</s:iterator>
 
 						</p>
+						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
 
 					</s:if>
 
@@ -105,9 +106,9 @@ response.sendRedirect("/vague/home.jsp");
 					<%-- セッションにCreateReviewCompleteDTOがあるとき --%>
 					<s:elseif test="#session.CreateReviewCompleteDTO != null">
 
-						<p><s:property value="errorMsg.reviewTitle" /></p>
-						<p>タイトル<input class="reviewTitle-form"  type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
 
+						<p>タイトル<input class="reviewTitle-form"  type="text" name="reviewTitle" value="<s:property value='#session.CreateReviewCompleteDTO.reviewTitle' />" required="required" pattern="^.{1,100}$"/>　<span class="caution-msg">※あと<span class="max-reviewTitle">100</span>文字まで</span></p>
+						<p class="error-msg"><s:property value="errorMsg.reviewTitle" /></p>
 
 						<p>内容　<span class="caution-msg">※あと<span class="max-reviewBody">255</span>文字まで</span></p>
 						<p class="error-msg"><s:property value="errorMsg.reviewBody" /></p>
@@ -115,7 +116,7 @@ response.sendRedirect("/vague/home.jsp");
 
 
 						<p>評価
-						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
+
 
 
 						<input type="hidden" id="reviewScore" name="reviewScore" value="<s:property value='#session.CreateReviewCompleteDTO.reviewScore' />">
@@ -132,6 +133,7 @@ response.sendRedirect("/vague/home.jsp");
 							</s:iterator>
 
 						</p>
+						<p class="error-msg"><s:property value="errorMsg.reviewScore" /></p>
 
 
 					</s:elseif>

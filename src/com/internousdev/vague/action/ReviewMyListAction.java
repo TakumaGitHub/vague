@@ -52,7 +52,7 @@ public class ReviewMyListAction extends ActionSupport implements SessionAware {
 		if(deleteFlg == 1){
 
 			//選択したレビューを削除
-			reviewDAO.deleteChoose(review_id);
+			reviewDAO.deleteChoose(review_id,user_id);
 
 		}else if(deleteFlg == 2){
 

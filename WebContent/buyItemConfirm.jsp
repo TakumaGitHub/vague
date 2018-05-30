@@ -9,6 +9,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <jsp:include page="head.jsp" />
 <link rel="stylesheet" type="text/css" href="css/buyItemConfirm.css">
+<script src="js/buyItemConfirm.js" type="text/javascript" ></script>
+
 	<title>決済確認</title>
 </head>
 <body>
@@ -48,13 +50,13 @@ response.sendRedirect("/vague/home.jsp");
 						</div>
 						<div class="box2">
 							<div class="detail1">
-								<p>金額：<s:property value="price"/>円</p>
+								<p>金額：<span class="comma-price"><s:property value="price"/></span>円</p>
 							</div>
 							<div class="detail2">
 								<p>購入個数：<s:property value="productCount"/>個</p>
 							</div>
 							<div class="detail3">
-								<p>小計：<s:property value="productTotalPrice"/>円</p>
+								<p>小計：<span class="comma-price"><s:property value="productTotalPrice"/></span>円</p>
 							</div>
 						</div>
 					</div>
@@ -97,7 +99,7 @@ response.sendRedirect("/vague/home.jsp");
 				</div>
 				<div class="price">
 					<span>
-						請求金額：<s:property value="finallyPrice"/>円
+						請求金額：<span class="comma-price"><s:property value="finallyPrice"/></span>円
 					</span>
 					<div class="buttom">
 						<input id="buttom2" type="submit" value="戻る">

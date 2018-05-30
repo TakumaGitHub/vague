@@ -68,7 +68,7 @@
 										<p>商品名：<s:property value="productName" /></p>
 										<p>ふりがな：<s:property value="productNameKana" /></p>
 										<p>　・購入個数：<s:property value="count" />点<br></p>
-										<p>　・値段：¥ <s:property value="price" /> <br></p>
+										<p>　・値段：¥<span class="comma-price"> <s:property value="price" /></span> <br></p>
 										<p>　・発売会社名：<s:property value="releaseCompany" /><br></p>
 										<p>　・発売年月日：<s:property value="releaseDate.split(' ')[0]" /></p>
 										<p><button class="review-button" type="submit" onclick="location.href='<s:url action="CreateReviewAction"><s:param name="product_id" value="%{productId}" /></s:url>'" >レビュー投稿：<img src="LogoImage/good_icon1.png"></button></p>
@@ -80,13 +80,13 @@
 										<p>郵便番号：<s:property value="postalCode" /></p>
 										<p>住所：<s:property value="userAddress" /></p>
 										<p>注文日：<s:property value="insertDate" /></p>
-										<p>合計金額：¥ <span class="totalPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span></p>
+										<p>合計金額：¥ <span class="totalPrice comma-price" data-date="<s:property value='insertDate' />"><s:property value="price" /></span></p>
 									</td>
 									</s:if>
 
 									<s:else>
 										<td class="addPrice-td">
-											<span class="addPrice" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
+											<span class="addPrice comma-price" data-date="<s:property value='insertDate' />"><s:property value="price" /></span>
 										</td>
 
 									</s:else>

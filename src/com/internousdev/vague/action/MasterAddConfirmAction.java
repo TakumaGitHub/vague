@@ -69,7 +69,6 @@ public class MasterAddConfirmAction extends ActionSupport implements SessionAwar
 	//コピー元のファイルパス
 	private File fromImageFilePath;
 
-
 	//全ての商品情報を入れるリスト
 	private List<ProductDTO> productSearchDTOList;
 

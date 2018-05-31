@@ -463,6 +463,13 @@ public class InputChecker {
 
 
 
+
+			}
+
+			if(masterDTO.getFromImageFilePath().length() > 4 * 1024 * 1024){
+
+				result.put("imageFilePath", "【ファイルサイズの上限は4GBです】");
+
 			}
 
 
@@ -506,6 +513,12 @@ public class InputChecker {
 					result.put("imageFilePath", "【その商品画像パスはすでに使われています】");
 				}
 
+
+				if(masterDTO.getFromImageFilePath().length() > 4 * 1024 * 1024){
+
+					result.put("imageFilePath", "【ファイルサイズの上限は4GBです】");
+
+				}
 
 
 			}

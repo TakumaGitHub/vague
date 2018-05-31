@@ -514,7 +514,7 @@ public class InputChecker {
 				}
 
 
-				if(masterDTO.getFromImageFilePath().length() > 4 * 1024 * 1024){
+				if(masterDTO.getFromImageFilePath() != null && masterDTO.getFromImageFilePath().length() > 4 * 1024 * 1024){
 
 					result.put("imageFilePath", "【ファイルサイズの上限は4GBです】");
 

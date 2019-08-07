@@ -8,9 +8,9 @@
 　2. 買い物カゴの一部機能  
 
 ## 技術
-　OS：Windows7
-　言語：Java、PHP、HTML5、JavaScript(iQuery)、CSS3、SQL
-　DB：MySQL 14.14 Distribution5.6.26
-　ミドル：git、GitHub、Eclipse4.5、Tomcat 8、Struts2.3
-　その他：Brackets、JUnit、XAMPP
+　OS：Windows7  
+　言語：Java、PHP、HTML5、JavaScript(iQuery)、CSS3、SQL  
+　DB：MySQL 14.14 Distribution5.6.26  
+　ミドル：git、GitHub、Eclipse4.5、Tomcat 8、Struts2.3  
+　その他：Brackets、JUnit、XAMPP  
  
